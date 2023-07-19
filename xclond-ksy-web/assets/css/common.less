@@ -1,0 +1,86 @@
+// 公用样式
+.shadow {
+  &-default {
+    box-shadow: 0px 2px 12px 0px rgba(16, 68, 166, 0.07);
+  }
+  &-hover {
+    &:hover {
+      box-shadow: 0px 3px 16px -2px rgba(16, 68, 166, 0.12), 0px 6px 12px 0px rgba(0, 0, 0, 0.05),
+        0px 4px 6px -3px rgba(0, 0, 0, 0.02);
+    }
+  }
+}
+.main-box {
+  padding: 80px 0 0 0;
+  &-head {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(@textColor, 0.9);
+    line-height: 22px;
+    margin-bottom: 70px;
+    &-title {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 40px;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+// 居中
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    color: #00a3ff;
+    cursor: pointer;
+  }
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.flex {
+  display: flex;
+}
+
+.trademarklist {
+  .tips-page {
+    margin-top: -30px;
+  }
+  &-wrap {
+    margin-top: 30px;
+  }
+  &-nodata {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    height: 688px;
+  }
+}
+.ant-pagination {
+  white-space: nowrap;
+}
+
+.icon-question {
+  font-size: 12px;
+  align-self: center;
+  margin-left: 5px;
+}

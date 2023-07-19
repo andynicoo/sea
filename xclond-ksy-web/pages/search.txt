@@ -1,0 +1,733 @@
+<template>
+  <div class="search">
+    <HeaderTemp v-if="navList && navList.length" :nav-list="navList" :webInfo="webInfo" />
+    <!-- <a-carousel v-if="bigBanner && bigBanner.length && getModulesStatus('trademarkQuery_banner')" class="ksy-mb-2 banner">
+      <div v-for="(item, index) in bigBanner" :key="`b_${index}`">
+        <a :href="item.url" v-if="item.url">
+          <img :src="item.picPath" :alt="item.name" />
+        </a>
+        <img v-else :src="item.picPath" :alt="item.name" />
+      </div>
+    </a-carousel> -->
+
+    <IndexBanner
+      :list="bigBanner"
+      v-if="bigBanner && bigBanner.length && getModulesStatus('trademarkQuery_banner')"
+      :showData="false"
+      :height="396"
+    />
+
+    <div class="center ksy-w1320" v-if="getModulesStatus('trademarkQuery_other')">
+      <div class="searcher" :style="{ marginTop: getModulesStatus('trademarkQuery_banner') ? '-75px' : '67px' }">
+        <Searcher :urlText="urlText" />
+      </div>
+      <!-- {{ adviseList.length }} -->
+      <div class="advise" v-show="adviseList && adviseList.length" style="display:none">
+        <h2 class="ksy-pr">
+          <span class="tit">查询建议 </span>
+          <span v-if="!adviseDownup" @click="adviseDownup = !adviseDownup" class="more"
+            >展开 <a-icon type="down"
+          /></span>
+          <span v-else @click="adviseDownup = !adviseDownup" class="more">隐藏 <a-icon type="up" /></span>
+        </h2>
+        <p class="tips ksy-mt-3" v-if="urlText && urlText.length">
+          经查询，“{{ urlText }}”在以下类别尚未查询到同名商标，可尝试注册。点击以下类别，可预测商标申请该类别的通过率。
+        </p>
+        <div class="flex1" :class="adviseDownup ? '' : 'down'">
+          <span v-for="tag in adviseList" :key="tag.id">
+            <a-checkable-tag
+              :checked="tag.categoryNum === adviseValue"
+              @change="(checked) => adviseValueChange(tag, checked)"
+              class="tags ksy-mb-3"
+            >
+              {{ tag.categorySort }} {{ tag.categoryName }}
+            </a-checkable-tag>
+          </span>
+        </div>
+        <div class="line"></div>
+        <p class="tips2">注：商标注册有被驳回风险，系统分析的通过率仅供参考。</p>
+        <div class="tips3 ksy-pr">
+          <a-icon type="loading" v-show="feedbacking" />
+          {{ feedback }} &nbsp;
+          <div class="btnres ksy-pa" @click="handleClickLink('login?loginType=3')">快速注册</div>
+        </div>
+        <div class="tips4" v-if="remarkNameList && remarkNameList.length">近似商标:{{ remarkNameList.join() }}</div>
+      </div>
+
+      <div class="fillter">
+        <h2 class="ksy-pr">
+          查询条件
+          <span v-if="!downup" @click="downup = !downup">展开 <a-icon type="down" /></span>
+          <span v-else @click="downup = !downup">隐藏 <a-icon type="up" /></span>
+        </h2>
+        <div class="condition flex">
+          <div class="tit tit1">商标类别：</div>
+          <div class="flex1" :class="downup ? '' : 'down'">
+            <span v-for="tag in trademarkList" :key="tag.label">
+              <a-checkable-tag
+                :checked="tag.categoryNum === trademarkCategoryNum"
+                @change="(checked) => trademarkValueChange(tag, checked)"
+                class="tags"
+              >
+                <span v-show="tag.categoryNum !== 0">{{ tag.categoryNum }}</span> {{ tag.categoryName }}
+                <span v-show="adviseListNum.includes(tag.categoryNum)" class="flagtag">已注册</span>
+              </a-checkable-tag>
+            </span>
+          </div>
+        </div>
+        <!-- <div class="ksy-clear"></div> -->
+        <div class="condition ksy-mt-3">
+          <div class="tit ksy-ib">商标状态：</div>
+          <div class="ksy-ib">
+            <span v-for="tag in trademarkStatusList" :key="tag.label">
+              <a-checkable-tag
+                :checked="tag.value === status"
+                @change="(checked) => trademarkChange(tag, checked)"
+                class="tags"
+              >
+                {{ tag.label }}
+              </a-checkable-tag>
+            </span>
+          </div>
+        </div>
+         <div class="tips3 ksy-pr">
+          {{ feedback }} &nbsp;
+        </div>
+        <div class="tips4" v-if="remarkNameList && remarkNameList.length">近似商标:{{ remarkNameList.join() }}</div>
+      </div>
+
+      <div class="trademarklist">
+        <div class="tips ksy-mb-3">
+          <a-icon type="info-circle" class="iconinfo" />
+          温馨提醒：商标检索结果仅供参考，不作为商标能否注册的法律依据；具体以商标局官网查询为准。
+          <div class="ksy-fr page">
+            共有 <span>{{ newsListPage.total || "" }}</span> 个搜索结果 {{ newsListPage.current || "" }}/{{
+              newsListPage.pages || ""
+            }}
+          </div>
+        </div>
+
+        <div class="bigcard">
+          <TrademarkList v-if="newsList && newsList.length" :tradeList="newsList" />
+
+          <div class="pagination ksy-text-center" v-show="newsList.length">
+            <a-pagination
+              :current="Number(newsListPage.current) || 1"
+              :total="Number(newsListPage.total) || 0"
+              :pageSize="10"
+              :itemRender="itemRenderFun"
+            />
+          </div>
+
+          <div class="nodata ksy-text-center" v-show="!newsList.length">
+            <nuxt-link to="/"><img src="~/assets/images/nodata.png" alt="nodata" class="ksy-mt-4" /></nuxt-link>
+            <p>暂无相关信息，换个词试试～</p>
+            <a-button type="primary" @click="handleClickLink('login?loginType=3')"> 去注册 </a-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div>
+        <a-button @click="trademarkadvise"> 查询建议 </a-button>
+        <a-button @click="trademarkCate"> 商标类别 </a-button>
+        <a-button @click="getModule"> 模块权限 </a-button>
+        <a-button @click="getWebsitInfo"> 网址信息 </a-button>
+        <a-button @click="getMessage"> 提示信息 </a-button>
+      </div> -->
+    </div>
+    <FooterTemp v-if="footerList && footerList.length" :list="footerList" :webInfo="webInfo" />
+  </div>
+</template>
+
+<script>
+import Cookies from "js-cookie";
+import { mapState } from "vuex";
+import common from "@/apis/common";
+import trademark from "@/apis/trademark";
+// 官网模块列表权限 是否显示
+import modulesAuth from "@/mixins/modules-auth";
+export default {
+  head() {
+    return {
+      title: `国际商标查询-免费商标检索-跨标云商标查询系统`,
+      meta: [
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: `${
+            process.env.NODE_PLA === "kby"
+              ? "美国商标查询,欧盟商标查询,日本商标查询,英国商标查询,"
+              : "跨税云,跨税云官网,跨税云平台，跨税云VAT"
+          }`,
+        },
+        {
+          hid: "description",
+          name: "description",
+          content: `${
+            process.env.NODE_PLA === "kby"
+              ? "国际商标查询就上跨标云,100+美国本土律师,500+资深专业团队,免费商标检索,降低注册驳回风险!报价透明化,快速办理！"
+              : "跨税云(itaxs.com)—智能税务平台，直连海外税局。itaxs代表intelligent tax system，连接多家跨境电商平台及多国税务系统，帮助卖家快速注册VAT税号，精准算税，一键申报，打造跨境人自己的VAT系统，助力跨境卖家开拓海外市场，已为50000+卖家提供服务。"
+          }`,
+        },
+      ],
+    };
+  },
+  watchQuery: ["text", "page", "trademarkStatus", "trademarkCategoryNum", "countryCode"],
+  async asyncData(context) {
+    try {
+      // 商标分页查询
+      let params = {
+        pageIndex: context.query.page || 1,
+        pageSize: 10,
+        countryCode: context.query.countryCode || "US",
+        // text: context.query.text || "",
+        // trademarkStatus: context.query.trademarkStatus || "",
+        // trademarkCategoryNum: context.query.trademarkCategoryNum || 0,
+        ...context.query,
+        text: context.query.text || "",
+      };
+      // console.log(context.query, params,11111);
+      let [
+        { data: res },
+        { data: bigBanner },
+        { data: navList },
+        { data: footerList },
+        { data: adviseList },
+        { data: trademarkList },
+        { data: webInfo },
+      ] = await Promise.all([
+        context.$axiosApi(trademark.trademarkPage.url, trademark.trademarkPage.methods, params, true),
+        context.$axiosApi(common.getAdByAdPositionKey.url, common.getAdByAdPositionKey.methods, {
+          adKey: "search",
+        }),
+        context.$axiosApi(common.newslist.url, common.newslist.methods),
+        context.$axiosApi(common.getPartnerList.url, common.getPartnerList.methods, { linkType: 0 }),
+        context.$axiosApi(
+          trademark.trademarkAdvise.url,
+          trademark.trademarkAdvise.methods,
+          { text: context.query.text || "", countryCode: context.query.countryCode || "US" },
+          true
+        ),
+        context.$axiosApi(trademark.trademarkCate.url, trademark.trademarkCate.methods),
+        context.$axiosApi(common.getWebsitInfo.url, common.getWebsitInfo.methods),
+      ]);
+      // trademarkAdvise
+
+      let urlText = context.query.text ? context.query.text : "";
+      let status = context.query.trademarkStatus ? context.query.trademarkStatus : "";
+      let countryCode = context.query.countryCode ? context.query.countryCode : "";
+      let trademarkCategoryNum = context.query.trademarkCategoryNum ? context.query.trademarkCategoryNum : 0;
+      let adviseDownup = context.query.adviseDownup === true || context.query.adviseDownup === "true" ? true : false;
+      let downup = context.query.downup === true || context.query.downup === "true" ? true : false;
+
+      let fromPath = context.from ? context.from.path : "";
+      let adviseValue = 0;
+      let feedback = "";
+      let remarkNameList = [];
+      if (fromPath === "/search") {
+        adviseValue = Cookies.get("adviseValue");
+
+        if (adviseValue !== "0") {
+          let res = await context.$axiosApi(
+            trademark.getProbability.url,
+            trademark.getProbability.methods,
+            {
+              text: urlText || "",
+              countryCode: countryCode || "US",
+              trademarkCategoryNum: adviseValue,
+              enterpriseId: 30,
+              enterpriseName: "跨标云",
+            },
+            true
+          );
+          let { data } = res;
+          console.log(data, adviseValue);
+          let { probability } = data;
+          if (probability < 30) {
+            feedback = "通过率低于10%，不建议注册";
+          } else if (probability <= 40 && probability >= 30) {
+            feedback = "通过率25%-35%，不建议注册 ";
+          } else if (probability < 60 && probability > 40) {
+            feedback = "通过率45%-55%，注册有风险，请谨慎选择";
+          } else if (probability < 70 && probability >= 60) {
+            feedback = "通过率55%-65%，注册有风险，请谨慎选择";
+          } else if (probability < 80 && probability >= 70) {
+            feedback = "通过率70%-80%，可以尝试注册";
+          } else {
+            feedback = "通过率80%-90%，推荐注册";
+          }
+          remarkNameList = data.remarkNameList;
+        }
+      } else {
+        Cookies.set("adviseValue", 0);
+      }
+
+      let adviseListNum=[]; // 查询建议列表的categoryNum集合，用于标识商标类别是否有小flag
+      adviseList.map((ele) => {
+        adviseListNum.push(ele.categoryNum);
+      });
+
+      console.log("---", params, res);
+      let newsList = res.records;
+      let newsListPage = {
+        total: res.total,
+        current: res.current,
+        pages: res.pages,
+      };
+      let t = [
+        {
+          categoryNum: 0,
+          id: 0,
+          categoryName: "全部",
+        },
+      ];
+      trademarkList = t.concat(trademarkList);
+
+      return {
+        bigBanner: bigBanner, // 顶部banner
+        navList: Array.isArray(navList) ? navList : [], // 导航列表
+        footerList: Array.isArray(footerList) ? footerList.slice(0, 32) : [], // 导航列表
+        newsList,
+        newsListPage,
+        adviseValue: adviseValue, // 查询建议 选中值
+        feedback: feedback, // 查询建议 点击后返回的通过率
+        remarkNameList: remarkNameList, // 近似商标 点击后返回的通过率和近似商标
+        urlText,
+        status,
+        countryCode,
+        trademarkCategoryNum,
+        adviseList, // 查询结果建议
+        adviseListNum:adviseListNum,
+        adviseDownup, // 建议展开
+        downup, // 商标类别展开
+        trademarkList, // 商标类别
+        webInfo, // 网站信息
+      };
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  mixins: [modulesAuth], // 官网模块列表权限 是否显示
+  data() {
+    return {
+      trademarkStatusList: [
+        { label: "全部", value: "" },
+        { label: "已注册", value: "Active" },
+        { label: "申请中", value: "Pending" },
+        { label: "已核销", value: "Inactive" },
+      ],
+      trademarkStatus: "", // 商标状态
+      trademarkValue: 0, // 商标类别值
+      // downup: false, // 商标列表 展开或折叠
+
+      // adviseList:[], // 查询建议 列表
+      // adviseValue: 0, // 查询建议 选中值
+      // adviseDownup: false, // 查询建议 展开或折叠
+      // feedback: "", // 查询建议 点击后返回的通过率
+      feedbacking: false, // 查询建议 点击后返回的通过率状态
+      // remarkNameList: [], // 近似商标 点击后返回的通过率和近似商标
+    };
+  },
+  mounted() {
+    // this.trademarkStatus = this.status;
+    // console.log(this.trademarkStatus === this.status);
+    console.log(this.urlText);
+  },
+  methods: {
+    getAdviseListNum() {
+      this.adviseListNum = [];
+      this.adviseList.map((ele) => {
+        this.adviseListNum.push(ele.categoryNum);
+      });
+    },
+    async trademarkCate() {
+      let res = await this.$axiosApi(trademark.trademarkCate.url, trademark.trademarkCate.methods);
+      console.log(res);
+    },
+    async trademarkadvise() {
+      let res = await this.$axiosApi(
+        trademark.trademarkAdvise.url,
+        trademark.trademarkAdvise.methods,
+        { text: this.urlText || "", countryCode: this.countryCode || "US" },
+        true
+      );
+      console.log(res);
+    },
+    async getModule() {
+      let res = await this.$axiosApi(common.getModuleLists.url, common.getModuleLists.methods);
+      console.log(res);
+    },
+
+    async getWebsitInfo() {
+      let res = await this.$axiosApi(common.getWebsitInfo.url, common.getWebsitInfo.methods);
+      console.log(res);
+    },
+
+    async getMessage() {
+      let res = await this.$axiosApi(
+        common.getMessage.url,
+        common.getMessage.methods,
+        { pagePosition: "1552829867801292802" },
+        true
+      );
+      console.log(res);
+    },
+
+    async adviseValueChange(tag, checked) {
+      this.feedbacking = true;
+      this.feedback = "";
+      this.remarkNameList = [];
+      let id = tag.categoryNum;
+      this.adviseValue = id;
+      Cookies.set("adviseValue", id);
+
+      let textLength = this.urlText.trim().length;
+      let urlTextForm = this.urlText.trim();
+      // 判定有无空格
+      var judgeFn = new RegExp(/\s+/g);
+      if (textLength < 6 && !judgeFn.test(urlTextForm)) {
+        this.feedback = "通过率低于10%，不建议注册。";
+        this.feedbacking = false;
+        return;
+      }
+      if (textLength > 10 && !judgeFn.test(urlTextForm)) {
+        this.feedback = "字母太长，识别度很低，不建议注册。";
+        this.feedbacking = false;
+        return;
+      }
+
+      let { data } = await this.$axiosApi(
+        trademark.getProbability.url,
+        trademark.getProbability.methods,
+        {
+          text: urlTextForm || "",
+          countryCode: this.countryCode || "US",
+          trademarkCategoryNum: this.adviseValue,
+          enterpriseId: 30,
+          enterpriseName: "跨标云",
+        },
+        true
+      );
+      let { probability, remarkNameList } = data;
+      if (probability < 30) {
+        this.feedback = "通过率低于10%，不建议注册";
+      } else if (probability <= 40 && probability >= 30) {
+        this.feedback = "通过率25%-35%，不建议注册 ";
+      } else if (probability < 60 && probability > 40) {
+        this.feedback = "通过率45%-55%，注册有风险，请谨慎选择";
+      } else if (probability < 70 && probability >= 60) {
+        this.feedback = "通过率55%-65%，注册有风险，请谨慎选择";
+      } else if (probability < 80 && probability >= 70) {
+        this.feedback = "通过率70%-80%，可以尝试注册";
+      } else {
+        this.feedback = "通过率80%-90%，推荐注册";
+      }
+      this.remarkNameList = remarkNameList;
+      this.feedbacking = false;
+    },
+
+    // 商标状态
+    trademarkChange(tag, checked) {
+      let status = tag.value;
+      // this.$router.push(
+      //   `/search?page=1&text=${this.urlText}&trademarkStatus=${status}&countryCode=${this.countryCode}&trademarkCategoryNum=${this.trademarkCategoryNum}&adviseDownup=${this.adviseDownup}&downup=${this.downup}`
+      // );
+      let params = {
+        page: 1,
+        text: this.urlText,
+        adviseDownup: this.adviseDownup,
+        downup: this.downup,
+        countryCode: this.countryCode || "US",
+      };
+      if (this.trademarkCategoryNum) {
+        params.trademarkCategoryNum = this.trademarkCategoryNum;
+      }
+      if (status !== "") {
+        params.trademarkStatus = status;
+      }
+      this.$router.push({ name: "search", query: params });
+    },
+    // 商标类别
+    async trademarkValueChange(tag, checked) {
+      // 跳转之前先查询通过率，如果当前tag有已注标签（当前标签的categoryNum与查询建议的categoryNum重合）
+      if(this.adviseListNum.includes(tag.categoryNum)){
+        let s= await this.adviseValueChange(tag,false)
+      }
+
+      let params = {
+        page: 1,
+        text: this.urlText,
+        adviseDownup: this.adviseDownup,
+        downup: this.downup,
+        countryCode: this.countryCode || "US",
+      };
+      let id = tag.categoryNum;
+      if (id !== 0) {
+        params.trademarkCategoryNum = id;
+      }
+      if (this.status !== "") {
+        params.trademarkStatus = this.status;
+      }
+      // this.$router.push(
+      //   `/search?page=1&text=${this.urlText}&trademarkStatus=${this.status}&countryCode=${this.countryCode}&trademarkCategoryNum=${id}&adviseDownup=${this.adviseDownup}&downup=${this.downup}`
+      // );
+      this.$router.push({ name: "search", query: params });
+    },
+    itemRenderFun(page, type, originalElement) {
+      let { total } = this.newsListPage;
+      // console.log(this.newsListPage)
+      if (type === "page") {
+        return (
+          <nuxt-link
+            to={`/search?page=${page}&text=${this.urlText}${
+              this.status !== "" ? "&trademarkStatus=" + this.status : ""
+            }&countryCode=${this.countryCode || "US"}${
+              this.trademarkCategoryNum !== 0 ? "&trademarkCategoryNum=" + this.trademarkCategoryNum : ""
+            }&adviseDownup=${this.adviseDownup}&downup=${this.downup}`}
+          >
+            <a class="ss">{page}</a>
+          </nuxt-link>
+        );
+      } else if (type === "prev") {
+        return (
+          <nuxt-link
+            to={`/search?page=${page === 0 ? 1 : page}&text=${this.urlText}${
+              this.status !== "" ? "&trademarkStatus=" + this.status : ""
+            }&countryCode=${this.countryCode || "US"}${
+              this.trademarkCategoryNum !== 0 ? "&trademarkCategoryNum=" + this.trademarkCategoryNum : ""
+            }&adviseDownup=${this.adviseDownup}&downup=${this.downup}`}
+          >
+            <a>{originalElement}</a>
+          </nuxt-link>
+        );
+      } else if (type === "next") {
+        return (
+          <nuxt-link
+            to={`/search?page=${page === total ? total : page}&text=${this.urlText}${
+              this.status !== "" ? "&trademarkStatus=" + this.status : ""
+            }&countryCode=${this.countryCode || "US"}${
+              this.trademarkCategoryNum !== 0 ? "&trademarkCategoryNum=" + this.trademarkCategoryNum : ""
+            }&adviseDownup=${this.adviseDownup}&downup=${this.downup}`}
+          >
+            <a>{originalElement}</a>
+          </nuxt-link>
+        );
+      } else {
+        return <a>{originalElement}</a>;
+      }
+    },
+    goNextPage(params) {
+      // this.$router.push({name:'home',query: {id:'1'}})
+      this.$router.push({ name: "search", query: params });
+    },
+    handleClickLink(link = "login") {
+      const host = `${this.$store.state.host.server_url}/${link}`;
+      window.open(host);
+    },
+  },
+};
+</script>
+
+<style lang="less" scoped>
+.search {
+  background: #f6f7f9;
+  .banner {
+    z-index: 66;
+  }
+  .searcher {
+    z-index: 999;
+    position: relative;
+  }
+  .advise {
+    background: #ffffff;
+    padding: 32px 24px;
+    padding-top: 0px;
+    padding-top: 0px;
+    margin-top: 40px;
+    h2 {
+      height: 48px;
+      .tit {
+        width: 160px;
+        height: 48px;
+        line-height: 48px;
+        background: @primaryColor;
+        border-radius: 0px 0px 0px 0px;
+        opacity: 1;
+        color: #ffffff;
+        display: block;
+        font-size: 16px;
+        position: absolute;
+        left: -24px;
+        top: 0px;
+        text-align: center;
+      }
+      .more {
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+        color: @primaryColor;
+        cursor: pointer;
+        top: 10px;
+        font-weight: bold;
+      }
+    }
+    .down {
+      max-height: 38px;
+      overflow: hidden;
+    }
+    .tags {
+      width: 107px;
+      height: 38px;
+      line-height: 38px;
+      text-align: center;
+    }
+    .tips {
+      font-size: 16px;
+      color: @primaryColor;
+    }
+    .line {
+      width: 1152px;
+      height: 0px;
+      opacity: 1;
+      border-bottom: 1px dashed #e3e3e3;
+      margin-top: 30px;
+    }
+    .tips2 {
+      font-size: 14px;
+      color: @textColor4;
+      margin-top: 30px;
+    }
+
+    .btnres {
+      width: 128px;
+      height: 44px;
+      background: linear-gradient(279deg, #3370ff 0%, #6895ff 100%);
+      border-radius: 2px 2px 2px 2px;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 44px;
+      cursor: pointer;
+      right: 20px;
+      top: 0px;
+    }
+  }
+
+  .fillter {
+    background: #ffffff;
+    padding: 32px 24px;
+    margin-top: 40px;
+    h2 {
+      height: 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: @textColor;
+      line-height: 24px;
+      margin-bottom: 16px;
+      span {
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+        color: @primaryColor;
+        cursor: pointer;
+      }
+    }
+    .condition {
+      .tit1 {
+        margin-right: 4px;
+      }
+      .tit {
+        color: @textColor;
+        width: 80px;
+        height: 38px;
+        line-height: 38px;
+      }
+      .down {
+        height: 38px;
+        overflow: hidden;
+      }
+      .tags {
+        width: 107px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        position: relative;
+      }
+
+      .flagtag {
+        position: absolute;
+        font-size: 12px;
+        top:-10px
+      }
+    }
+  }
+  .trademarklist {
+    margin-top: 40px;
+    .tips {
+      height: 54px;
+      line-height: 54px;
+      background: rgba(178, 201, 255, 0.2);
+      border-radius: 3px 3px 3px 3px;
+      opacity: 1;
+      padding: 0px 24px;
+      .iconinfo {
+        color: @primaryColor;
+      }
+      .page {
+        font-size: 16px;
+        color: @textColor;
+      }
+      span {
+        color: @primaryColor;
+      }
+    }
+    .bigcard {
+      background: #ffffff;
+      margin-bottom: 80px;
+      .pagination {
+        margin-top: 50px;
+        padding-bottom: 50px;
+      }
+      .nodata {
+        padding: 60px 0px;
+        p {
+          font-size: 14px;
+          color: @textColor;
+        }
+      }
+    }
+  }
+}
+
+    .tips3 {
+      font-size: 16px;
+      color: @warningColor;
+      margin-top: 30px;
+    }
+    .tips4 {
+      font-size: 14px;
+      color: @warningColor;
+      margin-top: 10px;
+    }
+</style>
+
+<style lang="less">
+.advise {
+  .ant-tag {
+    border-radius: 1px 1px 1px 1px;
+    opacity: 1;
+    border: 1px solid #dcdcdc;
+    color: @textColor6 !important;
+  }
+  .ant-tag-checkable-checked {
+    color: @primaryColor !important;
+    background-color: #ffffff;
+    border: 1px solid @primaryColor;
+  }
+  .ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+    color: @primaryColor !important;
+    background-color: #ffffff !important;
+    border: 1px solid @primaryColor;
+  }
+}
+</style>

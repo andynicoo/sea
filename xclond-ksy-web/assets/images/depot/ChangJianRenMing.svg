@@ -1,0 +1,20 @@
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#228;&#184;&#141;&#229;&#187;&#186;&#232;&#174;&#174;&#229;&#136;&#134;&#231;&#177;&#187;/&#229;&#184;&#184;&#232;&#167;&#129;&#228;&#186;&#186;&#229;&#144;&#141;">
+<g id="Group 427319206">
+<path id="Subtract" d="M1.07031 2.75391C1.07031 2.20162 1.51803 1.75391 2.07031 1.75391H19C19.5523 1.75391 20 2.20162 20 2.75391V18.011C20 18.5633 19.5523 19.011 19 19.011H2.07031C1.51803 19.011 1.07031 18.5633 1.07031 18.011V2.75391Z" fill="#3370FF"/>
+</g>
+<rect id="Rectangle 996" x="4.12402" y="6.97656" width="7.37598" height="2" rx="1" fill="white"/>
+<rect id="Rectangle 997" x="4.12402" y="11.6133" width="13.9385" height="2" rx="1" fill="white"/>
+<g id="Rectangle 993" filter="url(#filter0_b_1668_99095)">
+<rect x="14.5" y="9.82031" width="7.125" height="10.1055" rx="1" fill="white" fill-opacity="0.05"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_1668_99095" x="6.5" y="1.82031" width="23.125" height="26.1055" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="4"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1668_99095"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1668_99095" result="shape"/>
+</filter>
+</defs>
+</svg>

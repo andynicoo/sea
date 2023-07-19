@@ -1,0 +1,343 @@
+[
+  {
+    "name": "阿联酋",
+    "countryCode": "AE",
+    "taxRate": 0.05,
+    "season": ["季报"],
+    "hasVat": false,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "平台佣金",
+        "label": 6
+      },
+      {
+        "val": "运费",
+        "label": 7
+      },
+      {
+        "val": "仓储费",
+        "label": 8
+      },
+      {
+        "val": "推广费",
+        "label": 9
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "奥地利",
+    "countryCode": "AT",
+    "taxRate": 0.2,
+    "season": ["月报", "季报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "捷克",
+    "countryCode": "CZ",
+    "taxRate": 0.21,
+    "season": ["月报", "季报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "德国",
+    "countryCode": "DE",
+    "taxRate": 0.19,
+    "season": ["月报", "季报", "年报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": true,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      }
+    ]
+  },
+  {
+    "name": "西班牙",
+    "countryCode": "ES",
+    "taxRate": 0.21,
+    "season": ["季报"],
+    "hasVat": true,
+    "hasEcl": true,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "法国",
+    "countryCode": "FR",
+    "taxRate": 0.2,
+    "season": ["月报", "季报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "英国",
+    "countryCode": "GB",
+    "taxRate": 0.06,
+    "season": ["季报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "PVA",
+        "label": 5
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "意大利",
+    "countryCode": "IT",
+    "taxRate": 0.22,
+    "season": ["月报", "季报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "荷兰",
+    "countryCode": "NL",
+    "taxRate": 0.21,
+    "season": ["月报", "季报", "年报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "波兰",
+    "countryCode": "PL",
+    "taxRate": 0.23,
+    "season": ["月报"],
+    "hasVat": true,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "C79/88",
+        "label": 1
+      },
+      {
+        "val": "发票抵扣",
+        "label": 2
+      },
+      {
+        "val": "B2B发票",
+        "label": 4
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  },
+  {
+    "name": "沙特阿拉伯",
+    "countryCode": "SA",
+    "taxRate": 0.15,
+    "season": ["季报"],
+    "hasVat": false,
+    "hasEcl": false,
+    "ossNum": "",
+    "iossNum": "",
+    "europeanItem": false,
+    "oss": false,
+    "ioss": false,
+    "discountTypeList": [
+      {
+        "val": "平台佣金",
+        "label": 6
+      },
+      {
+        "val": "运费",
+        "label": 7
+      },
+      {
+        "val": "仓储费",
+        "label": 8
+      },
+      {
+        "val": "推广费",
+        "label": 9
+      },
+      {
+        "val": "其它",
+        "label": 3
+      }
+    ]
+  }
+]

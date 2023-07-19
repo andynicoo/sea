@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="126px" viewBox="0 0 166 126" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>波兰</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M146,0 C148.209139,-8.49901461e-16 150,1.790861 150,4 L150,99 C150,101.209139 148.209139,103 146,103 L81.313,103 L75,109.313708 L68.686,103 L4,103 C1.790861,103 2.705415e-16,101.209139 0,99 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L146,0 Z" id="path-1"></path>
+        <filter x="-11.3%" y="-17.4%" width="122.7%" height="136.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0862745098   0 0 0 0 0.678431373   0 0 0 0 0.91372549  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0862745098   0 0 0 0 0.678431373   0 0 0 0 0.91372549  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-4" x="0" y="0" width="22" height="14"></rect>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="英文版不同状态" transform="translate(-112.000000, -3223.000000)">
+            <g id="沙特" transform="translate(112.000000, 3223.000000)">
+                <g id="编组-3" transform="translate(8.000000, 10.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="矩形-2">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <rect id="矩形" fill="#F5F8FA" mask="url(#mask-2)" x="0" y="0" width="150" height="30"></rect>
+                </g>
+                <text id="波兰" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="14" font-weight="normal" line-spacing="12" letter-spacing="0.299946" fill="#333333">
+                    <tspan x="42" y="34">波兰</tspan>
+                </text>
+                <g id="编组-38" transform="translate(26.000000, 52.000000)">
+                    <text id="注册税号" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="16" font-weight="normal" letter-spacing="0.5" fill="#666660">
+                        <tspan x="8" y="19">注册税号</tspan>
+                    </text>
+                    <circle id="椭圆形" fill="#16ADE9" cx="2" cy="9" r="2"></circle>
+                </g>
+                <g id="编组-39" transform="translate(26.000000, 78.000000)">
+                    <text id="税务申报" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="16" font-weight="normal" letter-spacing="0.5" fill="#666660">
+                        <tspan x="8" y="19">税务申报</tspan>
+                    </text>
+                    <circle id="椭圆形备份-5" fill="#16ADE9" cx="2" cy="9" r="2"></circle>
+                </g>
+                <g id="国旗" transform="translate(16.000000, 18.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <use id="矩形" fill="#FFFFFF" xlink:href="#path-4"></use>
+                    <image id="波兰" mask="url(#mask-5)" x="-2" y="-1.125" width="26" height="16" xlink:href="data:image/png;base64,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"></image>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

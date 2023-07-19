@@ -1,0 +1,19 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 427319048">
+<circle id="Ellipse 160" cx="10" cy="9.99976" r="9.7" fill="#F3EEDF" stroke="url(#paint0_linear_1403_93417)" stroke-width="0.6"/>
+<g id="Group 427319152">
+<path id="Vector" d="M15.1567 5.59961H4.84329C4.65375 5.59961 4.5 5.73943 4.5 5.91125C4.5 6.08306 4.65375 6.22288 4.84329 6.22288H5.18659V12.1392C5.18659 12.4829 5.4941 12.7625 5.8745 12.7625H7.45048L6.23503 13.8633C6.14622 13.9415 6.11044 14.0576 6.14092 14.1667C6.17273 14.2757 6.26684 14.361 6.38613 14.3894C6.50675 14.4179 6.63399 14.3859 6.72015 14.3041L8.42336 12.7625H11.5766L13.2785 14.3029C13.4137 14.4214 13.6284 14.4191 13.761 14.2994C13.8935 14.1797 13.8949 13.9854 13.765 13.8633L12.5482 12.7625H14.1255C14.5046 12.7625 14.8134 12.4841 14.8134 12.1392V6.22288H15.1567C15.3462 6.22288 15.5 6.08306 15.5 5.91125C15.5 5.73943 15.3462 5.59961 15.1567 5.59961Z" fill="url(#paint1_linear_1403_93417)"/>
+<path id="Vector 86" d="M7.62646 10.2109L9.09375 8.75L10.6565 9.80686L12.3735 7.91309" stroke="#F3EEDF" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1403_93417" x1="10" y1="-0.000244141" x2="10" y2="19.9998" gradientUnits="userSpaceOnUse">
+<stop stop-color="#886239"/>
+<stop offset="1" stop-color="#C2B6A9"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1403_93417" x1="10" y1="5.59961" x2="10" y2="14.3996" gradientUnits="userSpaceOnUse">
+<stop stop-color="#886239"/>
+<stop offset="1" stop-color="#CEA271"/>
+</linearGradient>
+</defs>
+</svg>

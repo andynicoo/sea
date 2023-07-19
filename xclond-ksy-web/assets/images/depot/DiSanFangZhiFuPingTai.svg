@@ -1,0 +1,20 @@
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#228;&#184;&#141;&#229;&#187;&#186;&#232;&#174;&#174;&#229;&#136;&#134;&#231;&#177;&#187;/&#231;&#172;&#172;&#228;&#184;&#137;&#230;&#150;&#185;&#230;&#148;&#175;&#228;&#187;&#152;&#229;&#185;&#179;&#229;&#143;&#176;">
+<g id="Group 427319217">
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M2.25 5.91797C1.69772 5.91797 1.25 6.36568 1.25 6.91797V19.4983C1.25 20.0506 1.69771 20.4983 2.25 20.4983H19.9377C20.49 20.4983 20.9377 20.0506 20.9377 19.4983V15.2869H16.5761C15.4257 15.2869 14.4932 14.3544 14.4932 13.204C14.4932 12.0536 15.4257 11.1211 16.5761 11.1211H20.9377V6.91797C20.9377 6.36568 20.49 5.91797 19.9377 5.91797H2.25Z" fill="#3370FF"/>
+<circle id="Ellipse 187" cx="17.0323" cy="13.2081" r="1.30182" fill="#3370FF"/>
+<path id="Rectangle 1037" d="M8.43945 5.01172L14.6417 1.10209C15.1089 0.807581 15.7264 0.947581 16.0209 1.41479L18.3339 5.08408L12.3135 4.99338L8.43945 5.01172Z" fill="#3370FF"/>
+</g>
+<g id="Rectangle 1028" filter="url(#filter0_b_1668_99245)">
+<rect x="21.7292" y="14.9492" width="6.62659" height="10.4793" rx="1" transform="rotate(90 21.7292 14.9492)" fill="white" fill-opacity="0.05"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_1668_99245" x="3.25" y="6.94922" width="26.4792" height="22.6265" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="4"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1668_99245"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1668_99245" result="shape"/>
+</filter>
+</defs>
+</svg>

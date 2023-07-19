@@ -1,0 +1,45 @@
+<template>
+  <div class="bottom-bg">
+    <div class="center ksy-w1320">
+      <h3>免费注册，大数据分析+AI智能+资深律师团队竭诚为您服务</h3>
+      <a :href="$store.state.host.server_url + '/login'" target="_blank">立即体验</a>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: "AdvTempKsy",
+};
+</script>
+<style lang="less" scoped>
+.bottom-bg {
+  height: 200px;
+  background: url("@/assets/images/bottom-bg.png") no-repeat center/cover;
+  padding-top: 48px;
+  h3 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0 0 16px;
+  }
+  a {
+    display: block;
+    width: 160px;
+    height: 48px;
+    font-size: 16px;
+    color: #fff;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid #ffffff;
+    &:hover {
+      color: #fff !important;
+      border: 0;
+      background: linear-gradient(313deg, #3a7fff 0%, #65b1ff 100%);
+      box-shadow: 0px 3px 16px -2px rgba(16, 68, 166, 0.12), 0px 6px 12px 0px rgba(0, 0, 0, 0.05),
+        0px 4px 6px -3px rgba(0, 0, 0, 0.02);
+    }
+  }
+}
+</style>

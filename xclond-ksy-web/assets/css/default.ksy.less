@@ -1,0 +1,89 @@
+// 全站色彩管理
+@primaryClick: #3c6cea; // 主色click
+@primaryColor: #3a7fff; // 主题色
+@primaryHover: #358dff; // 主色hover
+@primaryDisable: #91c6ff; // 主色disable
+@primaryFocus: #bddcff;
+@primaryLight: #f0f6ff;
+
+@errorClick: #c9353f;
+@errorColor: #e34d59;
+@errorHover: #f36d78;
+@errorDisable: #f8b9be;
+@errorFocus: #f9d7d9;
+@errorLight: #fdecee;
+
+@warningClick: #d35a21;
+@warningColor: #ed7b2f;
+@warningHover: #f2995f;
+@warningDisable: #f7c797;
+@warningFocus: #f9e0c7;
+@warningLight: #fef3e6;
+
+@linkColor: #4c86ff;
+@successColor: #00a870;
+@skipColor: #a8a8b3;
+
+@textColor: rgba(0, 0, 0, 0.9); // 默认text
+@textColor6: rgba(0, 0, 0, 0.6);
+@textColor4: rgba(0, 0, 0, 0.4);
+@textColor3: rgba(0, 0, 0, 0.26);
+@textColor10: rgba(0, 0, 0, 1);
+
+@textColorW: rgba(255, 255, 255, 0.9);
+@textColorW6: rgba(255, 255, 255, 0.6);
+@textColorW4: rgba(255, 255, 255, 0.4);
+@textColorW3: rgba(255, 255, 255, 0.26);
+@textColorW10: rgba(255, 255, 255, 1);
+
+@tagColor: #e94e49;
+
+@whiteTextColor: rgba(255, 255, 255, 0.9); // 默认text 白色
+
+@priceColor: #e81e19; // 售价颜色
+
+// 常用函数
+
+// 过渡效果
+.transition(@num: 0.6s) {
+  transition-property: all;
+  transition-duration: @num;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+/* 超出部分显示省略号 */
+.ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+// 设置文本的行数
+.line-clamp(@num: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: @num;
+  /*限制在一个块元素显示的文本的行数*/
+  -webkit-box-orient: vertical;
+}
+
+// 背景图片设置
+.bg-image-png(@imageName) {
+  background-image: ~"url(@/static/images/@{imageName}.png)";
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shadow-default() {
+  box-shadow: 0px 2px 12px 0px rgba(16, 68, 166, 0.07);
+}
+
+// 阿里icon
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}

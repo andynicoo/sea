@@ -1,0 +1,752 @@
+/*Vue隐藏*/
+@import "./common.less";
+/*清除样式*/
+
+body,
+ol,
+ul,
+dl,
+li,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+  padding: 0;
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+html {
+  position: relative;
+  margin: 0 auto;
+  overflow: initial;
+}
+
+body {
+  position: relative;
+  // font-size: 14px;
+  font-family: "PingFang SC", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", sans-serif !important;
+  background: #fff;
+  color: #282828;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+// 默认滚动条样式调整
+body::-webkit-scrollbar-thumb,
+.overflow-y::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 0;
+}
+
+body::-webkit-scrollbar-track,
+.overflow-y::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+body::-webkit-scrollbar,
+.overflow-y::-webkit-scrollbar {
+  width: 6px;
+  height: 4px;
+}
+body {
+  overflow-x: hidden;
+  // min-width: 1320px;
+  * {
+    scrollbar-width: thin;
+  }
+}
+/* 滚动条样式修改 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+// 滚动槽
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+// 滚动条滑块
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+// ::-webkit-scrollbar-thumb:window-inactive {
+//   background: rgba(0, 0, 0, 0.1);
+// }
+
+.base {
+  margin: 0 auto;
+  max-width: 1140px;
+  position: relative;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5 {
+//   font-weight: normal;
+//   font-size: 14px;
+// }
+
+a {
+  color: @textColor;
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+  // font-weight: normal;
+  // font-size: 14px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: @primaryHover !important;
+}
+
+em,
+i {
+  font-style: normal;
+}
+
+ol,
+ul,
+dl,
+li,
+dt,
+dd {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+.boxShadow {
+  box-shadow: 0 0 0.18rem 0 rgba(0, 0, 0, 0.1);
+}
+
+a img {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input,
+textarea {
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", sans-serif;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  outline: none;
+  padding: 0px;
+  margin: 0;
+}
+
+/*透明度渐变*/
+.opacity {
+  -webkit-animation: opacity 0.3s linear;
+  animation: opacity 0.3s linear;
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ksy-warn-text {
+  color: #faad14;
+  line-height: 14px;
+}
+
+/*清除浮动*/
+.clearfloat {
+  zoom: 1;
+}
+
+.clearfloat:after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.ksy-clear {
+  clear: both;
+}
+
+/*居中*/
+.center {
+  margin: 0 auto;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: #000 !important;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent;
+  background-image: none;
+  transition: background-color 50000s ease-in-out 0s; //背景色透明  生效时长  过渡效果  启用时延迟的时间
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  background-color: transparent;
+}
+
+.hand {
+  cursor: pointer;
+}
+
+.ksy-card {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.ksy-pr {
+  position: relative;
+}
+.ksy-pa {
+  position: absolute;
+}
+
+.ksy-pa-0 {
+  padding: 0 !important;
+}
+
+.ksy-ma-0 {
+  margin: 0 !important;
+}
+
+.ksy-ma-1 {
+  margin: 5px;
+}
+
+.ksy-ml-1 {
+  margin-left: 5px !important;
+}
+
+.ksy-mt-0 {
+  margin-top: 0px;
+}
+
+.ksy-mt-1 {
+  margin-top: 5px !important;
+}
+
+.ksy-mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.ksy-mb-1 {
+  margin-bottom: 5px !important;
+}
+
+.ksy-mr-1 {
+  margin-right: 5px !important;
+}
+
+.ksy-pa-1 {
+  padding: 5px;
+}
+
+.ksy-pl-1 {
+  padding-left: 5px;
+}
+
+.ksy-pr-1 {
+  padding-right: 5px;
+}
+
+.ksy-pt-0 {
+  padding-top: 0px;
+}
+
+.ksy-pt-1 {
+  padding-top: 5px;
+}
+
+.ksy-pb-1 {
+  padding-bottom: 5px;
+}
+
+.ksy-ma-2 {
+  margin: 10px;
+}
+
+.ksy-ml-2 {
+  margin-left: 10px !important;
+}
+
+.ksy-mt-2 {
+  margin-top: 10px !important;
+}
+
+.ksy-mb-2 {
+  margin-bottom: 10px !important;
+}
+
+.ksy-mr-2 {
+  margin-right: 10px !important;
+}
+
+.ksy-pa-2 {
+  padding: 10px;
+}
+
+.ksy-pl-2 {
+  padding-left: 10px;
+}
+
+.ksy-pr-2 {
+  padding-right: 10px;
+}
+
+.ksy-pt-2 {
+  padding-top: 10px;
+}
+
+.ksy-pb-2 {
+  padding-bottom: 10px;
+}
+
+.ksy-ml-3 {
+  margin-left: 15px !important;
+}
+
+.ksy-mt-3 {
+  margin-top: 15px !important;
+}
+
+.ksy-mb-3 {
+  margin-bottom: 15px !important;
+}
+
+.ksy-mr-3 {
+  margin-right: 15px !important;
+}
+
+.ksy-pa-3 {
+  padding: 15px;
+}
+
+.ksy-ml-4 {
+  margin-left: 20px !important;
+}
+
+.ksy-mt-4 {
+  margin-top: 20px !important;
+}
+
+.ksy-mb-4 {
+  margin-bottom: 20px !important;
+}
+
+.ksy-mr-4 {
+  margin-right: 20px !important;
+}
+
+.ksy-pl-4 {
+  padding-left: 20px !important;
+}
+
+.ksy-pt-4 {
+  padding-top: 20px !important;
+}
+
+.ksy-pb-4 {
+  padding-bottom: 20px !important;
+}
+
+.ksy-pr-4 {
+  padding-right: 20px !important;
+}
+
+.ksy-pa-4 {
+  padding: 20px;
+}
+
+.ksy-ml-5 {
+  margin-left: 25px !important;
+}
+
+.ksy-mt-5 {
+  margin-top: 25px !important;
+}
+
+.ksy-mb-5 {
+  margin-bottom: 25px !important;
+}
+
+.ksy-mr-5 {
+  margin-right: 25px !important;
+}
+
+.ksy-pl-5 {
+  padding-left: 25px !important;
+}
+
+.ksy-pt-5 {
+  padding-top: 25px !important;
+}
+
+.ksy-pb-5 {
+  padding-bottom: 25px !important;
+}
+
+.ksy-pr-5 {
+  padding-right: 25px !important;
+}
+
+.ksy-pa-5 {
+  padding: 25px;
+}
+
+.ksy-pl15 {
+  padding-left: 15px !important;
+}
+
+.ksy-link {
+  color: @linkColor !important;
+  cursor: pointer;
+
+  &.ksy-error {
+    color: @errorColor !important;
+  }
+}
+
+.ksy-text-center {
+  text-align: center;
+}
+
+.ksy-text-left {
+  text-align: left;
+}
+
+.ksy-text-right {
+  text-align: right;
+}
+
+.ksy-fl {
+  float: left;
+}
+
+.ksy-fr {
+  float: right;
+}
+
+.ksy-handler-red {
+  color: @errorColor;
+}
+
+.ksy-b {
+  display: block;
+}
+
+.ksy-ib {
+  display: inline-block;
+}
+
+.ksy-w300 {
+  width: 300px;
+}
+
+.ksy-w60 {
+  width: 60px;
+}
+
+.ksy-w120 {
+  width: 120px;
+}
+
+.ksy-w160 {
+  width: 160px;
+}
+
+.ksy-w200 {
+  width: 200px !important;
+}
+
+.ksy-w100 {
+  width: 100px !important;
+}
+
+.ksy-fs12 {
+  font-size: 12px;
+}
+
+.ksy-text-oh {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ksy-tc {
+  text-align: center;
+}
+
+.ksy-sub-title {
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 20px;
+}
+
+.ksy-bold {
+  font-weight: bold;
+}
+
+.ksy-tl {
+  text-align: left;
+}
+
+.ksy-select-text {
+  margin-left: 10px;
+
+  .ksy-f-red {
+    color: @errorColor;
+  }
+}
+
+// 全站色彩管理
+.ksy-status-primary {
+  color: @primaryColor !important; // 主题色
+}
+
+.ksy-status-success {
+  color: @successColor !important; // 成功色
+}
+
+.ksy-status-skip {
+  color: @skipColor !important; // 置灰色
+}
+
+.ksy-status-error {
+  color: @errorColor !important; // 标红色
+}
+
+.ksy-status-link {
+  color: @linkColor !important; // 链接色
+}
+
+.ksy-status-warning {
+  color: @warningColor !important; // 主题色与标红色之间的副色
+}
+
+.ksy-link-h {
+  //链接默认黑色，移入变蓝色
+  color: @textColor !important;
+  cursor: pointer;
+
+  &:hover {
+    color: @linkColor !important;
+  }
+}
+
+/* 强制不换行 */
+.nowrap {
+  white-space: nowrap;
+}
+@color: red;
+/* 允许单词内断句，首先会尝试挪到下一行，看看下一行的宽度够不够，
+不够的话就进行单词内的断句 */
+.breakword {
+  word-wrap: break-word;
+}
+
+/* 断句时，不会把长单词挪到下一行，而是直接进行单词内的断句 */
+.breakAll {
+  word-break: break-all;
+}
+
+/* 超出部分显示省略号 */
+.ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* flex布局相关 */
+.flex {
+  display: flex;
+}
+.flex1 {
+  flex: 1;
+}
+.flex-c {
+  align-items: center;
+}
+.flex-j-p {
+  justify-content: space-between;
+}
+.flex-j-c {
+  justify-content: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-b {
+  justify-content: space-between;
+}
+.flex-c-c {
+  align-items: center;
+  justify-content: center;
+}
+.flex-c-b {
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-s-b {
+  align-items: start;
+  justify-content: space-between;
+}
+
+// 字体 大小 颜色 设定
+.size12 {
+  font-size: 12px;
+}
+.size14 {
+  font-size: 14px;
+}
+.size16 {
+  font-size: 16px;
+}
+.size18 {
+  font-size: 18px;
+}
+.size20 {
+  font-size: 20px;
+}
+
+.color10 {
+  color: @textColor10 !important;
+}
+.color9 {
+  color: @textColor !important;
+}
+.color6 {
+  color: @textColor6 !important;
+}
+.color4 {
+  color: @textColor4 !important;
+}
+.color3 {
+  color: @textColor3 !important;
+}
+
+.w600 {
+  font-weight: 600;
+}
+.w500 {
+  font-weight: 500;
+}
+.w400 {
+  font-weight: 400;
+}
+.pt-64 {
+  padding-top: 64px;
+}
+
+.borderbtn {
+  border: 1px solid @primaryColor !important;
+  color: @primaryColor !important;
+  background: transparent !important;
+  &:hover {
+    color: #6694ff !important;
+    border-color: #6694ff !important;
+  }
+}
+
+.white-tips {
+  .ant-tooltip-inner {
+    background: #fff;
+    font-size: 12px;
+    color: #303132;
+  }
+  .ant-tooltip-placement-top .ant-tooltip-arrow:before {
+    background: #fff;
+    width: 16px;
+    height: 16px;
+    top: initial;
+  }
+  .ant-tooltip-arrow {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.my-24 {
+  margin: 24px 0;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

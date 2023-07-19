@@ -1,0 +1,106 @@
+[
+  {
+    "code": "AE",
+    "name": "阿联酋"
+  },
+  {
+    "code": "AT",
+    "name": "奥地利"
+  },
+  {
+    "code": "CA",
+    "name": "加拿大"
+  },
+  {
+    "code": "CY",
+    "name": "塞浦路斯"
+  },
+  {
+    "code": "CZ",
+    "name": "捷克"
+  },
+  {
+    "code": "DE",
+    "name": "德国"
+  },
+  {
+    "code": "ES",
+    "name": "西班牙"
+  },
+  {
+    "code": "EU",
+    "name": "欧盟"
+  },
+  {
+    "code": "FR",
+    "name": "法国"
+  },
+  {
+    "code": "GB",
+    "name": "英国"
+  },
+  {
+    "code": "IT",
+    "name": "意大利"
+  },
+  {
+    "code": "JP",
+    "name": "日本"
+  },
+  {
+    "code": "NL",
+    "name": "荷兰"
+  },
+  {
+    "code": "PL",
+    "name": "波兰"
+  },
+  {
+    "code": "SA",
+    "name": "沙特阿拉伯"
+  },
+  {
+    "code": "SE",
+    "name": "瑞典"
+  },
+  {
+    "code": "US",
+    "name": "美国"
+  },
+  {
+    "code": "AU",
+    "name": "澳大利亚"
+  },
+  {
+    "code": "SG",
+    "name": "新加坡"
+  },
+  {
+    "code": "PH",
+    "name": "菲律宾"
+  },
+  {
+    "code": "MY",
+    "name": "马来西亚"
+  },
+  {
+    "code": "ID",
+    "name": "印度尼西亚"
+  },
+  {
+    "code": "TH",
+    "name": "泰国"
+  },
+  {
+    "code": "KR",
+    "name": "韩国"
+  },
+  {
+    "code": "IN",
+    "name": "印度"
+  },
+  {
+    "code": "HK",
+    "name": "香港"
+  }
+]

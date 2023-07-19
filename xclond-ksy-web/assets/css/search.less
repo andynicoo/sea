@@ -1,0 +1,264 @@
+.search {
+  background: #f5f7fa;
+  margin-top: 64px;
+  position: relative;
+  .searchbox {
+    height: 134px;
+    .bg-image-png("searchbox-bg");
+    background-size: cover;
+    padding: 16px 0px;
+    .tit {
+      color: #303132;
+      font-size: 14px;
+      span {
+        color: #919498;
+      }
+    }
+    .searchboxinner {
+      margin-top: 24px;
+    }
+  }
+  .searchoption {
+    background: #ffffff;
+    padding: 24px 24px;
+    padding-top: 25px;
+    border-bottom: 1px solid #f5f7fa;
+  }
+  .advise {
+    background: #ffffff;
+    padding: 24px;
+    padding-bottom: 10px;
+    padding-top: 25px;
+    display: flex;
+    .leftbox {
+      flex: 1;
+    }
+    h1 {
+      font-size: 16px;
+      font-weight: 500;
+      color: @textColor;
+      margin-bottom: 15px;
+    }
+    h3 {
+      font-size: 14px;
+      color: #000000;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-bottom: 0px;
+      .tiaojian {
+        font-size: 16px;
+        color: @textColor;
+        font-weight: bold;
+      }
+      .tit {
+        width: 160px;
+        height: 48px;
+        line-height: 48px;
+        background: @primaryColor;
+        border-radius: 0px 0px 0px 0px;
+        opacity: 1;
+        color: #ffffff;
+        display: block;
+        font-size: 16px;
+        position: absolute;
+        left: -24px;
+        top: -25px;
+        text-align: center;
+      }
+      .more {
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+        color: @primaryColor;
+        cursor: pointer;
+        top: 10px;
+        font-weight: bold;
+      }
+    }
+    .tags {
+      width: 127px;
+      height: 26px;
+      line-height: 26px;
+      text-align: center;
+      border-radius: 2px 2px 2px 2px;
+    }
+    .tips {
+      font-size: 16px;
+      color: @primaryColor;
+    }
+    .line {
+      width: 1152px;
+      height: 0px;
+      opacity: 1;
+      border-bottom: 1px dashed #e3e3e3;
+      margin-top: 30px;
+    }
+
+    .btnres {
+      width: 128px;
+      height: 44px;
+      background: linear-gradient(279deg, #3370ff 0%, #6895ff 100%);
+      border-radius: 2px 2px 2px 2px;
+      font-size: 16px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 44px;
+      cursor: pointer;
+      right: 20px;
+      top: 0px;
+    }
+    .btn-depth {
+      position: absolute;
+      right: 160px;
+      top: 0;
+      height: 44px;
+    }
+  }
+
+  .fillter {
+    background: #ffffff;
+    padding: 32px 24px;
+    margin-top: 40px;
+    h2 {
+      height: 24px;
+      font-size: 16px;
+      font-weight: bold;
+      color: @textColor;
+      line-height: 24px;
+      margin-bottom: 16px;
+      span {
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+        color: @primaryColor;
+        cursor: pointer;
+      }
+    }
+    .condition {
+      .tit1 {
+        margin-right: 4px;
+      }
+      .tit {
+        color: @textColor;
+        width: 80px;
+        height: 38px;
+        line-height: 38px;
+      }
+      .tags {
+        width: 107px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        position: relative;
+      }
+    }
+  }
+  .trademarklist {
+    margin-top: 30px;
+    .tips {
+      height: 60px;
+      line-height: 60px;
+      background: #f5f7fa;
+      opacity: 1;
+      padding: 0px 24px;
+      padding-left: 0px;
+      .page {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      span {
+        color: #e34d59;
+      }
+      .cur {
+        color: @primaryColor;
+      }
+    }
+    .bigbox {
+      display: flex;
+      .bigcard {
+        background: #ffffff;
+        margin-bottom: 80px;
+        margin-right: 24px;
+        flex: 1;
+        .condition {
+          height: 86px;
+          line-height: 86px;
+          border-bottom: 1px solid #e3e3e3;
+          padding-left: 24px;
+          .tit1 {
+            margin-right: 4px;
+          }
+          .tit {
+            color: @textColor;
+            width: 80px;
+            height: 38px;
+            line-height: 38px;
+          }
+          .tags {
+            width: 107px;
+            height: 38px;
+            line-height: 38px;
+            text-align: center;
+            position: relative;
+          }
+        }
+        .pagination {
+          padding-top: 15px;
+          height: 64px;
+          background: #f2f3f4;
+          border-radius: 1px 1px 1px 1px;
+          opacity: 1;
+          padding-left: 14px;
+          padding-right: 14px;
+          text-align: right;
+          .fenye {
+            .tit {
+              font-size: 14px;
+              font-weight: 400;
+              color: rgba(0, 0, 0, 0.6);
+              height: 30px;
+              line-height: 30px;
+            }
+          }
+        }
+        .nodata {
+          padding: 60px 0px;
+          p {
+            font-size: 14px;
+            color: @textColor;
+          }
+        }
+      }
+      .right {
+        width: 204px;
+        margin-top: 60px;
+      }
+    }
+    &-nodata {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      height: 900px;
+    }
+  }
+}
+
+.tips3 {
+  font-size: 16px;
+  color: @warningColor;
+  min-height: 30px;
+}
+.tips4 {
+  font-size: 14px;
+  color: @warningColor;
+  margin-top: 10px;
+}
+.openorclose {
+  float: right;
+  cursor: pointer;
+  color: @primaryClick;
+}

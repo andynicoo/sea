@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${NAME}
+spec:
+  replicas: ${replicas}
+  selector:
+    matchLabels:
+      app: ${NAME}
+  template:
+    metadata:
+      labels:
+        app: ${NAME}
+    spec:
+      containers:
+        - name: ${NAME}
+          image: ${IMAGE}
+          ports:
+            - containerPort: 80
+              protocol: TCP
+            - containerPort: 443
+              protocol: TCP
+          env: #容器运行前需设置的环境变量列表
+            - name: APPLICATION_NAME #链路追踪名称
+              value: ${NAME} #同名称捆绑
+            - name: PROFILES_ACTIVE #部署版本
+              value: test #唯一
+            - name: APPLICATION_ENV #部署版本
+              value: ${ENV} #唯一
+            - name: aliyun_logs_xcloud-md-logstore
+              value: stdout
+            - name: aliyun_logs_xcloud-md-logstore_logstore
+              value: xcloud-md-logstore
+            - name: aliyun_logs_xcloud-md-logstore_project
+              value: xcloud-md-log
+            - name: aliyun_logs_tier_tags
+              value: tier=frontend
+            - name: aliyun_logs_env_tags
+              value: env=test
+            - name: aliyun_logs_app_tags
+              value: app=${NAME}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${NAME}
+spec:
+  type: ClusterIP
+  selector:
+    app: ${NAME}
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
+    - protocol: TCP
+      name: https
+      port: 443
+      targetPort: 443

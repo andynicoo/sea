@@ -1,0 +1,18 @@
+<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="&#228;&#184;&#141;&#229;&#187;&#186;&#232;&#174;&#174;&#229;&#136;&#134;&#231;&#177;&#187;/&#231;&#159;&#165;&#229;&#144;&#141;&#229;&#159;&#142;&#229;&#184;&#130;">
+<rect id="Rectangle 1027" x="0.413086" y="19.2617" width="21.2694" height="1.23285" rx="0.616427" fill="#1375FF"/>
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M2.00195 3.02734C2.00195 2.47506 2.44967 2.02734 3.00195 2.02734H10.2484C10.8006 2.02734 11.2484 2.47506 11.2484 3.02734V19.4198H2.00195V3.02734ZM3.38965 13.2656C3.38965 12.7133 3.83736 12.2656 4.38965 12.2656H8.86213C9.41441 12.2656 9.86213 12.7133 9.86213 13.2656C9.86213 13.8179 9.41441 14.2656 8.86213 14.2656H4.38965C3.83736 14.2656 3.38965 13.8179 3.38965 13.2656ZM4.38965 7.17969C3.83736 7.17969 3.38965 7.6274 3.38965 8.17969C3.38965 8.73197 3.83736 9.17969 4.38965 9.17969H8.86213C9.41441 9.17969 9.86213 8.73197 9.86213 8.17969C9.86213 7.6274 9.41441 7.17969 8.86213 7.17969H4.38965Z" fill="#1375FF"/>
+<path id="Subtract_2" d="M10.8828 8.24609C10.8828 7.69381 11.3305 7.24609 11.8828 7.24609H16.6441C17.1964 7.24609 17.6441 7.69381 17.6441 8.24609V19.4205H10.8828V8.24609Z" fill="#1375FF"/>
+<g id="Rectangle 1028" filter="url(#filter0_b_1668_99164)">
+<rect x="15.0557" y="10.7227" width="6.62659" height="10.4793" rx="1" fill="white" fill-opacity="0.05"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_b_1668_99164" x="7.05566" y="2.72266" width="22.6265" height="26.4795" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="4"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1668_99164"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1668_99164" result="shape"/>
+</filter>
+</defs>
+</svg>

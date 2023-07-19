@@ -1,0 +1,203 @@
+@import "./default.kby.less";
+
+// @import '~ant-design-vue/dist/antd.less';
+@import "~ant-design-vue/lib/style/index.less";
+@import "~ant-design-vue/lib/button/style/index.less";
+@import "~ant-design-vue/lib/steps/style/index.less";
+@import "~ant-design-vue/lib/form/style/index.less";
+@import "~ant-design-vue/lib/input/style/index.less";
+@import "~ant-design-vue/lib/popover/style/index.less";
+@import "~ant-design-vue/lib/grid/style/index.less";
+@import "~ant-design-vue/lib/spin/style/index.less";
+@import "~ant-design-vue/lib/carousel/style/index.less";
+@import "~ant-design-vue/lib/icon/style/index.less";
+@import "~ant-design-vue/lib/form-model/style/index.less";
+@import "~ant-design-vue/lib/tag/style/index.less";
+@import "~ant-design-vue/lib/checkbox/style/index.less";
+@import "~ant-design-vue/lib/radio/style/index.less";
+@import "~ant-design-vue/lib/select/style/index.less";
+@import "~ant-design-vue/lib/time-picker/style/index.less";
+@import "~ant-design-vue/lib/date-picker/style/index.less";
+@import "~ant-design-vue/lib/space/style/index.less";
+@import "~ant-design-vue/lib/input-number/style/index.less";
+@import "~ant-design-vue/lib/config-provider/style/index.less";
+@import "~ant-design-vue/lib/tabs/style/index.less";
+@import "~ant-design-vue/lib/progress/style/index.less";
+@import "~ant-design-vue/lib/anchor/style/index.less";
+@import "~ant-design-vue/lib/pagination/style/index.less";
+@import "~ant-design-vue/lib/upload/style/index.less";
+@import "~ant-design-vue/lib/modal/style/index.less";
+@import "~ant-design-vue/lib/message/style/index.less";
+@import "~ant-design-vue/lib/table/style/index.less";
+@import "~ant-design-vue/lib/tooltip/style/index.less";
+@import "~ant-design-vue/lib/menu/style/index.less";
+@import "~ant-design-vue/lib/dropdown/style/index.less";
+@import "~ant-design-vue/lib/alert/style/index.less";
+@import "~ant-design-vue/lib/collapse/style/index.less";
+
+// antd自定义变量 更多：
+// https://github.com/vueComponent/ant-design-vue/blob/master/components/style/themes/default.less
+
+@primary-color: @primaryColor; // 全局主色
+@link-color: @primaryClick; // 链接色
+@success-color: @successColor; // 成功色
+@warning-color: @warningColor; // 警告色
+@error-color: @errorColor; // 错误色
+@font-size-base: 14px; // 主字号
+@heading-color: @textColor; // 标题色
+@text-color: @textColor6; // 主文本色
+@text-color-secondary: @textColor4; // 次文本色
+@border-radius-base: 2px; // 组件/浮层圆角
+@border-color-base: #d9d9d9; // 边框色
+@box-shadow-base: 0 2px 8px @textColor3; // 浮层阴影
+
+// Disabled states
+@disabled-color: @textColor3; // 失效色
+// @disabled-bg: @primaryDisable; // 影响范围大，在单个的css里重写
+@disabled-color-dark:fade (#fff, 35%);
+
+// 全局重写antd 样式
+.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: #fff;
+}
+.ant-checkbox-disabled .ant-checkbox-inner {
+  border-color: @primaryDisable !important;
+}
+.ant-checkbox-disabled + span {
+  color: @textColor !important;
+}
+.ant-tag,
+.ant-tag a,
+.ant-tag a:hover {
+  // color:@primaryDisable !important;
+}
+.ant-checkbox + span {
+  color: @textColor !important;
+}
+.ant-tag {
+  cursor: pointer;
+  color: @textColor !important;
+}
+.ant-form-item-label > label {
+  color: @textColor6 !important;
+}
+.ant-form-item {
+  color: @textColor !important;
+}
+.ant-tag-checkable-checked {
+  color: @primaryColor !important;
+  background-color: @primaryLight;
+}
+.ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+  color: @primaryHover !important;
+  background: @primaryLight !important;
+}
+.ant-checkbox-disabled .ant-checkbox-inner {
+  background-color: @primaryDisable !important;
+}
+.searchoption {
+  .ant-tag-checkable-checked {
+    color: @primaryColor !important;
+    background-color: @primaryLight;
+    height: 26px;
+    line-height: 26px;
+  }
+  .ant-tag-checkable:not(.ant-tag-checkable-checked):hover {
+    color: @primaryHover !important;
+    background: @primaryLight !important;
+    padding: 0px 11px;
+    height: 26px;
+    line-height: 26px;
+  }
+  .ant-checkbox-disabled .ant-checkbox-inner {
+    background-color: @primaryDisable !important;
+  }
+  .ant-form-item {
+    margin-bottom: 0px;
+  }
+  .ant-tag{
+    margin-right: 24px;
+    padding: 0px 11px;
+  }
+}
+
+.ant-upload-list-item {
+  margin-top: 2px;
+}
+
+.ant-table-thead > tr > th {
+  background: #f5f7fa !important ;
+}
+
+.ant-table-fixed-header .ant-table-scroll .ant-table-header {
+  overflow: hidden !important;
+}
+
+.ant-table-bordered .ant-table-thead > tr > th {
+  border-right: none;
+}
+
+.ant-carousel {
+  position: relative;
+}
+//
+.ant-carousel .slick-slider {
+  position: static;
+  .slick-list {
+    width: 100%;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.ant-alert {
+  font-size: 12px;
+}
+
+.ant-tooltip-inner {
+  background: rgba(#000, 0.5);
+}
+.ant-tooltip-placement-top .ant-tooltip-arrow:before {
+  background: rgba(#000, 0.5);
+}
+
+.ant-tag {
+  font-size: 14px;
+}
+
+.ant-popover-placement-bottom,
+.ant-popover-placement-bottomLeft,
+.ant-popover-placement-bottomRight {
+  padding-top: 0px;
+}
+
+.selectxx {
+  .ant-select-selection {
+    border-color: #f5f7fa !important;
+    background-color: #f5f7fa !important;
+    box-shadow: none !important;
+  }
+  .ant-select-selection:active {
+    box-shadow: none !important;
+  }
+  .ant-select-selection:focus {
+    box-shadow: none !important;
+  }
+  .ant-select-open .ant-select-selection {
+    box-shadow: none !important;
+  }
+  .ant-select-focused .ant-select-selection,
+  .ant-select-selection:focus,
+  .ant-select-selection:active {
+    box-shadow: none !important;
+  }
+  .ant-select-selection-selected-value{
+    color: @textColor;
+  }
+}

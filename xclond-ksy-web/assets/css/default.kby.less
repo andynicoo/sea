@@ -1,0 +1,325 @@
+// 全站色彩管理
+@primaryClick: #004cff; // 主色click
+@primaryColor: #3370ff; // 主题色
+@primaryHover: #6694ff; // 主色hover
+@primaryDisable: #91c6ff; // 主色disable
+@primaryFocus: #bddcff;
+@primaryLight: #f0f6ff;
+
+@errorClick: #c9353f;
+@errorColor: #e34d59;
+@errorHover: #f36d78;
+@errorDisable: #f8b9be;
+@errorFocus: #f9d7d9;
+@errorLight: #fdecee;
+
+@warningClick: #d35a21;
+@warningColor: #ed7b2f;
+@warningHover: #f2995f;
+@warningDisable: #f7c797;
+@warningFocus: #f9e0c7;
+@warningLight: #fef3e6;
+
+@linkColor: #4c86ff;
+@successColor: #00a870;
+@skipColor: #a8a8b3;
+
+@textColor: rgba(0, 0, 0, 0.9); // 默认text
+@textColor6: rgba(0, 0, 0, 0.6);
+@textColor4: rgba(0, 0, 0, 0.4);
+@textColor3: rgba(0, 0, 0, 0.26);
+@textColor10: rgba(0, 0, 0, 1);
+
+@textColorW: rgba(255, 255, 255, 0.9);
+@textColorW6: rgba(255, 255, 255, 0.6);
+@textColorW4: rgba(255, 255, 255, 0.4);
+@textColorW3: rgba(255, 255, 255, 0.26);
+@textColorW10: rgba(255, 255, 255, 1);
+
+@tagColor: #e94e49;
+
+@whiteTextColor: rgba(255, 255, 255, 0.9); // 默认text 白色
+
+@priceColor: #e81e19; // 售价颜色
+
+// 常用函数
+
+// 过渡效果
+.transition(@num: 0.6s) {
+  transition-property: all;
+  transition-duration: @num;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+}
+/* 超出部分显示省略号 */
+.ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+// 设置文本的行数
+.line-clamp(@num: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: @num;
+  /*限制在一个块元素显示的文本的行数*/
+  -webkit-box-orient: vertical;
+}
+/* 超出部分显示省略号 */
+.ellipsis() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* 超出部分显示省略号 */
+// .ellipsis {
+//   text-overflow: ellipsis;
+//   overflow: hidden;
+//   white-space: nowrap;
+// }
+
+// 背景图片设置
+.bg-image-png(@imageName) {
+  background-image: ~"url(@/static/images/@{imageName}.png)";
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.shadow-default() {
+  box-shadow: 0px 2px 12px 0px rgba(16, 68, 166, 0.07);
+}
+
+// 阿里icon
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.highttit {
+  color: #faad14;
+}
+
+.tradecards {
+  .card1 {
+    background: #d76b65;
+    color: #ede7d7;
+  }
+  .card2 {
+    background: #000100;
+    color: #edc68d;
+  }
+  .card3 {
+    background: #e7733a;
+    color: #100f0f;
+  }
+  .card4 {
+    background: #cfe5cf;
+    color: #e48265;
+  }
+  .card5 {
+    background: #2a639f;
+    color: #ffffff;
+  }
+  .card6 {
+    background: #fdfdf8;
+    color: #d44e2c;
+  }
+  .card7 {
+    background: #56215b;
+    color: #ead834;
+  }
+  .card8 {
+    background: #fadf6c;
+    color: #45426b;
+  }
+  .card9 {
+    background: #264e47;
+    color: #f5c9bd;
+  }
+  .card10 {
+    background: #dfdfdf;
+    color: #242424;
+  }
+  .card11 {
+    background: #d53d56;
+    color: #edf2d7;
+  }
+  .card12 {
+    background: #f4e0bb;
+    color: #010405;
+  }
+  .card13 {
+    background: #ffffff;
+    color: #78b05b;
+  }
+  .card14 {
+    background: #284293;
+    color: #ffffff;
+  }
+  .card15 {
+    background: #f1c675;
+    color: #5f3734;
+  }
+  .card16 {
+    background: #333543;
+    color: #ffffff;
+  }
+}
+.tradecards {
+  .card(@n, @i: 1) when (@i =< @n) {
+    .card@{i} {
+      font-family: "fg@{i}";
+    }
+    .card(@n, (@i + 1));
+  }
+  .card(15);
+}
+.senwords {
+  .ant-modal-content {
+    background: #fff !important;
+    padding: 2px;
+  }
+
+  .ant-modal-body {
+    padding: 0px;
+  }
+
+  .up {
+    height: 55px;
+    background: linear-gradient(155deg, #f7f7ff 0%, #edfffc 45%, #e5f9ff 84%);
+    box-shadow: inset 0px 4px 10px 0px rgba(132, 107, 238, 0.06);
+    position: relative;
+    img {
+      position: absolute;
+      top: -57px;
+      left: 124px;
+    }
+  }
+
+  .down {
+    height: 155px;
+    background: linear-gradient(155deg, #f7f7ff 0%, #edfffc 45%, #e5f9ff 84%);
+    box-shadow: inset 0px 4px 10px 0px rgba(132, 107, 238, 0.06);
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      padding-top: 30px;
+      margin-bottom: 0px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+@font-face {
+  font-family: "fg1";
+  src: url("@/assets/font/fg1Bold-Ish-Demo-2.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg2";
+  src: url("@/assets/font/fg2HolySans-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg3";
+  src: url("@/assets/font/fg3Poly-Regular-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg4";
+  src: url("@/assets/font/fg4Baloo2-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg5";
+  src: url("@/assets/font/fg5Arciform-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg6";
+  src: url("@/assets/font/fg6Spotlight-Demo-Italic-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg7";
+  src: url("@/assets/font/fg7Intrepid-ExtraBold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg8";
+  src: url("@/assets/font/fg8thinoobold-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg9";
+  src: url("@/assets/font/fg9LuissSans-Bold-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg10";
+  src: url("@/assets/font/fg10Bodoni-11-Bold-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg11";
+  src: url("@/assets/font/fg11Quicksand_Light.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg12";
+  src: url("@/assets/font/fg12Butler_Ultra_Light.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg13";
+  src: url("@/assets/font/fg13waltograph42-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg14";
+  src: url("@/assets/font/fg14Blippo-Black-BT-2.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg15";
+  src: url("@/assets/font/fg15AslinaBold-2.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg16";
+  src: url("@/assets/font/fg16Aclonica-Regular-2.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.hoverPrimary {
+  &:hover {
+    color: @primaryColor !important;
+  }
+}

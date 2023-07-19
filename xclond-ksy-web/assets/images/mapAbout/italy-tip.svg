@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="170px" height="159px" viewBox="0 0 170 159" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>意大利</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M146,0 C148.209139,-4.05812251e-16 150,1.790861 150,4 L150,124 C150,126.209139 148.209139,128 146,128 L81.312,128 L75,134.313708 L68.687,128 L4,128 C1.790861,128 2.705415e-16,126.209139 0,124 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 L146,0 Z" id="path-1"></path>
+        <filter x="-11.3%" y="-14.1%" width="122.7%" height="129.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0862745098   0 0 0 0 0.678431373   0 0 0 0 0.91372549  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="-2" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0862745098   0 0 0 0 0.678431373   0 0 0 0 0.91372549  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-4" x="0" y="0" width="22" height="14"></rect>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="不同状态" transform="translate(-795.000000, -3106.000000)">
+            <g id="意大利" transform="translate(797.000000, 3108.000000)">
+                <g id="编组-3" transform="translate(8.000000, 10.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="矩形-2">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <rect id="矩形" fill="#F5F8FA" mask="url(#mask-2)" x="0" y="0" width="150" height="30"></rect>
+                </g>
+                <text font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="14" font-weight="normal" line-spacing="12" letter-spacing="0.299946" fill="#333333">
+                    <tspan x="42" y="34">意大利</tspan>
+                </text>
+                <g id="国旗" transform="translate(16.000000, 18.000000)">
+                    <mask id="mask-5" fill="white">
+                        <use xlink:href="#path-4"></use>
+                    </mask>
+                    <use id="矩形" fill="#FFFFFF" xlink:href="#path-4"></use>
+                    <image id="意大利" mask="url(#mask-5)" x="-3" y="-2" width="28" height="19.047619" xlink:href="data:image/png;base64,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"></image>
+                </g>
+                <g id="编组-38" transform="translate(26.000000, 52.000000)">
+                    <text id="注册税号" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="16" font-weight="normal" letter-spacing="0.5" fill="#666660">
+                        <tspan x="8" y="19">注册税号</tspan>
+                    </text>
+                    <circle id="椭圆形" fill="#16ADE9" cx="2" cy="9" r="2"></circle>
+                </g>
+                <g id="编组-39" transform="translate(26.000000, 78.000000)">
+                    <text id="税务申报" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="16" font-weight="normal" letter-spacing="0.5" fill="#666660">
+                        <tspan x="8" y="19">税务申报</tspan>
+                    </text>
+                    <circle id="椭圆形备份-5" fill="#16ADE9" cx="2" cy="9" r="2"></circle>
+                </g>
+                <g id="编组-40" transform="translate(26.000000, 104.000000)">
+                    <text id="注销税号" font-family="SourceHanSansSC-Regular, Source Han Sans SC" font-size="16" font-weight="normal" letter-spacing="0.5" fill="#666660">
+                        <tspan x="8" y="19">注销税号</tspan>
+                    </text>
+                    <circle id="椭圆形备份-6" fill="#16ADE9" cx="2" cy="9" r="2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

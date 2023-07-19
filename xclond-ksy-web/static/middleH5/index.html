@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="7200">
+  <title></title>
+  <link rel="stylesheet" href="style/reset.css">
+  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-3-y/babel-polyfill/7.12.1/polyfill.min.js"
+    type="application/javascript"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-y/vue/3.2.31/vue.global.min.js"
+    type="application/javascript"></script>
+  <script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-3-y/axios/0.26.0/axios.min.js"
+    type="application/javascript"></script>
+
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+<script>
+  (function () {
+    var createApp = Vue.createApp
+    var ref = Vue.ref
+    var onMounted = Vue.onMounted
+    var computed = Vue.computed
+    var enterpriseKey = getQueryVariable('en') || 'vat'
+
+    var localStorageKey = enterpriseKey + '_h5-ticket'
+    var localTimeKey = enterpriseKey + '_h5-ticket-time'
+
+    var enterprise = {
+      vat: {
+        'enterprisecode': 'ksy',
+        'enterpriseId': 29,
+        'enterpriseName': '跨税云',
+      },
+      iipto: {
+        'enterprisecode': 'pn4pn456jy1',
+        'enterpriseId': 30,
+        'enterpriseName': '跨标云',
+      },
+      sg: {
+        'enterprisecode': 'aaw2dpn45bn',
+        'enterpriseId': 40,
+        'enterpriseName': '卖家成长',
+      }
+    }
+
+    var paths = {
+      'r': 'pages/renewal/index',
+      "i": 'pages/index/index'
+    }
+    var miniPath = paths[getQueryVariable('p')] || paths['i']
+    localStorageKey = localStorageKey + '-'+ miniPath
+    localTimeKey = localTimeKey + '-'+ miniPath
+
+    document.title = enterprise[enterpriseKey].enterpriseName
+
+    function getQueryVariable(variable) {
+      var query = window.location.search.substring(1);
+      var vars = query.split("&");
+      for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split("=");
+        if (pair[0] == variable) { return pair[1]; }
+      }
+      return (false);
+    }
+
+
+
+    var urlDev = getQueryVariable('dev') || 'prod'
+    var devurls = {
+      sit2: 'https://sit2-iipto-client.itaxs.com/api',
+      uat2: 'https://uat2-console.itaxs.com/api',
+      prod: 'https://m.itaxs.com/api'
+    }
+
+    var axiosInstance = axios.create({
+      baseURL: devurls[urlDev],
+      timeout: 20000,
+      headers: {
+        enterprisecode: enterprise[enterpriseKey].enterprisecode,
+        enterpriseId: enterprise[enterpriseKey].enterpriseId
+      }
+    });
+
+    var ComponentA = {
+      setup() {
+        var imgs = {
+          vat: 'https://file.itaxs.com/active/20230315/vat_315.jpg',
+          iipto: 'https://file.itaxs.com/weixin/activity/221201/221201iipto.png',
+          sg: 'https://file.itaxs.com/weixin/activity/221201/221201iipto.png',
+        }
+        var imgSrc = computed(function () {
+          return imgs[enterpriseKey]
+        })
+        var url = ref()
+        var getUrl = function () {
+          var outTime = localStorage.getItem(localTimeKey) || 0
+          var url = localStorage.getItem(localStorageKey)
+          // 有值, 并且在有效期内 2小时 2 * 60 * 60 * 1000 = 7200000
+          if (url && outTime - Date.now() > 7200000) {
+            return Promise.resolve({
+              url,
+              expireIntervalDate: parseInt(outTime)
+            })
+          } else {
+            var params = {
+              jump_wxa: {
+                path: miniPath,
+                query: 'pn4pn456jy1',
+                env_version: 'release'
+              },
+              expire_type: 1,
+              expire_interval: 30
+            }
+            return axiosInstance.post('/custuser/wx/xcx/getSchemeUrl', params).then(function (res) {
+              if (res.data?.code === 0 && res.data?.data?.errmsg === 'ok') {
+                return {
+                  url: res.data.data.openlink,
+                  expireIntervalDate: res.data.data.expireIntervalDate
+                }
+              } else {
+                alert('抱歉, 服务异常 ' + res.data?.data?.errmsg || res.data?.message || res.message)
+              }
+            }).catch(() => {
+              alert('抱歉, 服务异常, 请稍后再试 ')
+            })
+          }
+        }
+
+        var saveHistory = function (reqKey) {
+          axiosInstance.post('custuser/request/statustics/save', { "reqKey": reqKey, url: location.href })
+        }
+
+        // 通知已读
+        var readNotice = function (msgId) {
+          axiosInstance.get(`information/client/announcement/msg/markRead/${msgId}`,)
+        }
+
+
+        onMounted(function () {
+          getUrl().then(function (res) {
+            if (res && res.url) {
+              url.value = res.url
+              if (url.value) {
+                const date = new Date(res.expireIntervalDate)
+                console.log('getUrl', date.valueOf())
+
+                localStorage.setItem(localStorageKey, url.value)
+                localStorage.setItem(localTimeKey, date.getTime())
+                location.href = url.value
+              }
+            }
+
+          })
+          saveHistory('WX_GO_TO_INDEX')
+          getQueryVariable('id') && readNotice(getQueryVariable('id'))
+        })
+
+        var onClickImg = function () {
+          if (!url.value) return alert('请求数据中...')
+          saveHistory('WX_URL_SCHEME')
+          location.href = url.value
+        }
+        console.log('imgs[enterpriseKey] :>> ', imgSrc.value);
+        return {
+          url: url, onClickImg: onClickImg, imgSrc,
+        }
+      },
+      template: /*html*/ `<div style="width: 100%;" @click="onClickImg">
+        <img :src="imgSrc" style="width: 100%">
+        </div>`,
+    }
+
+    /** 调试 */
+    var ComponentB = {
+      setup: function () {
+        var local = ref(localStorage.getItem(localStorageKey))
+        var onClick = function () {
+          localStorage.removeItem(localStorageKey)
+          local.value = localStorage.getItem(localStorageKey)
+        }
+        return { local: local, onClick: onClick }
+      },
+      template: /*html*/ `<div>
+        <div>{{ local }}</div>
+        <div style="padding: 10px;background:  #3370FF; color: #fff;" @click="onClick">清除本地缓存</div>
+        </div>`,
+    }
+
+    var App = {
+      // template: /*html*/ `<ComponentA /><ComponentB />`,
+      template: /*html*/ `<ComponentA />`,
+      components: {
+        ComponentA: ComponentA,
+        ComponentB: ComponentB,
+      }
+    }
+
+    createApp(App).mount('#app')
+  })()
+
+</script>
+
+
+</html>
