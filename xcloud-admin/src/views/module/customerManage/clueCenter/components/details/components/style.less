@@ -1,0 +1,19 @@
+.panel {
+  overflow: hidden;
+  &-item {
+    overflow: hidden;
+    float: left;
+    &:nth-child(odd) {
+      width: 33.33%;
+    }
+    &:nth-child(even) {
+      width: 66.66%;
+    }
+    dt {
+      color: #999;
+      float: left;
+      min-width: 95px;
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.node.json",
+  "include": ["vite.config.*", "vitest.config.*", "cypress.config.*"],
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "composite": true,
+    "target": "ESNext",
+		"module": "ESNext",
+    "ignoreDeprecations": "5.0",
+    "verbatimModuleSyntax": true,
+  }
+}
