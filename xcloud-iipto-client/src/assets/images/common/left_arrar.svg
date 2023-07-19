@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>元素</title>
+    <defs>
+        <polygon id="path-1" points="232 0 1200 0 1200 820 232 820"></polygon>
+        <filter x="-1.0%" y="-1.0%" width="102.1%" height="102.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.0823529412   0 0 0 0 0.160784314  0 0 0 0.0574464598 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="外观专利" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="外观专利-我的-我的专利-详情-专利信息" transform="translate(-616.000000, -130.000000)">
+            <rect fill="#F7F8FA" x="0" y="0" width="1920" height="1014"></rect>
+            <g id="基本信息" transform="translate(362.000000, 104.000000)">
+                <g id="矩形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="编组-6" transform="translate(254.000000, 26.000000)">
+                    <rect id="矩形" fill="#D8D8D8" opacity="0" x="1" y="3" width="14" height="14"></rect>
+                    <g id="fanhui" transform="translate(5.000000, 3.000000)" fill="#2C2C2C" fill-rule="nonzero">
+                        <path d="M0.792298493,6.39297381 C0.998485841,6.39545583 1.19580083,6.47723328 1.34329389,6.62133456 L7.73626772,12.9512087 C8.04285584,13.2534407 8.04638716,13.7469869 7.74415516,14.0535751 C7.44192316,14.3601632 6.94837693,14.3636945 6.6417888,14.0614625 L0.248814969,7.73158839 C-0.0564178988,7.42878488 -0.059941195,6.9363622 0.240927511,6.62922201 C0.380875981,6.4730025 0.582658883,6.38654374 0.792298493,6.39297381 Z" id="路径"></path>
+                        <path d="M7.11616316,0 C7.3223505,0.0024820182 7.51966548,0.0842594643 7.66715854,0.228360742 C7.97259617,0.531078065 7.97612068,1.02367018 7.67504601,1.33072712 L1.34517186,7.72332535 C1.14966203,7.92165309 0.863196908,8.00061224 0.593685128,7.93045963 C0.324173347,7.86030703 0.112560161,7.65170052 0.0385582093,7.38322017 C-0.0354437427,7.11473982 0.039408196,6.82717417 0.234918025,6.62884643 L6.56479216,0.2358726 C6.70874996,0.0853819981 6.90790554,0.00018465203 7.11616316,0 Z" id="路径"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

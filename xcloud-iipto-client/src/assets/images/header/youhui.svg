@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="19px" viewBox="0 0 48 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>编组 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="12.428268%" y1="45.4860798%" x2="92.3040528%" y2="57.6653213%" id="linearGradient-1">
+            <stop stop-color="#FF9A0A" offset="0%"></stop>
+            <stop stop-color="#FD6321" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="新增-美标（包证据）" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标签" transform="translate(-286.000000, -65.000000)">
+            <g id="编组-4" transform="translate(286.000000, 65.000000)">
+                <path d="M2,16 C0.8954305,16 1.3527075e-16,15.1045695 0,14 L0,2 C-1.3527075e-16,0.8954305 0.8954305,-2.16512628e-13 2,-2.16715534e-13 L46,-2.16715534e-13 C47.1045695,-2.16918441e-13 48,0.8954305 48,2 L48,14 C48,15.1045695 47.1045695,16 46,16 L26.8284271,16 L24,18.8284271 L21.1715729,16 L2,16 Z" id="形状结合" fill="url(#linearGradient-1)"></path>
+                <text id="限时优惠" font-family="PingFangSC-Medium, 蘋方-簡" font-size="10" font-weight="500" fill="#FFFFFF">
+                    <tspan x="4" y="11">限时优惠</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

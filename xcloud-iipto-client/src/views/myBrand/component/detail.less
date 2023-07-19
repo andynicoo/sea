@@ -1,0 +1,481 @@
+.container {
+  background-color: #fff;
+  padding: 24px;
+  .title {
+    padding-bottom: 16px;
+    font-size: 20px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    img {
+      vertical-align: middle;
+    }
+  }
+  .fill-btn {
+    width: 130px;
+    height: 30px;
+    background: #00a3ff;
+    border-radius: 2px;
+    color: #fff;
+    margin: 16px 0 -10px 0;
+  }
+  .fill-btn.disabled {
+    background: #c2c2c2;
+    width: 116px;
+  }
+  .fill-btn.disabled:hover {
+    color: #fff !important;
+  }
+  p {
+    line-height: 30px;
+  }
+  .notice-box {
+    margin-bottom: 14px;
+    height: 36px;
+    background: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 0px 12px;
+    line-height: 36px;
+    color: #666666;
+    span {
+      color: #00a3ff;
+      cursor: pointer;
+    }
+    img {
+      vertical-align: text-top;
+      margin: 0 4px;
+    }
+  }
+  .tab-box {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    span {
+      margin-right: 32px;
+      cursor: pointer;
+    }
+    span.tab-active {
+      color: #00a3ff;
+      border-bottom: 2px solid #00a3ff;
+      padding-bottom: 10px;
+    }
+    .fr {
+      span {
+        margin-right: 0;
+        margin-left: 14px;
+      }
+      span.blue-btn {
+        font-size: 14px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #ffffff;
+        padding: 8px 10px;
+        background-color: #00a3ff;
+      }
+      span.white-btn {
+        color: #00a3ff;
+        padding: 8px 12px;
+        border: 1px solid #00a3ff;
+      }
+    }
+  }
+  .details-box {
+    margin-top: 24px;
+    border: 1px solid #e9e9e9;
+    .box-title {
+      padding: 11px 24px;
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      background-color: #fafafa;
+      border-bottom: 1px solid #e9e9e9;
+    }
+    .box-bottom {
+      padding: 16px 24px;
+    }
+    .left-item {
+      font-size: 16px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 22px;
+      display: inline-block;
+      vertical-align: text-bottom;
+    }
+    .right-item {
+      font-size: 16px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 500;
+      color: #666666;
+      line-height: 22px;
+      max-width: 304px;
+      display: inline-block;
+      vertical-align: top;
+      word-break: break-all;
+    }
+    .right-item.blue {
+      color: #00a3ff;
+    }
+    p.right-item {
+      overflow: inherit;
+      white-space: break-spaces;
+    }
+    .evidence-box {
+      display: inline-block;
+      min-width: 320px;
+      vertical-align: top;
+      p {
+        width: 366px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+      }
+    }
+    .evidence {
+      img {
+        vertical-align: middle;
+      }
+      a {
+        color: #666666;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+      }
+    }
+  }
+  .button-box {
+    border-top: 1px solid #ebebeb;
+    padding-top: 32px;
+    text-align: center;
+  }
+  .back-button {
+    width: 88px;
+    height: 32px;
+    border-radius: 2px;
+    background: #00a3ff;
+    color: #ffffff;
+  }
+  .bread-logo {
+    width: 106px;
+    height: 106px;
+    vertical-align: text-top;
+  }
+  .info-table {
+    margin-top: 6px;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    tr {
+      td {
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+        word-break: break-word;
+        word-wrap: break-word;
+      }
+    }
+    .header {
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      th {
+        padding: 8px 0;
+        border-right: 1px solid rgba(0, 0, 0, 0.06);
+      }
+    }
+    td {
+      padding: 16px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #666666;
+      .blue {
+        color: #00a3ff;
+        cursor: pointer;
+      }
+      .abandon {
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+      }
+    }
+  }
+  .null-file {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 240px;
+    .first-p {
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      margin: 10px 0 8px 0;
+    }
+    p {
+      font-size: 14px;
+      font-family: PingFangSC;
+      color: #666666;
+    }
+  }
+}
+.sure-proof-box {
+  margin-top: 12px;
+  .tip {
+    font-weight: 400;
+    color: #f03226;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+  }
+  .sure-wrong {
+    margin-top: 12px;
+    span {
+      display: inline-block;
+    }
+    .sure-box {
+      cursor: pointer;
+      width: 167px;
+      height: 30px;
+      border-radius: 2px;
+      border: 1px solid #00a3ff;
+      .sure {
+        background: #00a3ff;
+        color: #fff;
+        text-align: center;
+        line-height: 28px;
+        width: 102px;
+        height: 28px;
+        padding: 0;
+        border-radius: 2px;
+      }
+      .down-time {
+        color: #00a3ff;
+        text-align: center;
+        width: 58px;
+      }
+    }
+    .wrong-box {
+      margin-left: 14px;
+      border-radius: 2px;
+      height: 30px;
+    }
+  }
+}
+/deep/ .ivu-modal-content {
+  border-radius: 4px;
+}
+/deep/ .ivu-modal-body {
+  padding: 0;
+}
+/deep/ .tipsModal-title {
+  padding: 24px;
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #333333;
+  border-bottom: 1px solid #ddd;
+}
+/deep/ .ivu-modal-close {
+  font-size: 14px;
+  top: 16px;
+}
+/deep/ .ivu-modal-close .ivu-icon-ios-close {
+  color: #333;
+}
+/deep/ .ivu-modal-footer {
+  padding: 12px 18px 26px 18px;
+}
+/deep/ .modal-contnet {
+  padding: 0 24px;
+  margin-top: 12px;
+  .title {
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 4px;
+  }
+  .recept-explain {
+    font-size: 14px;
+    font-family: PingFangSC;
+    color: #333333;
+    margin-bottom: 14px;
+  }
+  .oaAbandontips {
+    display: flex;
+    align-items: center; /*子元素垂直居中*/
+
+    // justify-content: center; /*子元素水平居中*/
+  }
+  .oaAbandonTextarea {
+    margin: 10px 0px 43px 0px;
+  }
+  .notice-content {
+    padding: 12px 30px 12px 14px;
+    background-color: #eff9ff;
+    font-size: 12px;
+    font-family: PingFangSC;
+    color: #666666;
+    line-height: 22px;
+    max-height: 160px;
+    overflow-y: scroll;
+    margin-bottom: 16px;
+    p {
+      word-break: break-all;
+    }
+  }
+  .help-box {
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    margin-top: 2px;
+    margin-bottom: 18px;
+    display: flex;
+    & > div {
+      max-width: 400px;
+    }
+    a {
+      color: #00a3ff;
+      font-weight: 400;
+      margin-right: 16px;
+      display: inline-block;
+      word-break: break-all;
+    }
+  }
+  .handle-box {
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    img {
+      width: 475px;
+      margin-top: 14px;
+      margin-left: 8px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+  .pay-explain {
+    margin: 18px 0 16px 0;
+    .content {
+      font-size: 12px;
+      font-family: PingFangSC;
+      color: #666666;
+      line-height: 22px;
+    }
+  }
+  .tips {
+    font-size: 14px;
+    font-family: PingFangSC;
+    color: #333333;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+  .upload-box {
+    margin-bottom: 10px;
+    .ivu-upload.ivu-upload-select {
+      width: 236px;
+      height: 32px;
+      background: #00a3ff;
+      border-radius: 2px;
+      line-height: 32px;
+      text-align: center;
+      font-size: 14px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    img {
+      vertical-align: middle;
+    }
+    /deep/ .ivu-upload {
+      width: 100%;
+    }
+    /deep/ .ivu-upload-list {
+      width: 514px;
+    }
+    /deep/ .ivu-upload-list-file {
+      padding: 0;
+      text-align: left;
+    }
+    /deep/ .ivu-upload-list-file:hover {
+      background-color: #fff;
+    }
+  }
+}
+
+.footer-btn {
+  border-radius: 0;
+  width: 92px;
+  height: 38px;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 6px;
+}
+
+/* 滚动条有滑块的轨道部分 */
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+/* 滚动条滑块(竖向:vertical 横向:horizontal) */
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background-color: #00a3ff;
+}
+
+/* 滚动条滑块hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999999;
+}
+
+/* 同时有垂直和水平滚动条时交汇的部分 */
+::-webkit-scrollbar-corner {
+  display: block; /* 修复交汇时出现的白块 */
+}
+
+.submit-tip-title {
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8px;
+  margin-left: -40px;
+}
+.submit-tip-title .imgs {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-image: url("../../../assets/images/infoDetail/Shape.svg");
+  vertical-align: middle;
+  margin-right: 14px;
+}
+.submit-tip-box .tip-content {
+  color: #333;
+}
+.ivu-modal-confirm-footer .ivu-btn.ivu-btn-text {
+  padding: 5px 16px;
+  background: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #999999;
+}
+.ivu-modal-confirm-footer .ivu-btn-primary {
+  padding: 5px 16px;
+  background: #00a3ff;
+  border-radius: 2px;
+  color: #ffffff;
+}
+.reson-box {
+  word-break: break-all;
+}
+.item-box a {
+  display: inline-block;
+}

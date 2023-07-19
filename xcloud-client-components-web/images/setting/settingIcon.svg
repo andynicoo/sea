@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>元素</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="969" height="891"></rect>
+        <filter x="-1.0%" y="-0.9%" width="102.1%" height="102.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.0823529412   0 0 0 0 0.160784314  0 0 0 0.0574464598 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <filter x="-42.9%" y="-42.9%" width="185.7%" height="185.7%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="2" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="R标二次改版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="R标-买方-我的R标-缺省页" transform="translate(-615.000000, -124.000000)">
+            <rect fill="#F7F8FA" x="0" y="0" width="1920" height="1091"></rect>
+            <g id="基本信息" transform="translate(590.000000, 100.000000)">
+                <g id="矩形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="编组-6" transform="translate(25.000000, 24.000000)">
+                    <rect id="矩形" fill="#D8D8D8" opacity="0" x="1" y="3" width="14" height="14"></rect>
+                    <path d="M8.5,2 C11.5375661,2 14,4.46243388 14,7.5 C14,8.02484389 13.9264854,8.53251754 13.7891917,9.01328552 C15.5870919,9.15901337 17,10.6645055 17,12.5 C17,14.4329966 15.4329966,16 13.5,16 C11.6645055,16 10.1590134,14.5870919 10.0118066,12.7895587 C9.53251754,12.9264854 9.02484389,13 8.5,13 C5.46243388,13 3,10.5375661 3,7.5 C3,4.46243388 5.46243388,2 8.5,2 Z M16,2 C16.5522847,2 17,2.44771525 17,3 C17,3.55228475 16.5522847,4 16,4 C15.4477153,4 15,3.55228475 15,3 C15,2.44771525 15.4477153,2 16,2 Z" id="形状结合" fill="#016EFF" opacity="0.1" filter="url(#filter-3)"></path>
+                    <circle id="椭圆形" fill="#016EFF" opacity="0.600000024" cx="6.5" cy="8.5" r="5.5"></circle>
+                    <circle id="椭圆形" fill="#016EFF" opacity="0.200000003" cx="11.5" cy="13.5" r="3.5"></circle>
+                    <circle id="椭圆形" fill="#016EFF" opacity="0.200000003" cx="14" cy="4" r="1"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

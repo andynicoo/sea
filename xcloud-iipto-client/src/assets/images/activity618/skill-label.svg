@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="260px" height="282px" viewBox="0 0 260 282" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 46</title>
+    <g id="2022-618活动" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="欧盟备份" transform="translate(-51.000000, -47.000000)">
+            <g id="编组-46" transform="translate(51.000000, 46.500000)">
+                <g id="编组-41" transform="translate(0.000000, 0.500000)">
+                    <polygon id="路径-6" fill="#DB2000" points="4.10535803e-13 256.671926 4.10535803e-13 281.583428 17.8082192 281.583428 17.8082192 256.671926"></polygon>
+                    <polygon id="路径-6备份" fill="#DB2000" transform="translate(247.534247, 9.336303) rotate(-270.000000) translate(-247.534247, -9.336303) " points="238.637282 -3.12945052 238.637282 21.8020563 256.431211 21.8020563 256.431211 -3.12945052"></polygon>
+                    <polygon id="路径-5" fill="#FF600B" points="133.388429 0.439338048 4.10535803e-13 130.352906 4.10535803e-13 274.465856 260 0.439338048"></polygon>
+                </g>
+                <g id="编组-32" transform="translate(101.933873, 99.197350) rotate(-45.000000) translate(-101.933873, -99.197350) translate(14.933873, 69.197350)" fill="#FFFFFF" font-family="PingFangSC-Medium, PingFang SC" font-size="42" font-weight="400" letter-spacing="1.199838">
+                    <text id="限时秒杀">
+                        <tspan x="0.267635544" y="45.233521">限时秒杀</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

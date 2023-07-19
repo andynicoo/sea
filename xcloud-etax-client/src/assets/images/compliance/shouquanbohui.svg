@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="970px" height="72px" viewBox="0 0 970 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>编组 20</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="227.000597%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FF8900" stop-opacity="0.632730551" offset="0%"></stop>
+            <stop stop-color="#FF8900" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="欧代/英代" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-18备份-9">
+            <g id="编组-20" transform="translate(6.000000, 3.000000)">
+                <g id="编组-16" transform="translate(0.000000, 9.000000)">
+                    <text id="提交资料" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">提交资料</tspan>
+                    </text>
+                    <g id="编组-22" transform="translate(8.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-10" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                        <text id="1-copy" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="12.052" y="19">1</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="编组-17" transform="translate(189.000000, 9.000000)">
+                    <text id="待审核" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">待审核</tspan>
+                    </text>
+                    <g id="编组-23" transform="translate(2.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-11" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                        <text id="2" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="12.052" y="19">2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="编组-18" transform="translate(371.000000, 9.000000)">
+                    <text id="已审核" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">已审核</tspan>
+                    </text>
+                    <g id="编组-25" transform="translate(2.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-9" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                        <text id="3" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="12.052" y="19">3</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="编组-19备份" transform="translate(541.000000, 9.000000)">
+                    <text id="待授权注册" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">待授权注册</tspan>
+                    </text>
+                    <g id="编组-25备份" transform="translate(14.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-9" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                        <text id="4" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="12.052" y="19">4</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="编组-19备份-2" transform="translate(735.000000, 9.000000)">
+                    <text id="注册中" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">注册中</tspan>
+                    </text>
+                    <g id="编组-25备份" transform="translate(2.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-9" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                        <text id="5" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                            <tspan x="12.052" y="19">5</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="编组-19备份-3" transform="translate(911.000000, 9.000000)">
+                    <text id="注册完成" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#000000" fill-opacity="0.85">
+                        <tspan x="0" y="55">注册完成</tspan>
+                    </text>
+                    <g id="编组-25备份" transform="translate(8.000000, 0.000000)">
+                        <circle id="Oval-1-Copy-9" stroke-opacity="0.15" stroke="#000000" cx="16" cy="16" r="15.5"></circle>
+                        <text id="6" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#000000" fill-opacity="0.25">
+                            <tspan x="12.052" y="19">6</tspan>
+                        </text>
+                    </g>
+                </g>
+                <rect id="Rectangle-28" fill="#1890FF" x="55.5" y="25" width="120" height="1"></rect>
+                <rect id="Rectangle-28备份" fill="#1890FF" x="238" y="25" width="120" height="1"></rect>
+                <rect id="Rectangle-28备份-2" fill="#1890FF" x="420" y="25" width="120" height="1"></rect>
+                <rect id="Rectangle-28备份-4" fill="#FF8900" x="602" y="25" width="120" height="1"></rect>
+                <text id="被驳回" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" fill="#FF8900">
+                    <tspan x="651" y="13">被驳回</tspan>
+                </text>
+                <g id="jiantou" transform="translate(643.000000, 8.500000) rotate(-180.000000) translate(-643.000000, -8.500000) translate(637.000000, 4.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+                    <polygon id="路径" points="0.000613808944 0.258823529 3.09974425 4.13639819 0 8.02352941 1.79723785 8.02352941 4.94117647 4.13639819 1.79723785 0.258823529"></polygon>
+                    <polygon id="路径" points="3.53002558 0.258823529 6.62915601 4.13639819 3.52941176 8.02352941 5.32664962 8.02352941 8.47058824 4.13639819 5.32664962 0.258823529"></polygon>
+                    <polygon id="路径" points="7.05943734 0.258823529 10.1585678 4.13639819 7.05882353 8.02352941 8.85606138 8.02352941 12 4.13639819 8.85606138 0.258823529"></polygon>
+                </g>
+                <rect id="Rectangle-28备份-5" fill-opacity="0.15" fill="#000000" x="784" y="25" width="120" height="1"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,2957 @@
+<template>
+  <div>
+    <Form :model="formInfo" label-position="top" ref="formInfo">
+      <div v-for="(v, i) in workflowColumns" :key="i" v-show="steps == 1" class="step1-box">
+        <p class="info-title" v-if="v.inputType == 'formTitle'">{{ v.moduleName }}</p>
+        <div v-else-if="v.keyName == 'companyLegalPersonSign'">
+          <p class="from red-tip signature-title">{{ v.keyLabel }}</p>
+          <div class="flex">
+            <div id="qrcode"></div>
+            <div class="signature">
+              <img :src="formInfo.signature" v-if="formInfo.signature !== '' && formInfo.signature !== undefined" alt="" />
+              <Button type="primary" v-else @click="hasSignature()">我已签名</Button>
+              <!-- {{'sta=' +status}} {{ "sing"+formInfo.signature}} -->
+              <span v-if="formInfo.signature !== '' && formInfo.signature !== undefined" @click="hasSignature">
+                <img class="refresh" src="@/assets/images/common/refreshBlue.png" alt="" />
+              </span>
+            </div>
+          </div>
+        </div>
+        <FormItem label="销售链接" v-else-if="v.keyName == 'marketHref'" class="width100 red-tip from" :key="xiaoshou">
+          <Poptip trigger="hover" placement="right-end" style="position: absolute;top: -22px;left:90px;color:#000">
+            <Icon type="ios-help" class="icon-help" />
+            <div class="api" slot="title">
+              <p>销售链接要求说明</p>
+            </div>
+            <div class="api" slot="content">
+              <div style="line-height: 1.8em">
+                <p>1、在美国境内销售，币种为美元;</p>
+                <p>2、可加入购物车，销售金额与市场价保持一致，上下浮动20%的范围比较合理;</p>
+                <p>3、至少有一张产品图显示出商标名字;</p>
+                <p>4、标题首位是商标名称或者品牌是商标名字;</p>
+                <p>5、链接可以是亚马逊/eBay/Wish/阿里巴巴国际站等。</p>
+              </div>
+            </div>
+          </Poptip>
+          <div class="marketHref-list" v-for="(item, index) in marketHrefList" :key="index">
+            <Input v-model="item.marketHref" :disabled="isEditor" placeholder="示例：http://或https://" :maxlength="700" style="width:234px;"></Input>
+            <Select style="width:156px;margin-left:10px;" placeholder="请选择商标小类" v-model="item.category2NameEn" :key="xiaoshou" @on-change="changeHrefClass($event, index)">
+              <Option v-for="(v, i) in checkTwoClassifyList" :key="i" :value="v.category2NameEn">{{ v.category2NameEn }}</Option>
+            </Select>
+            <img src="@/assets/images/infoDetail/add.svg" alt="" @click="addHref(index)" v-if="index == marketHrefList.length - 1 && marketHrefList.length < 20" />
+            <img src="@/assets/images/infoDetail/minus.svg" alt="" @click="removeHref(index)" v-if="index == marketHrefList.length - 1 && marketHrefList.length > 1" />
+          </div>
+          <p class="gary-tip">销售链接内的商品需与使用证据的商品资料一致</p>
+          <div class="tip2">
+            <p class="tip2-title">销售链接要求：</p>
+            <p>
+              1、在美国境内销售，币种为美元;<br />
+              2、可加入购物车，销售金额与市场价保持一致，上下浮动20%的范围比较合理; <br />
+              3、至少有一张产品图显示出商标名字; <br />
+              4、标题首位是商标名称或者品牌是商标名字; <br />
+              5、链接可以是亚马逊/eBay/Wish/阿里巴巴国际站等。
+            </p>
+          </div>
+        </FormItem>
+        <div class="proof-box form-item" v-else-if="v.keyName == 'useProductImg'">
+          <div class="from proof-tip" style="position: relative">
+            <p>上传使用证据</p>
+            <Poptip trigger="hover" placement="right-end" style="position: absolute;top: 10px; left: 110px;color:#000">
+              <Icon type="ios-help" class="icon-help" />
+              <div class="api" slot="title">
+                <p>使用证据要求说明</p>
+              </div>
+              <div class="api" slot="content">
+                <div style="line-height: 1.8em">
+                  <p>1、照片必须为 JPG 格式、每张图≤2MB; 照片清晰且无水印、产品完整且未使用过;</p>
+                  <p>2、照片不可经过 PS、美化等处理，产品要真正的实拍图，不要白底图片，不要拍到 其他杂物，也不要手拿着拍;</p>
+                  <p>3、照片请以小类英文名称命名，方便审核;</p>
+                  <p>4、商标LOGO 不能采用贴纸、金属贴标等方式，需要真实印，可采用丝印、镭射、激 光、雕刻;</p>
+                  <p>5、产品图上不能出现中文以及™、®标识。</p>
+                </div>
+              </div>
+            </Poptip>
+            <div style="top: 2px;margin-left:10px;position:absolute;left:126px;" class="tip2-example-box button-upload" @click="proofExampleModal = true">
+              <img src="@/assets/images/infoDetail/searchIcon.png" alt="" />
+              查看示例图
+              <img src="@/assets/images/infoDetail/shangjiantou-you.png" alt="" />
+            </div>
+          </div>
+          <Select style="width: 400px; margin: 10px 0" :placeholder="'请选择商标小类'" v-model="category2NameEn" @on-change="changeHrefClass($event, 0)">
+            <Option v-for="(v, i) in checkTwoClassifyList" :key="i" :value="v.category2NameEn">
+              {{ v.category2NameEn }}
+            </Option>
+          </Select>
+          <Row>
+            <Col :span="12">
+              <span class="item-label from red-tip" style="font-size:14px">上传产品图 </span>
+              <Upload
+                class="upload-proof"
+                ref="uploadEvidence"
+                :before-upload="
+                  (file) => {
+                    beforeUploadHandler2(file, 'product');
+                    return false;
+                  }
+                "
+                :on-format-error="formatErrorHandler"
+                :on-success="
+                  (res, file, fileList) => {
+                    successHandler(res, file, fileList, usrProductImgList);
+                  }
+                "
+                :action="uploadUrl"
+                :show-upload-list="false"
+                :disabled="isEditor"
+                :max-size="20480"
+                :on-exceeded-size="handleMaxSize"
+              >
+                <img src="@/assets/images/infoDetail/upload-proof.svg" alt="" />
+                <p>点击或将文件拖拽到这里上传</p>
+              </Upload>
+              <div class="evidence-box" v-if="usrProductImgList.length > 0">
+                <div v-for="(item, index) in usrProductImgList" :key="index">
+                  <p>
+                    <a :href="item.fileUrl" target="_blank"> <img src="@/assets/images/infoDetail/bianji.png" alt="" /> {{ item.fileName }} </a>
+                  </p>
+                  <img src="@/assets/images/infoDetail/del.png" class="del-img" v-if="!isEditor" @click="removeHandler(index, usrProductImgList)" alt="" />
+                </div>
+              </div>
+            </Col>
+            <Col :span="12">
+              <span class="item-label from" style="font-size:14px">上传订单详情截图 </span>
+              <Upload
+                class="upload-proof"
+                ref="uploadEvidence"
+                :before-upload="
+                  (file) => {
+                    beforeUploadHandler2(file, 'order');
+                    return false;
+                  }
+                "
+                :on-format-error="formatErrorHandler"
+                :on-success="
+                  (res, file, fileList) => {
+                    successHandler(res, file, fileList, useEvidenceList);
+                  }
+                "
+                :action="uploadUrl"
+                :show-upload-list="false"
+                :disabled="isEditor"
+                :max-size="20480"
+                :on-exceeded-size="handleMaxSize"
+              >
+                <img src="@/assets/images/infoDetail/upload-proof.svg" alt="" />
+                <p>点击或将文件拖拽到这里上传</p>
+              </Upload>
+              <div class="evidence-box" v-if="useEvidenceList.length > 0">
+                <div v-for="(item, index) in useEvidenceList" :key="index">
+                  <p>
+                    <a :href="item.fileUrl" target="_blank"> <img src="@/assets/images/infoDetail/bianji.png" alt="" /> {{ item.fileName }} </a>
+                  </p>
+                  <img src="@/assets/images/infoDetail/del.png" class="del-img" v-if="!isEditor" @click="removeHandler(index, useEvidenceList)" alt="" />
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 5">
+          <Select v-model="v.keyNameValue" :placeholder="v.placeHolder" filterable :disabled="isEditor">
+            <template v-if="v.keyName == 'companyAddressCountryEn'">
+              <Option :value="ra.countryNameEn" :disabled="isEditor" v-for="(ra, ri) in v.optionList" :key="ri">{{ ra.countryNameZh }}</Option>
+            </template>
+            <template v-else>
+              <Option :value="ra.value" :disabled="isEditor" v-for="(ra, ri) in v.options" :key="ri">{{ ra.label }}</Option>
+            </template>
+          </Select>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 1">
+          <Input v-model="v.keyNameValue" :maxlength="initOptionFunc(v.info, 'maxlength')" :placeholder="v.placeHolder" :disabled="isEditor"></Input>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 6">
+          <Input v-model="v.keyNameValue" type="textarea" :rows="initOptionFunc(v.info, 'rows')" :placeholder="v.placeHolder" :disabled="isEditor"></Input>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 2">
+          <RadioGroup v-model="v.keyNameValue" @on-change="changeCheckRadio($event, i)">
+            <Radio :label="Number(ra.value)" :disabled="isEditor" v-for="(ra, ri) in v.options" :key="ri">{{ ra.label }}</Radio>
+          </RadioGroup>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 3">
+          <CheckboxGroup v-model="v.keyNameValue">
+            <Checkbox :label="ra.value" :disabled="isEditor" v-for="(ra, ri) in v.options" :key="ri">{{ ra.label }}</Checkbox>
+          </CheckboxGroup>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 4">
+          <!-- 小类 使用证据或其他文件 -->
+          <div class="uploadOtherSmallLanguagesFiles proof-box form-item" v-if="v.keyName == 'otherSmallLanguagesFiles'">
+            <!-- <div class="upload-list">
+              <div v-for="(item,z) in v.keyNameValue" :key="z" class="bread-logo-box upload-list-item">
+                <img :src="item" class="bread-logo" alt="">
+                <div class="upload-list-cover">
+                  <Icon type="ios-trash-outline" @click.native="removeHandler2(z,v)"></Icon>删除
+                </div>
+              </div>
+            </div>
+            <div class="bread-logo-box" :class="v.keyNameValue==''?'':v.keyNameValue==undefined?'':'show-change'">
+              <Upload ref="upload" :action="uploadUrl" class="upload-logo" :on-format-error="formatErrorHandler2" :on-success="(res,file,fileList)=>{successHandler2(res,file,fileList,v)}" :on-remove="(file,fileList)=>{removeHandler1 (file,fileList,v)}" :format="initOptionFunc(v.info,'accepts')" :before-upload="(file)=>{beforeUploadHandler (file,i,v)}" :show-upload-list="false" :max-size="20480" :on-exceeded-size="handleMaxSize" :disabled="isEditor">
+                <img src="@/assets/images/infoDetail/upload.svg" alt="">
+              </Upload>
+            </div> -->
+            <Row>
+              <Col :span="12">
+                <!-- <span class="item-label from red-tip" style="font-size:14px">上传产品图</span> -->
+                <Upload
+                  class="upload-proof"
+                  ref="uploadEvidence"
+                  :before-upload="
+                    (file) => {
+                      beforeUploadHandler3(file, 'product', v);
+                    }
+                  "
+                  :on-format-error="formatErrorHandler1"
+                  :on-success="
+                    (res, file, fileList) => {
+                      successHandler2(res, file, fileList, v, smmllLanProductImgList, 'smmllLanProductImgList');
+                    }
+                  "
+                  :action="uploadUrl"
+                  :show-upload-list="false"
+                  :disabled="isEditor"
+                  :max-size="20480"
+                  :on-exceeded-size="handleMaxSize"
+                  :format="initOptionFunc(v.info, 'accepts')"
+                >
+                  <img src="@/assets/images/infoDetail/upload-proof.svg" alt="" />
+                  <p>点击或将文件拖拽到这里上传</p>
+                </Upload>
+                <div class="evidence-box" v-if="smmllLanProductImgList.length > 0">
+                  <div v-for="(item, index) in smmllLanProductImgList" :key="index">
+                    <p>
+                      <a :href="item" target="_blank"> <img src="@/assets/images/infoDetail/bianji.png" alt="" /> 其他文件{{ index + 1 }} </a>
+                    </p>
+                    <img src="@/assets/images/infoDetail/del.png" class="del-img" v-if="!isEditor" @click="removeHandler(index, smmllLanProductImgList)" alt="" />
+                  </div>
+                </div>
+              </Col>
+              <!-- <Col :span="12">
+              <span class="item-label from" style="font-size:14px">上传订单详情截图</span>
+              <Upload class="upload-proof" ref="uploadEvidence" :before-upload="(file) => {beforeUploadHandler3(file, 'order',v)}" :on-format-error="formatErrorHandler1" :on-success="(res,file,fileList)=>{successHandler2(res,file,fileList,v,samllLanEvidenceList,'samllLanEvidenceList')}" :action="uploadUrl" :show-upload-list="false" :disabled="isEditor" :max-size="20480" :on-exceeded-size="handleMaxSize" :format="initOptionFunc(v.info,'accepts')">
+                <img src="@/assets/images/infoDetail/upload-proof.svg" alt="">
+                <p>点击或将文件拖拽到这里上传</p>
+              </Upload>
+              <div class="evidence-box" v-if="samllLanEvidenceList.length>0">
+                <div v-for="(item,index) in samllLanEvidenceList" :key="index">
+                  <p>
+                    <a :href="item.fileUrl" target="_blank">
+                      <img src="@/assets/images/infoDetail/bianji.png" alt=""> {{item.fileName}}
+                    </a>
+                  </p>
+                  <img src="@/assets/images/infoDetail/del.png" class="del-img" v-if="!isEditor" @click="removeHandler(index,samllLanEvidenceList)" alt="">
+                </div>
+              </div>
+              </Col> -->
+            </Row>
+          </div>
+
+          <!-- 非小类 使用证据或其他文件 -->
+          <div v-else class="bread-logo-box" :class="v.keyNameValue == '' ? '' : v.keyNameValue == undefined ? '' : 'show-change'">
+            <Upload
+              :action="uploadUrl"
+              class="upload-logo"
+              :class="{ 'upload-img': v.keyNameValue && isImg(v.keyNameValue), 'upload-file': !!v.keyNameValue }"
+              :on-format-error="() => formatErrorHandler2(v.info)"
+              :on-success="
+                (res, file, fileList) => {
+                  successHandler1(res, file, fileList, v);
+                }
+              "
+              :on-remove="
+                (file, fileList) => {
+                  removeHandler1(file, fileList, v);
+                }
+              "
+              :format="initOptionFunc(v.info, 'accepts')"
+              :before-upload="
+                (file) => {
+                  beforeUploadHandler(file, i, v);
+                }
+              "
+              :show-upload-list="false"
+              :max-size="20480"
+              :on-exceeded-size="handleMaxSize"
+              :disabled="isEditor"
+            >
+              <img src="@/assets/images/infoDetail/upload.svg" alt="" />
+            </Upload>
+            <template v-if="v.keyNameValue">
+              <img :src="v.keyNameValue" class="bread-logo" alt="" v-if="isImg(v.keyNameValue)" />
+              <div class="show-file" v-else>
+                <a target="_blank" :href="parseFileUrl(v.keyNameValue)">{{ parseFileName(v.keyNameValue) }}</a>
+                <Icon style="margin-left: 5px;color: #999;cursor: pointer" @click="v.keyNameValue = ''" type="md-close" />
+              </div>
+            </template>
+            <Upload
+              v-if="isImg(v.keyNameValue)"
+              class="hover-box"
+              :on-format-error="() => formatErrorHandler2(v.info)"
+              :on-success="
+                (res, file, fileList) => {
+                  successHandler1(res, file, fileList, v);
+                }
+              "
+              :on-remove="
+                (file, fileList) => {
+                  removeHandler1(file, fileList, v);
+                }
+              "
+              :format="initOptionFunc(v.info, 'accepts')"
+              :show-upload-list="false"
+              :disabled="isEditor"
+              :max-size="20480"
+              :on-exceeded-size="handleMaxSize"
+              :action="uploadUrl"
+            >
+              <img src="@/assets/images/infoDetail/editor-bai.png" alt="" />更换图片
+            </Upload>
+          </div>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+          <p v-if="v.keyName === 'registrationAuthorization'">
+            <a :href="v.sourceFileUrl" target="_blank" style="margin-right: 10px"><Icon type="md-download" />下载授权书模板</a>
+            <a :href="v.fileModelUrl" target="_blank"><Icon type="md-search" />查看签名示例</a>
+          </p>
+        </FormItem>
+
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 8">
+          <DatePicker type="date" :disabled="isEditor" v-model="v.keyNameValue" :options="options" :placeholder="v.placeHolder"> </DatePicker>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <FormItem :label="v.keyLabel" :prop="v.keyName" v-else-if="v.inputType == 9">
+          <DatePicker type="daterange" :disabled="isEditor" v-model="v.keyNameValue" :options="options" :placeholder="v.placeHolder"> </DatePicker>
+          <p class="gary-tip">{{ v.remindMessage }}</p>
+        </FormItem>
+        <div class="form-item" v-else-if="v.keyLabel == '商标分类'">
+          <div class="category-box" v-for="(categoryItem, categoryIndex) in trademarkCategoryList" :key="categoryIndex">
+            <div class="form-item">
+              <P class="item-label red-tip from">商标分类</P>
+              <Input v-model="categoryItem.category1Name" disabled placeholder="添加商标分类" style="width:398px;margin-right:10px;">
+                <img src="http://file.itaxs.com/pro/20210922/357b06851e354651ab19ed470cca8cc1.svg" class="slot-img" @click="changeClassfiyFun(categoryIndex)" slot="suffix" v-if="categoryItem.category1Name == ''" />
+                <img src="@/assets/images/common/edit.svg" class="slot-img" v-else @click="changeClassfiyFun(categoryIndex)" slot="suffix" />
+              </Input>
+            </div>
+
+            <!-- <div>test</div> -->
+            <div class="form-item" v-if="existSubclass">
+              <div>
+                <span class="item-label red-tip from">商标小类名称</span>
+                <a class="subclass-tip"
+                  >联系我们的
+                  <a onclick='easemobim.bind({configId: "ccf5ac95-5a5d-42f3-9eae-2b984fc0d4f2"})'>客服人员</a>
+                </a>
+              </div>
+              <Input v-model="categoryItem.searchtext" :disabled="isEditor" placeholder="输入的单词必须是有含义的" :maxlength="200"></Input>
+              <Button class="search-subclass-btn" @click="searchSubclass(categoryIndex)">搜索</Button>
+              <div class="search-table" v-if="categoryItem.searchtext != '' && categoryItem.searchtext != undefined && categoryItem.isSearch">
+                <Table
+                  border
+                  :ref="`mulTable${categoryIndex}`"
+                  v-if="categoryItem.searchtext != '' && categoryItem.searchtext != undefined && categoryItem.isSearch"
+                  class="subclass-table"
+                  :data="categoryItem.resultData"
+                  :columns="subClassCloumns"
+                  @on-selection-change="selectData($event, categoryIndex)"
+                  @on-select-all-cancel="cancelData($event, categoryIndex)"
+                >
+                </Table>
+                <img src="https://fdfs.itaxs.com/group1/M00/05/D1/rBLKNV_y1ayADmwlAAAGv_fYKHg584.svg" alt="" @click="categoryItem.isSearch = false" />
+              </div>
+              <div class="check-two-category" v-if="!isEditor">
+                <span :style="{ color: item.isRepeat ? 'red' : '' }" v-for="(item, index) in categoryItem.listTrademarkCategory2" :key="item.category2NameEn"
+                  >{{ item.category2NameEn }}<img src="@/assets/images/infoDetail/del.svg" class="del-img" @click="removeTowCategory(categoryIndex, index)" alt=""
+                /></span>
+              </div>
+              <p class="repeatJpTips-text" v-if="!isEditor && chargeHasRepeatJp(categoryItem.listTrademarkCategory2)"><Icon type="md-alert" />以上红色字体的小类为日文重复的小类，请保留一个</p>
+              <p class="gray-tip">小类信息由专员在官网进行排查，最终以官网信息为准.建议最佳是10-15个商标小类名称,最多20个</p>
+              <div class="risk-box" v-if="riskClassifyList.length > 0 && countryCode == 'US'">
+                <p class="item-label red-tip from risk-title">含有风险小类，需指定关键词</p>
+                <div class="tip-box">
+                  <img src="@/assets/images/infoDetail/tip.svg" alt="" />
+                  <p><span class="color333">风险小类：</span>美国遵循国际尼斯分类，对其申请的商品/服务项目要求具体细化。例如：“计算机周边设备”该项商品在美国是<br />不能被接受，原因是范围太宽泛，需要进一步细化到“键盘、鼠标、扫描仪”等。</p>
+                </div>
+                <p style="color: #ED7B2F;font-size: 14px;margin: 10px 0 10px 34px;">风险小类被驳回机率较大，请慎重选择</p>
+                <Table border class="subclass-table" :data="riskClassifyList" :columns="riskClassCloumns"> </Table>
+              </div>
+            </div>
+
+            <div class="form-item" v-else>
+              <div>
+                <span class="item-label red-tip from">商标小类名称</span>
+                <a class="subclass-tip"
+                  >联系我们的
+                  <a onclick='easemobim.bind({configId: "ccf5ac95-5a5d-42f3-9eae-2b984fc0d4f2"})'>客服人员</a>
+                </a>
+              </div>
+              <!-- 多个小类,每个以英文逗号分开。&#10; 列子：Acids for etching enamels;Acrylate;Acetanil -->
+              <Input type="textarea" :rows="3" :autosize="{ minRows: 3, maxRows: 7 }" :placeholder="placeholder" v-model="trademarkCategoryList[categoryIndex].textareaubclass"> </Input>
+              <p class="gray-tip">小类信息由专员在官网进行排查，最终以官网信息为准.建议最佳是10-15个商标小类名称,最多20个</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 20px;text-align: center" v-show="servicesStatus != 9">
+        <Button :disabled="isCancel" @click="saveInfoFun('')" v-if="!isEditor">仅保存不提交</Button>
+        <Button :disabled="isCancel" @click="saveInfoFun(true)" v-if="!isEditor" type="primary">确认并提交</Button>
+      </div>
+      <div class="step3-box" v-show="steps == 3">
+        <img src="@/assets/images/infoDetail/success.png" alt="" />
+        <p class="submit-success">提交成功</p>
+        <p class="sub-succcess">您的商标信息提交成功，如需查看填写的信息，请点击【查看商标信息】。</p>
+        <div class="bread-info-box">
+          <p class="bread-title">{{ serviceName }}</p>
+          <p class="sub-info">
+            <span>商标类型：{{ formData.trademarkType == 1 ? '纯文字' : formData.trademarkType == 2 ? '纯黑白图形' : formData.trademarkType == 3 ? '纯彩色图形' : formData.trademarkType == 4 ? '文字+黑白图形' : formData.trademarkType == 5 ? '文字+彩色图形' : '' }}</span>
+            <span v-if="formData.trademarkType == 1 || formData.trademarkType == 4 || formData.trademarkType == 5">商标名称：{{ formData.trademarkNameEn }}</span>
+          </p>
+          <img src="@/assets/images/infoDetail/progress.png" alt="" />
+          <div class="progress-info flex-between">
+            <div class="progress">
+              <p>提交成功</p>
+              <p>{{ nowTime }}</p>
+            </div>
+            <div class="progress">
+              <p>系统审核</p>
+              <p>1个工作日</p>
+            </div>
+            <div class="progress">
+              <p>提交商标局</p>
+            </div>
+          </div>
+        </div>
+        <div class="next-button">
+          <button @click="goMyBread" type="button" class="blue-btn">返回我的商标</button>
+          <!-- <button @click="goDetail"
+                  type='button'
+                  class="white-btn">查看商标信息</button> -->
+        </div>
+      </div>
+    </Form>
+    <Modal v-model="classifyModal" class="classify-modal" footer-hide>
+      <div class="classify-header" slot="header">
+        <p class="title">
+          添加商标分类
+          <span>(您一共购买了一类，最多可选择一类）</span>
+        </p>
+        <div class="tip">提示：不确定要选择哪个分类？可尝试搜索竞争对手的商标，然后，查看它的商标详情中申请的分类。如果仍不确定要选择哪个分类，请咨询我们的客服人员。</div>
+      </div>
+      <CheckboxGroup @on-change="checkAllGroupChange" v-model="choiceClassify">
+        <Checkbox :label="item.categoryNum" v-for="(item, index) in firstClassList" :key="index">{{ item.categoryNum < 10 ? '0' + item.categoryNum : item.categoryNum }}&nbsp;{{ item.categoryName }}</Checkbox>
+      </CheckboxGroup>
+      <div class="classify-footer">
+        <Button @click="sureOneCategory">提交</Button>
+      </div>
+    </Modal>
+    <Modal v-model="decribeTipModal" width="650px" footer-hide title="参考示例">
+      <div class="example-describe clearfix">
+        <div class="fl">
+          <img src="@/assets/images/infoDetail/example-blue.svg" alt="" />
+          <p class="explain">LOGO图样</p>
+        </div>
+        <div class="fl right">
+          <p class="title">设计商标描述（样例）：</p>
+          <p class="describe-en">The mark consists of the wording "i" in stylized font and above the wording is a cloud.</p>
+          <p class="describe-ch">
+            解释：例子描述了从logo中看到的形状“云朵（cloud）”，<br />
+            在云朵的左下方有一个字母“i”。
+          </p>
+        </div>
+      </div>
+    </Modal>
+    <Modal v-model="logoExampleModal" footer-hide title="示例图" class="logo-example-modal">
+      <img src="@/assets/images/infoDetail/example2.png" alt="" />
+    </Modal>
+    <Modal v-model="proofExampleModal" footer-hide title="示例图" class="proof-example-modal">
+      <div class="examples">
+        <p>符合的图片类型</p>
+        <img src="https://fdfs.itaxs.com/group1/M00/04/EE/rBLKNV_QkQuAF2JiAACSFlBcrYk905.png" alt="" />
+        <img src="https://fdfs.itaxs.com/group1/M00/04/EE/rBLKNV_QkSqAfwZfAAClUBVsIrc431.png" alt="" />
+      </div>
+      <div class="examples">
+        <p>不符合的图片类型</p>
+        <img src="https://fdfs.itaxs.com/group1/M00/04/EE/rBLKNV_QkUKAE8BbAACOuG7i62g495.png" alt="" />
+        <img src="https://fdfs.itaxs.com/group1/M00/04/EE/rBLKNV_QkVqAYciLAACc2vOyxb4242.png" alt="" />
+      </div>
+      <p class="modal-tip"><img src="@/assets/images/product/error-icon.png" alt="" />不符合原因：1、产品不完整 2、没有logo 3、含有中文 4、图片不清晰</p>
+    </Modal>
+    <Modal v-model="tipsModal">
+      <div class="tipsModal-title">温馨提示</div>
+      <Divider style="margin:16px 0;" />
+      <div class="tipsModal-contnet">
+        <p class="tip-title">您的资料审核未通过，请按照以下指引修改...</p>
+        <p class="tip-remark">{{ rejectInfo }}</p>
+      </div>
+      <div slot="footer">
+        <Button type="primary" @click="tipsModal = false">知道了</Button>
+      </div>
+    </Modal>
+  </div>
+</template>
+<script>
+import QRCode from 'qrcodejs2';
+import '@/assets/style/common.less';
+import { Throttle, formatDate } from '@/libs/throttle.js';
+import { getCompanyLegalPersonSign, getCompanyLegalPersonSignUrl } from '@/api/registerInfo/registerInfo';
+import { workorderDetailAPI, updateNodeAPI } from '@/api/trademarkRegister/myBread';
+import { getOneCategoryApi, getSubclassApi } from '@/api/trademarkRegister/trademarkInfo';
+import { upload2 } from '@/api/uploadReFile.js';
+import { getInfoDetailCacheCountry } from '@/api/country';
+export default {
+  data() {
+    let reg = new RegExp('[\\u4E00-\\u9FFF]+', 'g');
+    const validateMailbox = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写邮箱'));
+      } else if (!/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/.test(value)) {
+        callback(new Error('邮箱格式不正确'));
+      } else {
+        callback();
+      }
+    };
+    const validateCompanyname = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写公司名称（英文）'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉公司名称的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉公司名称的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉公司名称的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateLastName = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写姓氏（英文）'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉姓氏的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉姓氏的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉姓氏的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateApplyName = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写名字（英文）'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉名字的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉名字的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉名字的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateStreet = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写街道地址（英文）'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉街道地址的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉街道地址的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉街道地址的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateAddres = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写详细地址（英文）'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉详细地址的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉详细地址的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉详细地址的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateTrademarkDescribe = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写logo设计元素及元素的含义'));
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        callback(new Error('请去掉设计商标描述的中文或中文标点符号'));
+      } else if (reg.test(value)) {
+        callback(new Error('请去掉设计商标描述的中文或中文标点符号'));
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        callback(new Error('请去掉设计商标描述的中文或中文标点符号'));
+      } else {
+        callback();
+      }
+    };
+    const validateNum = (rule, value, callback) => {
+      if (value == '') {
+        callback(new Error('请填写邮政编码'));
+      } else if (isNaN(value)) {
+        callback(new Error('请填写数字'));
+      } else {
+        callback();
+      }
+    };
+    return {
+      options: {
+        disabledDate(date) {
+          return date > Date.now();
+        },
+      },
+      formInfo: {
+        trademarkLogo: '',
+        applyType: '1',
+        trademarkType: '1',
+        trademarkNameEn: '',
+        firstUseDate: '',
+        firstBusinessUseDate: '',
+        applyCompanyEn: '',
+        applyCountryEn: 'China',
+        applyLastNameEn: '',
+        applyNameEn: '',
+        trademarkCategoryList: [],
+        businessLicense: '',
+        identityCardFront: '',
+        identityCardReverse: '',
+        signature: '',
+        applyAddresEn: '',
+        trademarkDescribe: '',
+      },
+      ruleValidate: {
+        trademarkNameEn: [
+          {
+            required: true,
+            trigger: 'blur',
+            message: '请填写商标名称（英文）',
+          },
+        ],
+        trademarkType: [{ required: true, trigger: 'change', message: '请选择商标类型' }],
+        companyType: [{ required: true, trigger: 'change', message: '请选择公司类型' }],
+        firstBusinessUseDate: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请选择首次在商业上使用的日期',
+            type: 'date',
+          },
+        ],
+        firstUseDate: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请选择首次使用日期',
+            type: 'date',
+          },
+        ],
+        trademarkLogo: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请上传商标图形LOGO',
+          },
+        ],
+        businessLicense: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请上传公司营业执照',
+          },
+        ],
+        identityCardFront: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请上传身份证正面',
+          },
+        ],
+        identityCardReverse: [
+          {
+            required: true,
+            trigger: 'change',
+            message: '请上传身份证反面',
+          },
+        ],
+        applyType: [{ required: true, trigger: 'change', message: '请选择申请人信息' }],
+        applyCompanyEn: [{ required: true, trigger: 'blur', validator: validateCompanyname }],
+        trademarkDescribe: [
+          {
+            required: true,
+            trigger: 'blur',
+            validator: validateTrademarkDescribe,
+          },
+        ],
+        applyLastNameEn: [{ required: true, trigger: 'blur', validator: validateLastName }],
+        applyNameEn: [{ required: true, trigger: 'blur', validator: validateApplyName }],
+        applyCountryEn: [{ required: true, trigger: 'blur', message: '请填写国家（英文）' }],
+        applyStreetEn: [{ required: true, trigger: 'blur', validator: validateStreet }],
+        applyAddresEn: [{ required: true, trigger: 'blur', validator: validateAddres }],
+        applyPostNum: [{ required: true, trigger: 'blur', validator: validateNum }],
+        applyEmail: [{ required: true, trigger: 'blur', validator: validateMailbox }],
+      },
+      servicesStatus: undefined, // 工单服务状态
+      placeholder: '多个小类,每个以英文分号分开。\n列子：Acids for etching enamels;Acrylate;Acetanil',
+      steps: 1,
+      rejectInfo: '',
+      checkTwoClassifyList: [],
+      dataArea: this.AREA1, // 省市数据，和客户管理系统一致
+      proofExampleModal: false,
+      classifyModal: false,
+      choiceClassify: [],
+      firstClassList: [],
+      isChooseOneClassify: false,
+      loading1: false,
+      selectTwoclassify: '',
+      twoClassifyList: [], // 查询返回的小类列表
+      twoClassifyNameList: [],
+      twoClassifyListOption: [],
+      args: [],
+      province: '',
+      city: '',
+      defaultCity: '',
+      province: '',
+      city: '',
+      useEvidenceList: [],
+      samllLanEvidenceList: [],
+      smmllLanProductImgList: [],
+      usrProductImgList: [],
+      isEditor: false,
+      tipsModal: false,
+      decribeTipModal: false,
+      remark: '',
+      status: this.$route.query.status,
+      logoExampleModal: false,
+      subClassCloumns: [
+        {
+          title: '商标小类（中文）',
+          key: 'categoryName',
+          // width: 318,
+          align: 'center',
+          // fixed: 'left'
+        },
+        {
+          title: '商标小类（英文）',
+          key: 'categoryNameEn',
+          // width: 432,
+          align: 'center',
+        },
+        {
+          title: '多选',
+          width: '60px',
+          type: 'selection',
+          align: 'center',
+          fixed: 'right',
+        },
+      ],
+      newOriginalDataList: [],
+      marketHrefList: [
+        {
+          category2Name: '',
+          category2NameEn: '',
+          marketHref: '',
+        },
+      ],
+      isSearch: false,
+      riskClassifyList: [],
+      riskClassCloumns: [
+        {
+          title: '风险小类',
+          align: 'center',
+          key: 'category2NameEn',
+        },
+        {
+          title: '指定关键词',
+          align: 'center',
+          render: (h, params) => {
+            //  let create = this.$createElement;
+            //  let dom = create('div',[this.c])
+            return this.$createElement('div', [
+              this.$createElement('Input', {
+                props: {
+                  value: params.row.keyword[0],
+                  placeholder: '请从风险小类{ }内指定一个关键词',
+                  maxlength: 500,
+                },
+                attrs: {
+                  // ref: 'no',
+                  class: 'subClass',
+                },
+                on: {
+                  input: (val) => {
+                    this.riskClassifyList[params.row._index].keyword[0] = val;
+                    this.checkTwoClassifyList.map((item) => {
+                      if (item.category2Num == params.row.category2Num) {
+                        item.keyword[0] = val;
+                      }
+                    });
+                  },
+                },
+                ref: 'getRiksInput',
+                key: 'getRiksInputKey' + this.getRiksInputKey,
+              }),
+            ]);
+          },
+        },
+      ],
+      countryCode: this.$route.query.code,
+      serviceNo: '',
+      workflowColumns: [],
+      originalData: [],
+      xiaoshou: false,
+      formData: {},
+      trademarkCategoryList: [],
+      categoryCount: 0,
+      category2NameEn: '',
+      getRiksInputKey: 0,
+      serviceName: '',
+      isCancel: false,
+      // 是否存在商标小类
+      existSubclass: false,
+    };
+  },
+  computed: {
+    nowTime() {
+      var date = new Date();
+      return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + '   ' + date.getHours() + ':' + (date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes());
+    },
+  },
+  watch: {},
+  methods: {
+    /**
+     * 更具国家设置小类表单
+     */
+    setsubClassCloumns(code) {
+      let arr = [];
+      if (code === 'JP') {
+        arr = [
+          {
+            title: '商标小类（日文）',
+            key: 'categoryNameJp',
+            // width: 432,
+            align: 'center',
+          },
+          {
+            title: '类似群组',
+            key: 'similarGroup',
+            // width: 432,
+            align: 'center',
+          },
+        ];
+      } else if (code === 'KR') {
+        arr = [
+          {
+            title: '商标小类（韩文）',
+            key: 'categoryNameMore',
+            // width: 432,
+            align: 'center',
+          },
+        ];
+      } else if (code === 'DE') {
+        arr = [
+          {
+            title: '商标小类（德文）',
+            key: 'categoryNameMore',
+            // width: 432,
+            align: 'center',
+          },
+        ];
+      }
+      arr.forEach((item, index) => this.subClassCloumns.splice(2 + index, 0, item));
+    },
+    getOneCategoryFun() {
+      getOneCategoryApi().then((res) => {
+        if (res.code == 0) {
+          this.firstClassList = res.data;
+        }
+      });
+    },
+    checkAllGroupChange(data) {
+      if (data.length > 0) {
+        this.choiceClassify = data.slice(-1);
+      } else {
+        this.checkTwoClassifyList = [];
+        this.riskClassifyList = [];
+      }
+    },
+
+    /**
+     * 解析
+     */
+
+    changeClassfiyFun(i) {
+      this.choiceClassify = [];
+      this.classifyModal = true;
+      this.changeIndex = i;
+      this.trademarkCategoryList.map((item, index) => {
+        if (index == i) {
+          if (item.category1Num != '') {
+            let categoryNum = item.category1Num;
+            this.choiceClassify.push(categoryNum);
+          } else {
+            this.choiceClassify = [];
+          }
+        }
+      });
+    },
+    sureOneCategory() {
+      let that = this;
+      this.classifyModal = false;
+      for (var item of that.trademarkCategoryList) {
+        if (item.category1Num == that.choiceClassify[0]) {
+          this.$Message.info('该商标分类已存在，不能重复选择');
+          return;
+        }
+      }
+      this.choiceClassify.map((v, i) => {
+        this.firstClassList.map((item, index) => {
+          if (v == item.categoryNum) {
+            let obj = {
+              category1Name: item.categoryName,
+              category1NameEn: item.categoryNameEn,
+              category1Num: item.categoryNum,
+              category1Price: 0,
+              searchtext: '',
+              listTrademarkCategory2: [],
+            };
+            that.trademarkCategoryList[that.changeIndex] = { ...obj };
+          }
+        });
+      });
+      this.twoClassifyList = [];
+      this.checkTwoClassifyList = [];
+    },
+    remoteMethod(query) {
+      if (this.choiceClassify.length == 0) {
+        this.$Message.info('请先选择商标分类');
+        return;
+      }
+      if (query.length >= 3) {
+        this.loading1 = true;
+        setTimeout(() => {
+          this.loading1 = false;
+          const list = this.twoClassifyList.map((item) => {
+            return item;
+          });
+          this.twoClassifyListOption = list.filter((item) => item.categoryName.toLowerCase().indexOf(query.toLowerCase()) > -1);
+        }, 200);
+      }
+    },
+    changeTwoClassify(i) {
+      this.selectTwoclassify = i;
+    },
+    // 删除二级菜单
+    removeTowCategory(categoryIndex, i) {
+      let obj = { ...this.trademarkCategoryList[categoryIndex] };
+      obj.listTrademarkCategory2.splice(i, 1);
+      if (this.countryCode === 'JP') obj.listTrademarkCategory2 = this.filterArrayRepeatPush(obj.listTrademarkCategory2);
+      this.$set(this.trademarkCategoryList, categoryIndex, obj);
+    },
+    /**
+     *  对每一个新添加的二级成员设置下标
+     */
+    setitenSubscript(array, data) {
+      let subscript = array.findIndex((item) => item.columnId == data.columnPid);
+      // if(data.keyName != "companyLegalPersonSign"){}
+      data.subscript = subscript == -1 ? array.length : subscript + 1;
+      // debugger
+      return data;
+    },
+    /**
+     *
+     */
+    beforeUploadHandler3(file, type, v) {
+      let info = v && v.info && JSON.parse(v.info),
+        len = this.smmllLanProductImgList.length,
+        beforUP = false;
+      const check = len < info.limit ? info.limit : 20;
+      if (!check) {
+        this.$Notice.warning({
+          title: '最多只可上传 ' + info.limit || 20 + ' 个文件',
+        });
+        beforUP = false;
+      }
+      return beforUP;
+    },
+    // 上传产品图或销售链接
+    beforeUploadHandler2(file, type) {
+      if (this.category2NameEn === '' || this.category2NameEn === undefined) {
+        this.$Notice.warning({
+          title: type === 'product' ? '请先选择商标小类，再上传产品图' : '请先选择商标小类，再上传订单详情截图',
+        });
+        return false;
+      }
+
+      let len = this.useEvidenceList.length + this.usrProductImgList.length;
+      const check = len < 30;
+      if (!check) {
+        this.$Notice.warning({
+          title: '最多只可上传30个文件',
+        });
+        return false;
+      }
+
+      let suffix = file.name.substring(file.name.lastIndexOf('.') + 1);
+      if (suffix !== 'jpg' && suffix !== 'pdf') {
+        this.$Notice.warning({
+          title: '文件格式错误',
+          desc: '文件格式不正确, 请上传jpg,pdf格式的文件',
+        });
+        return false;
+      }
+
+      let reg = /\\|\/|\?|\？|\*|\"|\“|\”|\'|\‘|\’|\<|\>|\{|\}|\[|\]|\【|\】|\：|\:|\、|\^|\$|\!|\~|\`|\|/g;
+      let newName = this.category2NameEn.replace(reg, '_');
+
+      let fileNameNo = 0;
+
+      const uploadList = type === 'product' ? [...this.usrProductImgList] : [...this.useEvidenceList];
+
+      uploadList.map((item) => {
+        let itemName = item.fileName;
+        let itemSuffix = itemName.substring(itemName.lastIndexOf('.') + 1);
+
+        if (itemSuffix === suffix && (itemName.slice(0, itemName.length - 4) === newName || itemName.slice(0, itemName.length - 7) === newName || itemName.slice(0, itemName.length - 8) === newName)) {
+          fileNameNo++;
+        }
+      });
+
+      newName = fileNameNo === 0 ? newName : `${newName}(${fileNameNo})`;
+
+      const copyFile = new File([file], `${newName}.${suffix}`);
+      this.uploadFile(copyFile, type);
+      return false;
+    },
+    uploadFile(file, type, isSammLan) {
+      const formdata = new FormData();
+      formdata.append('file', file);
+      upload2(formdata)
+        .then((res) => {
+          let obj = {
+            fileName: res.data.origFileName,
+            fileUrl: res.data.fileUrl,
+          };
+
+          if (type === 'product') {
+            this.usrProductImgList.push(obj);
+          } else {
+            this.useEvidenceList.push(obj);
+          }
+          // this.category2NameEn = "";
+        })
+        .catch(() => {
+          this.$Notice.warning({
+            title: '警告',
+            desc: '上传文件失败',
+          });
+        });
+    },
+    beforeUploadHandler(file, i, v) {
+      let maxlength = this.initOptionFunc(v.info, 'limit');
+      let self = this;
+      let len = '';
+      const check = len < maxlength;
+      if (!check) {
+        self.$Notice.warning({
+          title: '最多只可上传' + maxlength + '个文件',
+        });
+      }
+      return check;
+    },
+    formatErrorHandler() {
+      this.$Notice.warning({
+        title: '文件格式错误',
+        desc: '文件格式不正确, 请上传jpg,pdf格式的文件',
+      });
+    },
+    successHandler(res, file, fileList, item) {
+      let self = this;
+      if (res.code !== 0) {
+        self.$Notice.warning({
+          title: '警告',
+          desc: '请尝试再次上传',
+        });
+        return false;
+      }
+      let obj = {
+        fileName: res.data.origFileName,
+        fileUrl: res.data.fileUrl,
+      };
+
+      item.push(obj);
+    },
+    removeHandler(i, item) {
+      item.splice(i, 1);
+    },
+    formatErrorHandler1() {
+      if (this.updatError) {
+        this.$Notice.warning({
+          title: '文件格式错误',
+          desc: '文件格式不正确, 请上传' + this.updatError + '格式的文件',
+        });
+      } else {
+        this.$Notice.warning({
+          title: '文件格式错误',
+          desc: '文件格式不正确',
+        });
+      }
+    },
+    formatErrorHandler2(info) {
+      let accept = this.initOptionFunc(info, 'accepts').join(',');
+      this.$Notice.warning({
+        title: '文件格式错误',
+        desc: `文件格式不正确, 请上传${accept}格式的文件`,
+      });
+    },
+    successHandler1(res, file, fileList, item) {
+      let self = this;
+      if (res.code !== 0) {
+        self.$Notice.warning({
+          title: '警告',
+          desc: '请尝试再次上传',
+        });
+        return false;
+      }
+      item.keyNameValue = [];
+      item.keyNameValue.push(res.data.fileUrl);
+    },
+
+    /**
+     *小类 文件上传成功时的钩子
+     */
+    successHandler2(res, file, fileList, item, list) {
+      if (res.code !== 0) {
+        this.$Notice.warning({
+          title: '警告',
+          desc: '请尝试再次上传',
+        });
+        return;
+      }
+      if (Array.isArray(item.keyNameValue)) {
+        if (item.keyNameValue.length && item.keyNameValue.length < JSON.parse(item.info).limit) {
+          item.keyNameValue.push({
+            fileUrl: res.data.fileUrl,
+            fileName: res.data.origFileName,
+          });
+        } else {
+          this.$Message.warning('最多只可上传' + JSON.parse(item.info).limit + '个文件');
+        }
+      } else {
+        item.keyNameValue = [];
+        item.keyNameValue.push(res.data.fileUrl);
+      }
+      list.push(res.data.fileUrl);
+    },
+
+    removeHandler1(i, item) {
+      this.formInfo[item] = '';
+    },
+
+    removeHandler2(i, data) {
+      data.keyNameValue.splice(i, 1);
+    },
+
+    handleMaxSize(file) {
+      this.$Message.warning('图片大小不能超过20M');
+    },
+
+    handleLogoMaxSize(file) {
+      this.$Message.warning('图片大小不能超过2M');
+    },
+
+    searchSubclass(index) {
+      if (this.trademarkCategoryList[index].category1Num == '') {
+        this.$Message.info('请先选择商标分类');
+        return;
+      }
+      if (this.trademarkCategoryList[index].searchtext == '') {
+        this.$Message.info('请先输入商标小类名称');
+        return;
+      }
+      let data = {
+        countryCode: this.countryCode,
+        parentCategoryNum: this.trademarkCategoryList[index].category1Num,
+        searchName: this.trademarkCategoryList[index].searchtext,
+      };
+      getSubclassApi(data).then((res) => {
+        if (res.code == 0) {
+          let obj = this.trademarkCategoryList[index];
+          obj.resultData = res.data;
+          obj.isSearch = true;
+          this.$set(this.trademarkCategoryList, index, obj);
+          this.isSearch = true;
+        }
+      });
+    },
+    // 找出数组中重复的值并在末尾插入
+    filterArrayRepeatPush(arr = []) {
+      if (arr.length) {
+        let onlyArr = [];
+        let repeatArr = [];
+        for (let index = 0; index < arr.length; index++) {
+          let indexArr = [];
+          arr.forEach((child, childIndex) => {
+            if (child['categoryNameJp'] && child['categoryNameJp'] === arr[index]['categoryNameJp']) {
+              indexArr.push(childIndex);
+            }
+          });
+          if (indexArr.length > 1) {
+            arr[index]['isRepeat'] = true;
+            repeatArr.push(arr[index]);
+          } else {
+            arr[index]['isRepeat'] = false;
+            onlyArr.push(arr[index]);
+          }
+        }
+        return onlyArr.concat(repeatArr);
+      } else {
+        return [];
+      }
+    },
+    selectData(data, index) {
+      let oldArr = [...this.trademarkCategoryList[index].listTrademarkCategory2];
+      let obj = { ...this.trademarkCategoryList[index] };
+      if (oldArr.length !== 0) {
+        if (this.countryCode === 'JP') {
+          obj.listTrademarkCategory2 = this.filterArrayRepeatPush(this.MergeArray(oldArr, data));
+        } else {
+          obj.listTrademarkCategory2 = this.MergeArray(oldArr, data);
+        }
+        this.$set(this.trademarkCategoryList, index, obj);
+      } else {
+        let cateArr = [];
+        data.map((item) => {
+          let obj = {
+            category2Name: item.categoryName,
+            category2NameEn: item.categoryNameEn,
+            category2Num: item.categoryNum,
+            categoryNameMore: item.categoryNameMore || '',
+            keyword: [''],
+            parentCategoryNum: item.parentCategoryNum,
+          };
+          if (this.countryCode === 'JP') {
+            obj.categoryNameJp = item.categoryNameJp;
+            obj.similarGroup = item.similarGroup;
+          }
+          cateArr.push(obj);
+        });
+        if (this.countryCode === 'JP') {
+          obj.listTrademarkCategory2 = this.filterArrayRepeatPush(cateArr);
+        } else {
+          obj.listTrademarkCategory2 = cateArr;
+        }
+        this.$set(this.trademarkCategoryList, index, obj);
+      }
+      let isBreak = false,
+        isRisk = 0;
+      this.riskClassifyList = [];
+      if (data.length) {
+        this.trademarkCategoryList[index].listTrademarkCategory2.map((item, index) => {
+          if (item.category2NameEn && item.category2NameEn.indexOf('{') !== -1) {
+            isRisk++;
+            if (this.riskClassifyList.length < 2) {
+              let obj = {
+                category2Name: item.category2Name,
+                category2NameEn: item.category2NameEn,
+                category2Num: item.category2Num,
+                categoryNameMore: item.categoryNameMore || '',
+                parentCategoryNum: item.parentCategoryNum,
+                keyword: [''],
+              };
+              if (this.countryCode == 'JP') {
+                obj.categoryNameJp = item.categoryNameJp;
+                obj.similarGroup = item.similarGroup;
+              }
+              this.riskClassifyList.push(obj);
+            } else {
+              isBreak = true;
+            }
+          }
+        });
+      }
+      if (isBreak && isRisk > 2) {
+        this.$Message.info('风险小类最多只能选择2个');
+        // return
+      }
+
+      if (obj.listTrademarkCategory2.length > 20) {
+        this.$Message.info('商标小类最多只能选择20个');
+        obj.listTrademarkCategory2 = obj.listTrademarkCategory2.slice(0, 20);
+        this.$set(this.trademarkCategoryList, index, obj);
+      }
+      this.checkTwoClassifyList = this.trademarkCategoryList[index].listTrademarkCategory2;
+      this.dleInputValue();
+    },
+
+    /**
+     * 选择小类时 清空 input选择框的值
+     */
+    dleInputValue() {
+      this.getRiksInputKey = new Date().getTime();
+    },
+    cancelData(data) {
+      this.checkTwoClassifyList = [];
+      this.riskClassifyList = [];
+    },
+    changeHrefClass(data, ins) {
+      this.checkTwoClassifyList.map((v, i) => {
+        if (data == v.categoryNameEn) {
+          this.marketHrefList[ins].category2Name = v.categoryName;
+        }
+      });
+    },
+    addHref(i) {
+      if (this.marketHrefList[i].category2NameEn == '') {
+        this.$Message.error('请选择对应的商标小类');
+        return;
+      }
+      let obj = {
+        category2Name: '',
+        category2NameEn: '',
+        marketHref: '',
+      };
+      this.marketHrefList.push(obj);
+    },
+    removeHref(i) {
+      if (this.marketHrefList.length > 1) {
+        this.marketHrefList.splice(i, 1);
+      }
+    },
+    MergeArray(arr1, arr2) {
+      var _arr = new Array();
+      for (var i = 0; i < arr1.length; i++) {
+        let obj = {
+          category2Name: arr1[i].category2Name,
+          category2NameEn: arr1[i].category2NameEn,
+          category2Num: arr1[i].category2Num,
+          categoryNameMore: arr1[i].categoryNameMore || '',
+          parentCategoryNum: arr1[i].parentCategoryNum,
+          keyword: [''],
+        };
+        if (this.countryCode == 'JP') {
+          obj.categoryNameJp = arr1[i].categoryNameJp;
+          obj.similarGroup = arr1[i].similarGroup;
+        }
+        _arr.push(obj);
+      }
+      for (var i = 0; i < arr2.length; i++) {
+        var flag = true;
+        for (var j = 0; j < arr1.length; j++) {
+          if (arr2[i].categoryNum == arr1[j].category2Num) {
+            flag = false;
+            break;
+          }
+        }
+        if (flag) {
+          let obj = {
+            category2Name: arr2[i].categoryName,
+            category2NameEn: arr2[i].categoryNameEn,
+            category2Num: arr2[i].categoryNum,
+            categoryNameMore: arr2[i].categoryNameMore || '',
+            parentCategoryNum: arr2[i].parentCategoryNum,
+            keyword: [''],
+          };
+          if (this.countryCode == 'JP') {
+            obj.categoryNameJp = arr2[i].categoryNameJp;
+            obj.similarGroup = arr2[i].similarGroup;
+          }
+          _arr.push(obj);
+        }
+      }
+      return _arr;
+    },
+    // 生成二维码
+    getQrcodeFunc() {
+      getCompanyLegalPersonSignUrl({ serviceNo: this.serviceNo })
+        .then((res) => {
+          if (res.code === 0) {
+            document.getElementById('qrcode').innerHTML = '';
+            let qrcode = new QRCode('qrcode', {
+              width: 144,
+              height: 144,
+              text: res.data, // 二维码地址
+              colorDark: '#000',
+              colorLight: '#fff',
+            });
+          }
+        })
+        .catch((error) => {
+          // console.log(error)
+        });
+    },
+    /**
+     * 返回 二级显示数据
+     *
+     *
+     * retrun new Array[]
+     */
+    setNewArry(idx, val) {
+      let arry = [...this.originalData];
+      if (val.length > 0) {
+        val[0].rule.forEach((item, index) => {
+          arry.push(item);
+        });
+      }
+      return arry;
+    },
+
+    // 我已签名
+    hasSignature: Throttle(function() {
+      getCompanyLegalPersonSign({ serviceNo: this.serviceNo })
+        .then((res) => {
+          if (res.code === 0) {
+            this.$Message.success('刷新成功');
+            this.formInfo.signature = res.data;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }, 1000),
+    changeCheckRadio(data, im) {
+      this.newOriginalDataList = [...this.originalData];
+      let newArr = [...this.originalData],
+        originalDataArry = [];
+
+      newArr.forEach((item, i) => {
+        if (item.inputType == 2 && item.keyNameValue !== '') {
+          // 每次点击获取的新数组
+          let setNewArryList = this.setNewArry(i, this.getClickCntrol(item));
+          // 合并每次返回的新数组
+          originalDataArry = this.setNewOriginalData(setNewArryList);
+        }
+      });
+      this.workflowColumns = originalDataArry.length == 0 ? [...newArr] : originalDataArry;
+      this.getQrcodeFunc();
+    },
+    /**
+     * 返回新的 排序后 联动数组
+     *
+     * 每一次点击 获得每次点击的新的二级数据 过滤重复数据
+     */
+    setNewOriginalData(addArr) {
+      let companyLegalPersonSign = {};
+      addArr.forEach((item) => {
+        let getIndex = this.newOriginalDataList.findIndex((i) => i.columnId == item.columnId);
+        if (getIndex == -1) {
+          item = this.setitenSubscript(this.newOriginalDataList, item);
+          // 始终将申请人签名放在最后一位
+          if (item.keyName == 'companyLegalPersonSign') {
+            this.newOriginalDataList.splice(addArr.length, 0, item);
+          } else {
+            this.newOriginalDataList.splice(item.subscript, 0, item);
+          }
+        }
+        //
+        // if(item.keyName == 'companyLegalPersonSign') companyLegalPersonSign = item;
+      });
+      //  this.newOriginalDataList.f
+      return this.newOriginalDataList;
+    },
+
+    getClickCntrol(item) {
+      return item.control.filter((vv) => {
+        if (vv.rule && vv.rule[0] && vv.rule[0].columnId == '2') {
+        }
+        return vv.value == item.keyNameValue;
+      });
+    },
+    // 如果工单状态为取消中（11）或已取消（9），则禁用所有操作按钮，并给出提示
+    ifCancel(status) {
+      this.isCancel = status === 9 || status === 11;
+      if (status === 11) {
+        this.$Message.warning('此服务在取消中，暂时不能操作');
+      } else if (status === 9) {
+        this.$Message.warning('该服务已取消');
+      }
+    },
+    // 获取工单资料
+    getDetailFun() {
+      let data = {
+        serviceId: this.$route.query.id,
+        nodeCode: this.$route.query.nodeCode,
+      };
+      this.checkTwoClassifyList = [];
+      workorderDetailAPI(data)
+        .then((res) => {
+          if (res.code == 0) {
+            let {
+              trademarkOrderServiceInfoVO: { serviceNo, trademarkCategoryCount, serviceName, rejectInfo, serviceProgress, status, existSubclass },
+              workflowColumns,
+            } = res.data;
+            this.ifCancel(res.data.trademarkOrderServiceInfoVO.status);
+            this.serviceNo = serviceNo;
+            this.categoryCount = trademarkCategoryCount;
+            this.serviceName = serviceName;
+            this.rejectInfo = rejectInfo;
+            let arrData = workflowColumns;
+            this.servicesStatus = status;
+            this.existSubclass = existSubclass;
+            this.serverEnd(status);
+            arrData.map((item) => {
+              item.columns.map((v) => {
+                if (JSON.stringify(v.keyNameValue) == '{}') {
+                  v.keyNameValue = '';
+                }
+                if (v.inputType == 5) {
+                  let {
+                    selectfixed: { url },
+                  } = JSON.parse(v.info);
+                  url && this.getInfoDetailCacheCountry(url, v);
+                }
+              });
+            });
+            // serviceProgress == 2 && function () {
+            //   this.tipsModal = true;
+            // }
+            this.tipsModal = serviceProgress == 2 && true;
+            if(this.tipsModal){
+              this.$emit('sendRejectInfo',this.rejectInfo)
+            }
+            this.workflowColumns = this.initFormData(arrData);
+            this.getSubclassInfo();
+            this.originalData = [...this.workflowColumns];
+            this.tipsServicecancel();
+          }
+        })
+        .finally(() => {
+          this.changeCheckRadio();
+        });
+    },
+
+    /**
+     * 判断服务是否取消
+     */
+    tipsServicecancel() {
+      if (this.servicesStatus == 9) {
+        this.$Message.error('该服务已取消');
+      }
+    },
+    // 判断服务是否为取消状态
+    serverEnd(status) {
+      this.isEditor = status == 9;
+    },
+
+    /**
+     * 如果上次用户选择了小类 初始重新获取小类
+     */
+    getSubclassInfo() {
+      if (this.trademarkCategoryList.length > 0) {
+        this.getSubclassData2();
+      } else {
+        const found = this.workflowColumns.find((element) => element.keyName == 'trademarkCategory');
+        found && found.keyNameValue && typeof found.keyNameValue === 'string' && this.getSubclassData(found.keyNameValue);
+      }
+
+      // found && found.columns[0].keyNameValue && typeof (found.columns[0].keyNameValue) == 'string' && this.getSubclassData(found.columns[0].keyNameValue);
+    },
+    /**
+     * 重新获取小类数据
+     */
+    getSubclassData2() {
+      this.trademarkCategoryList.forEach((item, index) => {
+        item.searchtext && item.searchtext != '' && item.category1Num && item.category1Num != '' && this.searchSubclass(index);
+      });
+    },
+    /**
+     * 根据获取的小类重新获取数据
+     */
+    getSubclassData(found) {
+      let data = JSON.parse(found);
+      Array.isArray(data) &&
+        data.forEach((item, index) => {
+          if (item.category1Num != '' && item.searchtext != '') {
+            this.searchSubclass(index);
+          }
+        });
+    },
+    /**
+     * 根据 Key 值获取 字段值
+     * workflowColumns
+     */
+    getDataListVal(key, list) {
+      return this[list].find((item) => item[key] == key);
+    },
+    /**
+     * 设置下拉框数据
+     */
+    async getInfoDetailCacheCountry(url, v) {
+      let { code, data } = await getInfoDetailCacheCountry(url);
+      code == 0 ? (v.optionList = data) : (v.optionList = []);
+
+      this.$forceUpdate();
+    },
+    // 初始化数据
+    initFormData(datalist) {
+      let newData = [];
+      datalist.map((item, i) => {
+        newData.push({
+          inputType: 'formTitle',
+          moduleName: item.moduleName,
+          columnPid: '',
+        });
+        item.columns.sort((a, b) => {
+          return a.sort - b.sort;
+        });
+        item.columns.map((pro) => {
+          let obj = pro;
+          obj['options'] = this.initOptionFunc(pro.info, 'groups');
+          if (pro.keyNameValue != '') {
+            if (pro.keyName == 'companyBusinessLicense' || pro.keyName == 'trademarkLogo' || pro.keyName == 'identityCardFront' || pro.keyName == 'identityCardReverse') {
+              pro.keyNameValue = JSON.parse(pro.keyNameValue);
+            } else if (pro.keyName == 'companyLegalPersonSign') {
+              this.formInfo.signature = pro.keyNameValue;
+            } else if (pro.keyName == 'marketHref') {
+              this.marketHrefList = JSON.parse(pro.keyNameValue);
+            } else if (pro.keyName == 'useEvidence') {
+              this.useEvidenceList = JSON.parse(pro.keyNameValue);
+            } else if (pro.keyName == 'useProductImg') {
+              this.usrProductImgList = JSON.parse(pro.keyNameValue);
+            } else if (pro.keyName == 'otherSmallLanguagesFiles') {
+              this.setSamlanImgList(pro.keyNameValue);
+            }
+          }
+          if (pro.keyName == 'trademarkCategory') {
+            let that = this;
+            let obj = {
+              category1Name: '',
+              category1NameEn: '',
+              category1Num: '',
+              category1Price: 0,
+              searchtext: '',
+              listTrademarkCategory2: [],
+            };
+            this.riskClassifyList = [];
+            that.trademarkCategoryList = [];
+            for (let index = 0; index < this.categoryCount; index++) {
+              that.trademarkCategoryList.push(obj);
+            }
+            if (pro.keyNameValue != '') {
+              let returnCategoryList = JSON.parse(pro.keyNameValue);
+              if (returnCategoryList.length > 0) {
+                this.trademarkCategoryList.map((item, index) => {
+                  returnCategoryList.map((v, i) => {
+                    if (i == index) {
+                      this.trademarkCategoryList[index] = { ...v };
+                      v.listTrademarkCategory2.map((vv, ii) => {
+                        if (vv.category2NameEn.indexOf('{') != -1) {
+                          let class2Obj = {
+                            category2Name: vv.category2Name,
+                            category2NameEn: vv.category2NameEn,
+                            category2Num: vv.category2Num,
+                            parentCategoryNum: vv.parentCategoryNum,
+                            keyword: vv.keyword || [''],
+                          };
+                          if (this.countryCode == 'JP') {
+                            class2Obj.categoryNameJp = vv.categoryNameJp;
+                            class2Obj.similarGroup = vv.similarGroup;
+                          }
+                          if (ii < 2) this.riskClassifyList.push(class2Obj);
+                          // this.riskClassifyList.push(class2Obj)
+                        }
+                      });
+                    }
+                  });
+                });
+                this.checkTwoClassifyList = this.trademarkCategoryList[0].listTrademarkCategory2;
+              }
+              if (JSON.stringify(this.linkList) != '{}' && this.linkList != '' && this.linkList != undefined) {
+                this.marketHrefList = JSON.parse(this.linkList);
+              }
+            }
+          }
+          if (pro.keyName !== 'useEvidence') newData.push(obj);
+        });
+      });
+      return this.getControlData(newData);
+    },
+    /**
+     * 初始化渲染 小类图片数据
+     */
+    setSamlanImgList(list) {
+      let imgList = list && JSON.parse(list);
+      imgList.forEach((item) => {
+        this.smmllLanProductImgList.push(item);
+      });
+    },
+    getControlData(datalist) {
+      let childList = datalist.filter((item) => item.columnPid != ''),
+        newData = datalist.filter((item) => item.columnPid == '');
+      newData.map((item) => {
+        childList.map((vv) => {
+          if (vv.columnPid == item.columnId) {
+            if (!item.control) {
+              item.control = [];
+              item.options.map((mm) => {
+                let obj = { value: mm.value, rule: [] };
+                if (vv.columnOption.includes(mm.value)) {
+                  let arr = [];
+                  arr.push(vv);
+                  obj.rule = [...arr];
+                }
+                item.control.push(obj);
+              });
+            } else {
+              item.control.map((controlV) => {
+                if (vv.columnOption.includes(controlV.value)) {
+                  controlV.rule.push(vv);
+                }
+              });
+            }
+          }
+        });
+      });
+      return newData;
+    },
+    // initoption数据
+    initOptionFunc(data, label) {
+      let obj = JSON.parse(data.replace(/\'/g, '"'));
+      if (label == 'accepts') this.updatError = obj[label];
+      return obj[label];
+    },
+    escape2Html(str) {
+      var arrEntities = { lt: '<', gt: '>', nbsp: ' ', amp: '&', quot: '"' };
+      return str.replace(/&(lt|gt|nbsp|amp|quot);/gi, function(all, t) {
+        return arrEntities[t];
+      });
+    },
+    // 选省市区
+    getArea(value, selectedData) {
+      const areaName = selectedData.map((item) => item.label);
+      this.args = [...areaName];
+      this.province = this.args[0];
+      this.city = this.args[1];
+    },
+    // 判断销售链接是否有重复
+    isRepetition(n) {
+      let flag = true; // 假设不重复
+      for (let i = 0; i < n.length - 1; i++) {
+        // 循环开始元素
+        for (let j = i + 1; j < n.length; j++) {
+          // 循环后续所有元素
+          // 如果相等，则重复
+          if (n[i].marketHref == n[j].marketHref) {
+            flag = false; // 设置标志变量为重复
+            break; // 结束循环
+          }
+        }
+      }
+      return flag;
+    },
+
+    /**
+     * 判断风险小类 && 风险小类用户输入值判断
+     */
+    setTrademarkCategoryVal() {
+      let data;
+      if (this.riskClassifyList.length > 0) {
+        data = this.riskCategoryJudgment();
+      } else {
+        data = this.noRiskCategoryJudgment();
+      }
+      return this.filterResultData(data);
+    },
+
+    /**
+     * 风险小类判断
+     */
+    riskCategoryJudgment() {
+      let value = '';
+
+      if (this.countryCode === 'US' && this.riskClassifyList.some((item) => item.keyword[0].trim() === '')) {
+        this.$message.warning('请填写风险小类关键词');
+        return false;
+      } else {
+        return this.trademarkCategoryList;
+      }
+    },
+
+    /**
+     * 普通小类判断
+     */
+    noRiskCategoryJudgment() {
+      this.trademarkCategoryList.forEach((item, index) => {
+        if (this.trademarkCategoryList[index].category1Name == ' ') {
+          this.$Message.success('请选择商标分类');
+          return false;
+        } else {
+          if (this.trademarkCategoryList[index].textareaubclass) {
+            let textareaubclass = this.trademarkCategoryList[index].textareaubclass.split(';') || [];
+            this.trademarkCategoryList[index].listTrademarkCategory2 = [];
+            textareaubclass.forEach((element) => {
+              let obj = {
+                // category2Name: element,
+                category2NameEn: element,
+                category2Num: '000-00',
+                parentCategoryNum: '',
+              };
+              this.trademarkCategoryList[index].listTrademarkCategory2.push(obj);
+            });
+          }
+        }
+      });
+
+      return this.trademarkCategoryList;
+    },
+
+    /**
+     * 过滤没选中的小类
+     */
+    filterResultData(data) {
+      if (data) {
+        data.map((item) => {
+          item.resultData && delete item.resultData;
+        });
+      }
+      return JSON.stringify(data);
+    },
+    // 保存资料
+    saveInfoFun(type) {
+      let data = {};
+      this.workflowColumns.map((item) => {
+        if (item.inputType != 'formTitle') {
+          if (item.inputType == 8) {
+            data[item.keyName] = formatDate(item.keyNameValue);
+          } else if (item.inputType == 2) {
+            data[item.keyName] = String(item.keyNameValue);
+          } else if (item.inputType === 4) {
+            data[item.keyName] = this.parseFileUrl(item.keyNameValue);
+          } else {
+            data[item.keyName] = item.keyNameValue;
+          }
+        }
+      });
+      if (this.countryCode === 'JP') {
+        let repeat = [];
+        let groups = [];
+        this.trademarkCategoryList.forEach((item) => {
+          let tempArr = [];
+          let tempArr2 = [];
+          tempArr = item.listTrademarkCategory2.filter((child) => child.isRepeat);
+          if (tempArr.length) repeat.push([...tempArr]);
+          item.listTrademarkCategory2.forEach((child) => {
+            if (child.similarGroup !== '') {
+              let arr = child.similarGroup.split(' ').filter((v) => v);
+              tempArr2.push(...arr);
+            }
+          });
+          groups.push(...tempArr2);
+          groups = [...new Set(groups)];
+        });
+        if (groups.length > 22) {
+          this.$Message.error(`已选择类群组${groups.length}个，最多不能超过22个`);
+          return;
+        }
+        if (repeat.length) {
+          this.$Message.error('存在重复的日文小类，请保留一个');
+          return;
+        }
+      }
+      // 商标类型
+
+      data.trademarkCategory = this.trademarkCategoryList.length > 0 ? this.setTrademarkCategoryVal() : ' ';
+
+      if (data.trademarkCategory === false || data.trademarkCategory == 'false') {
+        return;
+      } // 如果false 终止程序
+      if (data.trademarkLogo) {
+        data.trademarkLogo = data.trademarkLogo.length > 0 ? JSON.stringify(data.trademarkLogo) : '';
+      }
+      // 美标特有，使用证据
+      if (data.useProductImg != undefined) {
+        data.useProductImg = this.usrProductImgList.length > 0 ? JSON.stringify(this.usrProductImgList) : '';
+        data.useEvidence = this.useEvidenceList.length > 0 ? JSON.stringify(this.useEvidenceList) : '';
+      }
+
+      if (this.marketHrefList.length > 0) {
+        data.marketHref = JSON.stringify(this.marketHrefList);
+      } // 销售链接
+      // 申请人信息
+      if (data.companyBusinessLicense) {
+        data.companyBusinessLicense = data.companyBusinessLicense.length > 0 ? JSON.stringify(data.companyBusinessLicense) : '';
+      }
+      if (data.identityCardFront) {
+        data.identityCardFront = data.identityCardFront.length > 0 ? JSON.stringify(data.identityCardFront) : '';
+      }
+      if (data.identityCardReverse) {
+        data.identityCardReverse = data.identityCardReverse.length > 0 ? JSON.stringify(data.identityCardReverse) : '';
+      }
+      data.companyLegalPersonSign = this.formInfo.signature;
+      data.otherSmallLanguagesFiles = data.otherSmallLanguagesFiles && this.ProofreadingOtherSmallLanguagesFiles(this.smmllLanProductImgList);
+      this.formData = { ...data };
+      let requestData = {
+        serviceId: this.$route.query.id,
+        nodeCode: this.$route.query.nodeCode,
+        json: data,
+        path: type,
+      };
+      if (type) {
+        if (requestData.trademarkType == '0') {
+          this.$Message.error('请选择商标类型');
+        } else {
+          this.submitForm(requestData);
+        }
+      } else {
+        updateNodeAPI(requestData).then((res) => {
+          if (res.code == 0) {
+            this.$Message.success('操作成功');
+            this.getSubclassInfo();
+          }
+        });
+      }
+    },
+    /**
+     * 校对 otherSamll小语种值
+     */
+    ProofreadingOtherSmallLanguagesFiles(otherSmallLanguagesFiles) {
+      if (otherSmallLanguagesFiles) {
+        if (Array.isArray(otherSmallLanguagesFiles)) {
+          return JSON.stringify(otherSmallLanguagesFiles);
+        } else if (otherSmallLanguagesFiles.substring(0, 5) == 'http:') {
+          return JSON.stringify([otherSmallLanguagesFiles]);
+        } else {
+          return otherSmallLanguagesFiles;
+        }
+      }
+    },
+    isImg(keyNameValue) {
+      if (keyNameValue && keyNameValue.length && typeof keyNameValue === 'object') {
+        keyNameValue = JSON.stringify(keyNameValue);
+      }
+      keyNameValue = keyNameValue.toLowerCase().trim();
+      let imgSuffixList = ['.jpg', '.png', 'jpeg', 'gif'];
+      for (let i = 0; i < imgSuffixList.length; i++) {
+        let suffix = imgSuffixList[i];
+        if (keyNameValue.indexOf(suffix) !== -1) {
+          return true;
+        }
+      }
+      return false;
+    },
+    parseFileUrl(keyNameValue) {
+      try {
+        keyNameValue = JSON.parse(keyNameValue)[0];
+      } catch (error) {
+        if (keyNameValue && keyNameValue.length && typeof keyNameValue === 'object') {
+          keyNameValue = keyNameValue[0];
+        }
+      }
+      return keyNameValue;
+    },
+    parseFileName(keyNameValue) {
+      keyNameValue = this.parseFileUrl(keyNameValue);
+      let keyNameValueList = keyNameValue.split('/');
+      return keyNameValueList[keyNameValueList.length - 1];
+    },
+
+    submitForm(data) {
+      this.$Modal.confirm({
+        title: '',
+        content: `<div class="submit-tip-box">
+          <p class="submit-tip-title"><span class="imgs"></span><span>您提交的信息即将进入系统审核</span></p>
+          <p class="tip-content">信息提交后，即代表您已核对过信息。 确定吗？
+          </p>
+        </div>`,
+        okText: '确认',
+        cancelText: '取消',
+        onOk: () => {
+          updateNodeAPI(data).then((res) => {
+            if (res.code == 0) {
+              this.steps = 3;
+              localStorage.setItem('orderStatus', 3);
+              this.isEditor = true;
+            }
+          });
+        },
+        onCancel: () => {},
+      });
+    },
+    checkFun(value, text) {
+      let checkStatus = false;
+      let reg = new RegExp('[\\u4E00-\\u9FFF]+', 'g');
+      if (value == '') {
+        this.$Message.error({
+          content: '请填写' + text,
+          duration: 3,
+        });
+        checkStatus = true;
+      } else if (/^[\u4e00-\u9fa5]/.test(value)) {
+        this.$Message.error({
+          content: '请去掉' + text + '的中文或中文标点符号',
+          duration: 3,
+        });
+        checkStatus = true;
+      } else if (reg.test(value)) {
+        this.$Message.error({
+          content: '请去掉' + text + '的中文或中文标点符号',
+          duration: 3,
+        });
+        checkStatus = true;
+      } else if (/[^\x00-\xff]/g.test(value)) {
+        this.$Message.error({
+          content: '请去掉' + text + '的中文或中文标点符号',
+          duration: 3,
+        });
+        checkStatus = true;
+      } else {
+        checkStatus = false;
+      }
+      return checkStatus;
+    },
+    formatDate(date, type) {
+      if (typeof date === 'object') {
+        const y = date.getFullYear();
+        let m = date.getMonth() + 1;
+        m = m < 10 ? '0' + m : m;
+        let d = date.getDate();
+        d = d < 10 ? '0' + d : d;
+        if (type == 'month') {
+          return y + '-' + m;
+        } else if (type == 'date') return y + '-' + m + '-' + d + ' 00:00:00';
+      } else {
+        return date;
+      }
+    },
+    // 返回我的商标
+    goMyBread() {
+      this.$router.push({
+        name: '我的商标',
+      });
+    },
+    // 查看商标详情
+    goDetail() {
+      this.$router.push({
+        name: '我的商标',
+        params: {
+          goDetail: true,
+          orderId: this.$route.query.id,
+        },
+      });
+    },
+    /**
+     * 日本商标小类勾选重复添加提醒
+     * @param arr
+     * @returns {boolean}
+     */
+    chargeHasRepeatJp(arr = []) {
+      if (!arr.length) {
+        return false;
+      } else {
+        const resultArr = arr.filter((v) => {
+          return v.isRepeat;
+        });
+        return this.countryCode === 'JP' && Boolean(resultArr.length);
+      }
+    },
+  },
+  mounted() {
+    this.setsubClassCloumns(this.$route.query.code);
+    this.getDetailFun();
+    this.getOneCategoryFun();
+  },
+};
+</script>
+<style lang="less" scoped>
+.uploadOtherSmallLanguagesFiles {
+  width: 100%;
+  .upload-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 166px);
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 10px;
+    .upload-list-item {
+      .upload-list-cover {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        line-height: 156px;
+        color: #fff;
+
+        i {
+          font-size: 20px;
+          cursor: pointer;
+          margin: 0 2px;
+        }
+      }
+      &:hover .upload-list-cover {
+        display: block;
+      }
+    }
+  }
+}
+.mainContent {
+  display: inline-block;
+  width: 946px;
+  vertical-align: top;
+  box-shadow: 0px 2px 6px 0px rgba(0, 21, 41, 0.06);
+  background: #fff;
+  padding: 24px;
+  margin-bottom: 44px;
+  .repeatJpTips-text {
+    color: red;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 16px;
+    margin-top: 10px;
+    i {
+      margin-right: 6px;
+    }
+  }
+  .title {
+    font-size: 20px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 24px;
+    span {
+      font-size: 14px;
+      font-family: PingFangSC;
+      color: #016eff;
+      margin-left: 12px;
+    }
+    img {
+      vertical-align: middle;
+      margin-top: -3px;
+      cursor: pointer;
+    }
+  }
+  .step-box {
+    margin-top: 12px;
+    text-align: center;
+  }
+  .step1-box {
+    .example-box {
+      margin-left: 10px;
+      display: inline-block;
+      width: 156px;
+      height: 156px;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #cfcfcf;
+      vertical-align: top;
+      padding: 16px;
+      .example-img {
+        width: 85px;
+        height: 52px;
+        background: #d8d8d8;
+      }
+      p {
+        margin-top: 30px;
+        text-align: center;
+        color: #00a3ff;
+        font-size: 12px;
+        cursor: pointer;
+        img {
+          vertical-align: middle;
+          margin-left: 4px;
+        }
+      }
+    }
+
+    .marketHref-list {
+      margin-bottom: 8px;
+      img {
+        vertical-align: middle;
+        margin-left: 6px;
+        cursor: pointer;
+      }
+    }
+    .proof-tip {
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      margin-bottom: 12px;
+      span.tip {
+        font-size: 14px;
+      }
+      span.gary-tip {
+        font-size: 12px;
+        font-family: PingFangSC;
+        color: #666666;
+      }
+    }
+    .tip2 {
+      border-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: PingFangSC;
+      color: #999999;
+      line-height: 24px;
+      margin-top: 24px;
+      .tip2-title {
+        font-family: PingFangSC-Regular, PingFang SC;
+        color: #333333;
+      }
+    }
+    .tip2-example-box {
+      cursor: pointer;
+      font-size: 12px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #00a3ff;
+      img {
+        vertical-align: middle;
+        margin: 0 6px;
+      }
+    }
+    .proof-box {
+      position: relative;
+      .tip1 {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #999999;
+        line-height: 22px;
+        margin-top: 10px;
+      }
+    }
+    .evidence-box {
+      width: 398px;
+      p {
+        margin-top: 8px;
+        position: relative;
+        width: 366px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        img {
+          vertical-align: middle;
+        }
+        a {
+          color: #00a3ff;
+        }
+      }
+      .del-img {
+        text-align: right;
+        cursor: pointer;
+        margin-left: 8px;
+      }
+    }
+  }
+  .step2-box {
+    padding: 0 15px;
+    .red-tip {
+      font-size: 14px;
+      font-family: PingFangSC;
+      color: #f03226;
+      margin-top: 32px;
+    }
+
+    .next-button {
+      text-align: center;
+    }
+    .ID-file-box {
+      margin-bottom: 20px;
+      /deep/ .ivu-form-item-error-tip {
+        top: 95%;
+      }
+    }
+  }
+  .step3-box {
+    text-align: center;
+    margin-top: 52px;
+    .submit-success {
+      font-size: 24px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      margin-top: 22px;
+    }
+    .sub-succcess {
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #999999;
+      margin-top: 8px;
+    }
+    .bread-info-box {
+      width: 735px;
+      border-radius: 2px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      margin: 24px auto;
+      padding: 24px 40px;
+      .bread-title {
+        text-align: left;
+        font-size: 16px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.85);
+      }
+      .sub-info {
+        text-align: left;
+        margin-top: 20px;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.85);
+        margin-bottom: 12px;
+        span:first-child {
+          margin-right: 86px;
+        }
+        span:last-child {
+          max-width: 380px;
+          display: inline-block;
+          overflow: hidden;
+          vertical-align: top;
+          white-space: nowrap;
+        }
+      }
+      .progress-info {
+        margin-top: 10px;
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.65);
+        line-height: 20px;
+      }
+    }
+  }
+  .signature-title {
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 8px;
+    span {
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #666666;
+    }
+  }
+  .bread-logo-box {
+    display: inline-block;
+    min-width: 156px;
+    max-height: 156px;
+    position: relative;
+    margin-bottom: 10px;
+    img {
+      width: 100%;
+      max-height: 156px;
+    }
+    .hover-box {
+      width: 100%;
+      height: 100%;
+      background: #333333;
+      opacity: 0.65;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      padding-top: 38px;
+      font-size: 14px;
+      font-family: SourceHanSansSC-Regular, SourceHanSansSC;
+      font-weight: 400;
+      color: #ffffff;
+      display: none;
+      cursor: pointer;
+      img {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .category-box {
+    /deep/ .ivu-input[disabled] {
+      background-color: #fff !important;
+      border: 1px solid #d9d9d9 !important;
+      border-radius: 2px !important;
+      color: #515a6e !important;
+    }
+    .slot-img {
+      margin-top: 8px;
+      cursor: pointer;
+    }
+  }
+  .show-change:hover .hover-box {
+    display: block;
+  }
+  .info-title {
+    margin: 24px 0 24px 0;
+    font-size: 18px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.85);
+    .info-subTitle {
+      font-size: 14px;
+      font-family: PingFangSC;
+      color: #999999;
+    }
+  }
+  .gary-tip {
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #999999;
+    line-height: 22px;
+    width: 398px;
+    margin-top: 4px;
+    a {
+      color: #ff6600;
+    }
+  }
+  .tip-box {
+    padding: 14px;
+    background-color: #eff9ff;
+    font-size: 14px;
+    font-family: PingFangSC;
+    color: #666;
+    line-height: 22px;
+    display: inline-block;
+    width: 528px;
+    vertical-align: top;
+    margin-left: 32px;
+    p {
+      display: inline-block;
+    }
+    img {
+      vertical-align: top;
+      margin-top: 2px;
+    }
+  }
+  .form-item {
+    margin-bottom: 24px;
+    .item-label {
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.85);
+      margin-right: 16px;
+      span {
+        font-size: 14px;
+        font-family: PingFangSC;
+        color: #999999;
+      }
+    }
+    .item-upload {
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #00a3ff;
+      cursor: pointer;
+      img {
+        vertical-align: middle;
+        margin-right: 2px;
+      }
+    }
+    .tip {
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #ff6600;
+      margin-top: 6px;
+    }
+    .classify-box {
+      img {
+        vertical-align: sub;
+      }
+      span {
+        font-size: 16px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #00a3ff;
+        margin-left: 2px;
+      }
+    }
+    .subclass-tip {
+      color: #999;
+      a {
+        color: #ff6600;
+      }
+    }
+    /deep/ .ivu-input-wrapper {
+      width: 398px;
+      margin-top: 10px;
+    }
+    .search-subclass-btn {
+      width: 76px;
+      height: 32px;
+      background: #00a3ff;
+      border-radius: 2px;
+      color: #fff;
+      margin-top: 10px;
+      margin-left: -5px;
+    }
+  }
+  .search-table {
+    position: relative;
+    width: 860px;
+    max-height: 184px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-top: 6px;
+    img {
+      position: absolute;
+      right: 4px;
+      top: 8px;
+      cursor: pointer;
+    }
+    /deep/ .subclass-table {
+      border-right: 1px solid rgba(0, 0, 0, 0.15);
+    }
+  }
+  .subclass-table {
+    max-width: 838px;
+    max-height: 181px;
+    overflow-y: scroll;
+    /deep/ th {
+      font-size: 14px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+    }
+  }
+  .subclass-table::-webkit-scrollbar {
+    width: 4px;
+  }
+  .subclass-table::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 1px;
+  }
+  .line {
+    height: 1px;
+    background: #999999;
+    opacity: 0.2;
+    width: 100%;
+    margin: 32px 0;
+  }
+  .next-button {
+    text-align: center;
+    margin-top: 20px;
+    button {
+      padding: 5px 16px;
+      background: #00a3ff;
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      margin-right: 8px;
+    }
+    .white-btn {
+      background-color: #fff;
+      border: 1px solid #00a3ff;
+      color: #00a3ff;
+    }
+  }
+  .company-tip-box {
+    width: 435px;
+    background-color: #eff9ff;
+    padding: 14px;
+    color: #666666;
+    vertical-align: top;
+    margin-left: 32px;
+    line-height: 22px;
+    position: absolute;
+    top: -20px;
+    right: 0;
+    p {
+      display: inline-block;
+      max-width: 380px;
+    }
+    img {
+      vertical-align: top;
+      margin-top: 2px;
+    }
+  }
+}
+.red-tip.from {
+  margin-top: 4px !important;
+}
+.red-tip.from::before {
+  content: '*';
+  display: inline-block;
+  margin-right: 4px;
+  line-height: 1;
+  font-family: SimSun;
+  font-size: 14px;
+  color: #ed4014;
+}
+.proof-example-modal {
+  .examples {
+    p {
+      font-size: 14px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #333333;
+    }
+    img {
+      width: 270px;
+      height: 164px;
+      margin-top: 14px;
+      margin-right: 8px;
+    }
+  }
+  .modal-tip {
+    font-size: 14px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    img {
+      vertical-align: middle;
+      margin-right: 6px;
+    }
+  }
+}
+.classify-modal {
+  .classify-header {
+    .title {
+      font-size: 16px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #333333;
+      span {
+        font-size: 14px;
+        font-family: PingFangSC;
+        color: #ff6600;
+        margin-left: 12px;
+        display: inline-block;
+      }
+    }
+    .tip {
+      margin-top: 6px;
+      font-size: 12px;
+      font-family: PingFangSC;
+      color: #999999;
+      line-height: 18px;
+      font-weight: 400;
+    }
+  }
+  .classify-footer {
+    text-align: right;
+    padding-bottom: 32px;
+    button {
+      width: 92px;
+      height: 38px;
+      background-color: #00a3ff;
+      color: #fff;
+    }
+  }
+}
+.check-two-category {
+  span {
+    color: #00a3ff;
+    font-size: 12px;
+    margin-right: 8px;
+    display: inline-block;
+    padding: 6px 8px;
+    background: #eff9ff;
+    margin-top: 10px;
+    img {
+      margin-left: 4px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  }
+}
+.risk-box {
+  margin-top: 24px;
+  .tip-box {
+    margin: 8px 0 0 0;
+    width: 832px;
+    .color333 {
+      color: #333;
+    }
+  }
+  .subclass-table {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-top: 12px;
+  }
+}
+
+.gray-tip {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  margin-top: 12px;
+}
+.classify-add-btn {
+  width: 76px;
+  height: 32px;
+  background: #00a3ff;
+  border-radius: 2px;
+  color: #fff;
+}
+.tip-content {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+  margin-left: 38px;
+}
+#qrcode {
+  display: inline-block;
+  position: relative;
+  img {
+    width: 132px;
+    height: 132px;
+    background-color: #fff;
+    padding: 6px;
+  }
+  p {
+    position: absolute;
+    bottom: -24px;
+    width: 200px;
+    font-size: 14px;
+    color: #626466;
+  }
+}
+.signature {
+  width: 246px;
+  height: 144px;
+  background: #f4f7fc;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  margin-left: 8px;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+  img.refresh {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+  }
+  button {
+    position: absolute;
+    top: 0px;
+    left: 78px;
+    bottom: 0px;
+    margin: auto;
+  }
+}
+.example-describe {
+  padding-bottom: 20px;
+  .explain {
+    font-size: 12px;
+    font-family: PingFangSC;
+    color: #333333;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .fl.right {
+    margin-left: 14px;
+    max-width: 380px;
+    .title {
+      font-size: 14px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+    }
+    .describe-en {
+      margin-top: 6px;
+      font-family: PingFangSC;
+      color: #00a3ff;
+      line-height: 20px;
+    }
+    .describe-ch {
+      padding: 10px 14px;
+      background-color: #eff9ff;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #666666;
+    }
+  }
+}
+/deep/ .upload-logo .ivu-upload {
+  width: 156px;
+  height: 156px;
+  display: inline-block;
+  cursor: pointer;
+}
+.upload-img {
+  display: none;
+}
+/deep/ .upload-file .ivu-upload {
+  display: none;
+}
+.show-file {
+  padding: 0 10px;
+  background-color: #eff9ff;
+}
+
+/deep/ .ivu-form-item-content {
+  width: 398px;
+}
+/deep/ .ivu-date-picker {
+  width: 398px;
+}
+/deep/ .first-date {
+  position: relative;
+  .first-tip {
+    position: absolute;
+    padding: 12px;
+    background-color: #eff9ff;
+    right: -506px;
+    top: 0;
+    font-size: 14px;
+    color: #999999;
+    .orange {
+      color: #ff6600;
+    }
+  }
+}
+/deep/ .ivu-form .ivu-form-item-label {
+  color: #000;
+  font-size: 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+}
+.width100 /deep/ .ivu-form-item-content {
+  width: 100%;
+}
+.width156 {
+  width: 156px;
+  margin-right: 12px;
+  display: inline-block;
+}
+.width156 /deep/ .ivu-form-item-content {
+  width: 156px;
+}
+/deep/ .proof-box .upload-proof {
+  width: 398px;
+  height: 180px;
+  background: #f4f7fc;
+  border-radius: 8px;
+  border: 1px dashed #cfcfcf;
+  text-align: center;
+  padding-top: 56px;
+  margin-top: 7px;
+  cursor: pointer;
+  p {
+    font-size: 12px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #999999;
+    margin-top: 8px;
+  }
+}
+/deep/ .ivu-upload-list {
+  margin-top: 0 !important;
+  text-align: left;
+}
+/deep/ .ivu-modal-header {
+  padding: 24px;
+  background-color: #fff !important;
+  font-size: 16px;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.proof-example-modal /deep/ .ivu-modal {
+  width: 610px !important;
+}
+.logo-example-modal /deep/ .ivu-modal {
+  width: 360px !important;
+}
+/deep/ .ivu-modal-body {
+  padding: 24px;
+}
+.classify-modal /deep/ .ivu-checkbox-group-item {
+  margin-bottom: 18px;
+}
+.inline-box /deep/ .ivu-form-item-content {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 20px;
+}
+.tipsModal-contnet {
+  font-size: 18px;
+  .tip-title {
+    color: #d9001b;
+    margin-bottom: 18px;
+  }
+  .tip-remark {
+    word-break: break-all;
+    white-space: pre-wrap;
+    padding-bottom: 20px;
+  }
+}
+/deep/ .ivu-table-overflowX {
+  overflow-x: hidden;
+}
+/deep/ .ivu-table-wrapper-with-border {
+  border: none;
+}
+/deep/ .ivu-table:before {
+  height: 0;
+}
+/deep/ .ivu-table-border:after {
+  width: 0;
+}
+</style>
+<style>
+.submit-tip-title {
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 8px;
+  margin-left: -40px;
+}
+.submit-tip-title .imgs {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background-image: url('../../assets/images/infoDetail/Shape.svg');
+  vertical-align: middle;
+  margin-right: 14px;
+}
+.submit-tip-box .tip-content {
+  color: #333;
+}
+.ivu-table-header thead tr th {
+  background: rgba(22, 173, 233, 0.2);
+  padding: 17px 0;
+  font-size: 12px;
+  color: #666;
+  position: relative;
+  height: 100%;
+  padding: 8px 0;
+}
+.icon-help {
+  font-size: 16px;
+  border-radius: 50%;
+  background: #1890ff;
+  color: #fff;
+  position: absolute;
+  top: -24px;
+  cursor: pointer;
+}
+</style>

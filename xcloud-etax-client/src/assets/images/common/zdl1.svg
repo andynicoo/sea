@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="642px" height="60px" viewBox="0 0 642 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>编组 20</title>
+    <desc>Created with Sketch.</desc>
+    <g id="转代理" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="转代理详情进度条展示" transform="translate(-103.000000, -72.000000)">
+            <g id="编组-18备份" transform="translate(103.000000, 72.000000)">
+                <g id="编组-20">
+                    <g id="编组-16" transform="translate(36.000000, 2.000000)">
+                        <text id="提交资料" font-family="PingFangSC-Medium, 蘋方-簡" font-size="12" font-weight="500" fill="#000000" fill-opacity="0.85">
+                            <tspan x="0" y="55">提交资料</tspan>
+                        </text>
+                        <g id="编组-22" transform="translate(8.000000, 0.000000)">
+                            <circle id="Oval-1-Copy-10" fill="#1890FF" cx="16" cy="16" r="16"></circle>
+                            <text id="1-copy" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#FFFFFF">
+                                <tspan x="12.052" y="19">1</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="编组-17" transform="translate(303.666667, 2.000000)">
+                        <text id="待审核" font-family="PingFangSC-Medium, 蘋方-簡" font-size="12" font-weight="500" fill="#000000" fill-opacity="0.85">
+                            <tspan x="0" y="55">待审核</tspan>
+                        </text>
+                        <g id="编组-23" transform="translate(2.000000, 0.000000)">
+                            <circle id="Oval-1-Copy-11" stroke-opacity="0.15" stroke="#000000" cx="16" cy="16" r="15.5"></circle>
+                            <text id="2" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#000000" fill-opacity="0.25">
+                                <tspan x="12.052" y="19">2</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="编组-18" transform="translate(558.333333, 2.000000)">
+                        <text id="转代理中" font-family="PingFangSC-Medium, 蘋方-簡" font-size="12" font-weight="500" fill="#000000" fill-opacity="0.85">
+                            <tspan x="0" y="55">转代理中</tspan>
+                        </text>
+                        <g id="编组-25" transform="translate(8.000000, 0.000000)">
+                            <circle id="Oval-1-Copy-9" stroke-opacity="0.15" stroke="#000000" cx="16" cy="16" r="15.5"></circle>
+                            <text id="3" font-family="HelveticaNeue, Helvetica Neue" font-size="16" font-weight="normal" line-spacing="24" fill="#000000" fill-opacity="0.25">
+                                <tspan x="12.052" y="19">3</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <rect id="Rectangle-28" fill="#1890FF" x="94.3333333" y="18" width="192" height="1"></rect>
+                    <rect id="Rectangle-28备份" fill-opacity="0.15" fill="#000000" x="356" y="18" width="192" height="1"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,345 @@
+/*
+ * css公用样式
+ */
+
+/*
+ * 全局滚动条的样式
+ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+// 滚动条里面轨道以及垂直和横向相间部分的样式
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  background: rgba(51, 51, 51, 0.08);
+}
+
+// 滚动条内部长条的样式
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #c7c7c7;
+}
+
+// 滚动条内部长条hover样式
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: rgba(51, 51, 51, 0.3);
+}
+
+// 滚动条内部长条的点击样式
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(51, 51, 51, 0.4);
+}
+
+/*
+ * 页面全屏
+ */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  display: block;
+  overflow: hidden;
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * 圆角样式
+ */
+.border-radius {
+  border-radius: 4px !important;
+}
+
+.border-radius-round {
+  border-radius: 100% !important;
+}
+
+.border-radius-ellipse {
+  border-radius: 50px !important;
+}
+
+/* 字重 */
+.text-bold-400 {
+  font-weight: 400;
+}
+.text-bold-500 {
+  font-weight: 500;
+}
+.text-bold-600 {
+  font-weight: 600;
+}
+.text-bold {
+  font-weight: bold;
+}
+/* 文字下划线 */
+.text-underline {
+  border-bottom: solid 1px #e0e0e0;
+}
+/* 文字超出省略号 */
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 字体大小 */
+.font-9 {
+  font-size: 12px;
+  transform: scale(0.75);
+}
+
+.font-10 {
+  font-size: 12px;
+  transform: scale(0.83);
+}
+
+.font-11 {
+  font-size: 12px;
+  transform: scale(0.9);
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-17 {
+  font-size: 17px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-19 {
+  font-size: 19px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-21 {
+  font-size: 21px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-23 {
+  font-size: 23px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-25 {
+  font-size: 25px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-27 {
+  font-size: 27px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.font-29 {
+  font-size: 29px;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.font-31 {
+  font-size: 31px;
+}
+
+.font-32 {
+  font-size: 32px;
+}
+
+/* float */
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.float-clear:after {
+  content: "";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* display */
+.display-none {
+  display: none;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+/* text-align */
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* vertical */
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+
+/* position */
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/*
+ * flex简单布局
+ */
+.display-flex {
+  display: flex;
+}
+
+.display-flex .flex {
+  flex: 1;
+}
+
+.display-flex .flex-1 {
+  flex: 1;
+}
+
+.display-flex .flex-2 {
+  flex: 2;
+}
+
+.display-flex .flex-3 {
+  flex: 3;
+}
+
+.display-flex .flex-4 {
+  flex: 4;
+}
+
+.display-flex .flex-5 {
+  flex: 5;
+}
+
+.display-flex .flex-6 {
+  flex: 6;
+}
+
+.display-flex .flex-7 {
+  flex: 7;
+}
+
+.display-flex .flex-8 {
+  flex: 8;
+}
+
+.display-flex .flex-9 {
+  flex: 9;
+}
+
+.display-flex .flex-10 {
+  flex: 10;
+}
+
+.display-flex .flex-11 {
+  flex: 11;
+}
+
+.display-flex .flex-12 {
+  flex: 12;
+}
+
+/*
+ * 位置固定
+ */
+.affix {
+  position: fixed;
+  width: auto;
+  z-index: 998;
+  left: 0;
+  right: 0;
+}
+
+.affix.affix-top {
+  top: 0;
+}
+
+.affix.affix-bottom {
+  bottom: 0;
+}
+

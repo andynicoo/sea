@@ -1,0 +1,474 @@
+#pdf-create{
+  margin: 0 auto;
+  width: 1280px;
+  .operate{
+    display: none !important;
+  }
+}
+.report{
+  user-select: none;
+  background: url(../assets/images/trademark/header.svg) #F4F8FB center 0 no-repeat;
+  padding: 0 0 70px;
+  .flex{
+    display: flex;
+  }
+  .content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    font-size: 14px;
+    header{
+      height: 234px;
+      margin-bottom:24px;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-width: 1px 0 1px 0;
+      padding: 15px 0;
+      .logo{
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      .hidden{
+        visibility: hidden;
+      }
+      .space-btm{
+        margin-bottom: 56px;
+      }
+      .name{
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .info{
+        background: rgba(255,255,255,0.06);
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        .result{
+          div{
+            font-size: 20px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            span{
+              display: inline-block;              
+              background: rgba(255,255,255,0.1);
+              height: 32px;
+              line-height: 32px;
+              padding: 0 8px;
+              margin-left: 12px;
+            }
+            span.orange{
+              color:#FFA800
+            }
+            span.green{
+              color:#1CF3B2
+            }
+            span.gray{
+              color:#D8D8D8
+            }
+          }          
+          p{
+            margin-bottom: 0;
+            span:first-child{
+              margin-right: 12px;
+            }
+          }
+        }
+        .operate{
+          align-self: self-end;
+          display: flex;
+          align-items: center;
+          .select{
+            width: 210px;
+          }
+          .btn{
+            margin-left: 24px;
+            color: #3370FF;
+          }
+          .pdf-btn{
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: url(../assets/images/trademark/pdf_pc.svg) no-repeat;
+          }
+          img{
+            margin-right: 5px;
+          }
+        }
+      }      
+    }
+
+    .body{
+      margin-top: 50px;
+      .section{
+        margin-bottom: 24px;
+        background: #fff;
+        padding: 40px 56px;
+      }
+      .title-lv1{
+        strong{
+          display: inline-block;
+          width: 245px;
+          height: 44px;
+          line-height: 44px;
+          padding-left: 32px;
+          font-size: 24px;
+          color: #fff;
+          background: url(../assets/images/trademark/title.svg) no-repeat;
+        }
+        p{          
+          border-top: 1px solid rgba(0,0,0,0.26);
+          color:#999;
+          padding-top: 8px;
+          margin-top: 16px;
+        }
+      }
+      .title-lv2{
+        margin: 24px 0 16px;
+        align-items: center;
+        em{
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          background: #3370FF;
+          transform: rotate(45deg);
+        }
+        strong{
+          font-size: 20px;
+          margin: 0 3px 0 5px;
+        }
+        span{
+          color: #999;
+          align-self: self-end;
+        }
+      }
+      .box{
+        border-radius: 12px;
+        padding: 22px 24px;
+        background: #F1F6FF;
+        margin-bottom: 30px;
+        .box-item{
+          padding:24px;
+          background: #FFFFFF;
+          box-shadow: 0px 2px 12px 0px rgba(16,68,166,0.07);
+          border-radius: 8px;
+          pre{
+            line-height: 24px;
+            font-family: 'Microsoft YaHe', Helvetica, Arial, sans-serif;
+          }
+        }
+        .overview{
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          .box-item{
+            span{
+              display: inline-block;
+              height: 26px;
+              line-height: 26px;
+              text-align: center;
+              color: #fff;
+              background: #3370FF;
+              border-radius: 30px;
+              padding:0 12px;
+              margin-bottom: 15px;
+            }            
+          }
+          .box-item:first-child{
+            width: 210px;
+          }
+          .box-item:nth-child(2){
+            width: 804px;          
+          }
+          .box-item:last-child{
+            margin-top: 24px;
+            width: 100%;
+          }
+        }
+      }
+      .box.case{
+        .box-item{
+          img{
+            margin-right: 4px;
+          }
+          div{
+            margin-top: 20px;
+            line-height: 22px;
+          }
+        }
+      }
+      .trademark-info{
+        display: flex;
+        flex-wrap: wrap;
+        border-left: 1px solid #F0F0F0;
+        border-top: 1px solid #F0F0F0;
+        li{
+          span,strong{
+            display: inline-block;
+            height: 54px;
+            border-right: 1px solid #F0F0F0;
+            border-bottom: 1px solid #F0F0F0;
+            padding: 15px;
+          }
+          strong{
+            width: 120px;
+          }
+        }
+        li:nth-child(2n+1){
+          width: 430px;
+          span{
+            width: 306px;
+          }
+        }
+        li:nth-child(2n){
+          width: 656px;
+          span{
+            width: 536px;
+          }
+        }
+      }
+      .risk{
+        line-height: 32px;
+        color: #555;
+      }
+      .tips{
+        margin: 20px 0 0;
+        color: #999 ;
+      }
+      .img-list{
+        img{
+          margin-bottom: 15px;
+          padding: 10px;
+          border-radius: 20px ;          
+          border: 1px solid #DCDCDC;
+        }
+      }
+      pre{
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    }
+
+    footer{
+      display: none;
+    }
+    .back-top{
+      position: fixed;
+      width: 64px;
+      height: 64px;
+      background: url(../assets/images/trademark/gotop.svg) no-repeat;
+      right: 20px;
+      bottom: 80px;
+    }
+  }
+  .mobi-reports{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .report{
+    &::before{
+      position: absolute;
+      z-index: 1;
+      height: 283px;
+      width: 100%;
+      background: url(../assets/images/trademark/header_mobi.svg) 0 0 / cover no-repeat;
+      display: block;
+      content:''
+    }
+    
+    background-size: 100% 235px;
+    .content{
+      padding-top: 15px;
+      header{
+        position: relative;
+        z-index: 5;
+        height: 255px;
+        margin:0 20px 24px;
+        .logo{
+          margin-bottom: 58px;
+          span{
+            font-size: 12px;
+            white-space: nowrap;
+            transform: scale(0.8);
+            transform-origin: 0%;
+          }
+        }
+        .space-btm{
+          margin-bottom: 110px;
+        }        
+        .name{
+          font-size: 28px;
+        }
+        .info{
+          padding: 10px 12px;
+          .result{
+            div{
+              font-size: 14px;
+              margin-bottom: 10px;
+              span{
+                font-size: 12px;
+                height: 24px;
+                line-height: 24px;
+              }
+            }
+            p{
+              display: flex;
+              flex-wrap: wrap;
+              flex-direction: column;
+            }
+          }
+          .operate{
+            display: none;
+          }         
+        }
+        
+      }
+      .body{
+        margin: 5px 10px 0;
+        .section{
+          padding: 16px;
+        }
+        .title-lv1{
+          strong{
+            width: 185px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            padding-left: 28px;
+            background: url(../assets/images/trademark/title_mobi.svg) no-repeat;
+          }
+        }
+        .title-lv2{
+          strong{
+            font-size: 16px;
+          }
+          span{
+            font-size: 12px;
+          }
+        }
+        .box{
+          .overview{
+            .box-item:first-child{
+              width: 100%;
+            }
+            .box-item:nth-child(2){
+              margin-top: 24px;
+            }
+          }
+        }
+        .trademark-info{
+          li{
+            display: flex;
+            width: 100% !important;
+            strong,span{
+              height: auto;
+            }
+            span{
+              width: inherit;
+              flex: 1;
+              line-height: 26px;
+            }
+          }
+        }
+      }
+
+      footer{
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 56px;
+        background: #fff;
+        box-shadow: 0px -4px 16px 0px rgba(16,68,166,0.12);
+        .operate{
+          height: 56px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          .btn{
+            color: #fff;
+            border-radius: 4px !important;
+          }
+          .quit-btn{
+            color: #3370FF;
+          }
+          .large-btn{
+            color: #3370FF;
+            width: 80%;
+            img{
+              margin-right: 8px;
+            }
+          }
+          .text-btn{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #999;
+          }
+        }
+        /deep/.ant-btn-primary{
+          background-color: #3370FF;
+          border-color: #3370FF;
+          color: #fff;
+        }
+        /deep/.ant-btn-background-ghost.ant-btn-primary{
+          color: #3370FF;
+          border-color: #3370FF;
+        }
+
+      }
+      .back-top{
+        position: fixed;
+        width: 34px;
+        height: 34px;
+        right: 0;
+        bottom: 210px;
+        background-image: url(../assets/images/trademark/gotop_mobi.svg);
+        background-size: cover;
+      }
+    }
+    .mobi-reports{
+      position: fixed;
+      right: 0;
+      top: 50%;
+      display: flex;
+      flex-direction: row-reverse;
+      a{
+        display: block;
+        width: 34px;
+        height: 112px;
+        background: #ccc;
+      }
+      ul{
+        width: 160px;
+        max-height: 210px;
+        overflow-y: auto;
+        background: #fff;
+        box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.06);
+        border-radius: 2px;
+        li{
+          height: 36px;
+          line-height: 36px;
+          text-align: center;
+        }
+        li:nth-child(2n+1){
+          background: #F5F5F5;
+        }
+        li.active{          
+          background: #EEF3FF;
+        }
+      }
+    }
+  }  
+}
+.auth{
+  p{
+    margin-top: 20px;
+    text-align: right;
+  }
+}

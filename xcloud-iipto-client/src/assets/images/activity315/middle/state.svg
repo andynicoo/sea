@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" width="184px" height="32px">
+  <defs>
+    <linearGradient id="PSgrad_0" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="rgb(250,248,247)" stop-opacity="1" />
+      <stop offset="99%" stop-color="rgb(250,177,80)" stop-opacity="1" />
+    </linearGradient>
+    <filter id="Filter_0">
+      <feFlood flood-color="rgb(236, 47, 21)" flood-opacity="1" result="floodOut" />
+      <feComposite operator="atop" in="floodOut" in2="SourceGraphic" result="compOut" />
+      <feBlend mode="normal" in="compOut" in2="SourceGraphic" />
+    </filter>
+
+  </defs>
+  <path fill-rule="evenodd" fill="rgb(255, 255, 255)" d="M1.999,0.544 L163.382,0.544 C174.428,0.544 183.382,9.499 183.382,20.544 L183.382,29.104 C183.382,30.208 182.486,31.104 181.382,31.104 L19.999,31.104 C8.954,31.104 0.0,22.149 0.0,11.104 L0.0,2.544 C0.0,1.440 0.895,0.544 1.999,0.544 Z"/>
+  <path fill="url(#PSgrad_0)" d="M1.999,0.544 L163.382,0.544 C174.428,0.544 183.382,9.499 183.382,20.544 L183.382,29.104 C183.382,30.208 182.486,31.104 181.382,31.104 L19.999,31.104 C8.954,31.104 0.0,22.149 0.0,11.104 L0.0,2.544 C0.0,1.440 0.895,0.544 1.999,0.544 Z"/>
+  <g filter="url(#Filter_0)">
+    <text kerning="auto" font-family="Adobe Heiti Std" fill="rgb(0, 0, 0)" font-size="20px" x="63px" y="22.9059999999999px">
+      <tspan font-size="20px" font-family="Alibaba PuHuiTi" fill="#E94029">&#25250;&#36141;&#20013;</tspan>
+    </text>
+  </g>
+</svg>

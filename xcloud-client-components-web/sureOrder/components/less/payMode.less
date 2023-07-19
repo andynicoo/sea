@@ -1,0 +1,91 @@
+span.fl {
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #333333;
+    margin-right: 16px;
+    display: inline-block;
+    height: 58px;
+    line-height: 58px;
+  }
+  
+  .payType {
+    .typeBox {
+      background: rgba(153, 153, 153, 0.14);
+      border-radius: 4px;
+      margin-right: 12px;
+  
+      font-family: PingFangSC;
+      color: #333333;
+      text-align: center;
+      cursor: pointer;
+  
+      & img {
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+    }
+    & .active {
+      background: url('./../../../images/sureOrder/check.png') no-repeat;
+      background-position: right bottom;
+      background-color: #ffffff;
+      border-radius: 4px;
+      border: 1px solid #00a3ff;
+      color: #00a3ff;
+    }
+    .active-small {
+      background-size: 20px !important;
+    }
+  }
+  .payType.intl{
+    padding-left: 85px;
+    .fl{
+      font-size: 14px;
+      color: #919498;
+    }
+  }
+  .pay-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+  }
+  
+  .small {
+    padding: 3px;
+  }
+  .tips {
+    margin-top: 5px;
+    color: #7f7f7f;
+  }
+  .pay-item {
+    margin-top: 8px;
+    min-width: 110px;
+  }
+  .medium {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .pay-radio{
+    font-size: 14px;
+    display: flex;
+    >:first-child{
+      margin-right: 30px;
+    }
+    >div{
+      margin-bottom: 15px;
+    }
+    .currency{
+      margin-top: 10px;
+      padding: 10px 0 0;
+      color: #919498;
+      span{
+        margin-right: 12px;
+      }
+      .select{
+        width: 138px;
+      }
+    }
+  }
+
+  .select-currency{
+    padding-left: 85px;
+  }

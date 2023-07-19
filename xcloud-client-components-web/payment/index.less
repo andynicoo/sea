@@ -1,0 +1,845 @@
+.play-useragreement-style {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.purchaseInformation {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333333;
+    line-height: 20px;
+
+    span {
+        color: #16ade9;
+        cursor: pointer;
+    }
+}
+
+.user-click-radio-show-input {
+    display: grid;
+    grid-template-columns: 500px 500px
+}
+
+.user-click-radio-show-input>.right>.sureOrder-radio-right-content {
+    padding-top: 10px;
+}
+
+.user-click-radio-show-input>.right>.sureOrder-radio-right-content>.info {
+    margin-left: 56px;
+    width: 266px;
+    margin-bottom: 10px;
+    text-align: center;
+
+}
+
+.user-click-radio-show-input>.right>.sureOrder-radio-right-content>.info>p {
+    color: #ff6600 !important;
+    font-size: 12px !important;
+    width: 100%;
+}
+
+.contract-type-style {
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #ff6600;
+}
+
+.container {
+    min-height: calc(100vh - 0px);
+
+    .headContent {
+        height: 100px;
+        background: #ffffff;
+        box-shadow: 0px 1px 4px 0px rgba(0, 21, 41, 0.12);
+        padding: 20px 32px;
+
+        .top {
+            margin-bottom: 14px;
+
+            .flink,
+            .clink {
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.45);
+                line-height: 22px;
+            }
+
+            .clink {
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.65);
+            }
+        }
+
+        .bottom {
+            font-size: 20px;
+            font-family: "Microsoft Yahei", PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.85);
+            line-height: 28px;
+
+            span {
+                font-size: 14px;
+
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.65);
+                line-height: 22px;
+            }
+        }
+    }
+
+    .content {
+        background: #ffffff;
+        padding: 20px;
+        margin: 24px;
+        padding-bottom: 32px;
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+            .name {
+                height: 39px;
+                background: #d7eefa;
+            }
+
+            tr {
+                border-bottom: 1px solid #f2f2f2;
+
+                th {
+                    font-size: 14px;
+                    font-family: "Microsoft Yahei", PingFangSC-Medium, PingFang SC;
+                    font-weight: 500;
+                    color: #333333;
+                    line-height: 14px;
+                }
+
+                td {
+                    font-size: 14px;
+                    font-family: "Microsoft Yahei", PingFangSC-Medium, PingFang SC;
+                    font-weight: 500;
+                    color: #333333;
+                    line-height: 12px;
+                    text-align: center;
+
+                    .serviceName {
+                        padding: 20px 0px;
+                        display: flex;
+                        justify-content: center;
+
+                        .right {
+                            text-align: left;
+                            margin-left: 20px;
+
+                            p:nth-child(1) {
+                                color: #333333;
+                                font-weight: 500;
+                                font-size: 14px;
+                                margin-top: -3px;
+                            }
+
+                            p:nth-child(2) {
+                                color: #999999;
+                                font-size: 12px;
+                                line-height: 18px;
+                            }
+                        }
+
+                        img {
+                            width: 104px;
+                            height: 94px;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .red {
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #16ade9;
+                    }
+
+                    .delete {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        img {
+                            width: 15px;
+                            height: 15px;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        .settlement {
+            text-align: right;
+            width: 120px;
+            height: 52px;
+            background: rgba(22, 173, 233, 1);
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            text-align: center;
+            line-height: 52px;
+            cursor: pointer;
+            margin-right: 60px;
+        }
+
+        .fukuan {
+            text-align: right;
+            margin: 20px 0px 20px;
+            padding-right: 60px;
+
+            .red {
+                font-size: 28px;
+                color: #ed3e3e;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.paymentpage {
+    width: 1000px;
+    // background: #fff;
+    margin: 0 auto;
+
+    .headContent {
+        height: 90px;
+        display: flex;
+        align-items: center;
+
+        .logo {
+            width: 174px;
+            height: 48px;
+            margin-right: 27px;
+        }
+
+        .tit {
+            p {
+                font-size: 14px;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #919498;
+                line-height: 22px;
+            }
+        }
+
+        .ordertit {
+            margin-left: auto;
+
+            p {
+                font-size: 16px;
+                font-family: PingFang SC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #303132;
+                line-height: 32px;
+            }
+
+            .order {
+                font-size: 24px;
+                text-align: right;
+            }
+        }
+    }
+
+    .orderinfo {
+        background: #fff;
+        padding: 24px;
+
+        h2 {
+            font-size: 16px;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: bold;
+            color: #303132;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            .box {
+                width: 250px;
+                font-size: 14px;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #919498;
+
+                p {
+                    font-size: 14px;
+                    font-family: PingFang SC-Medium, PingFang SC;
+                    font-weight: 500;
+                    color: #303132;
+                    margin-top: 10px;
+                }
+            }
+
+            .line {
+                margin-bottom: 15px;
+                border-bottom: 1px dashed #f0f0f0;
+                padding-bottom: 15px;
+            }
+        }
+
+        .invoice {
+            background: #FFFDFA;
+            padding: 16px 24px;
+            margin-top: 15px;
+            display: flex;
+
+            h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: #9E7A54;
+            }
+
+            p.bt15 {
+                margin-bottom: 15px;
+            }
+
+            .title {
+                width: 160px;
+                border-right: 1px dashed #9E7A54;
+                margin-right: 40px;
+                padding-top: 20px;
+
+                h3 {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #606266;
+                }
+
+                .button {
+                    // width: 96px;
+                    margin-right: 18px;
+                    height: 24px;
+                    border-radius: 1px 1px 1px 1px;
+                    opacity: 1;
+                    border: 1px solid #C5A787;
+                    font-size: 12px;
+                    color: #9E7A54;
+                    line-height: 23px;
+                    text-align: center;
+                }
+            }
+
+            .box {
+                width: 240px;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    .serviceinfo {
+        background: #fff;
+        margin-top: 15px;
+        padding: 24px;
+
+        h2 {
+            font-size: 16px;
+            font-weight:bold;
+            color: #303132;
+        }
+    }
+
+    .paymethod {
+        background: #fff;
+        margin-top: 15px;
+        padding: 24px;
+
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #303132;
+        }
+
+        .box {
+            display: flex;
+
+            .moneytype {
+                width: 380px;
+                padding-left: 20px;
+                >span{
+                    padding-left: 10px;
+                     color: #919498;
+                    }
+                h3 {
+                    font-size: 14px;
+                    color: #919498;
+                    margin-bottom: 15px;
+                }
+            }
+
+            .paytype {
+                h3 {
+                    font-size: 14px;
+                    color: #919498;
+                }
+
+                .typeBox {
+                    width: 130px;
+                    height: 46px;
+                    border-radius: 4px;
+                    // border: 1px solid rgba(153, 153, 153, 0.14);
+                    margin-right: 10px;
+                    cursor: pointer;
+                    line-height: 46px;
+                    font-size: 14px;
+                    font-family: "Microsoft Yahei", PingFangSC;
+                    background: rgba(153, 153, 153, 0.14);
+
+                    font-size: 14px;
+                    font-family: "Microsoft Yahei", PingFangSC;
+                    color: #333333;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    & img {
+                        padding-right: 3px;
+                        float: left;
+                    }
+                }
+
+                & .active {
+                    border-color: #16ade9;
+                    background: url("../images/sureOrder/check.svg") no-repeat;
+                    background-position: right bottom;
+                    color: #00a3ff;
+                    border: 1px solid #3A7FFF;
+                }
+            }
+        }
+    }
+
+    .paycount {
+        width: 1000px;
+        height: 102px;
+        background: #E3F1FF;
+        border-radius: 0px 0px 0px 0px;
+        opacity: 1;
+        font-size: 14px;
+        font-weight: 400;
+        color: #606266;
+        padding: 24px 24px 24px 0px;
+        /deep/ .ant-space{
+            float: right;
+            margin-right: 20px;
+        }
+        span {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .line {
+            width: 155px;
+            border-right: 1px solid #549BFF;
+        }
+
+        .count {
+            color: #303132;
+
+            .count1 {
+                font-size: 24px;
+                font-weight: 500;
+            }
+
+            p {
+                margin-left: 10px;
+                text-align: right;
+                color: #606266;
+            }
+        }
+
+        .paybutton {
+            color: #fff;
+            float: right;
+            width: 134px;
+            height: 40px;
+            margin-top: 7px;
+        }
+    }
+
+    .pay-tip {
+        font-size: 14px;
+        font-weight: 400;
+        color: #919498;
+        text-align: right;
+    }
+}
+
+.momey {
+    color: #FF5F61 !important;
+}
+
+.footer {
+    width: 100%;
+    min-height: 150px;
+    padding: 28px 56px 0px 10px;
+    color: #666666;
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+    margin-bottom: 28px;
+    overflow: hidden;
+
+    .couponTitle {
+        color: #666666;
+        font-size: 14px;
+    }
+
+    /deep/ .invoiceTitle {
+        .ivu-form-item {
+            margin: 0px;
+            margin-bottom: 10px;
+
+            .ivu-radio-wrapper {
+                margin-right: 30px;
+            }
+        }
+    }
+
+    .red {
+        color: #ed3e3e;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    >.right {
+        color: #333333;
+
+        .total {
+            margin: 0px 20px 0px 40px;
+
+            .red {
+                font-size: 16px;
+                color: #ed3e3e;
+            }
+        }
+
+        .settlement {
+            height: 52px;
+            width: 120px;
+            background: rgba(22, 173, 233, 1);
+            font-size: 17px;
+            color: rgba(255, 255, 255, 1);
+            text-align: center;
+            line-height: 52px;
+            cursor: pointer;
+        }
+
+        .selectedItems {
+            .red {
+                color: #ed3e3e;
+                font-size: 16px;
+            }
+        }
+    }
+
+
+
+    .relative {
+        position: relative;
+
+        .flex {
+            flex-direction: column;
+        }
+
+        >.right {
+            float: right;
+
+            p {
+                margin: 10px;
+                font-size: 14px;
+                font-family: "Microsoft Yahei", SourceHanSansSC-Regular, SourceHanSansSC;
+                font-weight: 400;
+                color: #333333;
+                line-height: 20px;
+            }
+
+            .red {
+                margin-left: -5px;
+            }
+        }
+
+        >.left {
+            .item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+&/deep/.ivu-modal-content {
+    height: 360px;
+
+    .ivu-modal-header {
+        background: #ffffff !important;
+        border-color: #f6f6f6;
+
+        .ivu-modal-header-inner::before {
+            content: "";
+            border-left: 2px solid #16ade9;
+            width: 2px;
+            height: 14px;
+            padding-left: 10px;
+        }
+    }
+
+    .ivu-modal-body {
+        .qrcode {
+            margin-top: 35px;
+        }
+
+        img {
+            margin: auto;
+        }
+
+        .qrcode-img {
+            text-align: center;
+
+            #qrcode-content {
+                margin-bottom: 20px;
+            }
+
+            .qrcode-content-text {
+                font-size: 12px;
+                color: #999999;
+            }
+
+            .price-name {
+                font-size: 12px;
+                color: #666666;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+/deep/ .ivu-input[disabled],
+fieldset[disabled] .ivu-input {
+    background: #ffffff !important;
+}
+
+/deep/ .ivu-radio-checked .ivu-radio-inner {
+    background-color: #ffffff !important;
+}
+
+/deep/ .ivu-radio-inner:after {
+    background-color: #16ade9 !important;
+}
+
+.discount {
+    >div {
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        align-items: center;
+        margin-left: 32px;
+
+        span {
+            margin-right: 15px;
+        }
+    }
+}
+
+.label-tooltip {
+    position: absolute;
+    left: -85px;
+    top: 1px;
+}
+
+.demo-spin-icon-load {
+    animation: ani-demo-spin 1s linear infinite;
+}
+
+@keyframes ani-demo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/deep/ .ivu-spin-show-text .ivu-spin-text {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.order-wrap {
+    margin-top: 10px;
+
+    .gray {
+        color: #7f7f7f;
+    }
+}
+
+.zhifu {
+    .payType {
+        font-size: 12px;
+        line-height: 32px;
+        display: flex;
+        align-items: center;
+
+        .typeBox {
+            width: 134px;
+            height: 46px;
+            border-radius: 4px;
+            border: 1px solid rgba(153, 153, 153, 0.14);
+            margin-left: 10px;
+            cursor: pointer;
+            line-height: 46px;
+            font-size: 14px;
+            font-family: "Microsoft Yahei", PingFangSC;
+            background: rgba(153, 153, 153, 0.14);
+
+            font-size: 14px;
+            font-family: "Microsoft Yahei", PingFangSC;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                padding-right: 3px;
+                float: left;
+            }
+        }
+
+        & .active {
+            border-color: #16ade9;
+            background: url("../images/sureOrder/check.svg") no-repeat;
+            background-position: right bottom;
+            color: #00a3ff;
+        }
+    }
+}
+
+.payMethod {
+    width: 110px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.order-title {
+    font-size: 16px;
+    color: #333;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.pay-tip {
+    margin: 10px 0 0 130px;
+}
+
+.account-wrap {
+    /deep/ .ivu-modal-header-inner {
+        text-align: center;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .pay-money-title {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+
+    .pay-account {
+        /deep/ .ivu-form-item {
+            margin-bottom: 10px;
+        }
+
+        /deep/ .ivu-form {
+            margin-left: 60px;
+        }
+    }
+
+    .btn-wrap {
+        text-align: center;
+    }
+
+    .tip-font {
+        color: #999;
+    }
+
+    /deep/ .ivu-modal-content {
+        height: 460px;
+    }
+
+    .warn-wrap {
+        margin: 30px 0 0 60px;
+    }
+
+}
+
+.pay-wrap /deep/ .ivu-modal-content {
+    height: 420px;
+}
+
+
+.zhifu {
+    margin: 30px 0px;
+}
+
+.fr {
+    font-size: 14px;
+    float: right;
+    font-family: PingFangSC;
+    color: #333333;
+    margin-top: 15px;
+
+    .blue-font {
+        color: #00a3ff;
+        cursor: pointer;
+    }
+}
+
+.settlement {
+
+    .fukuan {
+        font-size: 14px;
+        font-family: PingFangSC;
+        color: #333333;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-right: 8px;
+
+        span {
+            font-size: 25px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 700;
+            color: rgb(217, 0, 27);
+            margin-right: 20px;
+        }
+    }
+
+    button {
+        width: 114px;
+        height: 38px;
+        background: #00a3ff;
+        border-radius: 2px;
+        // margin-top: 14px;
+        color: #fff;
+        border-color: #00a3ff;
+    }
+}
+
+.paycount {
+    margin-top: 15px;
+  }
+  .pay-Infomation{
+    margin-top: 12px;
+  }

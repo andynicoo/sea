@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>Shape Copy 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="240" height="374"></rect>
+        <filter x="-3.8%" y="-1.9%" width="105.8%" height="103.7%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="-2" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1035566 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="工作台" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="各国税务申报、注册、转代理-状态" transform="translate(-795.000000, -167.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="2563" height="1247"></rect>
+            <g id="操作" transform="translate(701.000000, 105.000000)">
+                <g id="矩形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="编组-7备份-2" transform="translate(94.000000, 62.000000)">
+                    <g id="编组-11" transform="translate(3.000000, 3.000000)">
+                        <path d="M0.933333333,0 L13.0666667,0 C13.5821324,0 14,0.417867567 14,0.933333333 L14,13.0666667 C14,13.5821324 13.5821324,14 13.0666667,14 L0.933333333,14 C0.417867567,14 0,13.5821324 0,13.0666667 L0,0.933333333 C0,0.417867567 0.417867567,0 0.933333333,0 Z" id="路径" stroke="#666666" stroke-width="1.2" fill-rule="nonzero"></path>
+                        <path d="M3.5,10.0625 L3.5,10.9375 L2.1875,10.9375 L2.1875,10.0625 L3.5,10.0625 Z M11.8125,10.0625 L11.8125,10.9375 L4.59375,10.9375 L4.59375,10.0625 L11.8125,10.0625 Z M3.5,6.5625 L3.5,7.4375 L2.1875,7.4375 L2.1875,6.5625 L3.5,6.5625 Z M11.8125,6.5625 L11.8125,7.4375 L4.59375,7.4375 L4.59375,6.5625 L11.8125,6.5625 Z M3.5,3.0625 L3.5,3.9375 L2.1875,3.9375 L2.1875,3.0625 L3.5,3.0625 Z M11.8125,3.0625 L11.8125,3.9375 L4.59375,3.9375 L4.59375,3.0625 L11.8125,3.0625 Z" id="Combined-Shape" fill="#666666"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

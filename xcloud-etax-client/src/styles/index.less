@@ -1,0 +1,208 @@
+@import './view-design.less';
+@import './util.less';
+@import './common.less';
+
+body {
+  height: 100%;
+  color: #303133;
+  overflow-x: hidden;
+  // background: #f7f8fa;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+// 去除默认input自带显示密码的眼睛图标
+input[type='password']::-ms-clear {
+  display: none;
+}
+input[type='password']::-ms-reveal {
+  display: none;
+}
+
+/* no padding */
+.no-padding {
+  padding: 0px !important;
+}
+
+/* 页面路由切换动画 */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.35s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+/* 清除浮动 */
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: '';
+    clear: both;
+    height: 0;
+  }
+}
+
+/* set global text color */
+.text-default {
+  color: #303133;
+}
+
+.text-info {
+  color: #606266;
+}
+
+.text-desc {
+  color: #909399;
+}
+
+.text-primary {
+  color: #1890ff;
+}
+
+.text-success {
+  color: #19be6b;
+}
+
+.text-warning {
+  color: #ff9900;
+}
+
+.text-danger {
+  color: #ed4014;
+}
+.text-tips {
+  color: rgb(251, 183, 60);
+}
+.upload-btn {
+  color: #f79728;
+}
+.text-blue {
+  color: #16ade9;
+}
+// 页面布局公用样式
+.app-container {
+  padding: 15px;
+
+  /* 顶部 */
+  .header-container {
+  }
+
+  /* 表格 */
+  .table-container {
+  }
+
+  /* 分页 */
+  .pagination-container {
+    padding: 10px;
+    text-align: right;
+  }
+}
+
+.hand {
+  cursor: pointer;
+}
+
+img {
+  vertical-align: initial;
+}
+
+// ksy 前缀样式为官网组件迁移时附带的样式
+.ksy-mb-0 {
+  margin-bottom: 0px;
+}
+.ksy-pr {
+  position: relative;
+}
+.ksy-pa {
+  position: absolute;
+}
+.center {
+  margin: 0 auto;
+}
+.ksy-w1320 {
+  max-width: 1200px;
+}
+.ksy-b {
+  display: block;
+}
+
+.ksy-ib {
+  display: inline-block;
+}
+
+.ksy-pb-1 {
+  padding-bottom: 5px;
+}
+
+.ksy-mt-1 {
+  margin-top: 5px;
+}
+
+.ksy-ml-3 {
+  margin-left: 15px;
+}
+
+.ksy-fl {
+  float: left;
+}
+
+.ksy-fr {
+  float: right;
+}
+
+.ksy-w1320gd {
+  width: 1200px;
+}
+
+.atext {
+  color: #333333;
+}
+
+// 公共头部
+.commontitle {
+  font-size: 24px;
+  font-family: PingFang SC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #303132;
+  background: #ffffff;
+  padding-left: 25px;
+  padding-bottom: 16px;
+  .tips {
+    font-size: 14px;
+    font-weight: 400;
+    color: #16ade9;
+    line-height: 22px;
+    margin-left: 10px;
+    cursor: pointer;
+  }  
+}
+
+.bannerbox {
+  padding: 24px;
+  background: #ffffff;
+}
+.statusIndfContent{
+  padding-top: 20px!important;
+}

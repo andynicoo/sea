@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1184px" height="90px" viewBox="0 0 1184 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg</title>
+    <defs>
+        <polygon id="path-1" points="0 0 1184 0 1184 90 0 90"></polygon>
+        <filter x="-27.4%" y="-27.4%" width="154.8%" height="154.8%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="45" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-30.5%" y="-30.5%" width="160.9%" height="160.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="50" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-47.7%" y="-47.7%" width="195.5%" height="195.5%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="48" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="路径"></g>
+            <g id="编组" mask="url(#mask-2)" fill-rule="nonzero">
+                <g transform="translate(-124.826400, -450.702000)">
+                    <polygon id="路径" fill="#5C9EFF" points="124.8264 450.702 1308.8264 450.702 1308.8264 540.702 124.8264 540.702"></polygon>
+                    <circle id="椭圆形" fill="#93D8FF" filter="url(#filter-3)" cx="1162.9764" cy="672.079" r="246.285"></circle>
+                    <circle id="椭圆形" fill="#93EBFF" filter="url(#filter-4)" cx="698.2784" cy="246.285" r="246.285"></circle>
+                    <circle id="椭圆形" fill="#7DC9FF" filter="url(#filter-5)" cx="150.797" cy="582.108" r="150.797"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

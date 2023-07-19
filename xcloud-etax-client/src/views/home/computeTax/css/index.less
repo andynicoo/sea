@@ -1,0 +1,1687 @@
+.ecl-table {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #ddd;
+
+    thead tr th {
+        background: #f2f2f3;
+        padding: 8px 12px;
+        border: solid 1px #ddd;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    tr td {
+        border: solid 1px #ddd;
+        padding: 4px 12px;
+        text-align: center;
+        position: relative;
+
+        .ecl-operate {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -80px;
+            margin: auto 0;
+            width: 70px;
+            text-align: left;
+
+            & .ivu-icon {
+                cursor: pointer;
+            }
+
+            & .ecl-line-add {
+                color: #19be6b;
+            }
+
+            & .ecl-line-remove {
+                color: #ed4014;
+            }
+        }
+    }
+}
+
+.other-sell-table {
+    max-height: 400px;
+    overflow: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px #ddd;
+
+    thead tr th {
+        background: #f2f2f3;
+        padding: 8px 12px;
+        border: solid 1px #ddd;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    tr td {
+        border: solid 1px #ddd;
+        padding: 4px 12px;
+        text-align: center;
+    }
+}
+
+.subInfo-1 {
+    height: 40px;
+    background: #fff1dd;
+    font-size: 14px;
+    font-family: "Microsoft Yahei", PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #333333ff;
+    line-height: 14px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: red;
+    font-weight: 500;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.modalCount {
+    background-color: #fff;
+
+    .headContent {
+        background: #ffffff;
+        padding: 16px 25px;
+        padding-top: 0px;
+        .top {
+            margin-bottom: 14px;
+
+            .flink,
+            .clink {
+                font-size: 14px;
+
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.45);
+                line-height: 22px;
+            }
+
+            .clink {
+                font-weight: 500;
+                color: rgba(0, 0, 0, 0.65);
+            }
+        }
+
+        .bottom {
+            font-size: 24px;
+            font-family: PingFang SC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #303132;
+
+            .compangInfo {
+                margin-top: 18px;
+                font-size: 14px;
+                font-family: "Microsoft Yahei", PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 0.85);
+                line-height: 22px;
+
+                p {
+                    min-width: 400px;
+                    margin: 4px 0px;
+                }
+
+                .right {
+                    color: #333333ff;
+                }
+            }
+
+            .reject-reason {
+                padding: 4px 16px;
+                background-color: #fff1dd;
+                font-size: 20px;
+                margin-top: 18px;
+
+                span.icon {
+                    font-size: 20px;
+                    width: 20px;
+                    height: 20px;
+                    background-color: #d72323;
+                    color: #fff;
+                    display: inline-block;
+                    border-radius: 50%;
+                    text-align: center;
+                    line-height: 20px;
+                    font-weight: 600px;
+                    margin-right: 6px;
+                }
+
+                span.reason {
+                    color: #d72323;
+                }
+            }
+        }
+    }
+
+    /deep/ .ivu-spin-fix {
+        position: fixed;
+        z-index: 999;
+        background-color: rgba(255, 255, 255, 0.7);
+
+        .ivu-spin-text {
+            i {
+                font-size: 20px;
+                font-weight: bold;
+                margin-right: 10px;
+            }
+
+            display: flex;
+            align-items: center;
+
+            .loadingText {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .demo-spin-icon-load {
+        animation: ani-demo-spin 1s linear infinite;
+    }
+
+    @keyframes ani-demo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        50% {
+            transform: rotate(180deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .demo-spin-col {
+        height: 100px;
+        position: relative;
+        border: 1px solid #eee;
+    }
+
+    .title {
+        font-size: 24px;
+        font-family: "Microsoft Yahei", "PingFangSC-Semibold,PingFang SC";
+        font-weight: 600;
+        color: rgba(51, 51, 51, 1);
+    }
+
+    .step1,
+    .step2 {
+        padding-bottom: 20px;
+    }
+
+    .step1 {
+        .tab-box {
+            border-bottom: 1px solid #dddddd;
+
+            span {
+                display: inline-block;
+                font-size: 16px;
+                margin-right: 36px;
+                color: #333333;
+                cursor: pointer;
+            }
+
+            .active-tab {
+                border-radius: 10px 10px 0 0;
+                background-color: #16ade9;
+                color: #fff;
+                padding: 8px 24px;
+            }
+        }
+
+        .tax-title {
+            margin: 24px 0;
+            padding: 11px 24px;
+            background-color: rgba(22, 173, 233, 0.2);
+            font-size: 18px;
+            font-family: "Microsoft Yahei", "PingFangSC-Medium,PingFang SC";
+            font-weight: 500;
+            color: rgba(51, 51, 51, 1);
+        }
+    }
+
+    .step2 {
+        .resultBox {
+            padding: 30px;
+
+            .finalTaxPayment {
+                background-color: rgb(255, 255, 255);
+                height: 110px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+
+                // margin-top: 30px;
+                p {
+                    margin: 0px;
+                }
+
+                .top {
+                    font-size: 12px;
+
+                    .red {
+                        color: #ed3e3e;
+                        font-weight: bold;
+                    }
+
+                    margin-bottom: 10px;
+                }
+
+                .bottom {
+                    .red {
+                        font-size: 23px;
+                        color: #ed3e3e;
+                        font-weight: bold;
+                    }
+                }
+
+                .canDiscount {
+                    font-size: 12px;
+                    margin-top: 12px;
+                    color: #303033;
+
+                    .top {
+                        margin-top: 0px !important;
+                    }
+
+                    .red {}
+                }
+
+                .canDiscount.top,
+                .canDiscount.bottom {
+                    margin: 0px;
+                }
+            }
+
+            tr {
+                height: 50px;
+            }
+
+            th {
+                background: #eeeeee;
+                border: none;
+                padding-left: 20px;
+                text-align: left;
+
+                .english {
+                    padding-top: 10px;
+                    height: 70px;
+                    line-height: 34px;
+                }
+            }
+
+            .detail {
+                background: #ffffff;
+
+                td {
+                    padding-left: 20px;
+                    color: #333333;
+                }
+            }
+
+            .finalTaxPayment {
+                .english {
+                    padding: 0px;
+
+                    .chinese {
+                        top: 17px;
+                    }
+
+                    .red {
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: rgba(237, 62, 62, 1);
+                        margin-left: 13px;
+                    }
+                }
+            }
+        }
+    }
+
+    .table {
+        // margin-top: 16px;
+    }
+
+    .yellow {
+        color: #fdaa15;
+        font-size: 12px;
+    }
+
+    .companyTax {
+        margin: 15px 0px;
+        background: #ffffff;
+        padding: 20px 30px;
+
+        &/deep/ .ivu-row {
+            height: 50px;
+        }
+
+        .top {}
+
+        .bottom {}
+    }
+
+    .english {
+        font-weight: bold;
+        font-size: 12px;
+        color: #666666;
+        line-height: 13px;
+        height: 100%;
+        position: relative;
+        padding-top: 10px;
+
+        .chinese {
+            position: absolute;
+            top: 28px;
+            left: 0px;
+        }
+
+        .rightWord {
+            font-size: 12px;
+            color: rgba(22, 173, 233, 1);
+            line-height: 13px;
+            margin-left: 15px;
+        }
+    }
+
+    .chinese {
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(102, 102, 102, 1);
+    }
+
+    .leftBox {
+        // margin-top: 25px;
+        width: 100%;
+        border: 1px solid #d8d8d8;
+
+        .haveCountry {
+            .taxCountryBox {
+                margin-right: 8px;
+            }
+
+            button {
+                color: #16ade9;
+                border: 1px solid #e6e6e6;
+            }
+        }
+    }
+
+    .topLeft {
+        margin: 30px 0 20px 80px;
+    }
+
+    .discountBox {
+        padding-top: 10px;
+        border-top: 1px solid #eeeeee;
+
+        .discountTitle {
+            font-size: 16px;
+            color: #303033;
+            font-weight: 500;
+            background: rgba(22, 173, 233, 0.2);
+            height: 48px;
+            line-height: 48px;
+            color: #333333;
+            padding: 0px 20px;
+
+            span {
+                font-size: 12px;
+                font-weight: 400;
+                color: #666666;
+            }
+
+            .addBtn {
+                width: 120px;
+                height: 33px;
+                background: rgba(255, 255, 255, 1);
+                border: 1px solid #16ade9;
+                color: #16ade9;
+                text-align: center;
+                display: inline-block;
+                font-size: 14px;
+                line-height: 32px;
+                border-radius: 5px;
+                margin-top: 8px;
+                cursor: pointer;
+
+                span {
+                    color: #16ade9;
+                    font-size: 14px;
+                    margin-right: 5px;
+                    margin-top: 1px;
+                }
+
+                img {
+                    width: 18px;
+                    height: 18px;
+                    margin-top: 6px;
+                    float: left;
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        .close {
+            margin-left: 20px;
+            margin-top: 7px;
+            float: right;
+            cursor: pointer;
+            padding: 10px;
+        }
+    }
+
+    .amzUpload {
+        color: #16ade9;
+    }
+
+    .amzUpload.btnfile {
+        background: #ffffff;
+        color: #16ade9;
+        border: 1px solid #16ade9;
+    }
+
+    .btBox {
+        text-align: center;
+        margin: 30px;
+    }
+
+    .countryFlag {
+        width: 26px;
+        height: 18px;
+        margin-left: 5px;
+        margin-right: 3px;
+    }
+
+    .countryName {
+        height: 17px;
+        font-size: 14px;
+        font-weight: 400;
+        color: rgba(51, 51, 51, 1);
+        line-height: 18px;
+    }
+
+    .countryList {
+        &/deep/ .ivu-form-item-content {
+            position: relative;
+
+            .ivu-checkbox-group {
+                display: flex;
+                margin-top: 3px;
+                flex-wrap: wrap;
+            }
+
+            .ivu-checkbox {
+                width: 16px;
+                height: 16px;
+
+                .ivu-checkbox-inner {
+                    width: 100%;
+                    height: 100%;
+                    margin-top: 1px;
+
+                    &::after {
+                        width: 5px;
+                        height: 12px;
+                        top: 0px;
+                        left: 5px;
+                    }
+                }
+            }
+        }
+
+        .VATCountry {
+            /deep/ .ivu-form-item {
+                position: relative;
+            }
+
+            span.zhuce {
+                position: absolute;
+                top: 18px;
+                left: -117px;
+                font-size: 12px;
+                font-family: "Microsoft Yahei", PingFangSC;
+                color: #666666;
+            }
+        }
+    }
+
+    .submitTop {
+        font-size: 13px;
+        line-height: 12px;
+        margin-top: 3px;
+    }
+
+    .submitBottom {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    margin-top: 16px;
+
+    &/deep/ .ivu-form .ivu-form-item-label {
+        font-size: 16px;
+        font-weight: bold;
+        color: rgba(102, 102, 102, 1);
+        // line-height:13px;
+    }
+
+    &/deep/ .ivu-checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+    &/deep/ .ivu-radio-wrapper {
+        color: #333333;
+
+        .ivu-radio {
+            margin-top: 5px;
+        }
+    }
+
+    &/deep/ .ivu-table th {
+        background-color: rgba(22, 173, 233, 0.2) !important;
+        color: #666666;
+        font-weight: 400;
+        border-top: 1px solid rgba(153, 153, 153, 0.2);
+    }
+
+    &/deep/ .ivu-table td {
+        &:last-child {
+            border-right: 1px solid #e8eaec;
+        }
+    }
+
+    &/deep/ .ivu-table-wrapper {
+        overflow: initial;
+    }
+
+    &/deep/ .ivu-modal-footer {
+        text-align: center;
+        margin-top: 50px;
+        border-top: 1px solid #e8eaec !important;
+        padding-top: 15px !important;
+    }
+
+    &/deep/ .ivu-radio-checked {
+        span {
+            background-color: #ffffff !important;
+
+            &:after {
+                background-color: #019dfa !important;
+                width: 8px;
+                height: 8px;
+                left: 3px;
+                top: 3px;
+            }
+        }
+    }
+
+    &/deep/ .ivu-icon-ios-cloud-upload-outline:before {
+        font-weight: bold;
+    }
+
+    &/deep/ .ivu-icon-ios-calculator-outline:before {
+        font-size: 16px;
+    }
+
+    .tooltip {
+        position: relative;
+
+        &/deep/ .ivu-tooltip {
+            position: absolute;
+            left: 85px;
+            top: 10px;
+
+            .tips-icon {
+                width: 16px;
+                height: 16px;
+                background: #f79728;
+                border-radius: 50%;
+                color: #ffffff;
+                display: block;
+                text-align: center;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            .ivu-tooltip-content {
+                .ivu-tooltip-arrow {
+                    background: #ffffff;
+                    border-right-color: #464c59;
+                    // border-top-color: #F79728;
+                    // border-left-color: #F79728;
+                    // border-bottom-color: #F79728;
+                }
+
+                .ivu-tooltip-inner {
+                    // background: #FEFFE8;
+                    // border-color: #FEFFE8;
+                    // box-shadow: none;
+                    // border: 1px solid #FAE3A4;
+                    color: #ffffff;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .info {
+            font-size: 14px;
+            white-space: normal;
+            width: 270px;
+            height: 150px;
+
+            .titleTip {
+                width: 37px;
+                height: 16px;
+                font-size: 16px;
+                font-weight: 500;
+                color: #ffffff;
+                line-height: 18px;
+                margin: 5px 0px 10px 0px;
+            }
+
+            .ph {
+                font-size: 14px;
+                font-weight: 400;
+                color: #ffffff;
+                line-height: 26px;
+            }
+        }
+    }
+
+    &/deep/ .ivu-form-item-content {
+        position: relative;
+
+        .howToGet,
+        .saleFile {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 206px;
+            width: 90px;
+            height: 15px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #f79728;
+            line-height: 14px;
+            transform: translateY(-50%);
+
+            .line {
+                position: absolute;
+                top: 17px;
+                left: 0px;
+                height: 1px;
+                width: 73px;
+                background: #f79728;
+            }
+        }
+
+        .saleFile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+        }
+
+        .saleFile .closeImg {
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+
+        .ivu-upload {
+            .ivu-upload-list {
+                position: absolute;
+                width: 275px;
+                top: 0px;
+                left: 300px;
+                margin-top: 0px;
+
+                .ivu-upload-list-file {
+                    line-height: 15px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin-top: 5px;
+                }
+            }
+        }
+
+        .chineseTitle {
+            position: absolute;
+            top: 17px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #666666;
+        }
+
+        .deFile.ivu-upload {
+            .ivu-upload-list {
+                left: 186px;
+                top: 30px;
+                width: auto;
+            }
+        }
+    }
+
+    &/deep/ .zeroFile .ivu-form-item-content .ivu-upload .ivu-upload-list {
+        left: 180px;
+    }
+
+    &/deep/ .ivu-radio-checked {
+        span {
+            background-color: #ffffff !important;
+
+            &:after {
+                background-color: #019dfa !important;
+                width: 8px;
+                height: 8px;
+                left: 3px;
+                top: 3px;
+            }
+        }
+    }
+
+    .fr-file-tip {
+        .tips-icon {
+            width: 16px;
+            height: 16px;
+            background: #f79728;
+            border-radius: 50%;
+            color: #ffffff;
+            display: block;
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+        }
+    }
+}
+
+.hasLogin {
+    background: #f6f6f6;
+    margin-top: 0px;
+    min-height: calc(100vh - 60px);
+
+    .step1 {
+        margin: 24px 24px 0px 24px;
+
+        .dismissReason {
+            padding: 20px;
+            background: #e4ebf1;
+            height: 80px;
+            font-size: 14px;
+            font-weight: bold;
+
+            .red {
+                color: #e83f32;
+            }
+        }
+
+        .subInfo {
+            // height: 67px;
+            padding-bottom: 6px;
+            background: #fff1dd;
+            font-size: 14px;
+            font-family: "Microsoft Yahei", PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #333333ff;
+            line-height: 22px;
+            padding-top: 6px;
+            // display: flex;
+            align-items: center;
+            padding-left: 20px;
+            color: #333;
+            font-weight: 500;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+        }
+
+        padding-bottom: 0px;
+
+        .btBox {
+            margin: 0px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 0px;
+            padding-bottom: 20px;
+        }
+
+        .chooseCountry {
+            // margin: 0px 45px;
+        }
+    }
+
+    .step1 {
+        .title {
+            // margin-top: 15px;
+            background: #ffffff;
+            border-bottom: none;
+            padding: 24px 0px 0px 24px;
+            font-size: 24px;
+            color: #333333;
+        }
+    }
+
+    .step2 {
+        margin: 0px 24px 24px 24px;
+        background: #ffffff;
+        border-bottom: none;
+        padding: 10px 30px 25px;
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: none;
+            font-size: 18px;
+        }
+    }
+
+    .leftBox {
+        background: #ffffff;
+        border: none;
+        padding: 20px 25px 0 25px;
+    }
+
+    .topLeft {
+        .flex-between {
+            padding-left: 25px;
+        }
+
+        margin: 10px;
+
+        &/deep/ .ivu-form-item {
+            //  margin-bottom: 15px;
+        }
+    }
+
+    .step2_content {
+        .resultMoney {
+            background: #ffffff;
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+
+            .item {
+                width: 320px;
+                height: 50px;
+            }
+
+            span {
+                // padding-left: 30px;
+                font-size: 16px;
+                color: #333333;
+            }
+
+            .jisuan {
+                margin-bottom: 28px;
+            }
+
+            span.money {
+                padding-left: 0px;
+            }
+
+            span.red {
+                font-size: 20px;
+                font-weight: bold;
+                color: rgba(237, 62, 62, 1);
+                margin-left: 13px;
+            }
+
+            .finallyMoney {
+                color: #333333;
+                font-weight: 500;
+                font-size: 18px;
+                margin-top: 15px;
+                margin-bottom: 30px;
+
+                .red {
+                    color: #ed3e3e;
+                    font-size: 22px;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &/deep/ .ivu-table-wrapper-with-border {
+        border: none;
+    }
+
+    &/deep/ .ivu-table:before {
+        height: 0px;
+    }
+
+    &/deep/ .ivu-table-border:after {
+        width: 0px;
+    }
+
+    &/deep/ .ivu-table-border td,
+    .ivu-table-border th {
+        border: none;
+    }
+
+    &/deep/ .ivu-form-item-content {
+        .ivu-upload {
+            .ivu-upload-list {
+                width: 200px;
+            }
+        }
+    }
+
+    .step2 {
+        .resultBox {
+            padding: 0px;
+
+            .jisuanshuijin {
+                margin-bottom: 20px;
+
+                span {
+                    font-size: 16px;
+                    color: #333333;
+                    font-weight: bold;
+                }
+            }
+
+            .jiankong {
+                margin-top: 10px;
+                display: flex;
+
+                .JkTitle {
+                    font-size: 16px;
+                    color: #333333;
+                    font-weight: 500;
+                    margin-left: 33px;
+                    margin-right: 11px;
+                }
+            }
+
+            .normal {
+                cursor: pointer;
+
+                span.status {
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        width: 18px;
+                        height: 16px;
+                        margin-top: 2px;
+                    }
+
+                    color: #16ade9;
+                }
+            }
+
+            .unnormal {
+                cursor: pointer;
+
+                span.status {
+                    display: flex;
+
+                    img {
+                        width: 18px;
+                        height: 16px;
+                        margin-top: 2px;
+                    }
+
+                    color: #ed3e3e;
+                }
+            }
+        }
+    }
+
+    &/deep/ .ivu-table td {
+        background: #ffffff;
+        border: 1px solid #e8eaec;
+        border-top: none;
+        padding-left: 20px;
+
+        // padding-top: 10px;
+        &:nth-child(2n) {
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+    &/deep/ .ivu-table th {
+        background: #eeeeee;
+        // border: none;
+        padding-left: 20px;
+    }
+
+    &/deep/ .ivu-input {
+        height: 32px;
+    }
+}
+
+.notLogin {
+    .step1 {
+        max-width: 1200px;
+        margin: auto;
+
+        .title {
+            text-align: center;
+            color: #333333;
+            font-size: 24px;
+            border-color: #f0f0f0;
+            padding: 18px 0 30px 0;
+            font-weight: bold;
+        }
+    }
+
+    .step2 {
+        .title {
+            text-align: center;
+            color: #333333;
+            font-size: 24px;
+            border-bottom: 0px;
+            padding: 25px 0px;
+        }
+
+        .resultBox {
+            min-height: auto;
+            margin-top: 0px;
+            padding: 0px 30px 20px;
+
+            .jisuanshuijin {
+                margin-bottom: 20px;
+
+                span {
+                    font-size: 16px;
+                    color: #333333;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .step2_content {
+            max-width: 1200px;
+            margin: auto;
+
+            // border-top: 1px solid rgba(221, 221, 221, 0.5);
+            .resultMoney {
+                padding: 20px 0px;
+                margin: 0px 30px;
+                background: #ffffff;
+                margin-top: 30px;
+                display: flex;
+                flex-wrap: wrap;
+
+                .saleTitle {
+                    font-size: 18px;
+                    color: #666666;
+                }
+
+                .item {
+                    width: 280px;
+                    height: 50px;
+                }
+
+                span {
+                    // padding-left: 30px;
+                    font-size: 17px;
+                    color: #333333;
+                }
+
+                span.money {
+                    padding-left: 0px;
+                }
+
+                .finallyMoney {
+                    margin-top: 13px;
+
+                    span {
+                        font-size: 17px;
+                        color: #333333;
+                    }
+
+                    .red {
+                        color: #ed3e3e;
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .tooltip {
+        .ivu-tooltip {
+            left: 85px;
+        }
+    }
+
+    .leftBox {
+        border: none;
+
+        .topLeft {
+            margin: 30px 0px 20px 0px;
+
+            .flex {
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &/deep/ .amzUpload {
+        background: #16ade9;
+        color: #ffffff;
+        font-size: 14px;
+        border: none;
+
+        .ivu-icon-ios-cloud-upload-outline:before {
+            font-weight: bold;
+        }
+    }
+
+    &/deep/ .addBtn {
+        .ivu-icon-ios-calculator-outline:before {
+            font-size: 16px;
+        }
+    }
+
+    &/deep/ .ivu-table td {
+        background: #ffffff;
+        border: 1px solid #e8eaec;
+        border-top: none;
+        padding-left: 20px;
+
+        // padding-top: 10px;
+        &:nth-child(2n) {
+            border-left: none;
+            border-right: none;
+        }
+    }
+
+    &/deep/ .ivu-table th {
+        background: #eeeeee;
+        // border: none;
+        padding-left: 20px;
+    }
+
+    &/deep/ .ivu-input {
+        height: 32px;
+    }
+
+    &/deep/ .ivu-table-wrapper-with-border {
+        border: none;
+    }
+
+    &/deep/ .ivu-table-border:after {
+        width: 0px;
+    }
+
+    &/deep/ .ivu-table:before {
+        height: 0px;
+    }
+}
+
+.remoteSaleHeader {
+    text-align: center;
+    font-size: 26px;
+    color: #333333;
+    padding: 10px;
+    height: 60px;
+    line-height: 30px;
+}
+
+.taxNumber-box {
+    /deep/ .ivu-row {
+        margin-bottom: 16px;
+    }
+
+    .tax-info-name {
+        display: inline-block;
+        min-width: 130px;
+        font-size: 14px;
+        font-family: "Microsoft Yahei", PingFangSC;
+        color: rgba(102, 102, 102, 1);
+        line-height: 16px;
+        text-align: right;
+    }
+
+    .tax-info-value {
+        font-size: 14px;
+        font-family: "Microsoft Yahei", "PingFangSC-Medium,PingFang SC";
+        font-weight: 500;
+        color: rgba(51, 51, 51, 1);
+        line-height: 18px;
+    }
+
+    .tax-info-value.date-color {
+        color: #16ade9;
+    }
+}
+
+.submit-tip-box {
+    .content {
+        background: #f4f4f4;
+        border-radius: 10px;
+        color: #ed3e3e;
+        padding: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        .companyTax {
+            margin: 15px 0px;
+            background: #ffffff;
+            padding: 20px 30px;
+
+            &/deep/ .ivu-row {
+                height: 50px;
+            }
+        }
+
+        .tableBox {
+            table {
+                padding: 10px;
+            }
+        }
+
+        .english {
+            font-weight: bold;
+            font-size: 12px;
+            color: #666666;
+            line-height: 13px;
+            height: 100%;
+            position: relative;
+            margin-bottom: 29px;
+            padding-top: 10px;
+            text-align: left;
+
+            .chinese {
+                position: absolute;
+                top: 28px;
+                left: 0px;
+            }
+
+            .rightWord {
+                font-size: 12px;
+                color: rgba(22, 173, 233, 1);
+                line-height: 13px;
+                margin-left: 15px;
+            }
+        }
+
+        .chinese {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(102, 102, 102, 1);
+        }
+
+        .tableBox {
+            table {
+                .header {
+                    background: #f6f6f6;
+                }
+            }
+        }
+    }
+
+    .reportData-box {
+        .title {
+            font-size: 16px;
+            font-family: "Microsoft Yahei", "PingFangSC-Medium,PingFang SC";
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 11px;
+            margin-top: 10px;
+        }
+
+        .sureData-box {
+            border: 1px solid #ebebeb;
+
+            .row {
+                span {
+                    display: inline-block;
+                    padding: 12px 15px;
+                    font-size: 14px;
+                    font-family: "Microsoft Yahei", "PingFangSC-Medium,PingFang SC";
+                    font-weight: 500;
+                    color: rgba(51, 51, 51, 1);
+                    width: 49%;
+                }
+
+                .row-key {
+                    width: 69%;
+                }
+                .row-value {
+                    width: 29%;
+                }
+
+                :nth-child(1) {
+                    background-color: #d0effb;
+                    border-bottom: 1px solid #ebebeb;
+                    border-right: 1px solid #ebebeb;
+                }
+
+                :nth-child(2) {
+                    border-bottom: 1px solid #ebebeb;
+                }
+            }
+        }
+    }
+}
+
+.remoteSale {
+    /deep/ .ivu-table-header {
+        background: #ffffff !important;
+    }
+
+    /deep/ .ivu-modal-content {
+        border-radius: 10px !important;
+    }
+}
+
+.yuanchengxiaoshou {
+
+    /deep/ .ivu-table td,
+    .ivu-table th {
+        border-right: 1px solid #e8eaec;
+    }
+
+    /deep/ .ivu-table-footer {
+        height: 100px;
+    }
+
+    /deep/ .ivu-table-title {
+        height: 60px !important;
+    }
+
+    .remoteSaleFooter {
+        line-height: 22px;
+        padding: 20px;
+    }
+
+    .red {
+        color: rgb(237, 62, 62);
+    }
+}
+
+&/deep/ .getContentModel {
+    .ivu-modal-content {
+        height: 560px;
+        overflow-y: auto;
+        border-radius: 13px !important;
+        padding: 10px 20px;
+        width: 638px;
+
+        .ivu-modal-header {
+            background: #ffffff !important;
+            padding: 14px 0px;
+
+            .ivu-modal-header-inner {
+                color: #333333;
+
+                &::before {
+                    content: "";
+                    border-left: 3px solid #16ade9;
+                    margin-right: 6px;
+                }
+            }
+        }
+
+        .ivu-modal-body {
+            .modelTitle {
+                font-size: 14px;
+                font-weight: 400;
+                color: rgba(51, 51, 51, 1);
+                line-height: 18px;
+                margin: 15px 0px;
+            }
+        }
+
+        .ivu-modal-close {
+            i {
+                font-size: 43px;
+            }
+        }
+
+        .ivu-modal-footer {
+            .footerBt {
+                width: 100px;
+                height: 37px;
+            }
+
+            .footerBtClose {
+                background-color: #fff;
+                color: #999999;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.submit-box {
+    .tax-info-name {
+        min-width: 66px;
+    }
+
+    /deep/ .ivu-modal-header {
+        background: #ffffff !important;
+    }
+
+    /deep/ .ivu-divider-horizontal {
+        margin: 0;
+    }
+
+    /deep/ .submitModal-footer-line {
+        margin: 24px 0 32px 0;
+    }
+
+    /deep/ .ivu-modal-footer {
+        padding: 0px 18px 25px 18px;
+        text-align: center;
+    }
+}
+
+.zero-declear-tip {
+    background: #fff1dd;
+    padding: 7px 12px;
+    font-size: 14px;
+    line-height: 26px;
+    color: #16ade9;
+    margin-bottom: 20px;
+
+    img {
+        position: relative;
+        top: 4px;
+    }
+
+    .red {
+        color: #ed3e3e;
+    }
+}
+
+.zero-declear-box {
+    /deep/ .ivu-upload.ivu-upload-select {
+        text-align: center;
+        color: #16ade9;
+        border-radius: 4px;
+        cursor: pointer;
+
+        .inner {
+            .uplad-symbol {
+                margin-top: 30px;
+                width: 50px;
+            }
+
+            p {
+                color: #999999;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.out-img-box {
+    width: 200px;
+
+    .img-box {
+        width: 200px;
+        height: 124px;
+        overflow: hidden;
+        border: 1px dashed #dcdee2;
+        position: relative;
+        text-align: center;
+        z-index: 11;
+        background: #fff;
+
+        button {
+            width: 0px;
+            padding: 0px;
+            border: none;
+            position: absolute;
+            top: -13px;
+            height: 0px;
+            z-index: 1;
+
+            img.closeImg {
+                position: absolute;
+                width: 26px;
+                height: 26px;
+                top: 16px;
+                right: -194px;
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .deletBtn {
+            left: auto;
+            display: none;
+        }
+
+        .show-pdf {
+            display: inline-block;
+            color: #313233;
+            font-size: 16px;
+            margin-top: 24px;
+        }
+    }
+
+    .img-box:hover .deletBtn {
+        display: block;
+    }
+
+    .corres-name {
+        width: 100%;
+    }
+}
+
+.sample-box {
+    color: #16ade9;
+    font-size: 14px;
+
+    img {
+        width: 16px;
+        vertical-align: middle;
+        margin-right: 3px;
+    }
+
+    span {
+        cursor: pointer;
+        margin-right: 28px;
+    }
+}
+
+.DEtipsModal-header {
+    color: red;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.DEtipsModal-content {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.DEtipsModal-footer {
+    text-align: center;
+    margin: 20px;
+}
+
+.promptBg {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background: #fff1dd;
+    font-size: 12px;
+    font-family: "Microsoft Yahei", PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #666666ff;
+    line-height: 17px;
+    margin-bottom: 24px;
+
+    span {
+        color: #333333;
+    }
+}
+
+.otherPlatformBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+
+    img {
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+    }
+
+    .num {
+        font-size: 16px;
+        font-family: "Microsoft Yahei", PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #fa5555;
+        line-height: 16px;
+        margin-bottom: 7px;
+    }
+
+    .link {
+        font-size: 14px;
+        font-family: "Microsoft Yahei", PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #3e9dff;
+        line-height: 12px;
+        cursor: pointer;
+        margin-top: 3px;
+    }
+}
+
+.uploadBox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .close {
+        position: absolute;
+        right: 0;
+    }
+}
+
+/deep/ .ivu-form-item.form-bottom10 {
+    margin-bottom: 10px;
+}

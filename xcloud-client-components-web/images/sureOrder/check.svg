@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>路径 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="VAT服务" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="确认订单" transform="translate(-1044.000000, -441.000000)">
+            <g id="编组-4" transform="translate(938.000000, 423.000000)">
+                <g id="编组-36">
+                    <g id="编组-15" transform="translate(106.000000, 18.000000)">
+                        <path d="M28,0 L0.727606172,28 L24,28 C26.209139,28 28,26.209139 28,24 L28,0 L28,0 Z" id="路径-2" fill="#16ADE9"></path>
+                        <path d="M13.3090986,19.930574 C13.0359442,19.6092404 12.5540165,19.5701835 12.2326829,19.8433379 C11.9113493,20.1164924 11.8722924,20.5984201 12.1454468,20.9197537 L15.7189734,25.1235812 C16.0171061,25.4742987 16.5554536,25.4834957 16.8653919,25.1431662 L25.3861472,15.7869021 C25.6701181,15.4750862 25.6475453,14.9921056 25.3357295,14.7081347 C25.0239136,14.4241638 24.540933,14.4467366 24.2569621,14.7585525 L16.3205447,23.4731809 L13.3090986,19.930574 Z" id="路径-3" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

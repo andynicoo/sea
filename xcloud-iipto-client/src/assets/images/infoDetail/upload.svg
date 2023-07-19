@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="156px" height="156px" viewBox="0 0 156 156" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>上传</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="156" height="156" rx="8"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="156" height="156" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我的商标-填写商标信息-基本信息" transform="translate(-630.000000, -530.000000)">
+            <g id="编组-5" transform="translate(630.000000, 500.000000)">
+                <g id="icon-add_image" transform="translate(0.000000, 30.000000)">
+                    <g id="编组-12">
+                        <g id="编组-11">
+                            <use id="矩形备份-4" stroke="#CFCFCF" mask="url(#mask-2)" stroke-width="2" fill="#F4F7FC" stroke-linejoin="round" stroke-dasharray="2" xlink:href="#path-1"></use>
+                            <text id="上传" font-family="PingFangSC-Medium, 蘋方-簡" font-size="12" font-weight="500" line-spacing="14" fill="#999999">
+                                <tspan x="66.6076981" y="118.896805">上传</tspan>
+                            </text>
+                            <rect id="矩形" fill="#999999" x="60.3396226" y="64.754717" width="35.3207547" height="4.41509434" rx="1.5"></rect>
+                            <path d="M61.8396226,64.754717 L94.1603774,64.754717 C94.9888045,64.754717 95.6603774,65.4262899 95.6603774,66.254717 L95.6603774,67.6698113 C95.6603774,68.4982384 94.9888045,69.1698113 94.1603774,69.1698113 L61.8396226,69.1698113 C61.0111955,69.1698113 60.3396226,68.4982384 60.3396226,67.6698113 L60.3396226,66.254717 C60.3396226,65.4262899 61.0111955,64.754717 61.8396226,64.754717 Z" id="矩形备份" fill="#999999" transform="translate(78.000000, 66.962264) rotate(-90.000000) translate(-78.000000, -66.962264) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

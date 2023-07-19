@@ -1,0 +1,172 @@
+@font-face {
+  font-family: "fg1";
+  src: url('~@/assets/font/fg1Bold-Ish-Demo-2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg2";
+  src: url('~@/assets/font/fg2HolySans-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg3";
+  src: url('~@/assets/font/fg3Poly-Regular-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg4";
+  src: url('~@/assets/font/fg4Baloo2-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg5";
+  src: url('~@/assets/font/fg5Arciform-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg6";
+  src: url('~@/assets/font/fg6Spotlight-Demo-Italic-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg7";
+  src: url('~@/assets/font/fg7Intrepid-ExtraBold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg8";
+  src: url('~@/assets/font/fg8thinoobold-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg9";
+  src: url('~@/assets/font/fg9LuissSans-Bold-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg10";
+  src: url('~@/assets/font/fg10Bodoni-11-Bold-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg11";
+  src: url('~@/assets/font/fg11Quicksand_Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg12";
+  src: url('~@/assets/font/fg12Butler_Ultra_Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg13";
+  src: url('~@/assets/font/fg13waltograph42-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg14";
+  src: url('~@/assets/font/fg14Blippo-Black-BT-2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg15";
+  src: url('~@/assets/font/fg15AslinaBold-2.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "fg16";
+  src: url('~@/assets/font/fg16Aclonica-Regular-2.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+.tradecards {
+  .card1 {
+    background: #D76B65;
+    color: #EDE7D7;
+  }
+  .card2 {
+    background: #000100;
+    color: #EDC68D;
+  }
+  .card3 {
+    background: #E7733A;
+    color: #100F0F;
+  }
+  .card4 {
+    background: #CFE5CF;
+    color: #E48265;
+  }
+  .card5 {
+    background: #2A639F;
+    color: #FFFFFF;
+  }
+  .card6 {
+    background: #FDFDF8;
+    color: #D44E2C;
+  }
+  .card7 {
+    background: #56215B;
+    color: #EAD834;
+  }
+  .card8 {
+    background: #FADF6C;
+    color: #45426B;
+  }
+  .card9 {
+    background: #264E47;
+    color: #F5C9BD;
+  }
+  .card10 {
+    background: #DFDFDF;
+    color: #242424;
+  }
+  .card11 {
+    background: #D53D56;
+    color: #EDF2D7;
+  }
+  .card12 {
+    background: #F4E0BB;
+    color: #010405;
+  }
+  .card13 {
+    background: #FFFFFF;
+    color: #78B05B;
+  }
+  .card14 {
+    background: #284293;
+    color: #FFFFFF;
+  }
+  .card15 {
+    background: #F1C675;
+    color: #5F3734;
+  }
+  .card16 {
+    background: #333543;
+    color: #ffffff;
+  }
+}
+
+.tradecards {
+  .card(@n, @i: 1) when (@i =< @n) {
+    .card@{i} {
+      font-family: 'fg@{i}';
+    }
+    .card(@n, (@i + 1));
+  }
+  .card(15);
+}

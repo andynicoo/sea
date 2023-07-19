@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="21px" viewBox="0 0 28 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>hot</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="2.46756417%" y1="25.5865685%" x2="96.4739118%" y2="64.5103593%" id="linearGradient-1">
+            <stop stop-color="#FF980B" offset="0%"></stop>
+            <stop stop-color="#F8460E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="优化版本8月份" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="登录后-首页（8）导航" transform="translate(-764.000000, -5.000000)">
+            <g id="顶部" transform="translate(388.000000, 4.000000)">
+                <g id="hot" transform="translate(376.000000, 0.000000)">
+                    <path d="M27,1 C27.5522847,1 28,1.44771525 28,2 L28,17 C28,17.5522847 27.5522847,18 27,18 L17.333,18 L14.7682213,21.0781345 C14.7488617,21.101366 14.7284682,21.1236954 14.7071068,21.1450568 L14.6401844,21.2061713 C14.2159075,21.5597354 13.5853428,21.5024114 13.2317787,21.0781345 L13.2317787,21.0781345 L10.666,18 L1,18 C0.44771525,18 6.76353751e-17,17.5522847 0,17 L0,2 C-6.76353751e-17,1.44771525 0.44771525,1 1,1 L27,1 Z" id="形状结合" fill="url(#linearGradient-1)"></path>
+                    <text id="Hot" font-family="Helvetica" font-size="14" font-weight="normal" fill="#FFFFFF">
+                        <tspan x="3.10693359" y="14">Hot</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,115 @@
+.container {
+  margin-top: 70px;
+  min-height: 100vh;
+  position: relative;
+  padding-top: 777px;
+  padding-bottom: 80px;
+  background: #FBCB7F;
+  .big-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 0;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  .active-rule-btn {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    border-radius: 42px 0 0 42px;
+    z-index: 100;
+    width: 150px;
+    height: 42px;
+    cursor: pointer;
+    background: linear-gradient(180deg, #FC7244 0%, #E7421A 100%);
+    border: 2px solid #FFE794;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #FFFFFF;
+  }
+  .active-main {
+    margin: 0 auto;
+    position: relative;
+    width: 1000px;
+    z-index: 100;
+  }
+  .rule-box {
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFFFF;
+    line-height: 2em;
+    margin-top: 80px;
+    .title {
+      font-size: 22px;
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 26px;
+      margin-bottom: 10px;
+    }
+  }
+  .active-content {
+    .count-down-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 500;
+      color: #8A4621;
+      line-height: 32px;
+      margin-bottom: 28px;
+      .meClocker {
+        margin-left: 17px;
+        font-size: 24px;
+        font-weight: 500;
+        /deep/ .run-time {
+          .timing {
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background: linear-gradient(180deg, #FB7042 0%, #ED4C23 100%);
+            border-radius: 4px;
+            font-size: 24px;
+            font-weight: 500;
+            color: #FFFFFF;
+          }
+        }
+      }
+      .time-box {
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(180deg, #FA7144, #E0240B);
+        border-radius: 5px;
+        line-height:30px;
+        font-size: 16px;
+        color: #fff;
+        font-weight: 500;
+        text-align:center;
+        display:inline-block;
+        margin:0 8px;
+      }
+    }
+  }
+}
+.new {
+  .active-rule-btn {
+    background: linear-gradient(180deg, #5888F9 0%, #282AD1 100%);
+    border: 2px solid #FFFFFF;
+  }
+  .active-content {
+    .count-down-box {
+      color: #fff;
+      /deep/ .timing {
+        background: #fff !important;
+        color: #1F1DC4 !important;
+      }
+    }
+  }
+}

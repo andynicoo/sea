@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>路径 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="欧标" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="欧标-服务详情" transform="translate(-885.000000, -325.000000)">
+            <g id="编组-47" transform="translate(360.000000, 102.000000)">
+                <g id="编组-38">
+                    <g id="编组-18" transform="translate(384.000000, 28.000000)">
+                        <g id="编组-10" transform="translate(12.000000, 123.000000)">
+                            <g id="编组-5" transform="translate(0.000000, 65.000000)">
+                                <g id="编组-11" transform="translate(70.000000, 0.000000)">
+                                    <g id="编组-56" transform="translate(59.000000, 7.000000)">
+                                        <path d="M19,1 L1,19 L17,19 C18.1045695,19 19,18.1045695 19,17 L19,1 L19,1 Z" id="路径-2" fill="#00A3FF"></path>
+                                        <path d="M8.89431308,13.7903137 C8.71275259,13.5767294 8.39242449,13.550769 8.17884024,13.7323295 C7.96525599,13.91389 7.93929561,14.2342181 8.1208561,14.4478024 L10.4961105,17.2420057 C10.6942735,17.4751209 11.0521028,17.4812339 11.2581128,17.2550234 L16.921695,11.0360946 C17.110445,10.8288366 17.0954413,10.5078087 16.8881832,10.3190587 C16.6809252,10.1303087 16.3598973,10.1453124 16.1711473,10.3525704 L10.8959634,16.1450163 L8.89431308,13.7903137 Z" id="路径-3" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

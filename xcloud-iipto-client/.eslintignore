@@ -1,0 +1,9 @@
+/build/
+/config/
+/dist/
+/uat/
+/test/
+/dev/
+/*.js
+/test/unit/coverage/
+/*.zip

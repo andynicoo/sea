@@ -1,0 +1,4 @@
+[submodule "xcloud-client-components-web"]
+	path = xcloud-client-components-web
+	url = https://e.coding.net/chenhai-group/xyunzhongtai/xcloud-client-components-web.git
+	branch = prod

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="29px" viewBox="0 0 35 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>矩形@3x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="英国" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="英国-详情-切换报税详情" transform="translate(-463.000000, -565.000000)">
+            <g id="编组-26" transform="translate(463.000000, 562.000000)">
+                <polygon id="矩形" fill="#EF5757" points="0 3 35 3 35 32"></polygon>
+                <text id="逾期" transform="translate(25.000000, 13.000000) rotate(45.000000) translate(-25.000000, -13.000000) " font-family="PingFangSC, 蘋方-簡" font-size="10" font-weight="normal" fill="#FFFFFF">
+                    <tspan x="15" y="17">逾期</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

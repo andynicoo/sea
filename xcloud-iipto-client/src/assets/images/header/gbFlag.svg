@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="36px" viewBox="0 0 58 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>矩形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="58" height="36"></rect>
+    </defs>
+    <g id="新增-英标" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="英标-商标服务" transform="translate(-488.000000, -84.000000)">
+            <g id="编组-30" transform="translate(215.000000, 70.000000)">
+                <g id="编组-29备份-3" transform="translate(266.000000, 14.000000)">
+                    <g id="编组-15" transform="translate(7.000000, 0.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="矩形" fill="#D8D8D8" xlink:href="#path-1"></use>
+                        <g id="yingguo" mask="url(#mask-2)" fill-rule="nonzero">
+                            <g transform="translate(-1.000000, 0.000000)">
+                                <polygon id="路径" fill="#083F80" points="1 0 60 0 60 40 1 40"></polygon>
+                                <polygon id="路径" fill="#FFFFFF" points="1 14 60 14 60 26 1 26"></polygon>
+                                <polygon id="路径" fill="#FFFFFF" points="36 0 36 40 24 40 24 0"></polygon>
+                                <polygon id="路径" fill="#FFFFFF" points="60 35.571454 60 40 52.976225 40 1 4.85706744 1 0 7.88331523 0"></polygon>
+                                <polygon id="路径" fill="#FFFFFF" points="60 4.42860738 60 0 52.976225 0 1 34.9999693 1 40 7.88331523 40"></polygon>
+                                <path d="M1,3.1428589 L16.8738572,13.9999632 L21.6500241,13.9999632 L1,0 L1,3.1428589 Z M60,36.7143006 L44.1261428,25.857135 L39.3499759,25.857135 L60,40 L60,36.7143006 Z M36.1190447,12.8571165 L36.1190447,13.9999632 L39.2095163,13.9999632 L59.9999396,0 L54.8023338,0 L36.1190447,12.8571165 Z M24.8809553,27.1428221 L24.8809553,25.857135 L21.7904837,25.857135 L1.00006036,40 L6.19766619,40 L24.8809553,27.1428221 Z M26.9880895,0 L33.871451,0 L33.871451,40 L26.9880895,40 L26.9880895,0 Z" id="形状" fill="#B7333C"></path>
+                                <polygon id="路径" fill="#B7333C" points="0 23.9998772 0 17 60 17 60 24"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
