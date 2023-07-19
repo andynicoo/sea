@@ -1,0 +1,26 @@
+/* 设置文本的行数 */
+.line-clamp(@num: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: @num;
+    /*限制在一个块元素显示的文本的行数*/
+    -webkit-box-orient: vertical;
+}
+
+/* 背景图片设置 */
+.image(@imageName) {
+    background-image:~"url(@/asset/image/@{imageName})";
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 图标尺寸位置设置 */
+.icon-base(@width: 16px, @height: 16px, @top: 2px) {
+    display: inline-block;
+    width: @width;
+    height: @height;
+    position: relative;
+    top: @top;
+}

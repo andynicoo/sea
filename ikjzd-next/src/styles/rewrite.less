@@ -1,0 +1,78 @@
+body {
+    background-color: @background-color;
+    font-family: PingFang SC-Medium, PingFang SC;
+}
+
+div,
+p {
+    word-wrap: break-word;
+}
+
+a {
+    transition: all 0.1s;
+    
+    * {
+        transition: all 0.1s;
+
+        &:hover {
+            color: @primary-color;
+        }
+    }
+    &:hover {
+        color: @primary-color;
+    }
+}
+
+/*重写swiper样式*/
+.swiper-container {
+    .swiper-pagination {
+        text-align: right;
+        padding-right: 20px;
+
+        .swiper-pagination-bullet {
+            width: 7px;
+            height: 3px;
+            border-radius: 100px 100px 100px 100px;
+            background: rgba(255, 255, 255, 0.5);
+
+            &.swiper-pagination-bullet-active {
+                width: 16px;
+                height: 3px;
+                background: #FFFFFF;
+                border-radius: 100px 100px 100px 100px;
+            }
+        }
+    }
+}
+
+
+//开店菜单样式覆盖
+.stores-menu-sub{
+.ikjzd-menu-vertical > .ikjzd-menu-item{
+    background-color: #fff;
+    height: auto;
+    width: 490px;
+    height: 392px;
+    overflow-y: auto;
+}
+}
+//开店弹窗样式覆盖
+.open-shop-modal{
+    .ikjzd-modal-confirm-content{
+        margin-left: 0!important;
+    }
+}
+
+//富文本样式
+.braft-editor-box{
+    .bf-content{
+        h1,h2,h3,h4,h5,h6{
+            font-weight: bold;
+        }
+        h1{font-size: 2em;}
+        h2{font-size: 1.5em;}
+        h3{font-size: 1.17em;}
+        h5{font-size: 0.83em;}
+        h6{font-size: 0.67em;}
+    }
+}

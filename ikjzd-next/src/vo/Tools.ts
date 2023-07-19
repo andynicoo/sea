@@ -1,0 +1,138 @@
+import { Key } from "react";
+import { UserInfo } from "@/vo/Users";
+export interface Tools {
+    records: any[];
+    total: number;
+    size: number;
+    current: number;
+    orders: any[];
+    optimizeCountSql: boolean;
+    searchCount: boolean;
+    countId: string;
+    maxLimit: string;
+    id: string;
+    ids: string;
+    title: string;
+    seoTitle: string;
+    seoKeywords: string;
+    description: string;
+    content: string;
+    toolsPlatformId: string;
+    resourceType: string;
+    thumbPicId: string;
+    thumbPicUrl: string;
+    userId: string;
+    author: string;
+    noName: string;
+    enclosureId: string;
+    enclosureUrl: string;
+    enclosureName: string;
+    enclosureSize: string;
+    praiseNum: string;
+    commentNum: string;
+    readNumTrue: string;
+    readNum: string;
+    collectNum: string;
+    shareNum: string;
+    enclosureDownloadNum: string;
+    integralNum: string;
+    isDisables: string;
+    isCheck: string;
+    invitation: string;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string;
+    isAddRead: string;
+    pages: number;
+}
+
+export interface Toolsrecord {
+    id: number;
+    title: string;
+    seoTitle: string;
+    seoKeywords: string;
+    description: string;
+    content: string;
+    toolsPlatformId: number;
+    toolsPlatformName: string;
+    resourceType: number;
+    thumbPicId: string;
+    thumbPicUrl: string;
+    userId: string;
+    author: string;
+    noName: string;
+    enclosureId: string;
+    enclosureUrl: string;
+    enclosureName: string;
+    enclosureSize: string;
+    praiseNum: string;
+    commentNum: string;
+    readNumTrue: string;
+    readNum: string;
+    collectNum: string;
+    shareNum: string;
+    enclosureDownloadNum: number;
+    integralNum: number;
+    isDisables: string;
+    isCheck: string;
+    invitation: string;
+    createdAt: string;
+    updatedAt: string;
+    deletedAt: string;
+
+}
+
+export interface ToolsPlatform {
+    id: Key;
+    name: string;
+    platformStatus: number;
+    platformStatusName: string;
+    platformSeotitle: string;
+    platformTag: string;
+    platformSeodescribe: string;
+    platformDescription: string;
+    platformBrief: string;
+}
+
+export interface TooslDetails {
+    id: Key;
+    title?: string;
+    seoTitle?: string;
+    seoKeywords?: string;
+    seoDescription?: string;
+    preview?: string;
+    description?: string;
+    content?: string;
+    articleTagIds?: string;
+    articleCategoryId?: string;
+    articlePlatformId?: string;
+    pushPlatform?: string;
+    userId?: string;
+    user?: UserInfo;
+    adminId?: string;
+    author?: string;
+    noName?: string;
+    thumbPicId?: number;
+    thumbPicUrl?: string;
+    praiseNum?: number;
+    commentNum?: number;
+    readNumTrue?: number;
+    readNum?: number;
+    collectNum?: number;
+    shareNum?: number;
+    invitation?: string;
+    integralNum?: number;
+    auditStatus?: number;
+    isDisables?: number;
+    remark?: string;
+    pushTime?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    deletedAt?: string;
+    enclosureDownloadNum: string;
+    enclosureSize: string;
+    enclosureUrl: string;
+    enclosureName: string;
+    isCollection?: boolean;
+    isPraise?: boolean;
+}
