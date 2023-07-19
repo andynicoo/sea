@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xcloud-frontend-spec-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xcloud-frontend-spec-web
+  template:
+    metadata:
+      labels:
+        app: xcloud-frontend-spec-web
+    spec:
+      containers:
+        - name: xcloud-frontend-spec-web
+          image: ${IMAGE}
+          ports:
+            - containerPort: 80
+              protocol: TCP
+            - containerPort: 443
+              protocol: TCP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xcloud-frontend-spec-web
+spec:
+  type: ClusterIP
+  selector:
+    app: xcloud-frontend-spec-web
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
+    - protocol: TCP
+      name: https
+      port: 443
+      targetPort: 443

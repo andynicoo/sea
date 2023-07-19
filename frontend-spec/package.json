@@ -1,0 +1,26 @@
+{
+  "name": "frontend-spec",
+  "version": "1.0.0",
+  "description": "辰海-前端开发规范",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "front-spec"
+  },
+  "keywords": [
+    "front",
+    "前端规范",
+    "辰海"
+  ],
+  "author": "Jone",
+  "license": "MIT",
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.9.7",
+    "dayjs": "^1.11.3",
+    "vuepress": "^1.9.7"
+  }
+}
