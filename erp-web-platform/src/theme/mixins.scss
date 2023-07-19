@@ -1,0 +1,14 @@
+//文字多行超出显示省略号
+@mixin ellipsisMultiline($number: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $number; //决定几行换行
+    -webkit-box-orient: vertical;
+}
+
+ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

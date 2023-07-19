@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+    <!-- <meta name="referrer" content="never"> -->
+    <title>马六甲ERP</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script>
+      var userAgent = navigator.userAgent //取得浏览器的userAgent字符串
+      if (userAgent.indexOf('Trident') > -1) {
+        //判断是否IE浏览器
+        window.location.href = '/error.html'
+      }
+    </script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.0-beta.2/echarts.common.js"></script> -->
+    <script src="https://cdn1.keyouyun.com/lib/common/xiuxiu.min.js"></script>
+    <script
+      type="text/javascript"
+      src="//laz-g-cdn.alicdn.com/sj/securesdk/0.0.3/securesdk_lzd_v1.js"
+      id="J_secure_sdk_v2"
+      data-appkey="102680"
+    ></script>
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+      localStorage.userIp = returnCitySN['cip']
+    </script>
+    <!-- 对应 马六甲首页 aliicon -->
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_2365965_egmr9uupit4.css"
+    />
+    <!-- 对应 ERP项目icon aliicon -->
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_2187670_0tgzfsm4o9d.css"
+    />
+    <!-- LZ-UI newest css file ↓  对应 马六甲 aliicon -->
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/font_2420202_dd8zmaio6xu.css"
+    />
+    <script src="https://g.alicdn.com/AWSC/AWSC/awsc.js"></script>
+  </head>
+  <!-- style="overflow:hidden auto; width:100vw" -->
+
+  <body style="width:100vw">
+    <noscript>
+      <strong
+        >We're sorry but erp doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+  </body>
+</html>

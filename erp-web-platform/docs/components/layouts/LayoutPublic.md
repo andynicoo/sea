@@ -1,0 +1,7 @@
+# LayoutPublic
+
+---
+
+```vue live
+<LayoutPublic />
+```

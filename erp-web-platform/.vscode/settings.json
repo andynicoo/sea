@@ -1,0 +1,14 @@
+{
+    "editor.formatOnSave": true,
+    "i18n-ally.displayLanguage": "zh",
+    "i18n-ally.localesPaths": [
+        "./src/lang"
+    ],
+    "i18n-ally.enabledParsers": [
+        "js",
+        "ts",
+        "ini"
+    ],
+    "i18n-ally.keystyle": "nested",
+    "vue-i18n.i18nPaths": "src/lang,src/locale"
+}

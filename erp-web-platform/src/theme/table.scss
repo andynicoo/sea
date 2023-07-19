@@ -1,0 +1,102 @@
+.common-table {
+    background: #fff;
+    width: 100%;
+    border-radius: 3px;
+    border: 1px solid #e4e4e4;
+    font-size: 14px;
+    position: relative;
+
+
+    thead,
+    th {
+        background: #f9fafc;
+        min-height: 50px;
+        text-align: center;
+        border-right: 1px #e4e4e4 solid;
+        padding: 5px 0;
+        vertical-align: middle;
+
+        .center {
+            display: flex;
+            justify-content: space-around;
+        }
+
+    }
+
+
+    tbody,
+    tr {
+        text-align: center;
+        height: 45px;
+        border: 1px solid #e4e4e4;
+        width: 100%;
+        line-height: 45px;
+    }
+
+    td {
+        border: 1px solid #e4e4e4;
+        min-width: 60px;
+
+        .center {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .number-input,
+        .text-input {
+            border: 1px solid #e4e4e4;
+            height: 26px;
+            width: 80px;
+            margin: 0 12px;
+            padding: 0 8px;
+
+            &.block {
+                width: 100%;
+            }
+
+            &.warn {
+                border-color: red;
+            }
+        }
+
+        .text-input {
+            width: 90%;
+            padding: 0 8px;
+            height: 26px;
+            border: 1px solid #e4e4e4;
+        }
+    }
+
+    .no-x-border {
+        border-right: none;
+        border-left: none;
+    }
+
+    .no-bottom {
+        border-bottom: none;
+    }
+
+    .no-right {
+        border-right: none;
+    }
+
+    .no-border {
+        border: none;
+    }
+
+    .no-left {
+        border-left: none;
+    }
+
+    .no-top {
+        border-top: none
+    }
+
+    .action {
+        cursor: pointer;
+
+        &.delete {
+            color: red;
+        }
+    }
+}

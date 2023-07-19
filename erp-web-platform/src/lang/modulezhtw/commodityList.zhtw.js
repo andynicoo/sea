@@ -1,0 +1,53 @@
+export default {
+  productInfo: '商品信息',
+  productSpec: '商品規格',
+  store: '店鋪',
+  lastUpdateTime: '最近修改時間',
+  viewNum: '瀏覽數',
+  publishFail: '發布失敗',
+
+  publishTimed: '定時發布時間',
+  topTimed: '定時置頂時間',
+  promotion: '促',
+  wholesale: '批發',
+
+  skuCode: '商品編碼',
+  sales: 'SKU編碼',
+  price: '價格',
+  specNum: '規格數量',
+  stockNum: '庫存總數',
+  searchImageBy1688: '1688搜圖',
+  close: '收起 {c} 個規格(共 {t} 個)',
+  open: '展開 {c} 個規格(共 {t} 個)',
+
+  specName: '規格名稱',
+  stock: '庫存',
+  code: '規格編碼',
+
+  collectionSource: '採集來源',
+  addCollectionSource: '添加採集來源',
+
+  collect: '收藏',
+  view: '瀏覽',
+  sold: '已售',
+  comment: '評論',
+
+  upShelf: '已上架',
+  delete: '已刪除',
+  prohibit: '已禁止',
+  downShelf: '已下架',
+  like: '點讚',
+  productCategory: '產品類目',
+  sellingPrice: '售價',
+  rmbSellingPrice: '人民幣售價',
+  claimStore: '認領店鋪',
+  cause: '原因',
+  scheduledReleaseTime: '定時發布時間',
+  lastModifiedTime: '最後修改時間',
+  publishedSite: '已發布站點',
+  batchCancelled: '批量取消',
+  cancelRelease: '取消發布',
+  batchRelease: '批量發布',
+  syncProducts: '同步產品',
+  publishStore: '發布至店鋪'
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    ol,
+    ul,
+    dl,
+    li,
+    dt,
+    dd {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: 0;
+      vertical-align: middle;
+    }
+    .mr0 {
+      margin-right: 0 !important ;
+    }
+    .w1180 {
+      width: 1180px;
+      margin: 0 auto;
+    }
+    .chat-logo {
+      margin-top: 11px;
+      margin-bottom: 11px;
+    }
+    .chat-banner {
+      width: 100%;
+      height: 365px;
+      background: #ff5e25;
+      background-image: linear-gradient(to right, #ff6c38, #ff6c38, #ff5e25);
+    }
+    .chat-banner-con {
+      display: flex;
+    }
+    .chat-banner-con li {
+      margin-top: 30px;
+      width: 50%;
+    }
+    .chat-describe {
+      color: #fff;
+    }
+    .chat-describe h2 {
+      margin: 45px 0 25px 0;
+      font-size: 28px;
+    }
+    .chat-describe p {
+      font-size: 13px;
+      margin-top: 18px;
+      letter-spacing: -1px;
+      position: relative;
+      padding-left: 12px;
+    }
+    .chat-describe p::before {
+      content: '';
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #fff;
+      top: 7px;
+      left: 0px;
+    }
+    .chat-downLoad {
+      margin-top: 30px;
+    }
+    .chat-downLoad a {
+      display: inline-block;
+      width: 145px;
+      height: 39px;
+      background: #fff;
+      color: #ff6c38;
+      text-align: center;
+      line-height: 39px;
+      border-radius: 1px;
+      margin-right: 30px;
+    }
+    .chat-title {
+      text-align: center;
+      font-size: 36px;
+      color: #ff6c38;
+      margin-top: 60px;
+    }
+    .chat-title p {
+      color: #665757;
+      font-size: 14px;
+      font-weight: normal;
+      margin-top: 15px;
+    }
+    .chat-ic {
+      position: relative;
+      top: 3px;
+      margin-right: 5px;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background: url('./static/chatImg/ic01.png') no-repeat;
+    }
+    .chat-ic02 {
+      background: url('./static/chatImg/ic02.png') no-repeat;
+    }
+    .chat-ic03 {
+      background: url('./static/chatImg/ic03.png') no-repeat;
+    }
+    .chat-ic04 {
+      background: url('./static/chatImg/ic04.png') no-repeat;
+    }
+    .chat-function {
+      display: flex;
+      margin-top: 45px;
+      margin-bottom: 100px;
+    }
+    .chat-function li {
+      width: 25%;
+      background: #f7f9fa;
+      min-height: 200px;
+      margin-right: 20px;
+      padding: 20px;
+      color: #828999;
+      line-height: 26px;
+      border-radius: 4px;
+    }
+    .chat-function li h3 {
+      font-size: 16px;
+      color: #202124;
+      margin: 10px 0 16px;
+    }
+    .chat-service {
+      display: flex;
+      margin-top: 45px;
+      flex-wrap: wrap;
+    }
+    .chat-service li {
+      width: 280px;
+      padding: 20px;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      background: #fff;
+      min-height: 250px;
+      box-shadow: 0px 13px 37px 0px rgba(221, 221, 221, 0.5);
+      color: #828999;
+      line-height: 26px;
+    }
+    .chat-service li h3 {
+      text-align: center;
+      color: #202124;
+      font-size: 16px;
+      margin-bottom: 11px;
+    }
+    .chat-serv-ic {
+      display: block;
+      width: 56px;
+      height: 56px;
+      margin: 24px auto 15px;
+      background: url('./static/chatImg/ic05.png') no-repeat;
+      background-size: cover !important;
+    }
+    .serv-ic06 {
+      background: url('./static/chatImg/ic06.png') no-repeat;
+    }
+    .serv-ic07 {
+      background: url('./static/chatImg/ic07.png') no-repeat;
+    }
+    .serv-ic08 {
+      background: url('./static/chatImg/ic08.png') no-repeat;
+    }
+    .serv-ic09 {
+      background: url('./static/chatImg/ic09.png') no-repeat;
+    }
+    .serv-ic10 {
+      background: url('./static/chatImg/ic10.png') no-repeat;
+    }
+    .serv-ic11 {
+      background: url('./static/chatImg/ic11.png') no-repeat;
+    }
+    .serv-ic12 {
+      background: url('./static/chatImg/ic12.png') no-repeat;
+    }
+    .serv-ic13 {
+      background: url('./static/chatImg/ic13.png') no-repeat;
+    }
+    .serv-ic14 {
+      background: url('./static/chatImg/ic14.png') no-repeat;
+    }
+    .serv-ic15 {
+      background: url('./static/chatImg/ic15.png') no-repeat;
+    }
+    .serv-ic16 {
+      background: url('./static/chatImg/ic16.png') no-repeat;
+    }
+    .chat-footer-downLoad {
+      margin-top: 28px;
+      background: #ff813c;
+      background-image: linear-gradient(to right, #ff813c, #ff813c, #ff8056);
+      min-height: 198px;
+    }
+    .chat-footer-downLoad h3 {
+      font-size: 29px;
+      color: #fff;
+      padding-top: 45px;
+      text-align: center;
+    }
+    .chat-footer-downLoad a {
+      display: block;
+      margin: 20px auto 0;
+      width: 139px;
+      height: 40px;
+      line-height: 40px;
+      background: #ffffff;
+      border-radius: 4px;
+      text-align: center;
+      color: #ff6c38;
+      font-size: 16px;
+    }
+    .chat-footer {
+      background: #2a2d34;
+      height: 72px;
+      line-height: 72px;
+      color: #9094a0;
+      text-align: center;
+    }
+    .chat-icp {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  </style>
+
+  <body>
+    <div class="chat-logo w1180">
+      <img width="167px" src="./static/chatImg/logo.png" />
+    </div>
+
+    <div class="chat-banner">
+      <ul class="w1180 chat-banner-con">
+        <li class="chat-describe">
+          <h2>东南亚跨境电商专业客服&营销软件</h2>
+          <p>
+            客服操作台：官方授权认证接口，IP隔离；多站点覆盖，多店管理，多语种翻译，多客服分流接待
+          </p>
+          <p>
+            智能接待:AI回复准确率99%，回复率70%，拟人化高质量回复，7x24小时值守，提升业务转化指标
+          </p>
+          <p>智能营销:精准人群分层，智能化营销</p>
+          <div class="chat-downLoad">
+            <a
+              href="https://clients.zhisuitech.com/chatppe/win/chatplusplus_latest.exe"
+              >免费下载</a
+            ><img width="188px" src="./static/chatImg/logo2.png" />
+          </div>
+        </li>
+        <li><img width="573px" src="./static/chatImg/banner.png" /></li>
+      </ul>
+    </div>
+    <h2 class="chat-title">
+      马六甲乐聊Chat++ 四大功能板块
+      <p>多功能场景满足您的各种需求</p>
+    </h2>
+    <ul class="w1180 chat-function">
+      <li>
+        <h3><i class="chat-ic"></i>官方授权接口</h3>
+        告别灰色IP产业，安枕无忧；不丢消息，不延迟，不卡顿
+      </li>
+      <li>
+        <h3><i class="chat-ic chat-ic02"></i>多店铺多客服管理</h3>
+        引入国内主流电商平台客服系统成熟经验；大幅提升客服人效，避免重复工作；提供主管视角，实时监控一目了然
+      </li>
+      <li>
+        <h3><i class="chat-ic chat-ic03"></i>AI客服24h回复</h3>
+        告别高出错率关键词，低召回率FAQ；专业AI模型过千个深度业务拟合场景，99%准确率；秒级回复，多语种支持；显著提升售前咨询转化率，降低客诉
+      </li>
+      <li class="mr0">
+        <h3><i class="chat-ic chat-ic04"></i>AI智能营销</h3>
+        告别低效群发，千人千面；对的时机、对的买家、对的营销话术
+      </li>
+    </ul>
+    <h2 class="chat-title">
+      乐聊Chat++ 超乎您的想象
+      <p>更好的服务，铸造更好的信任</p>
+    </h2>
+    <ul class="w1180 chat-service">
+      <li>
+        <h3><i class="chat-serv-ic"></i>本土跨境全覆盖</h3>
+        Shopee全站点覆盖，便于多站点一站式管理，多店统一管理，跨站管理不再是问题，同时支持跨境店，本土店
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic06"></i>实时翻译无障碍</h3>
+        界面简洁易用，上手快，浏览器即可随时访问注册
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic07"></i>消息收发无遗漏</h3>
+        大促期间双向消息实时到达率99.99%以上，99.99%消息到达延迟低于2秒
+      </li>
+      <li class="mr0">
+        <h3><i class="chat-serv-ic serv-ic08"></i>智能营销</h3>
+        精准人群分层，智能化营销
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic09"></i>安全可靠防关联</h3>
+        平台官方 API 授权对接，无密码泄露、店铺关联风险
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic10"></i>操作顺滑无卡顿</h3>
+        全球主流技术方案，200 店铺同时在线无卡顿
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic11"></i>过滤人群一网打尽</h3>
+        黑名单、差评专业户、退款专业户、店铺子账号管理
+      </li>
+      <li class="mr0">
+        <h3><i class="chat-serv-ic serv-ic12"></i>自动回复更及时</h3>
+        24 小时自动回复，无需电脑在线挂机，保证店铺回复率
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic13"></i>移动回复更便捷</h3>
+        支持Windows，MAC，手机多端登录，随时随地回复客户信息
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic14"></i>客服分配更灵活</h3>
+        可按售前、售后、语种、 员工能力等多种机制分配对接客服
+      </li>
+      <li>
+        <h3><i class="chat-serv-ic serv-ic15"></i>AI 回复省人工</h3>
+        7x24 小时在线服务，智能协助人工解决客户问题
+      </li>
+      <li class="mr0">
+        <h3><i class="chat-serv-ic serv-ic16"></i>绩效统计可视化</h3>
+        客服绩效数据多维度可视化展示， 客服表现更清晰
+      </li>
+    </ul>
+    <div class="chat-footer-downLoad">
+      <h3>立即体验马六甲乐聊Chat++</h3>
+      <a
+        href="https://clients.zhisuitech.com/chatppe/win/chatplusplus_latest.exe"
+        >免费下载体验</a
+      >
+    </div>
+    <div class="chat-footer">
+      @2021深圳市卖旺信息技术有限公司<span class="chat-icp"
+        >备案号：粤ICP备2020141515号</span
+      >
+    </div>
+  </body>
+</html>

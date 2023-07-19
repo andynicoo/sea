@@ -1,0 +1,7 @@
+# RouteWrapper
+
+---
+
+```vue live
+<RouteWrapper />
+```

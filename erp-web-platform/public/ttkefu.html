@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    ol,
+    ul,
+    dl,
+    li,
+    dt,
+    dd {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    img {
+      border: 0;
+      vertical-align: middle;
+    }
+    #ttkefu_linkstate,
+    #ttkefu_minwindow_max,
+    #ttkefu_minwindow_close,
+    #ttkefu_jietu,
+    #switch {
+      display: none;
+    }
+  </style>
+
+  <body onclick="clickHanlder()">
+    <script
+      src="https://w1011.ttkefu.com/k/?fid=2D3FCF0"
+      charset="utf-8"
+    ></script>
+    <script>
+      setTimeout(() => {
+        mini_dialog.miniwindow()
+      })
+      function clickHanlder() {
+        let minidialogWidth = document.getElementById('minidialog').clientWidth
+        let minidialogHeight = document.getElementById('minidialog')
+          .clientHeight
+        let p = window.parent
+        let iframes = p.frames[0]
+        iframes.frameElement.style.width = minidialogWidth + 'px'
+        if (minidialogWidth > 220) {
+          iframes.frameElement.style.height = minidialogHeight + 'px'
+        } else {
+          iframes.frameElement.style.height = 39 + 'px'
+        }
+      }
+    </script>
+  </body>
+</html>

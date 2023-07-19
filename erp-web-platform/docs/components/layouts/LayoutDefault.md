@@ -1,0 +1,7 @@
+# LayoutDefault
+
+---
+
+```vue live
+<LayoutDefault />
+```

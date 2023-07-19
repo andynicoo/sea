@@ -1,0 +1,7 @@
+# VersionUpdateTips
+
+---
+
+```vue live
+<VersionUpdateTips />
+```

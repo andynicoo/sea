@@ -1,0 +1,379 @@
+<html lang="en"><script type="text/javascript">
+    var spector;
+    var captureOnLoad = false;
+    var captureOffScreen = false;
+    window.__SPECTOR_Canvases = [];
+
+    (function() {
+        var __SPECTOR_Origin_EXTENSION_GetContext = HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.__SPECTOR_Origin_EXTENSION_GetContext = __SPECTOR_Origin_EXTENSION_GetContext;
+
+        if (typeof OffscreenCanvas !== 'undefined') {
+            var __SPECTOR_Origin_EXTENSION_OffscreenGetContext = OffscreenCanvas.prototype.getContext;
+            OffscreenCanvas.prototype.__SPECTOR_Origin_EXTENSION_OffscreenGetContext = __SPECTOR_Origin_EXTENSION_OffscreenGetContext;
+
+            OffscreenCanvas.prototype.getContext = function () {
+                var context = null;
+                if (!arguments.length) {
+                    return context;
+                }
+    
+                if (arguments.length === 1) {
+                    context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(arguments[0]);
+                    if (context === null) {
+                        return context;
+                    }
+                }
+                else if (arguments.length === 2) {
+                    context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(arguments[0], arguments[1]);
+                    if (context === null) {
+                        return context;
+                    }
+                }
+    
+                var contextNames = ["webgl", "experimental-webgl", "webgl2", "experimental-webgl2"];
+                if (contextNames.indexOf(arguments[0]) !== -1) {
+                    // context.canvas.setAttribute("__spector_context_type", arguments[0]);
+                    // Notify the page a canvas is available.
+                    var myEvent = new CustomEvent("SpectorWebGLCanvasAvailableEvent");
+                    document.dispatchEvent(myEvent);
+                    this.id = "Offscreen";
+                    window.__SPECTOR_Canvases.push(this);
+    
+                    if (captureOnLoad) {
+                        // Ensures canvas is in the dom to capture the one we are currently tracking.
+                        if (false) {
+                            spector.captureContext(context, 500, false, false);
+                            captureOnLoad = false;
+                        }
+                    }
+                }
+    
+                return context;
+            }
+        }
+
+        HTMLCanvasElement.prototype.getContext = function () {
+            var context = null;
+            if (!arguments.length) {
+                return context;
+            }
+
+            if (arguments.length === 1) {
+                context = this.__SPECTOR_Origin_EXTENSION_GetContext(arguments[0]);
+                if (context === null) {
+                    return context;
+                }
+            }
+            else if (arguments.length === 2) {
+                context = this.__SPECTOR_Origin_EXTENSION_GetContext(arguments[0], arguments[1]);
+                if (context === null) {
+                    return context;
+                }
+            }
+
+            var contextNames = ["webgl", "experimental-webgl", "webgl2", "experimental-webgl2"];
+            if (contextNames.indexOf(arguments[0]) !== -1) {
+                context.canvas.setAttribute("__spector_context_type", arguments[0]);
+                // Notify the page a canvas is available.
+                var myEvent = new CustomEvent("SpectorWebGLCanvasAvailableEvent");
+                document.dispatchEvent(myEvent);
+
+                if (captureOffScreen) {
+                    var found = false;
+                    for (var i = 0; i < window.__SPECTOR_Canvases.length; i++) {
+                        if (window.__SPECTOR_Canvases[i] === this) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        window.__SPECTOR_Canvases.push(this);
+                    }
+                }
+
+                if (captureOnLoad) {
+                    // Ensures canvas is in the dom to capture the one we are currently tracking.
+                    if (this.parentElement || false) {
+                        spector.captureContext(context, 500, false, false);
+                        captureOnLoad = false;
+                    }
+                }
+            }
+
+            return context;
+        }
+    })()</script><head>
+    <meta charset="UTF-8">
+    <title></title>
+<style id="system" type="text/css">h1,h2,h3,h4,h5,h6,p,blockquote {    margin: 0;    padding: 0;}body {    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;    font-size: 13px;    line-height: 18px;    color: #737373;    margin: 10px 13px 10px 13px;}a {    color: #0069d6;}a:hover {    color: #0050a3;    text-decoration: none;}a img {    border: none;}p {    margin-bottom: 9px;}h1,h2,h3,h4,h5,h6 {    color: #404040;    line-height: 36px;}h1 {    margin-bottom: 18px;    font-size: 30px;}h2 {    font-size: 24px;}h3 {    font-size: 18px;}h4 {    font-size: 16px;}h5 {    font-size: 14px;}h6 {    font-size: 13px;}hr {    margin: 0 0 19px;    border: 0;    border-bottom: 1px solid #ccc;}blockquote {    padding: 13px 13px 21px 15px;    margin-bottom: 18px;    font-family:georgia,serif;    font-style: italic;}blockquote:before {    content:"C";    font-size:40px;    margin-left:-10px;    font-family:georgia,serif;    color:#eee;}blockquote p {    font-size: 14px;    font-weight: 300;    line-height: 18px;    margin-bottom: 0;    font-style: italic;}code, pre {    font-family: Monaco, Andale Mono, Courier New, monospace;}code {    background-color: #fee9cc;    color: rgba(0, 0, 0, 0.75);    padding: 1px 3px;    font-size: 12px;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;}pre {    display: block;    padding: 14px;    margin: 0 0 18px;    line-height: 16px;    font-size: 11px;    border: 1px solid #d9d9d9;    white-space: pre-wrap;    word-wrap: break-word;}pre code {    background-color: #fff;    color:#737373;    font-size: 11px;    padding: 0;}@media screen and (min-width: 768px) {    body {        width: 748px;        margin:10px auto;    }}</style><style id="custom" type="text/css"></style></head>
+<body marginheight="0"><h3>JSSDK调起</h3>
+<p>通过npm安装，并实例化对象，需要使用内网镜像源或者tnpm安装
+</p>
+<pre><code>tnpm i @tencent/zhihui-editor-sdk</code></pre>
+<h4>参数说明</h4>
+<p>| 名称 | 类型 | 是否必选 | 描述 | 
+| ------ | ------ | ------ | ------ |
+| system | string | 是 | 使用的平台方，主要影响打开的是内网还是外网版本 | 
+| appid | string | 是 |  应用唯一标识，传入固定的apollo | 
+| channel | string | 是 |  用户（渠道）类型，channel 和 stamp 两字字段信息组合在一起，一定是唯一的 | 
+| stamp | string | 是 | 用户（渠道）类型标识，例如：uin、useid | 
+| timestamp | number | 是 |  时间戳 | 
+| sig | string | 是 |  签名，加密参考：<a href="https://iwiki.woa.com/pages/viewpage.action?pageId=666918909">https://iwiki.woa.com/pages/viewpage.action?pageId=666918909</a>, 加密需要用到的key值需要在腾讯云<a href="https://console.cloud.tencent.com/taidc/api">https://console.cloud.tencent.com/taidc/api</a> 中进行申请，申请后告知本平台管理员| 
+| templateId | string | 是 |  模版id，如果from为userConfig则可以填写时间戳 | 
+| from | string | 是 |  模版来源，值为：template、record、taishan、userConfig（来源于用户自定义配置模版） | 
+| source | string | 否 |  可选：来源是老泰山时传入 | 
+| loadingConfig | object | 否 |  可选：loading配置项目 | 
+| leftConfig | object | 否 |  可选：左侧配置项目 | 
+| headConfig | object | 否 |  可选：头部配置项目，数据返回可以在此拿到 | 
+| rightConfig | object | 否 |  可选：右侧配置项目 | 
+| templateDataConfig | array | 否 |  可选：用户自定义模版数据，具体参考：<a href="https://iwiki.woa.com/pages/viewpage.action?pageId=1112536421">https://iwiki.woa.com/pages/viewpage.action?pageId=1112536421</a> | 
+
+
+</p>
+<p>代码示例
+</p>
+<pre><code>//在需要使用的页面引入，并实例化对象
+import ZhihuiEditor from '@tencent/zhihui-editor-sdk'
+
+// 模拟数据（这边初始化参数上面有说明）
+var option = {
+    system: 'ieg',
+    appid: 'apollo',
+    channel: 'iegGameIframe', 
+    stamp: '333', 
+    timestamp: 1629711353224,
+    sig: 'e37d3b75e05ea5ff43eb89a7ebd668b1a55deaa50f4e683af1622d5590a62c0a', 
+    templateId: '60f0e9e54a44ad541160ba1b', 
+    from: 'template'
+}
+
+var zhihuiEditor = new ZhihuiEditor(option)</code></pre>
+<p>openIframe：实例化后的方法可以直接调起iframe编辑器，传入不同templateId渲染对应的模板
+</p>
+<pre><code class="lang-html">&lt;button onClick={() =&gt; {zhihuiEditor.openIframe()}}&gt;调起智绘iframe&lt;/button&gt;</code></pre>
+<p>closeIframe：实例化后的方法可以直接关闭iframe编辑器
+</p>
+<pre><code class="lang-html">&lt;button onClick={() =&gt; {zhihuiEditor.closeIframe()}}&gt;关闭智绘iframe&lt;/button&gt;</code></pre>
+<h3>左侧配置项目说明</h3>
+<pre><code>var option = {
+    ...
+    leftConfig: {
+        system: {
+            hasSystemTemplate: false, // 是否显示系统推荐模版，默认为true
+            hasTeamTemplate: false,    // 是否显示团队模版，默认为true
+            hasSystemImg: false, // 是否显示图库，默认为true
+            hasSystemCommonMaterial: false, // 是否显示系统元素素材，默认为true
+            hasTeamCommonMaterial: false, // 是否显示团队元素素材，默认为true
+            hasSystemPeopleMaterial: false, // 是否显示系统人物素材，默认为true
+            hasTeamPeopleMaterial: false, // 是否显示团队人物素材，默认为true
+            hasSystemBgMaterial: false, // 是否显示系统背景素材，默认为true
+            hasTeamBgMaterial: false, // 是否显示团队背景素材，默认为true
+            hasSystemText: false, // 是否显示系统文字，默认为true
+            hasSystemUpload: false, // 是否显示系统上传入口，默认为true
+            hasSystemCache: false, // 是否显示系统缓存入口，默认为true
+        },
+        user: [
+            {
+                menuName: '按钮名称', // 用户传入的菜单名称, 必须传入
+                menuIcon: 'https://xxx.png', // 用户传入的菜单icon，必须传入
+                menuIconActive: 'https://xxx.png', // 用户传入的菜单点击状态icon，用户未传入的情况下，会默认使用menuIcon，非必须传入
+                type: 'showChild', // 用来设置当前的列表显示类型，当值为showChild时列表会显示为九宫格，并且会有展示全部的按钮，此状态下必须提供dataConfig.childUrl字段，否则会报错，必须传入
+                dataConfig: {
+                    url: 'https://xxx.xxx', /* 拉取数据列表的url，此url返回数据类型为数组，必须传入
+                                            * 数组中每一项应包含material字段，此字段为数组建议长度最多为9，name字段，此字段为string，以及id字段，用来获取分类数据
+                                            * 实例：[
+                                            *         {
+                                            *            name: '显示名称',
+                                            *            id: 'xxxx', // 当用户点击此分类时，传递到后台的id
+                                            *            maerial: [
+                                            *                        {
+                                            *                            thumbUrl: 'https://xxx.png', // 显示的缩略图
+                                            *                            url: 'https://xxx.png', // 实际的图片地址
+                                            *                        },
+                                            *                        ... // 此数组建议长度最多为9
+                                            *                     ]
+                                            *        },
+                                            *        ...
+                                            *       ]
+                                            */
+                    tagList: ['默认tag1', '默认tag2'], // 显示在搜索框下方的默认展示tag，非必须传入
+                    headers: {}, // 请求时的header,非必须传入
+                    childUrl: 'https://xxx.xxx?Offset=0&amp;Limit=90&amp;Keyword=""&amp;Category=""' 
+                                                /* 当type为showChild时必须包含此字段，此字段用于访问子分类内容，同时也可以作为搜索分类内容
+                                                 * 此url必须包含Offset（请求跳过数据数量），Limit（条数），Keyword（搜索或分类词汇）参数，Category（分类参数）
+                                                 * 注意参数大小写,当Keyword为空时，应返回默认分类
+                                                 * 返回内容为数组，
+                                                 * 返回实例：
+                                                 * [
+                                                 *     {
+                                                 *        thumbUrl: 'https://xxx.png', // 显示的缩略图
+                                                 *        url: 'https://xxx.png', // 实际的图片地址
+                                                 *  },
+                                                 *    ...
+                                                 * ]
+                                                 */
+                },
+                {
+                menuName: '按钮名称', // 用户传入的菜单名称, 必须传入
+                menuIcon: 'https://xxx.png', // 用户传入的菜单icon，必须传入
+                menuIconActive: 'https://xxx.png', // 用户传入的菜单点击状态icon，用户未传入的情况下，会默认使用menuIcon，非必须传入
+                type: 'showAll', // 用来设置当前的列表显示类型，当值为showAll时列表会显示长列表，必须传入
+                dataConfig: {
+                    url: 'https://xxx.xxx?Offset=0&amp;Limit=90&amp;Keyword=""&amp;Category=""' 
+                                                /* 此字段用于访问子分类内容，同时也可以作为搜索分类内容，必须传入
+                                                 * 此url必须包含Offset（请求跳过数据数量），Limit（条数），Keyword（搜索或分类词汇）参数，Category（分类参数）
+                                                 * 注意参数大小写,当Keyword为空时，应返回默认分类
+                                                 * 返回内容为数组，
+                                                 * 返回实例：
+                                                 * [
+                                                 *     {
+                                                 *        thumbUrl: 'https://xxx.png', // 显示的缩略图
+                                                 *        url: 'https://xxx.png', // 实际的图片地址
+                                                 *  },
+                                                 *    ...
+                                                 * ]
+                                                 */
+                    tagList: ['默认tag1', '默认tag2'], // 显示在搜索框下方的默认展示tag，非必须传入
+                    headers: {}, // 请求时的header,非必须传入
+                }
+            }
+        ]
+    }
+}
+
+// 参考实例：
+var header = {} // 想要正确运行的话可以联系psychewang获取header后进行请求
+
+var option = {
+    ...
+    leftConfig: {
+        system: {
+            hasSystemTemplate: false,
+            hasTeamTemplate: false,
+            hasSystemImg: false,
+            hasSystemCommonMaterial: false,
+            hasTeamCommonMaterial: false,
+            hasSystemPeopleMaterial: false,
+            hasTeamPeopleMaterial: false,
+            hasSystemBgMaterial: false,
+            hasTeamBgMaterial: false,
+            hasSystemText: false,
+            hasSystemUpload: false,
+            hasSystemCache: false,
+        },
+        user: [
+             {
+                menuName: '测试',
+                menuIcon: 'https://static.taishan.qq.com/editor/assets/01b2269953df053926f7045d0a670655.png',
+                menuIconActive: 'https://static.taishan.qq.com/editor/assets/280272c691fbdadb36701a48340c5d36.png',
+                type: 'showChild',
+                dataConfig: {
+                    url: 'https://apollo.taishan.oa.com/api/category/getall?parentType=2',
+                    tagList: ['测试1', '测试2', '测试3', '测试4', '测试5', '测试6', '测试7', '测试8', '测试9'],
+                    headers: header,
+                    childUrl: 'https://apollo.taishan.oa.com/api/ape/search',
+                },
+             },
+             {
+                menuName: '测试1',
+                menuIcon: 'https://static.taishan.qq.com/editor/assets/01b2269953df053926f7045d0a670655.png',
+                menuIconActive: 'https://static.taishan.qq.com/editor/assets/280272c691fbdadb36701a48340c5d36.png',
+                type: 'showAll',
+                dataConfig: {
+                    url: 'https://apollo.taishan.oa.com/api/ape/search',
+                    headers: header,
+                }
+             }
+        ]
+    }
+}</code></pre>
+<h3>头部配置项目说明</h3>
+<pre><code>var option = {
+    ...
+    headConfig: {
+        logoUrl: 'https://xxx.png', // 头部左侧的logo，非必传
+        downloadName: '完成', // 头部右侧下载按钮名称，非必传
+        onClickDownload: (res) =&gt; { // 头部点击右侧按钮后的回调事件，会返回用户下载的数据项目，具体返回数据由下方说明
+            console.log(res)
+        },
+        isDownloadImg: false, // 用户点击头部右侧按钮后是否下载图片，默认为true
+    },
+}</code></pre>
+<p>data 为返回的数据对象，返回值说明如下：
+|参数名|必有|说明|
+|:---- |:---- |:---- |
+|name | 是|下载后文件名 |
+|status | 是|生成的状态 |
+|url | 是|原图 |
+|thumbUrl | 是|缩略图 |
+|width | 是|宽 |
+|height | 是|高 |
+
+</p>
+<p>参数示例如下：
+</p>
+<pre><code>{
+  "name": "56a4419401b62dcda242595e4f32114a.png",
+  "status": "done",
+  "url": "//static.taishan.qq.com/editor/material/56a4419401b62dcda242595e4f32114a.png",
+  "thumbUrl": "//static.taishan.qq.com/editor/material/56a4419401b62dcda242595e4f32114a.png?imageMogr2/thumbnail/!50p",
+  "width": 720,
+  "height": 400
+}</code></pre>
+<h3>右侧配置项目说明</h3>
+<pre><code>var option = {
+    ...
+    rightConfig: {
+        canvas: {
+            canvasSize: false, // 是否显示修改画布尺寸选项，默认为true
+            canvasBg: false, // 是否显示修改画布背景选项，默认为true
+            canvasFontAdd: false, // 是否显示增加文字选项，默认为true
+            canvasImgAdd: false, // 是否显示增加图片选项，默认为true
+        },
+        text: {
+            fontFamily: false, // 是否显示修改字体选项，默认为true
+            fontSize: false, // 是否显示修改字体大小选项，默认为true
+            fontBold: false, // 是否显示修改字体粗细选项，默认为true
+            fontItalic: false, // 是否显示修改字体斜体选项，默认为true
+            fontUnderline: false, // 是否显示修改字体下划线选项，默认为true
+            fontStrikethrough: false, // 是否显示修改字体删除线选项，默认为true
+            fontAlign: false, // 是否显示修改字体对齐选项，默认为true
+            fontDistance: false, // 是否显示修改字体间距选项，默认为true
+            fontSpecial: false, // 是否显示修改字体效果选项，默认为true
+            fontColor: false, // 是否显示修改字体颜色选项，默认为true
+        },
+        img: {
+            imgReplace: false, // 是否显示替换图片选项，默认为true
+            imgFilter: false, // 是否显示图片滤镜选项，默认为true
+            imgClip: false, // 是否显示裁剪图片选项，默认为true
+            imgCutout: false, // 是否显示抠图选项，默认为true
+            imgCartoon: false, // 是否显示图片漫改选项，默认为true
+            imgMask: false, // 是否显示图片蒙版选项，默认为true
+            imgRadius: false, // 是否显示图片圆角选项，默认为true
+        },
+        group: {
+            groupCreate: false, // 是否显示创建组选项，默认为true
+            groupAlign: false, // 是否显示组对齐选项，默认为true
+            groupDistribution: false, // 是否显示组分布选项，默认为true
+        },
+        common: {
+            opacity: false, // 是否显示元素透明度选项，默认为true
+            lock: false, // 是否显示元素锁定选项，默认为true
+            layer: false, // 是否显示元素层级选项，默认为true
+            flip: false, // 是否显示元素翻转选项，默认为true
+            copy: false, // 是否显示元素复制选项，默认为true
+            remove: false, // 是否显示元素删除选项，默认为true
+            cache: false, // 是否显示元素缓存选项，默认为true
+        },
+    }
+}</code></pre>
+<h3>loading配置项目说明</h3>
+<pre><code>var option = {
+    ...
+    loadingConfig: {
+        logoUrl: 'https://xxx.png' // 加载时候的logo，非必传
+    }
+}</code></pre>
+<p>Edit By <a href="http://mahua.jser.me">MaHua</a></p>
+</body></html>

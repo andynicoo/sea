@@ -1,0 +1,65 @@
+.erp-theme {
+  background-color: #f7622f !important;
+  border-color: #f7622f !important;
+}
+
+//主体容器
+
+.page-wrapper {
+  background: #f5f5f5 !important;
+}
+
+::selection {
+  color: #000;
+  background: #b3d7fe;
+}
+
+// 全站色彩管理，UI配套色在vue.config.js css处修改
+$primaryColor: #ff6b38;
+$linkColor: #4c86ff;
+$errorColor: #ff4a4a;
+$warningColor: #ffad42;
+$successColor: #67c23a;
+$skipColor: #a8a8b3;
+$textColor: #303133;
+
+.primary-text-color {
+  color: $primaryColor;
+}
+
+.link-text-color {
+  color: #4c86ff !important;
+  cursor: pointer;
+}
+
+.break-only-line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.empty-data {
+  background-image: url('/no-data.png');
+  width: 150px;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  margin: 30px auto;
+  position: relative;
+
+  &::after {
+    content: '没有数据';
+    position: absolute;
+    display: block;
+    bottom: -10px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+iframe {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <style type="text/css">
+    body {
+      background: #ededed;
+    }
+    .exception {
+      text-align: center;
+      height: 400px;
+      width: 600px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -220px;
+      margin-left: -250px;
+      /* background: #ccc; */
+    }
+    img {
+      height: 260px;
+      /* animation: turn 10s linear infinite; */
+    }
+    @keyframes turn {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    button {
+      padding: 8px 14px;
+      border: none;
+      background: #ff6b38;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+
+  <body>
+    <div class="exception">
+      <div class="mr-3 hidden-sm-and-down">
+        <img src="./static/error/404.svg" alt />
+      </div>
+      <div class="text-md-center">
+        <h1>404</h1>
+        <h2 class="my-3 headline">抱歉，页面走丢了...</h2>
+        <div>
+          <button id="button">
+            5秒后回到首页
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let minute = 5
+      let timer = setInterval(() => {
+        document.querySelector('#button').textContent = minute + '秒后回到首页'
+        minute--
+        if (minute == 0) {
+          clearInterval(timer)
+          window.location = 'https://erp.emalacca.com/#/overview'
+        }
+      }, 1000)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+export default {
+  productInfo: 'ข้อมูลสินค้า',
+  productSpec: 'ข้อมูลจำเพาะของสินค้า',
+  store: 'ร้านค้า',
+  lastUpdateTime: 'เวลาแก้ไขล่าสุด',
+  viewNum: 'จำนวนการดู',
+  publishFail: 'ล้มเหลวในการเผยแพร่',
+
+  publishTimed: 'เวลาเผยแพร่ปกติ',
+  topTimed: 'กำหนดเวลาด้านบน',
+  promotion: 'ส่งเสริม',
+  wholesale: 'ขายส่ง',
+
+  skuCode: 'รหัสสินค้า',
+  sales: 'การเข้ารหัส SKU',
+  price: 'ราคา',
+  specNum: 'ข้อมูลจำเพาะปริมาณ',
+  stockNum: 'สินค้าคงคลังรวม',
+  searchImageBy1688: '1688ค้นหารูปภาพ',
+  close: 'จัดเก็บข้อมูลจำเพาะ {c} (รวม {t})',
+  open: 'ขยายขนาด {c} (รวม {t})',
+
+  specName: 'ชื่อข้อมูลจำเพาะ',
+  stock: 'สต็อก',
+  code: 'การเข้ารหัสข้อมูลจำเพาะ',
+
+  collectionSource: 'แหล่งรวบรวม',
+  addCollectionSource: 'เพิ่มแหล่งรวบรวม',
+
+  collect: 'คอลเลกชัน',
+  view: 'เรียกดู',
+  sold: 'ขายแล้ว',
+  comment: 'ความคิดเห็น',
+
+  upShelf: 'วางบนชั้นวางแล้ว',
+  delete: 'ลบไปแล้ว',
+  prohibit: 'ห้ามแล้ว',
+  downShelf: 'ถูกนำออกจากชั้นวาง',
+  like: 'ชอบ',
+  productCategory: 'หมวดหมู่สินค้า',
+  sellingPrice: 'ราคา',
+  rmbSellingPrice: 'ราคาหยวน',
+  claimStore: 'อ้างสิทธิ์ในร้าน',
+  cause: 'สาเหตุ',
+  scheduledReleaseTime: 'เวลาเผยแพร่ปกติ',
+  lastModifiedTime: 'เวลาแก้ไขล่าสุด',
+  publishedSite: 'เว็บไซต์ที่เผยแพร่',
+  batchCancelled: 'การยกเลิกแบทช์',
+  cancelRelease: 'ยกเลิกการเผยแพร่',
+  batchRelease: 'รุ่นแบทช์',
+  syncProducts: 'ซิงโครไนซ์ผลิตภัณฑ์',
+  publishStore: 'โพสต์ไปที่ร้าน'
+}

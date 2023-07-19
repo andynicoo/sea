@@ -1,0 +1,53 @@
+export default {
+  productInfo: 'Informasi produk',
+  productSpec: 'Spesifikasi Produk',
+  store: 'Toko',
+  lastUpdateTime: 'Waktu modifikasi terbaru',
+  viewNum: 'Jumlah browsing',
+  publishFail: 'Rilis gagal',
+
+  publishTimed: 'Waktu rilis',
+  topTimed: 'Waktu pengaturan waktu',
+  promotion: 'Promosi',
+  wholesale: 'Grosir',
+
+  skuCode: 'Kode produk',
+  sales: 'Pengkodean SKU',
+  price: 'Harga',
+  specNum: 'Jumlah spesifikasi',
+  stockNum: 'Jumlah total persediaan',
+  searchImageBy1688: '1688 pencarian gambar',
+  close: 'spesifikasi {c} (total {t})',
+  open: 'memperluas spesifikasi {c} (total {t})',
+
+  specName: 'Nama Spesifikasi',
+  stock: 'Persediaan',
+  code: 'Spesifikasi kode',
+
+  collectionSource: 'Sumber pengumpulan',
+  addCollectionSource: 'Tambahkan sumber koleksi',
+
+  collect: 'Koleksi',
+  view: 'Telusuri',
+  sold: 'Dijual',
+  comment: 'Komentar',
+
+  upShelf: 'Sudah di rak',
+  delete: 'Dihapus',
+  prohibit: 'Sudah dilarang',
+  downShelf: 'Sudah dihapus rak',
+  like: 'Suka',
+  productCategory: 'Kategori Produk',
+  sellingPrice: 'Harga jual',
+  rmbSellingPrice: 'Harga RMB',
+  claimStore: 'Klaim toko',
+  cause: 'Penyebab',
+  scheduledReleaseTime: 'Waktu rilis',
+  lastModifiedTime: 'Waktu modifikasi terakhir',
+  publishedSite: 'Situs yang diterbitkan',
+  batchCancelled: 'Pembatalan massal',
+  cancelRelease: 'Membatalkan rilis',
+  batchRelease: 'Rilis massal',
+  syncProducts: 'Sinkronisasi Produk',
+  publishStore: 'Posting ke toko'
+}

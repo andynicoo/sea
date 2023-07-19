@@ -1,0 +1,7 @@
+# LayoutAuth
+
+---
+
+```vue live
+<LayoutAuth />
+```

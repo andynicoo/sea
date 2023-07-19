@@ -1,0 +1,53 @@
+export default {
+  productInfo: 'Informações sobre mercadorias',
+  productSpec: 'Especificações do produto',
+  store: 'Loja',
+  lastUpdateTime: 'Tempo de modificação recente',
+  viewNum: 'Número de navegação',
+  publishFail: 'Falha na publicação',
+
+  publishTimed: 'Tempo de publicação cronometrado',
+  topTimed: 'Tempo de topo cronometrado',
+  promotion: 'Promova',
+  wholesale: 'Atacado',
+
+  skuCode: 'Codificação de mercadorias',
+  sales: 'Codificação SKU',
+  price: 'Preço',
+  specNum: 'Quantidade de especificações',
+  stockNum: 'Total de estoques',
+  searchImageBy1688: 'Pesquisa 1688',
+  close: 'recolher {c} especificações ({t} no total)',
+  open: 'expanda {c} especificações ({t} no total)',
+
+  specName: 'Nome da especificação',
+  stock: 'Inventário',
+  code: 'Especificações de codificação',
+
+  collectionSource: 'Fonte de coleta',
+  addCollectionSource: 'Adicionar fontes de aquisição',
+
+  collect: 'Coleção',
+  view: 'Navegação',
+  sold: 'Vendido',
+  comment: 'Comentários',
+
+  upShelf: 'Foi nas prateleiras',
+  delete: 'Excluído',
+  prohibit: 'Proibido',
+  downShelf: 'Foi despedido',
+  like: 'Curta-se',
+  productCategory: 'Categoria de produtos',
+  sellingPrice: 'Preço de venda',
+  rmbSellingPrice: 'Preço RMB',
+  claimStore: 'Loja de reivindicação',
+  cause: 'Causas',
+  scheduledReleaseTime: 'Tempo de publicação cronometrado',
+  lastModifiedTime: 'Tempo de última modificação',
+  publishedSite: 'Site publicado',
+  batchCancelled: 'Cancelamento em massa',
+  cancelRelease: 'Cancelar a publicação',
+  batchRelease: 'Lançamento em massa',
+  syncProducts: 'Sincronizar produtos',
+  publishStore: 'Publicar para a loja'
+}

@@ -1,0 +1,53 @@
+export default {
+  productInfo: 'Commodity information',
+  productSpec: 'Commodity specifications',
+  store: 'Shop',
+  lastUpdateTime: 'Last modification time',
+  viewNum: 'Number of views',
+  publishFail: 'Publishing failed',
+
+  publishTimed: 'Timed release time',
+  topTimed: 'Timed setting time',
+  promotion: 'Promote',
+  wholesale: 'Wholesale',
+
+  skuCode: 'Commodity code',
+  sales: 'SKU coding',
+  price: 'Price',
+  specNum: 'Specification quantity',
+  stockNum: 'Total stock',
+  searchImageBy1688: '1688 search map',
+  close: 'pack up {c} specifications (total {t})',
+  open: 'expand {c} specifications (total {t})',
+
+  specName: 'Specification name',
+  stock: 'Inventory',
+  code: 'Specification code',
+
+  collectionSource: 'Collection source',
+  addCollectionSource: 'Add collection source',
+
+  collect: 'Collection',
+  view: 'Browse',
+  sold: 'Sold',
+  comment: 'Comments',
+
+  upShelf: 'On shelves',
+  delete: 'Deleted',
+  prohibit: 'Prohibited',
+  downShelf: 'Has been taken off the shelf',
+  like: 'Praise',
+  productCategory: 'Product category',
+  sellingPrice: 'Price',
+  rmbSellingPrice: 'Price of RMB',
+  claimStore: 'Claim shop',
+  cause: 'Cause',
+  scheduledReleaseTime: 'Timed release time',
+  lastModifiedTime: 'Last modification time',
+  publishedSite: 'Published site',
+  batchCancelled: 'Batch cancellation',
+  cancelRelease: 'Unpublish',
+  batchRelease: 'Bulk publishing',
+  syncProducts: 'Synchronous products',
+  publishStore: 'Post to Store'
+}

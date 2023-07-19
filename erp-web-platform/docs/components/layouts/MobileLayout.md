@@ -1,0 +1,7 @@
+# MobileLayout
+
+---
+
+```vue live
+<MobileLayout />
+```

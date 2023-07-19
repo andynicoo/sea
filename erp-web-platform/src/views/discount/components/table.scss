@@ -1,0 +1,37 @@
+.product-info {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+  
+    .info-text {
+      padding: 0 10px;
+      max-width: 320px;
+  
+      .name {
+        overflow: hidden;
+        color: #000000a6;
+        text-overflow: ellipsis;
+        display: -webkit-box; //作为弹性伸缩盒子模型显示。
+        -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+        -webkit-line-clamp: 2; //显示的行
+        &:hover {
+          color: $linkColor;
+        }
+      }
+      .me-tab {
+        color: #bd8863;
+        border: 1px solid #ffe4c7;
+        height: 21px;
+        background: #fdf6ec;
+        border-radius: 1px;
+        line-height: 19px;
+        padding: 0px 3px;
+        .iconfont {
+          font-size: 11px;
+        }
+        &:hover {
+          background: #bd8863;
+          color: #fff;
+        }
+      }
+    }
+  }

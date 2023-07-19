@@ -1,0 +1,53 @@
+export default {
+  productInfo: '商品信息',
+  productSpec: '商品规格',
+  store: '店铺',
+  lastUpdateTime: '最近修改时间',
+  viewNum: '浏览数',
+  publishFail: '发布失败',
+
+  publishTimed: '定时发布时间',
+  topTimed: '定时置顶时间',
+  promotion: '促',
+  wholesale: '批发',
+
+  skuCode: '商品编码',
+  sales: 'SKU编码',
+  price: '价格',
+  specNum: '规格数量',
+  stockNum: '库存总数',
+  searchImageBy1688: '1688搜图',
+  close: '收起 {c} 个规格（共 {t} 个）',
+  open: '展开 {c} 个规格（共 {t} 个）',
+
+  specName: '规格名称',
+  stock: '库存',
+  code: '规格编码',
+
+  collectionSource: '采集来源',
+  addCollectionSource: '添加采集来源',
+
+  collect: '收藏',
+  view: '浏览',
+  sold: '已售',
+  comment: '评论',
+
+  upShelf: '已上架',
+  delete: '已删除',
+  prohibit: '已禁止',
+  downShelf: '已下架',
+  like: '点赞',
+  productCategory: '产品类目',
+  sellingPrice: '售价',
+  rmbSellingPrice: '人民币售价',
+  claimStore: '认领店铺',
+  cause: '原因',
+  scheduledReleaseTime: '定时发布时间',
+  lastModifiedTime: '最后修改时间',
+  publishedSite: '已发布站点',
+  batchCancelled: '批量取消',
+  cancelRelease: '取消发布',
+  batchRelease: '批量发布',
+  syncProducts: '同步产品',
+  publishStore: '发布至店铺'
+}
