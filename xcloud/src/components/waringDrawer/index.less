@@ -1,0 +1,96 @@
+.d-main {
+    font-size: 12px;
+    font-family: PingFang SC-Regular, PingFang SC;
+
+    .d-textrea {
+        /deep/.el-textarea__inner {
+            height: 120px !important;
+            background: #F2F2F2;
+            border-radius: 2px 2px 2px 2px;
+        }
+    }
+
+}
+
+.d-content {
+    padding:0px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .heard {
+        // height: 120px;
+        font-size: 12px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+        color: #999999;
+        background: #F5F8FB;
+        border-radius: 2px 2px 2px 2px;
+        opacity: 1;
+        padding: 12px 20px;
+    }
+
+    .title {
+        // margin-top: 30px;
+        // margin-bottom: 20px;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    .d-time-line {
+        flex: 1;
+        overflow-y: auto;
+        padding-top: 10px;
+    }
+
+    .d-form {
+        // padding-top: 65px;
+        height: 245px;
+
+        .d-checkBox {
+            padding: 10px 0px;
+        }
+    }
+}
+
+.card {
+
+    background: #F5F8FB;
+    border-radius: 0px 0px 0px 0px;
+    opacity: 1;
+    padding: 20px;
+
+    .tag {
+        margin-top: 10px;
+        display: flex;
+        font-size: 12px;
+        font-family: PingFang SC-Regular, PingFang SC;
+        font-weight: 400;
+
+        .my-el-tag {
+            margin-right: 20px;
+        }
+
+        .enclosure {
+            width: 200px;
+            overflow: hidden;
+            margin-right: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            a {
+                font-size: 12px;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+            }
+
+            /deep/ .el-link--inner {
+                font-size: 12px;
+                font-family: PingFang SC-Regular, PingFang SC;
+                font-weight: 400;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

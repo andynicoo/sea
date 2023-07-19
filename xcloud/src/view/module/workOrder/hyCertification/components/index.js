@@ -1,0 +1,10 @@
+export { default as CheckRemarkDialog } from "./checkRemarkDialog.vue";
+export { default as RemarkDialog } from "./remarkDialog.vue";
+export { default as AuditDialog } from "./auditDialog.vue";
+export { default as RejectDialog } from "./rejectDialog.vue";
+export { default as SendProviderDialog } from "./sendProviderDialog.vue";
+export { default as UploadHYFileDialog } from "./uploadHYFileDialog.vue";
+export { default as ChangeServiceProviderDialog } from "./changeServiceProviderDialog.vue";
+export { default as updateHagueServeDialog } from "./updateHagueServeDialog.vue";
+export { default as BatchUploadHYFileDialog } from "./batchUploadHYFileDialog.vue";
+export { default as BatchSubmitProviderDialog } from "./batchSubmitProviderDialog.vue";

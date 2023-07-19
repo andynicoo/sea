@@ -1,0 +1,102 @@
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.clearfix::after {
+  content: " ";
+  line-height: 0;
+  display: block;
+  clear: both;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-start {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.flex {
+  display: flex;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.home-list .home-list-title {
+  font-size: 18px;
+  font-family: 'PingFangSC-Medium', 'PingFang SC';
+  font-weight: 500;
+  color: #333333;
+}
+
+.home-list .search-bar {
+  margin-top: 14px;
+}
+
+.home-list .ivu-table-wrapper {
+  margin-top: 14px;
+}
+
+.home-list .ivu-table th {
+  background-color: rgba(22, 173, 233, 0.2);
+  color: #666666;
+}
+
+.home-list .ivu-checkbox-checked .ivu-checkbox-inner {
+  border-color: #16ADE9;
+  background-color: #16ADE9;
+}
+
+.home-list .page-info {
+  text-align: center;
+}
+
+.home-list .ivu-btn-primary {
+  background-color: #16ADE9;
+  border-color: #16ADE9;
+  color: #ffffff;
+}
+
+.home-list .blue {
+  color: #16ADE9;
+}
+
+.home-list .processRecord {
+  cursor: pointer;
+}
+
+.home-list .processRecord img {
+  margin-right: 3px;
+}
+
+.home-list .operation span {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.home-list .operation span img {
+  margin-right: 3px;
+}

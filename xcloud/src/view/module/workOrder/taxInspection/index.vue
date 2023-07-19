@@ -1,0 +1,173 @@
+<template>
+  <div class="app-container">
+    <!-- 查询 -->
+    <WorkOrderSearch ref="workOrderSearch" v-model="form" :functionCode="functionCode">
+      <template #operator>
+        <el-dropdown @command="command" style="margin-left: 20px">
+          <el-button type="primary">功能按钮<i class="el-icon-arrow-down el-icon--right"></i></el-button>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="changeManager" v-show="hasAuthority('O1_1')">修改交付专员</el-dropdown-item>
+            <el-dropdown-item command="batchChangeCustom" v-show="hasAuthority('O1_12')">修改客服</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </template>
+      <template #searchItems>
+        <!-- <el-form-item label="税号" prop="taxNumber">
+          <el-input v-model="form.taxNumber" placeholder="请输入税号" clearable style="width: 168px" />
+        </el-form-item> -->
+      </template>
+    </WorkOrderSearch>
+
+    <WorkOrderTable ref="workOrderTable" :form="form" :method="method" :functionCode="functionCode" @handleSelectionChange="handleSelectionChange">
+      <template #operator="{ row }">
+        <el-tooltip content="查看" placement="top">
+          <el-link type="primary" :underline="false" @click="detail(row)" v-show="hasAuthority('O1_3')">
+            <i class="icon icon-see"></i>
+          </el-link>
+        </el-tooltip>
+        <el-tooltip content="开始处理" placement="top">
+          <el-link type="primary" :underline="false" v-if="hasAuthority('O1_4') && row.currentNodeCode === currentCodeEnum.NODE3" @click="deal(row.id)">
+            <i class="icon icon-processing"></i>
+          </el-link>
+        </el-tooltip>
+        <el-tooltip content="处理完成" placement="top">
+          <el-link type="primary" :underline="false" v-if="hasAuthority('O1_5') && row.currentNodeCode === currentCodeEnum.NODE7" @click="dealComplete(row.id)">
+            <i class="icon icon-complete"></i>
+          </el-link>
+        </el-tooltip>
+        <el-tooltip content="添加备注" placement="top">
+          <el-link type="primary" :underline="false" @click="addRemark(row)" v-show="hasAuthority('O1_6')">
+            <i class="icon icon-remarks"></i>
+          </el-link>
+        </el-tooltip>
+      </template>
+    </WorkOrderTable>
+    <AddRemarkDialog :addRemarkDialog.sync="addRemarkDialog" :workNo="checkItem.workNo" @refresh="getList" />
+    <BatchChangeHandlerDialog :batchChangeHandlerDialog.sync="batchChangeHandlerDialog" :functionCode="functionCode" :workOrderIds="checkIds" :type="handlerType" @refresh="getList" />
+  </div>
+</template>
+
+<script>
+import WorkOrderSearch from '@/view/module/workOrder/components/common/workOrderSearch';
+import WorkOrderTable from '@/view/module/workOrder/components/common/workOrderTable';
+import BatchChangeHandlerDialog from '@/view/module/workOrder/components/batchChangeHandlerDialog';
+import AddRemarkDialog from '@/view/module/workOrder/components/addRemarkDialog.vue';
+import { getTaxCheckList } from '@/api/newApi/workOrder/taxInspection';
+import { currentCodeEnum } from '@/view/module/workOrder/map.js';
+import { workOrderCommonOperator } from '@/components/DynamicForm/commonOperator';
+export default {
+  data() {
+    return {
+      checkIds: [],
+      form: {
+        taxNumber: '',
+      },
+      functionCode: this.$constant.TAXINSPECTION_FUNCTION_CODE,
+      addRemarkDialog: false,
+      batchChangeHandlerDialog: false,
+      checkItem: {},
+      orderRemark: '',
+      currentCodeEnum,
+      method: getTaxCheckList,
+      handlerType: 1, // 1：客服，2：交付
+    };
+  },
+  components: {
+    WorkOrderSearch,
+    WorkOrderTable,
+    BatchChangeHandlerDialog,
+    AddRemarkDialog,
+  },
+  methods: {
+    command(c) {
+      this[c]();
+    },
+    getList() {
+      this.$refs.workOrderTable.getList();
+    },
+    handleSelectionChange(val, checkIds) {
+      this.checkIds = checkIds;
+    },
+    /**
+     * 修改交付专员
+     */
+    changeManager() {
+      if (this.checkIds.length == 0) {
+        this.$message.warning('请选择要操作的工单');
+        return;
+      }
+      this.handlerType = 2;
+      this.batchChangeHandlerDialog = true;
+    },
+    /**
+     * 修改客服
+     */
+    batchChangeCustom() {
+      if (this.checkIds.length == 0) {
+        this.$message.warning('请选择要操作的工单');
+        return;
+      }
+      this.handlerType = 1;
+      this.batchChangeHandlerDialog = true;
+    },
+    // 详情弹窗
+    detail(row) {
+      this.$router.push({
+        path: '/taxInspection/detail',
+        query: {
+          workOrderId: row.id,
+          userId: row.userId,
+          serviceNo: row.serviceNo,
+        },
+      });
+    },
+    // 开始处理
+    deal(workOrderId) {
+      this.$confirm('是否开始处理该稽查服务？', '提示', {
+        customClass: 'custom-confirm',
+        confirmButtonText: '继续',
+        cancelButtonText: '取消',
+        type: 'warning',
+        center: true,
+      }).then(() => {
+        this.toNext(workOrderId, '开始处理');
+      });
+    },
+    // 处理完成
+    dealComplete(workOrderId) {
+      this.$confirm('该稽查服务是否处理完成？', '提示', {
+        customClass: 'custom-confirm',
+        confirmButtonText: '继续',
+        cancelButtonText: '取消',
+        type: 'warning',
+        center: true,
+      }).then(() => {
+        this.toNext(workOrderId, '处理完成');
+      });
+    },
+    toNext(workOrderId, operation) {
+      workOrderCommonOperator('next', {
+        serviceWorkOrderId: workOrderId,
+        operation,
+      }).then((res) => {
+        if (res.code === 0) {
+          this.$message.success('处理成功');
+          this.getList();
+        }
+      });
+    },
+    // 添加备注
+    addRemark(row) {
+      this.checkItem = row;
+      this.addRemarkDialog = true;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+@import '@/styles/fixedSearch.scss';
+.header-btn-group {
+  text-align: right;
+}
+</style>

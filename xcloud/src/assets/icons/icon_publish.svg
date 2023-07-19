@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>操作_发布</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g transform="translate(-481.000000, -205.000000)" id="编组-4" stroke="#1890FF">
+            <g transform="translate(307.000000, 137.000000)">
+                <g id="编组" transform="translate(174.000000, 68.000000)">
+                    <path d="M12.8461538,2.35696661 C14.0356902,2.35696661 15,3.30037976 15,4.46413884 L15,12.8928278 C15,14.0565869 14.0356902,15 12.8461538,15 L3.15384615,15 C1.96430977,15 1,14.0565869 1,12.8928278 L1,4.46413884 C1,3.30037976 1.96430977,2.35696661 3.15384615,2.35696661" id="路径"></path>
+                    <path d="M6.1593029,1.71411572 L8.92170428,1.74437424 C9.43024833,1.74994468 9.84702047,2.16671683 9.85259091,2.67526088 L9.88284943,5.43766226" id="路径" stroke-linejoin="round" transform="translate(8.021076, 3.575889) rotate(-45.000000) translate(-8.021076, -3.575889) "></path>
+                    <line x1="8.02107616" y1="1.49829164" x2="8.00285804" y2="9.42868892" id="路径-7"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

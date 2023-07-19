@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>发布</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g transform="translate(-339.000000, -429.000000)" id="编组-3" stroke="#FFFFFF" stroke-width="0.67">
+            <g transform="translate(307.000000, 360.000000)">
+                <g id="btn/发布" transform="translate(16.000000, 61.000000)">
+                    <g id="编组" transform="translate(16.000000, 7.131678)">
+                        <path d="M13,3.36832208 C14.1045695,3.36832208 15,4.26375258 15,5.36832208 L15,13.3683221 C15,14.4728916 14.1045695,15.3683221 13,15.3683221 L4,15.3683221 C2.8954305,15.3683221 2,14.4728916 2,13.3683221 L2,5.36832208 C2,4.26375258 2.8954305,3.36832208 4,3.36832208" id="路径"></path>
+                        <path d="M6.51957072,3.28128337 L9.51957072,3.28128337 C10.0718555,3.28128337 10.5195707,3.72899862 10.5195707,4.28128337 L10.5195707,7.28128337" id="路径" stroke-linejoin="round" transform="translate(8.519571, 5.281283) rotate(-45.000000) translate(-8.519571, -5.281283) "></path>
+                        <line x1="8.51957072" y1="3" x2="8.5" y2="11.7078872" id="路径-7"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

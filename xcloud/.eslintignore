@@ -1,0 +1,4 @@
+!.prettierrc.js
+/build/
+/dist/
+/test/unit/coverage/

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="82px" viewBox="0 0 82 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>回到顶部</title>
+    <defs>
+        <filter x="-13.6%" y="-13.6%" width="127.3%" height="127.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="3" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-972.000000, -566.000000)" id="编组-3">
+            <g transform="translate(306.000000, 360.000000)">
+                <g id="编组-6" transform="translate(666.000000, 206.000000)">
+                    <circle id="椭圆形" fill="#4B4B4B" opacity="0.213332403" filter="url(#filter-1)" cx="40" cy="41" r="33"></circle>
+                    <circle id="椭圆形" fill="#FFFFFF" cx="40" cy="41" r="33"></circle>
+                    <g id="编组-7" transform="translate(29.000000, 23.000000)" fill="#E0E0E0">
+                        <rect id="矩形" x="0" y="0" width="23" height="3" rx="1.5"></rect>
+                        <path d="M12.2936064,9.03513873 L21.7668691,21.3915685 C22.1028966,21.8298651 22.019991,22.4575789 21.5816943,22.7936064 C21.4071074,22.9274564 21.1932547,23 20.9732628,23 L2.02673721,23 C1.47445246,23 1.02673721,22.5522847 1.02673721,22 C1.02673721,21.7800081 1.09928086,21.5661554 1.23313085,21.3915685 L10.7063936,9.03513873 C11.0424211,8.59684204 11.6701349,8.51393645 12.1084315,8.84996391 C12.1780067,8.90330489 12.2402654,8.96556355 12.2936064,9.03513873 Z" id="三角形"></path>
+                        <rect id="矩形" x="8" y="21" width="7" height="15"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

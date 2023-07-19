@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>操作_备注</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-357.000000, -206.000000)" id="编组-4" stroke="#1890FF">
+            <g transform="translate(307.000000, 137.000000)">
+                <g id="编组" transform="translate(50.000000, 69.000000)">
+                    <path d="M13,0.5 L13.5,13.4420028 L7.26085814,11.36679 L2.22048716,13.8432527 L1.5,1 L13,0.5 Z" id="矩形"></path>
+                    <line x1="4" y1="3.5" x2="10.9145694" y2="3.5" id="路径-6" stroke-linecap="round"></line>
+                    <line x1="4" y1="6.5" x2="7.91456941" y2="6.5" id="路径-6备份" stroke-linecap="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

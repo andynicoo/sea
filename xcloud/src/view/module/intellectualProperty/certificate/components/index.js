@@ -1,0 +1,5 @@
+export {default as TranslateDialog} from './translateDialog.vue'
+export {default as InfoDialog} from './infoDialog.vue'
+export {default as SubmitCertificateDialog} from './submitCertificateDialog.vue'
+export {default as UploadReceiptDialog} from './uploadReceiptDialog.vue'
+export {default as ModifyDialog} from './modifyDialog.vue'

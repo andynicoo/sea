@@ -1,0 +1,90 @@
+.main {
+  display: grid;
+  grid-template-columns: 17.5% 82.5%;
+  justify-content: space-between;
+
+  div {
+    caret-color: transparent;
+  }
+}
+
+.left-tree {
+  height: calc(100vh - 140px);
+  overflow-y: scroll;
+  padding: 21px 10px;
+  background-color: white;
+
+  .head {
+    font-size: 16px;
+    font-family: PingFang SC-Medium, PingFang SC;
+    font-weight: 500;
+  }
+}
+
+.app-container {
+  .header-container {
+    margin: 0px 5px 0px 10px;
+  }
+
+  .followPerson {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .pagination-container {
+    // margin-top: 24px;
+  }
+}
+
+.m-r-30 {
+  margin-right: 30px;
+}
+
+::v-deep .el-switch__core {
+  // width: 55px;
+  // height: 24px;
+  border-radius: 100px;
+  border: none;
+}
+
+::v-deep .el-switch__core::after {
+  // width: 20px;
+  // height: 20px;
+  top: 2px;
+}
+
+::v-deep .el-switch.is-checked .el-switch__core::after {
+  margin-left: -21px;
+}
+
+/*关闭时文字位置设置*/
+::v-deep .el-switch__label--right {
+  position: absolute;
+  z-index: 1;
+  right: 6px;
+  margin-left: 0px;
+  color: rgba(255, 255, 255, 0.9019607843137255);
+
+  span {
+    font-size: 12px;
+  }
+}
+
+/* 激活时另一个文字消失 */
+::v-deep .el-switch__label.is-active {
+  display: none;
+}
+
+/*开启时文字位置设置*/
+::v-deep .el-switch__label--left {
+  position: absolute;
+  z-index: 1;
+  left: 5px;
+  margin-right: 0px;
+  color: rgba(255, 255, 255, 0.9019607843137255);
+
+  span {
+    font-size: 12px;
+  }
+}

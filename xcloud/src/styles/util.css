@@ -1,0 +1,619 @@
+@charset "UTF-8";
+/*
+ * css公用样式
+ */
+/*
+ * 全局滚动条的样式
+ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  border-radius: 50px;
+  background-color: #cccccc;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/*
+ * 全局滚动条的样式
+ */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/*
+ * 页面全屏
+ */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  display: block;
+  overflow: hidden;
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * 圆角样式
+ */
+.border-radius {
+  border-radius: 4px !important;
+}
+
+.border-radius-round {
+  border-radius: 100% !important;
+}
+
+.border-radius-ellipse {
+  border-radius: 50px !important;
+}
+
+/* 字重 */
+.text-bold-400 {
+  font-weight: 400;
+}
+
+.text-bold-500 {
+  font-weight: 500;
+}
+
+.text-bold-600 {
+  font-weight: 600;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+/* 文字下划线 */
+.text-underline {
+  border-bottom: solid 1px #e0e0e0;
+}
+
+/* 文字超出省略号 */
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 字体大小 */
+.font-9 {
+  font-size: 12px;
+  transform: scale(0.75);
+}
+
+.font-10 {
+  font-size: 12px;
+  transform: scale(0.83);
+}
+
+.font-11 {
+  font-size: 12px;
+  transform: scale(0.9);
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-17 {
+  font-size: 17px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-19 {
+  font-size: 19px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-21 {
+  font-size: 21px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-23 {
+  font-size: 23px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-25 {
+  font-size: 25px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-27 {
+  font-size: 27px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.font-29 {
+  font-size: 29px;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.font-31 {
+  font-size: 31px;
+}
+
+.font-32 {
+  font-size: 32px;
+}
+
+/* float */
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.float-clear:after {
+  content: "";
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* display */
+.display-none {
+  display: none;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+/* text-align */
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* vertical */
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+
+/* position */
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/*
+ * flex简单布局
+ */
+.display-flex {
+  display: flex;
+}
+
+.display-flex .flex {
+  flex: 1;
+}
+
+.display-flex .flex-1 {
+  flex: 1;
+}
+
+.display-flex .flex-2 {
+  flex: 2;
+}
+
+.display-flex .flex-3 {
+  flex: 3;
+}
+
+.display-flex .flex-4 {
+  flex: 4;
+}
+
+.display-flex .flex-5 {
+  flex: 5;
+}
+
+.display-flex .flex-6 {
+  flex: 6;
+}
+
+.display-flex .flex-7 {
+  flex: 7;
+}
+
+.display-flex .flex-8 {
+  flex: 8;
+}
+
+.display-flex .flex-9 {
+  flex: 9;
+}
+
+.display-flex .flex-10 {
+  flex: 10;
+}
+
+.display-flex .flex-11 {
+  flex: 11;
+}
+
+.display-flex .flex-12 {
+  flex: 12;
+}
+
+/*
+ * 位置固定
+ */
+.affix {
+  position: fixed;
+  width: auto;
+  z-index: 998;
+  left: 0;
+  right: 0;
+}
+
+.affix.affix-top {
+  top: 0;
+}
+
+.affix.affix-bottom {
+  bottom: 0;
+}
+
+.icon {
+  background-repeat: no-repeat;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.icon.icon-add {
+  background-image: url("../assets/icons/icon_add.svg");
+}
+
+.icon.icon-adds {
+  background-image: url("../assets/icons/icon_adds.svg");
+}
+
+.icon.icon-see {
+  background-image: url("../assets/icons/icon_see.svg");
+}
+
+.icon.icon-edit {
+  background-image: url("../assets/icons/icon_edit.svg");
+}
+
+.icon.icon-use {
+  background-image: url("../assets/icons/icon_use.svg");
+}
+
+.icon.icon-disable {
+  background-image: url("../assets/icons/icon_disable.svg");
+}
+
+.icon.icon-del {
+  background-image: url("../assets/icons/icon_del.svg");
+}
+
+.icon.icon-work-wing {
+  background-image: url("../assets/icons/icon_work_waring.svg");
+}
+.icon.icon-publish {
+  background-image: url("../assets/icons/icon_publish.svg");
+}
+
+.icon.icon-square-add {
+  background-image: url("../assets/icons/icon_square_add.svg");
+}
+
+.icon.icon-white-upload {
+  background-image: url("../assets/icons/icon_white_upload.svg");
+}
+
+.icon.icon-square-close {
+  background-image: url("../assets/icons/icon_square_close.svg");
+}
+
+.icon.icon-submitted {
+  background-image: url("../assets/icons/operation_submitted.svg");
+}
+
+.icon.icon-receipt {
+  background-image: url("../assets/icons/see_receipt.svg");
+}
+
+.icon.icon-noNeed {
+  background-image: url("../assets/icons/no_need.svg");
+}
+
+.icon.icon-remarks {
+  background-image: url("../assets/icons/remarks.svg");
+}
+
+.icon.icon-export {
+  background-image: url("../assets/icons/icon_export.svg");
+}
+
+.icon.icon-import {
+  background-image: url("../assets/icons/icon_import.svg");
+}
+
+.icon.icon-upload {
+  background: url("../assets/icons/icon_upload.svg");
+  width: 28px;
+  height: 28px;
+}
+
+.icon.icon-change {
+  background-image: url("../assets/icons/icon_change.svg");
+}
+
+.icon.icon-refund {
+  background-image: url("../assets/icons/icon_refund.svg");
+}
+
+.icon.icon-cancel {
+  background-image: url("../assets/icons/icon_cancel.svg");
+}
+
+.icon.icon-audit {
+  background-image: url("../assets/icons/icon_audit.svg");
+}
+
+.icon.icon-upload-receipt {
+  background-image: url("../assets/icons/upload_receipt.svg");
+}
+
+.icon.icon-refund {
+  background-image: url("../assets/icons/refund.svg");
+}
+
+.icon.icon-copy {
+  background-image: url("../assets/icons/icon_copy.svg");
+}
+
+.icon.icon-processing {
+  background-image: url("../assets/icons/icon_processing.svg");
+}
+
+.icon.icon-complete {
+  background-image: url("../assets/icons/icon_complete.svg");
+}
+
+.icon.icon-remind {
+  background-image: url("../assets/icons/icon_remind.svg");
+}
+
+.icon.icon-seal {
+  background-image: url("../assets/icons/icon_seal.svg");
+}
+
+.icon.icon-unSeal {
+  background-image: url("../assets/icons/icon_unSeal.svg");
+}
+
+.icon.loading {
+  background-image: url("../assets/icons/loading.svg");
+  -webkit-animation: loading 1s linear infinite;
+  animation: loading 1s linear infinite;
+  width: 55px;
+  height: 55px;
+  margin-bottom: 15px;
+  margin-right: 0px;
+}
+
+@-webkit-keyframes loading {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon.icon-claim-small {
+  background-image: url("../assets/icons/icon_claim_small.svg");
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.icon.icon-search-small {
+  background-image: url("../assets/icons/icon_search_small.svg");
+  width: 12px;
+  height: 12px;
+  margin-right: 2px;
+}
+
+.icon.icon-claim {
+  background-image: url("../assets/icons/icon_claim.svg");
+}
+
+.icon.icon-file-upload {
+  background-image: url("../assets/icons/icon_file_upload.svg");
+  width: 30px;
+  height: 25px;
+}
+
+.icon.icon-file-upload-small {
+  background-image: url("../assets/icons/icon_file_upload-small.svg");
+  width: 15px;
+  height: 13px;
+}
+
+.icon.icon-follow {
+  background-image: url("../assets/icons/icon_follow.svg");
+}
+
+.icon.icon-invite {
+  background-image: url("../assets/icons/icon_invite.svg");
+}
+
+.icon.icon-out {
+  background-image: url("../assets/icons/icon_out.svg");
+}
+
+.icon.icon-tax {
+  background-image: url("../assets/icons/icon_tax.svg");
+}
+
+.icon.icon-empty {
+  background-image: url("../assets/icons/icon_empty.svg");
+  width: 77px;
+  height: 82px;
+  margin: 0;
+}
+
+.icon.icon-xiajia {
+  background-image: url("../assets/icons/icon_xiajia.svg");
+}
+
+.icon.icon-upper {
+  background-image: url("../assets/icons/icon_upper.svg");
+}
+
+.icon.icon-stuts-enable {
+  background-image: url("../assets/images/zt-upgrade-1/stuts_qiyong_yfb.svg");
+}
+
+.icon.icon-stuts-disable {
+  background-image: url("../assets/images/zt-upgrade-1/stuts_jinyong.svg");
+}
+
+.icon.icon-stuts-locking {
+  background-image: url("../assets/images/zt-upgrade-1/stuts_locking.svg");
+}
+
+.icon.icon-permission-assignment {
+  background-image: url("../assets/icons/icon-permission-assignment.svg");
+}
+
+.icon.icon-refrnesh {
+  background-image: url("../assets/icons/icon-refrnesh.svg");
+}
+
+.icon.icon-configure {
+  background-image: url("../assets/icons/icon_configure.svg");
+}

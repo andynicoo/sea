@@ -1,0 +1,48 @@
+/* sidebar样式变量定义 */
+
+// 顶部logo菜单栏背景颜色
+$topLogoMenuBg: #ffffff;
+// 顶部logo菜单栏的文字颜色
+$topLogoMenuText: #666666;
+
+// 一级菜单背景色
+$menuBg: #ffffff;
+// 一级菜单文字颜色
+$menuText: #666666;
+// 一级菜单（没有子菜单的一级菜单）或者子菜单选中时的文字颜色
+$menuActiveText: #1890ff;
+// 一级菜单鼠标滑过背景色
+$menuHover: #ffffff;
+// 一级菜单鼠标滑过文字颜色
+$menuTextHover: #1890ff;
+
+// 子菜单背景色
+$subMenuBg: #ffffff;
+// 子菜单鼠标滑过背景色
+$subMenuHover: #ffffff;
+// 子菜单鼠标滑过文字颜色
+$subMenuTextHover: #1890ff;
+// 子菜单选中的背景色
+$subMenuActiveBg: #1890ff;
+// 有子菜单的一级菜单，当子弹选中时候它的文字颜色
+$subMenuActiveText: #1890ff; //https://github.com/ElemeFE/element/issues/12951
+
+// 菜单的宽度
+$sideBarWidth: 208px;
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  subMenuTextHover: $subMenuTextHover;
+  subMenuActiveBg: $subMenuActiveBg;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  topLogoMenuBg: $topLogoMenuBg;
+  topLogoMenuText: $topLogoMenuText;
+  sideBarWidth: $sideBarWidth;
+}

@@ -1,0 +1,772 @@
+/*
+ * css公用样式
+ */
+/*
+ * 全局滚动条的样式
+ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 14px;
+}
+
+// 滚动条里面轨道以及垂直和横向相间部分的样式
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  border-radius: 50px;
+  background-color: #cccccc;
+}
+
+// 滚动条内部长条的样式
+::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+// 滚动条内部长条hover样式
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+// 滚动条内部长条的点击样式
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/*
+ * 全局滚动条的样式
+ */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+// 滚动条里面轨道以及垂直和横向相间部分的样式
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+
+// 滚动条内部长条的样式
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+// 滚动条内部长条hover样式
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+// 滚动条内部长条的点击样式
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+/*
+ * 页面全屏
+ */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  display: block;
+  overflow: hidden;
+  z-index: 999;
+  -webkit-overflow-scrolling: touch;
+}
+
+/**
+ * 圆角样式
+ */
+.border-radius {
+  border-radius: 4px !important;
+}
+
+.border-radius-round {
+  border-radius: 100% !important;
+}
+
+.border-radius-ellipse {
+  border-radius: 50px !important;
+}
+
+/* 字重 */
+.text-bold-400 {
+  font-weight: 400;
+}
+.text-bold-500 {
+  font-weight: 500;
+}
+.text-bold-600 {
+  font-weight: 600;
+}
+.text-bold {
+  font-weight: bold;
+}
+/* 文字下划线 */
+.text-underline {
+  border-bottom: solid 1px #e0e0e0;
+}
+/* 文字超出省略号 */
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 字体大小 */
+.font-9 {
+  font-size: 12px;
+  transform: scale(0.75);
+}
+
+.font-10 {
+  font-size: 12px;
+  transform: scale(0.83);
+}
+
+.font-11 {
+  font-size: 12px;
+  transform: scale(0.9);
+}
+
+.font-12 {
+  font-size: 12px;
+}
+
+.font-13 {
+  font-size: 13px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.font-16 {
+  font-size: 16px;
+}
+
+.font-17 {
+  font-size: 17px;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-19 {
+  font-size: 19px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-21 {
+  font-size: 21px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-23 {
+  font-size: 23px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-25 {
+  font-size: 25px;
+}
+
+.font-26 {
+  font-size: 26px;
+}
+
+.font-27 {
+  font-size: 27px;
+}
+
+.font-28 {
+  font-size: 28px;
+}
+
+.font-29 {
+  font-size: 29px;
+}
+
+.font-30 {
+  font-size: 30px;
+}
+
+.font-31 {
+  font-size: 31px;
+}
+
+.font-32 {
+  font-size: 32px;
+}
+
+/* float */
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-none {
+  float: none;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.ml-10 {
+  margin-left: 10px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.float-clear:after {
+  content: '';
+  display: block;
+  height: 0;
+  font-size: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+/* display */
+.display-none {
+  display: none;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+/* text-align */
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+/* vertical */
+.vertical-align-top {
+  vertical-align: top;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
+
+/* position */
+.position-absolute {
+  position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/*
+ * flex简单布局
+ */
+.display-flex {
+  display: flex;
+}
+
+.display-flex .flex {
+  flex: 1;
+}
+
+.display-flex .flex-1 {
+  flex: 1;
+}
+
+.display-flex .flex-2 {
+  flex: 2;
+}
+
+.display-flex .flex-3 {
+  flex: 3;
+}
+
+.display-flex .flex-4 {
+  flex: 4;
+}
+
+.display-flex .flex-5 {
+  flex: 5;
+}
+
+.display-flex .flex-6 {
+  flex: 6;
+}
+
+.display-flex .flex-7 {
+  flex: 7;
+}
+
+.display-flex .flex-8 {
+  flex: 8;
+}
+
+.display-flex .flex-9 {
+  flex: 9;
+}
+
+.display-flex .flex-10 {
+  flex: 10;
+}
+
+.display-flex .flex-11 {
+  flex: 11;
+}
+
+.display-flex .flex-12 {
+  flex: 12;
+}
+
+/*
+ * 位置固定
+ */
+.affix {
+  position: fixed;
+  width: auto;
+  z-index: 998;
+  left: 0;
+  right: 0;
+}
+
+.affix.affix-top {
+  top: 0;
+}
+
+.affix.affix-bottom {
+  bottom: 0;
+}
+
+$bg_green: #52c41a;
+
+// 图标类
+.icon {
+  background-repeat: no-repeat;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  &.icon-add {
+    //新增
+    background-image: url('../assets/icons/icon_add.svg');
+  }
+  &.icon-adds {
+    //按钮新增
+    background-image: url('../assets/icons/icon_adds.svg');
+  }
+  &.icon-see {
+    //查看
+    background-image: url('../assets/icons/icon_see.svg');
+  }
+  &.icon-edit {
+    //编辑
+    background-image: url('../assets/icons/icon_edit.svg');
+  }
+  &.icon-use {
+    //启用
+    background-image: url('../assets/icons/icon_use.svg');
+  }
+  &.icon-disable {
+    //禁用
+    background-image: url('../assets/icons/icon_disable.svg');
+  }
+  &.icon_preview {
+    //预览
+    background-image: url('../assets/icons/icon_preview.svg');
+  }
+  &.icon-del {
+    //删除
+    background-image: url('../assets/icons/icon_del.svg');
+  }
+  &.icon-publish {
+    //上传
+    background-image: url('../assets/icons/icon_publish.svg');
+  }
+  &.icon.icon-work-wing {
+    background-image: url('../assets/icons/icon_work_waring.svg');
+  }
+  &.icon-square-add {
+    //方形新增
+    background-image: url('../assets/icons/icon_square_add.svg');
+  }
+  &.icon-white-upload {
+    //白色上传
+    background-image: url('../assets/icons/icon_white_upload.svg');
+  }
+  &.icon-square-close {
+    //方形关闭
+    background-image: url('../assets/icons/icon_square_close.svg');
+  }
+  &.icon-submitted {
+    //提交申报
+    background-image: url('../assets/icons/operation_submitted.svg');
+  }
+  &.icon-receipt {
+    //查看回执
+    background-image: url('../assets/icons/see_receipt.svg');
+  }
+  &.icon-noNeed {
+    //无需处理
+    background-image: url('../assets/icons/no_need.svg');
+  }
+  &.icon-remarks {
+    //备注
+    background-image: url('../assets/icons/remarks.svg');
+  }
+  &.icon-export {
+    //导出
+    background-image: url('../assets/icons/icon_export.svg');
+  }
+  &.icon-import {
+    //导入
+    background-image: url('../assets/icons/icon_import.svg');
+  }
+  &.icon-upload {
+    //上传
+    background: url('../assets/icons/icon_upload.svg');
+    width: 28px;
+    height: 28px;
+  }
+  &.icon-close {
+    //关闭
+    background: url('../assets/icons/icon_upload.svg');
+    transform: rotate(45deg);
+    background-size: 80%;
+    background-repeat: no-repeat;
+  }
+  &.icon-change {
+    //修改
+    background-image: url('../assets/icons/icon_change.svg');
+  }
+  &.icon-refund {
+    //退款
+    background-image: url('../assets/icons/icon_refund.svg');
+  }
+  &.icon-cancel {
+    //取消
+    background-image: url('../assets/icons/icon_cancel.svg');
+  }
+  &.icon-audit {
+    //审核
+    background-image: url('../assets/icons/icon_audit.svg');
+  }
+  &.icon-upload-receipt {
+    //上传发票
+    background-image: url('../assets/icons/upload_receipt.svg');
+  }
+  &.icon-refund {
+    //确认退票
+    background-image: url('../assets/icons/refund.svg');
+  }
+  &.icon-copy {
+    //复制
+    background-image: url('../assets/icons/icon_copy.svg');
+  }
+
+  &.icon-processing {
+    //标记处理中
+    background-image: url('../assets/icons/icon_processing.svg');
+  }
+  &.icon-complete {
+    //标记完成
+    background-image: url('../assets/icons/icon_complete.svg');
+  }
+  &.icon-remind {
+    //提醒
+    background-image: url('../assets/icons/icon_remind.svg');
+  }
+  &.icon-seal {
+    //封存工单
+    background-image: url('../assets/icons/icon_seal.svg');
+  }
+  &.icon-addLowLeve {
+    //新增下级
+    background-image: url('../assets/icons/icon_addLowLeve.svg');
+  }
+  &.icon-unSeal {
+    //取消封存
+    background-image: url('../assets/icons/icon_unSeal.svg');
+  }
+  &.loading {
+    //加载
+    background-image: url('../assets/icons/loading.svg');
+    -webkit-animation: loading 1s linear infinite;
+    animation: loading 1s linear infinite;
+    width: 55px;
+    height: 55px;
+    margin-bottom: 15px;
+    margin-right: 0px;
+    @-webkit-keyframes loading {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+    @keyframes loading {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  &.icon-claim-small {
+    //认领小图标
+    background-image: url('../assets/icons/icon_claim_small.svg');
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+  &.icon-search-small {
+    //查看小图标
+    background-image: url('../assets/icons/icon_search_small.svg');
+    width: 12px;
+    height: 12px;
+    margin-right: 2px;
+  }
+  &.icon-claim {
+    //认领
+    background-image: url('../assets/icons/icon_claim.svg');
+  }
+  &.icon-file-upload {
+    //文件上传
+    background-image: url('../assets/icons/icon_file_upload.svg');
+    width: 30px;
+    height: 25px;
+  }
+  &.icon-file-upload-small {
+    //文件上传
+    background-image: url('../assets/icons/icon_file_upload-small.svg');
+    width: 15px;
+    height: 13px;
+  }
+  &.icon-follow {
+    //跟进人
+    background-image: url('../assets/icons/icon_follow.svg');
+  }
+  &.icon-invite {
+    //邀请人
+    background-image: url('../assets/icons/icon_invite.svg');
+  }
+  &.icon-out {
+    //转出
+    background-image: url('../assets/icons/icon_out.svg');
+  }
+  &.icon-tax {
+    //转出
+    background-image: url('../assets/icons/icon_tax.svg');
+  }
+  &.icon-dialog-tip {
+    //提示
+    width: 29px;
+    height: 29px;
+    background-image: url('../assets/icons/icon_tip.svg');
+  }
+  &.icon-tip {
+    //提示
+    background-image: url('../assets/icons/icon-text-tip.svg');
+  }
+  &.icon-empty {
+    //缺省页图标
+    background-image: url('../assets/icons/icon_empty.svg');
+    width: 77px;
+    height: 82px;
+    margin: 0;
+  }
+  &.icon-xiajia {
+    //下架
+    background-image: url('../assets/icons/icon_xiajia.svg');
+  }
+  &.icon-upper {
+    //上架
+    background-image: url('../assets/icons/icon_upper.svg');
+  }
+  &.icon-stuts-enable {
+    //圆点小图标-启用
+    background-image: url('../assets/images/zt-upgrade-1/stuts_qiyong_yfb.svg');
+  }
+  &.icon-stuts-disable {
+    //圆点小图标-禁用
+    background-image: url('../assets/images/zt-upgrade-1/stuts_jinyong.svg');
+  }
+  &.icon-stuts-locking {
+    //圆点小图标 -锁定
+    background-image: url('../assets/images/zt-upgrade-1/stuts_locking.svg');
+  }
+  &.icon-permission-assignment {
+    //权限分配
+    background-image: url('../assets/icons/icon-permission-assignment.svg');
+  }
+  &.icon-refrnesh {
+    //重置
+    background-image: url('../assets/icons/icon-refrnesh.svg');
+  }
+  &.icon-refresh-white {
+    //重置
+    background-image: url('../assets/icons/refresh.svg');
+  }
+  &.icon-hidSide {
+    //隐藏侧边栏
+    background-image: url('../assets/icons/icon_hidSide.svg');
+  }
+  &.icon-expendSide {
+    //隐藏侧边栏
+    background-image: url('../assets/icons/icon_expendSide.svg');
+  }
+  &.icon-configure {
+    background-image: url('../assets/icons/icon_configure.svg');
+  }
+  // 侧边栏图标
+  &.side-customer {
+    //客户管理
+    background-image: url('../assets/icons/side_customer.svg');
+  }
+  &.side-dateCenter {
+    //数据中心
+    background-image: url('../assets/icons/side_dateCenter.svg');
+  }
+  &.side-finance {
+    //财务中心
+    background-image: url('../assets/icons/side_finance.svg');
+  }
+  &.side-help {
+    //帮助中心
+    background-image: url('../assets/icons/side_help.svg');
+  }
+  &.side-information {
+    //资讯管理
+    background-image: url('../assets/icons/side_information.svg');
+  }
+  &.side-market {
+    //营销管理
+    background-image: url('../assets/icons/side_market.svg');
+  }
+  &.side-message {
+    //消息中心
+    background-image: url('../assets/icons/side_message.svg');
+  }
+  &.side-opration {
+    //操作日志
+    background-image: url('../assets/icons/side_opration.svg');
+  }
+  &.side-order {
+    //销售订单
+    background-image: url('../assets/icons/side_order.svg');
+  }
+  &.side-pay {
+    //支付中心
+    background-image: url('../assets/icons/side_pay.svg');
+  }
+  &.side-serviceProduct {
+    //服务商品
+    background-image: url('../assets/icons/side_serviceProduct.svg');
+  }
+  &.side-spread {
+    //推广管理
+    background-image: url('../assets/icons/side_spread.svg');
+  }
+  &.side-supply {
+    //供应链
+    background-image: url('../assets/icons/side_supply.svg');
+  }
+  &.side-system {
+    //系统管理
+    background-image: url('../assets/icons/side_system.svg');
+  }
+  &.side-workOrder {
+    //工单管理
+    background-image: url('../assets/icons/side_workOrder.svg');
+  }
+  &.side-baseDate {
+    //基础资料
+    background-image: url('../assets/icons/side_baseDate.svg');
+  }
+  &.side-operateCenter {
+    //运营中心
+    background-image: url('../assets/icons/side_operateCenter.svg');
+  }
+  &.side-taxCenter {
+    //税务中心
+    background-image: url('../assets/icons/side_taxCenter.svg');
+  }
+  &.side-minWorkorder {
+    //极简工单
+    background-image: url('../assets/icons/side_minWorkorder.svg');
+  }
+  &.side-invalidData {
+    //实时数据
+    background-image: url('../assets/icons/side_invalidData.svg');
+  }
+  &.side-intellectualProperty {
+    //知识产权中心
+    background-image: url('../assets/icons/side_intellectualProperty.svg');
+  }
+}

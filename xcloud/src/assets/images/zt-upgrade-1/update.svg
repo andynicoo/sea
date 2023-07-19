@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>操作_重置</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g transform="translate(-512.000000, -257.000000)" id="编组-4" stroke="#1890FF">
+            <g transform="translate(307.000000, 137.000000)">
+                <g id="编组" transform="translate(205.000000, 120.000000)">
+                    <line x1="14.1531528" y1="1.7207207" x2="14.1531528" y2="7.48648632" id="路径"></line>
+                    <line x1="1.18018018" y1="7.48648632" x2="1.18018018" y2="13.2522519" id="路径"></line>
+                    <path d="M1.18018018,7.48648632 C1.18018018,11.0688646 4.08428821,13.9729726 7.6666665,13.9729726 C9.41643222,13.9729726 11.0043961,13.2801438 12.1711709,12.1538376" id="路径"></path>
+                    <path d="M14.1534051,7.48648632 C14.1534051,3.90410804 11.249297,1 7.66691875,1 C5.83430619,1 4.17920713,1.75998557 2.99956752,2.98198193" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

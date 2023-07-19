@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>批量认领</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-756.000000, -604.000000)" id="btn/批量认领" stroke="#FFFFFF">
+            <g transform="translate(740.000000, 595.000000)">
+                <g id="批量认领" transform="translate(16.000000, 9.000000)">
+                    <path d="M15,9.75594026 L15,9.75594026 L15,11 C15,11.5522847 14.5522847,12 14,12 L4,12 C3.44771525,12 3,11.5522847 3,11 L3,2 C3,1.44771525 3.44771525,1 4,1 L6.43324854,1 L6.43324854,1" id="路径" stroke-width="0.7" stroke-linecap="round"></path>
+                    <path d="M13,11.941147 C13,12.1966497 13,12.5799037 13,13.0909091 C13,13.5929861 12.5522847,14 12,14 L2,14 C1.44771525,14 1,13.5929861 1,13.0909091 L1,4.90909091 C1,4.40701386 1.44771525,4 2,4 L3.33811068,4" id="路径" stroke-width="0.7"></path>
+                    <g id="编组-2" transform="translate(6.000000, 1.000000)">
+                        <circle id="椭圆形" stroke-width="0.7" cx="4.5" cy="4.5" r="4.15"></circle>
+                        <polyline id="路径-10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="2.7 4.59103099 3.86214795 5.89585454 6.24543164 3.6"></polyline>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

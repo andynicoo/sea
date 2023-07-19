@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>状态_禁用</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-327.000000, -371.000000)" fill="#ED4014" id="编组-3">
+            <g transform="translate(307.000000, 360.000000)">
+                <g id="状态/禁用" transform="translate(20.000000, 8.000000)">
+                    <g id="编组" transform="translate(0.000000, 3.000000)">
+                        <circle id="椭圆形" opacity="0.16078404" cx="5.5" cy="5.5" r="5.5"></circle>
+                        <circle id="椭圆形" cx="5.5" cy="5.5" r="2.5"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

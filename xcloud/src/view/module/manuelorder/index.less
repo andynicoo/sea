@@ -1,0 +1,168 @@
+.app-container {
+    margin: 10px;
+    .productBox {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 34px;
+    }
+    .baseInfo,
+    .productInfo,
+    .renewalInfo,
+    .paymentInfo {
+      padding: 10px 24px 20px 24px;
+      background: #fff;
+      margin-bottom: 10px;
+      .title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .title {
+        color: #333333;
+        font-weight: bold;
+        padding: 10px 0 15px 0px;
+        font-size: 16px;
+        .title-subtitle {
+          font-size: 14px;
+          color: #999;
+          margin-left: 20px;
+        }
+      }
+      .tips-light {
+        color: #1890FF;
+      }
+    }
+    .baseInfo {
+      padding-bottom: 0;
+    }
+
+    .el-form {
+      padding-top: 0 !important;
+    }
+  
+    .totalProduct {
+      background: #fff;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 10px 22px 0;
+      width: 86.4%;
+      position: fixed;
+      bottom: 0;
+      z-index: 999;
+      v::deep .el-form-item--small {
+        margin: 0 15px;
+        .el-form-item__content {
+          color: #de3449;
+        }
+      }
+      .price-wrapper {
+        display: inline-block;
+      }
+    }
+  }
+  .option_title {
+    padding: 10px 0;
+    display: flex;
+    text-align: center;
+    span {
+      flex: 3;
+    }
+  }
+  .el-dialog-del {
+    padding: 0 60px;
+    ::v-deep .el-dialog__body {
+      padding: 25px 60px;
+    }
+  }
+  .text-tip {
+    display: flex;
+    margin-bottom: 25px;
+    .icon-tip {
+      flex: 0 0 17px;
+      margin-top: 3px;
+    }
+  }
+  ::v-deep.el-table .gray-row {
+    background: #f6f8fa;
+  }
+  .old-price {
+    color: #999;
+    text-decoration: line-through;
+  }
+  .d-t-caption {
+    display: table-caption;
+  }
+
+  .exchange-dialog-tip {
+    background-color: #dff4fd;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+  }
+  .exchange-form-dialog-price-wrapper {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    padding: 10px;
+    ::v-deep .el-descriptions__body {
+      background-color: #f2f2f2;
+    }
+
+    v::deep .el-descriptions__table tbody:last-child {
+      border-top: 1px solid #ccc;
+    }
+
+
+    .font-blod {
+      font-weight: 800;
+      color: #333;
+    }
+
+    
+  }
+
+  
+.full-dialog /deep/.el-dialog {
+  border-radius: 0 !important;
+
+  .tip-title {
+    color: #000080;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .title {
+    color: #333333;
+    font-weight: bold;
+    padding: 10px 0 15px 0px;
+    font-size: 16px;
+    .title-subtitle {
+      font-size: 14px;
+      color: #999;
+      margin-left: 20px;
+    }
+  }
+  .tips-light {
+    color: #1890FF;
+  }
+  .svgImgBtn {
+    position: absolute;
+    right: 20px;
+  }
+}
+
+.full-dialog /deep/ .el-dialog__headerbtn {
+  display: none;
+}
+
+.renew-tip-wrap {
+  background: #FFDADA;
+  padding:  10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+  

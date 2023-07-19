@@ -1,0 +1,23 @@
+export default [
+    'side-customer',
+    'side-dateCenter',
+    'side-finance',
+    'side-help',
+    'side-information',
+    'side-market',
+    'side-message',
+    'side-opration',
+    'side-order',
+    'side-pay',
+    'side-serviceProduct',
+    'side-spread',
+    'side-supply',
+    'side-system',
+    'side-workOrder',
+    'side-baseDate',
+    'side-operateCenter',
+    'side-taxCenter',
+    'side-minWorkorder',
+    'side-invalidData',
+    'side-intellectualProperty'
+]

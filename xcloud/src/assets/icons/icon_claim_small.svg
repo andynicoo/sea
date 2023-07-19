@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="12px" viewBox="0 0 13 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>操作/认领（小）</title>
+    <g id="切图" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-337.000000, -180.000000)" id="编组-4" stroke="#1890FF">
+            <g transform="translate(307.000000, 137.000000)">
+                <g id="编组" transform="translate(30.500000, 43.000000)">
+                    <circle id="椭圆形" stroke-width="0.7" cx="6" cy="3" r="2.65"></circle>
+                    <path d="M9.42924133,7.36125839 C9.32542661,7.26338475 9.2174241,7.16990466 9.10553104,7.08111536 C8.25255388,6.40426154 7.17348711,6 6,6 C3.23857625,6 1,8.23857625 1,11" id="路径" stroke-width="0.7"></path>
+                    <circle id="椭圆形" stroke-width="0.7" fill="#FFFFFF" cx="9.5" cy="8.5" r="2.15"></circle>
+                    <polyline id="路径-10" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="8.5 8.55057277 9.14563775 9.27547475 10.4696842 8"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,31 @@
+.app-container {
+  // height: 100%;
+  position: relative;
+  width: 100%;
+  .header-container {
+    // min-height: 80px;
+    .search-box {
+      z-index: 999;
+      .el-form {
+        // padding-top: 10px;
+      }
+      .more-search-icon {
+        margin: 0px 4px 0 20px;
+      }
+    }
+    .styleclass {
+      // background: #f5f7f9;
+      // position: absolute;
+    }
+  }
+}
+::v-deep .el-table__body-wrapper {
+  min-height: 60px;
+  .el-table__empty-block {
+    position: fixed;
+    margin-top: -14px;
+    padding-top: 7px;
+    width: calc(100% - 266px) !important;
+    height: inherit !important;
+  }
+}

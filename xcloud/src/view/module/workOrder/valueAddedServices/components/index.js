@@ -1,0 +1,5 @@
+export {default as NoProcessingRequiredDialog} from './noProcessingRequiredDialog.vue'
+export {default as CheckRemarkDialog} from './checkRemarkDialog.vue'
+export {default as RemarkDialog} from './remarkDialog.vue'
+export {default as CompleteDialog} from './completeDialog.vue'
+export {default as ChangeManagerDialog} from './changeManagerDialog.vue'

@@ -1,0 +1,52 @@
+.float-position {
+    position: absolute;
+    z-index: 10003;
+    right: 0;
+    top: 70%;
+    width: 60px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8em;
+    user-select: none;
+    opacity: 1;
+}
+
+.cart {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-notice {
+    display: inline-block;
+    transition: all 0.3s;
+
+    span {
+        vertical-align: initial;
+    }
+
+    .notice-badge {
+        color: inherit;
+
+        .header-notice-icon {
+            font-size: 16px;
+            padding: 4px;
+        }
+    }
+}
+
+.drag-ball .drag-content {
+    overflow-wrap: break-word;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 2px;
+}
