@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-center-web
+spec:
+  replicas: ${replicas}
+  selector:
+    matchLabels:
+      app: product-center-web
+  template:
+    metadata:
+      labels:
+        app: product-center-web
+    spec:
+      containers:
+        - name: product-center-web
+          image: ${IMAGE}
+          ports:
+            - containerPort: 80
+              protocol: TCP
+            - containerPort: 443
+              protocol: TCP
+          resources: ##CPU内存限制
+            limits:
+              cpu: 2000m #1 core
+              memory: 3Gi
+            requests:
+              cpu: 50m #0.05 core
+              memory: 2Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-center-web
+spec:
+  type: ClusterIP
+  selector:
+    app: product-center-web
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
+    - protocol: TCP
+      name: https
+      port: 443
+      targetPort: 443

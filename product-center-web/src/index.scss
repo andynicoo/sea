@@ -1,0 +1,436 @@
+@import "~antd/dist/antd.css";
+@import "./styles/rewrite.scss";
+
+//antd 样式覆盖
+.qiankun-gc-wrap {
+    background: #F4F7F9;
+}
+
+.qiankun-gc-wrap,
+.ant-modal-wrap {
+
+
+
+    .ant-table-cell::before {
+        display: none;
+    }
+
+    .ant-table-thead>tr>th {
+        color: #333;
+        background: #EBF5FF;
+        border-bottom: 1px solid #EBF5FF;
+        font-weight: bold;
+    }
+
+    .ant-table-thead th.ant-table-column-has-sorters:hover {
+        background: #e4f0fb;
+    }
+
+    .ant-table-expanded-row {
+        .ant-table-cell {
+            padding: 0;
+        }
+    }
+
+    .ant-btn:not(.ant-btn-text):not(.ant-btn-link) {
+        color: #1890FF;
+        border: 1px solid #1890FF;
+    }
+
+
+    .ant-upload-list-picture-card-container,
+    .ant-upload-list-item-card-actions {
+        .ant-btn {
+            border: none;
+        }
+    }
+
+    .ant-btn-primary {
+        color: #fff !important;
+    }
+
+    .ant-tabs-top>.ant-tabs-nav:before {
+        border-bottom: 1px solid #EBF5FF;
+    }
+
+    .ant-table-tbody>tr>td {
+        .ant-tag {
+            font-weight: bold;
+            padding: 0;
+            border: none;
+            background: none;
+        }
+
+        vertical-align: top;
+        border-bottom: 1px solid #F3F8FD;
+        color: #666;
+    }
+
+    // .ant-input,
+    .ant-picker,
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector,
+    .ant-input-affix-wrapper {
+
+        border: 1px solid #DCDFE6;
+    }
+   
+    .ant-upload.ant-upload-select-picture-card {
+        background-color: #fff;
+        border: 1px solid #DCDFE6;
+    }
+    .ant-input-borderless{
+        border: none;
+    }
+    .ant-card-head {
+        border: none;
+    }
+
+    .ant-card-head-title {
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 2px;
+            height: 14px;
+            background: #1890FF;
+            position: relative;
+            top: 2px;
+            margin-right: 8px;
+        }
+    }
+
+    .gc-createTime {
+        .ant-table-column-sorters {
+            .ant-table-column-title {
+                min-width: 140px;
+            }
+        }
+    }
+
+    .gc-targetCompletionTime {
+        .ant-table-column-sorters {
+            .ant-table-column-title {
+                min-width: 90px;
+            }
+        }
+    }
+
+    .gc-peerSellingPrice {
+        .ant-table-column-sorters {
+            .ant-table-column-title {
+                min-width: 109px;
+            }
+        }
+    }
+
+    .gc-demandScore {
+        .ant-table-column-sorters {
+            .ant-table-column-title {
+                min-width: 60px;
+            }
+        }
+    }
+
+    .ant-table-column-sorters {
+        >span {
+            flex-grow: 0;
+        }
+
+        >.ant-table-column-sorter {
+            flex-grow: 1;
+        }
+    }
+
+    td.ant-table-column-sort {
+        background: #fff;
+    }
+
+    .ant-tabs-tab {
+        font-weight: bold;
+
+        .ant-tabs-tab-btn {
+            padding: 0 10px;
+        }
+    }
+}
+
+//面包屑导航
+.gc-breadcrumb {
+    background-color: #fff;
+    padding: 20px 0 20px 24px;
+
+    ol li:first-child {
+        cursor: pointer;
+    }
+}
+
+//详情页公共样式
+.gc-opportunity-details {
+    background-color: #fff;
+}
+
+.gc-detail-warp {
+    li {
+        display: flex;
+        margin-bottom: 15px;
+        color: #666;
+        word-break: break-all; //英文
+        white-space: pre-wrap; //中文
+        width: 80%;
+
+        >.ant-image {
+            margin: 0 10px 10px 0;
+        }
+
+        >span {
+            display: inline-block;
+            min-width: 180px;
+            padding-right: 20px;
+            text-align: right;
+            color: #999;
+        }
+
+        .gc-verify-name {
+            color: #1890FF;
+        }
+
+        .gc-audit-history-item {
+            border: 1px solid #EEEEEE;
+            text-align: center;
+
+            tr {
+                td {
+                    padding: 5px 8px;
+                    border: 1px solid #eee;
+                }
+
+                td:nth-child(odd) {
+                    background: #FAFAFA;
+                }
+            }
+        }
+    }
+}
+
+.gc-info-details {
+
+    input,
+    textarea,
+    .ant-input-focused,
+    .ant-input:focus {
+        border: none;
+        box-shadow: none
+    }
+}
+
+.gc-select-title {
+    background: rgb(246, 248, 250);
+    display: flex;
+
+    span {
+        padding: 10px 0;
+        width: 33%;
+        text-align: center;
+    }
+}
+
+.gc-select-option {
+    display: flex;
+
+    span {
+        padding: 10px 0;
+        width: 33%;
+        text-align: center;
+    }
+}
+
+.gc-select-titleB span,
+.gc-select-optionB span {
+    width: 50%;
+}
+
+.gc-iconfont {
+    font-size: 15px;
+    position: relative;
+    top: 1px
+}
+
+//table操作图标样式
+.gc-table-btn {
+    span.anticon {
+        cursor: pointer;
+        color: #1890FF;
+        margin-right: 10px;
+    }
+}
+
+//创建按钮
+.gc-export-btn,
+.gc-create-btn {
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 2px 2px 2px 2px;
+    text-align: center;
+    color: #fff;
+    margin-left: 15px;
+    padding: 0 15px;
+}
+
+.gc-create-btn {
+    min-width: 130px;
+    background: #52C41A;
+}
+
+//导出按钮
+.gc-export-btn {
+    min-width: 88px;
+    background: #FFC100;
+}
+
+//tabs
+.gc-parent-tabs {
+    >.ant-tabs-nav {
+        &::before {
+            display: none;
+        }
+
+        .ant-tabs-tab {
+            padding: 5px 20px;
+        }
+
+        .ant-tabs-tab-active {
+
+            border: 1px solid #1890FF !important;
+        }
+    }
+
+
+}
+
+//长内容页布局
+.gc-long-content {
+    width: 100%;
+    display: flex;
+
+    >dd:last-child {
+        flex-grow: 2;
+    }
+}
+
+.gc-anchor {
+    width: 250px;
+    margin-right: 20px;
+
+    .ant-anchor {
+        overflow: hidden;
+        border-radius: 10px;
+
+        .ant-anchor-ink:first-child {
+            display: none;
+        }
+    }
+
+    .ant-anchor-link {
+        height: 50px;
+        line-height: 50px;
+        background: #FFFFFF;
+        border-bottom: 1px solid #ECECEC;
+    }
+
+    .gc-anchor-link-active {
+
+        background: #1890FF;
+
+        a {
+            color: #fff;
+        }
+    }
+
+    .ant-anchor-link:last-child {
+        border-bottom: none;
+    }
+}
+
+.gc-edit-form-detals {
+
+    .ant-select:not(.ant-select-customize-input) .ant-select-selector,
+    .ant-input-number-disabled,
+    .ant-picker,
+    .ant-picker-input>input[disabled] {
+        border: none;
+        background: none;
+        color: #333;
+        cursor: default;
+    }
+
+    .ant-input-number-disabled .ant-input-number-input {
+        cursor: default;
+    }
+
+    .ant-select-single .ant-select-selector .ant-select-selection-item {
+        user-select: text;
+    }
+
+    .ant-select-arrow,
+    .ant-picker-suffix {
+        display: none;
+    }
+}
+
+.gc-search-form-box {
+    .ant-space-item {
+        margin-bottom: 5px;
+    }
+
+    >.ant-space-item:last-child {
+        width: 100%;
+        margin-bottom: -5px;
+    }
+}
+.gc-search-form-more{
+    color: #1890ff;
+    font-size: 12px;
+    cursor: pointer;
+    padding-right: 20px;
+    .anticon{
+        margin: 0px 4px 0 20px;
+        font-size: 10px;
+    }
+}
+.gc-search-form-none{display: none;}
+
+.ant-modal-title {
+    > .title {
+        font-size: 18px;
+        font-weight: 800;
+        color: #333;
+    }
+    > .desc {
+        color: #e6a23c;
+        font-size: 12px;
+    }
+}
+
+// 与中台统一样式
+.ant-modal-content, .ant-modal-header {
+    border-radius: 10px;
+}
+
+.step-title {
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+}
+.text-danger {
+    color: #ed4014;
+}
+.text-warning {
+    color: #e6a23c;
+}
+.text-primary {
+    color: #1890FF;
+}
+.text-desc {
+    color: #666;
+}

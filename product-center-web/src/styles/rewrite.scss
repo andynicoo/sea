@@ -1,0 +1,84 @@
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gc-dn {
+    display: none;
+}
+
+.gc-cp {
+    cursor: pointer;
+}
+
+.gc-mt-2 {
+    margin-top: 10px;
+}
+
+.gc-mt-6 {
+    margin-top: 30px;
+}
+
+.gc-mr-2 {
+    margin-right: 10px;
+}
+
+.gc-mb-2 {
+    margin-bottom: 10px;
+}
+
+.gc-mb-6 {
+    margin-bottom: 30px;
+}
+
+.gc-color-999 {
+    color: #999;
+}
+
+.gc-color-f7ab14 {
+    color: #f7ab14;
+}
+
+.gc-fr {
+    float: right;
+}
+
+.gc-fl {
+    float: left;
+}
+
+.gc-fs-12 {
+    font-size: 12px;
+}
+.gc-fs-15 {
+    font-size: 15px;
+}
+
+.gc-fs-18 {
+    font-size: 18px;
+}
+
+/* 设置文本的行数 */
+@mixin gb-line-clamp($num: 2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: $num;
+    /*限制在一个块元素显示的文本的行数*/
+    -webkit-box-orient: vertical;
+}
+
+.gb-line-clamp1 {
+    @include gb-line-clamp(1)
+}
+
+.gb-line-clamp2 {
+    @include gb-line-clamp(2)
+}
+
+.gb-line-clamp4 {
+    @include gb-line-clamp(4)
+}

@@ -1,0 +1,62 @@
+.gc-oppo-analys-box {
+    border: 1px solid #ccc;
+    padding-top: 24px;
+}
+
+.gc-details-handle {
+    button {
+        margin-right: 10px;
+    }
+}
+
+
+.gc-audit-history {
+    padding-left: 20px;
+
+    span {
+        cursor: pointer;
+    }
+
+    div {
+        color: #999;
+    }
+}
+
+.gc-analysis-btn {
+    cursor: pointer;
+    color: #1890ff;
+}
+
+// .gc-create-export {
+//     position: absolute;
+//     right: 0;
+//     top: 20px;
+// }
+
+.gc-add-chance-point {
+    margin-left: 110px;
+    width: 100%;
+
+    .gc-iconfont {
+        font-size: 19px;
+    }
+}
+
+.gc-originalInformationSourceText {
+    display: inline-block;
+    max-width: 200px;
+}
+
+.gc-chancePoint-details {
+    li {
+        width: 100%;
+
+        span {
+            min-width: 120px !important;
+        }
+    }
+}
+
+.gc-detail-warp-mg2 {
+    margin: 30px 0;
+}

@@ -1,0 +1,301 @@
+//单商品列表
+.gc-goods-source-single {
+    .gc-td-main {
+        min-height: 60px;
+    }
+
+    .gc-td-child {
+        font-size: 12px;
+        margin-top: 10px;
+
+        >p {
+            padding-top: 5px;
+        }
+    }
+}
+
+.gc-goods-specs {
+    color: #1890ff;
+    cursor: pointer;
+    position: absolute;
+    bottom: 3px;
+}
+
+//组合商品列表
+.gc-goods-source-table {
+    table {
+        border-collapse: separate;
+        border-spacing: 0px 10px;
+
+        .ant-table-measure-row {
+            display: none;
+        }
+
+        tr {
+            td:last-child {
+                border-right: 1px solid #d9ebfd !important;
+            }
+
+            td:first-child {
+                border-left: 1px solid #d9ebfd !important;
+            }
+        }
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner:after {
+        border-spacing: 0;
+    }
+
+    .gc-td-main {
+        padding-left: 16px;
+        padding-right: 16px;
+        min-height: 76px;
+        // border-bottom: 1px solid #d9ebfd;
+    }
+
+    td {
+        border-bottom: 1px solid #d9ebfd !important;
+        border-top: 1px solid #d9ebfd !important;
+        font-size: 14px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    // .goods-td-left .gc-td-child dl {
+    //     border-left: 1px solid #d9ebfd;
+    // }
+
+    .gc-td-child {
+        font-size: 12px;
+        margin-top: -1px;
+        font-size: 12px;
+
+        p {
+            padding: 0 16px;
+            margin: 0;
+            margin-top: 15px;
+        }
+
+        dl {
+            padding: 0 16px;
+            border-top: 1px solid #d9ebfd;
+            position: relative;
+            min-height: 64px;
+            margin-bottom: 0;
+
+            .gc-productCode {
+                position: relative;
+                top: -1px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: -20px;
+                    left: -32px;
+                    width: 32px;
+                    height: 1px;
+                    background-color: #d9ebfd;
+                }
+            }
+
+
+
+            dt {
+                margin: 20px 0;
+                font-size: 14px;
+                min-height: 24px;
+                position: relative;
+
+
+            }
+
+            dd {
+                font-size: 12px;
+                min-height: 20px;
+                margin-bottom: 8px;
+            }
+        }
+    }
+}
+
+.gc-goods-group-title {
+    .gc-td-main {
+        font-size: 14px;
+        margin: 20px 0;
+        min-height: 24px;
+        padding: 0;
+    }
+
+    dl {
+        padding: 0 !important;
+
+        .gb-line-clamp1 {
+            padding: 0 16px;
+        }
+    }
+
+}
+
+.gc-goods-child-visible {
+    position: absolute;
+    bottom: 1px;
+    left: 16px;
+    color: #1890ff;
+    cursor: pointer;
+}
+
+
+//商品编辑
+.gc-service-content-tag {
+    .ant-tag {
+        padding: 3px 8px;
+    }
+}
+
+.gc-goods-spec {
+    float: left;
+    margin-top: 5px;
+
+    dt,
+    dd {
+        display: flex;
+        padding: 16px;
+        width: 100%;
+        margin-bottom: 0;
+
+        .ant-input-number {
+            width: 90px;
+        }
+
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+
+        >div {
+            width: 130px;
+        }
+
+        .gc-spec-name {
+            width: 400px;
+        }
+
+        .gc-spec-price-range {
+            width: 230px;
+            display: flex;
+        }
+
+        .gc-spec-handle {
+            width: 100px;
+
+            a {
+                position: relative;
+                top: 6px;
+            }
+        }
+
+        .gc-spec-checkbox {
+            width: 40px;
+        }
+    }
+
+    dt {
+        background: #ebf5ff;
+        font-weight: 700;
+    }
+}
+
+.gc-connecting-line {
+    position: relative;
+    top: 5px;
+    padding: 0 5px;
+}
+
+.gc-package-original,
+.gc-bordered-false {
+    border: none !important
+}
+
+//商品列表弹窗
+.gc-goodsList-pop {
+    .ant-tabs.ant-tabs-top {
+        display: none;
+    }
+
+    .ant-card {
+        .ant-card-body {
+            padding: 0;
+        }
+    }
+}
+
+//销售商品
+.gc-upper-lower-shelves {
+    font-size: 18px;
+    position: relative;
+    top: 3px;
+    color: #1890ff!important;
+}
+
+//附加规格
+.addition-spec-none {
+    width: 155px;
+    padding-left: 11px;
+    padding-top: 6px;
+}
+
+//商品规格
+.gc-goods-spec-warp {
+    border: 1px dashed #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    overflow: auto;
+    position: relative;
+}
+
+.gc-option-settings {
+    margin-bottom: 20px;
+    dt{
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    dd {
+        .ant-form-item {
+            margin-bottom: 0;
+        }
+    }
+}
+
+//属性组样式
+.gc-goods-attr-tit {
+    border: 1px solid #dcdfe6;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    min-width: 500px;
+}
+.gc-attr-sort{
+    cursor: pointer;
+    float: right;
+}
+
+.gc-goods-attr-group {
+    margin: 5px 20px 10px;
+}
+
+.closeOutlined-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+}
+.tip-wrapper {
+    display: flex;
+    background-color: #e5f3ff;
+    padding: 5px 10px;
+    color: #666666;
+    font-size: 12px;
+}

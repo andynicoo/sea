@@ -1,0 +1,115 @@
+.gc-demand-weight {
+
+    dt,
+    dd {
+        display: flex;
+        width: 100%;
+        margin-bottom: 0;
+
+    }
+
+    dt .gc-demand-weight-item {
+        background: #fafafa;
+        font-weight: bold;
+    }
+}
+
+.gc-demand-weight-item {
+    display: flex;
+    padding: 10px;
+    margin: -1px 0 0 -1px;
+    width: 20%;
+    border: 1px solid #eee;
+    align-items: center;
+
+    .ant-form-item {
+        margin-bottom: 0;
+    }
+}
+
+.gc-demand-weight-required:before {
+    color: #ff4d4f;
+    content: "*";
+    display: inline-block;
+    font-family: SimSun, sans-serif;
+    font-size: 14px;
+    line-height: 1;
+    margin-right: 4px;
+}
+
+.gc-demand-name {
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.gc-development-progress {
+    color: #1890ff;
+    cursor: pointer;
+    position: absolute;
+    bottom: -10px;
+
+}
+
+.gc-development-progress-content {
+
+    box-shadow: inset 0px 4px 11px 1px rgba(0, 0, 0, 0.0600);
+    padding: 20px;
+    width: 100%;
+
+    .ant-steps {
+        width: 80%;
+    }
+}
+
+.gc-demand-score-edit {
+    color: #1890ff;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.gc-cost-reduction-tag {
+    display: inline-block;
+    color: #E34D59;
+    border: 1px solid #E34D59;
+    border-radius: 2px;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 12px;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.gc-contract-ic {
+    color: rgba(0, 0, 0, .45);
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.gc-contract-delete {
+    color: rgba(0, 0, 0, .55);
+    float: right;
+    position: relative;
+    top: 5px;
+    right: 5px;
+    display: none;
+    cursor: pointer;
+}
+
+.gc-contract-list {
+    color: rgba(0, 0, 0, .85);
+    margin-top: 6px;
+
+    &:hover {
+        background-color: #f5f5f5;
+
+        .gc-contract-delete {
+            display: block;
+        }
+    }
+}
+
+.gc-opportunity-img {
+    .ant-image {
+        margin: 0 5px 5px 0;
+    }
+}

@@ -1,0 +1,145 @@
+.sc-money {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sc-label {
+    width: 130px;
+    text-align: right;
+    margin-bottom: 10px;
+}
+.gc-category-form{
+    width: 800px;
+    position: relative;
+    background: #f6f6f6;
+    padding: 25px 100px 1px 0;
+    dt{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}
+
+.service-provider-form{
+    .ant-form-item-control-input{
+        width: 400px;
+        .ant-picker{
+            width: 400px;
+        }
+    }
+}
+
+.gc-more{
+    position: absolute;
+    bottom:-2px;
+    left: 15px;
+    color: #1890ff;
+    cursor: pointer;
+}
+.gc-caretDownOut{
+    height: 24px;
+    overflow: hidden;
+}
+
+//供应商配置
+.gc-supplier-category-config{
+    display: flex;
+    border-bottom:1px solid #eee;
+    .gc-mb-2 {
+        margin-bottom: 10px!important;
+    }
+    li{
+        padding: 10px;
+        display: flex;
+    }
+    .gc-scc-label{
+        width: 220px;
+        display: block;
+        .gc-scc-config{
+            width: 220px;
+        }
+        .gc-scc-config-head{
+            position: relative;
+            margin-bottom: 15px;
+            min-height: 42px;
+            .gc-fs-12{
+                position: absolute;
+                top: 32px;
+                left: 0;
+                color: #cf1322;
+            }
+        }
+        .gc-scc-config>p{
+            margin-bottom: 32px;
+            text-align: left;
+        }
+        .ant-form-item{
+            text-align: left;
+        }
+    }
+    // .gc-scc-input >div{
+        
+    // }
+    .gc-scc-time-config{
+        width: 270px!important;
+        >p{text-align: left;}
+    }
+    .gc-scc-type{
+        font-size: 12px;
+    }
+    .gc-scc-config{
+        width: 130px;
+        padding-right: 20px;
+        position: relative;
+        >p,.ant-form-item{
+            margin-bottom: 0;
+        }
+        >div:last-child{
+            .gc-scc-addBtn{
+                display: inline-block;
+            }
+        }
+    }
+    .gc-scc-handle{
+        padding-top: 53px;
+    }
+    .gc-scc-config-handle{
+        display: flex;
+        margin-bottom: 15px;
+        min-height: 42px;
+        .gc-mb-2{
+            margin-right: 10px;
+        }
+    }
+    .gc-scc-addBtn{
+        display: none;
+    }
+}
+.gc-scc-config
+.gc-scc-tit{
+    background: #ebf5ff;
+    font-weight: 700;
+    
+}
+
+.gc-handle-icon{
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+    color: #666;
+}
+.import-templateData{
+    .ant-upload-list{
+        display: none;
+    }
+}
+
+.countryConfiguration-categoryName{
+    display: inline-block;
+    b{
+        font-weight: normal;
+        color: #cf1322;
+        font-size: 12px;
+        padding-left: 10px;
+    }
+}
