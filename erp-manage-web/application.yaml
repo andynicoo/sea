@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mg-web
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mg-web
+  template:
+    metadata:
+      labels:
+        app: mg-web
+    spec:
+      containers:
+        - name: mg-web
+          image: ${IMAGE}
+          ports:
+            - containerPort: 80
+              protocol: TCP
+            - containerPort: 443
+              protocol: TCP
+          env:
+              #---阿里云日志服务配置
+            - name: aliyun_logs_prod-erp-logstore
+              value: stdout
+            - name: aliyun_logs_prod-erp-logstore_logstore
+              value: prod-erp-logstore
+            - name: aliyun_logs_prod-erp-logstore_project
+              value: prod-erp-log-project
+            - name: aliyun_logs_tier_tags
+              value: tier=frontend
+            - name: aliyun_logs_env_tags
+              value: env=prod
+            - name: aliyun_logs_app_tags
+              value: app=mg-web
+              #---
+          resources: ##CPU内存限制
+            limits:
+              cpu: 1000m      #1 core
+              memory: 512Mi
+            requests:
+              cpu: 800m      #0.5 core
+              memory: 512Mi
+          terminationMessagePath: /data/logs/dev/termination-log
+          terminationMessagePolicy: File
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mg-web
+spec:
+  type: ClusterIP
+  selector:
+    app: mg-web
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
+    - protocol: TCP
+      name: https
+      port: 443
+      targetPort: 443

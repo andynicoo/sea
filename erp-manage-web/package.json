@@ -1,0 +1,59 @@
+{
+  "name": "manager-admin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build && node cli/write",
+    "build:dev": "vue-cli-service build && node cli/write",
+    "build:uat": "vue-cli-service build && node cli/write",
+    "build:test": "vue-cli-service build && node cli/write",
+    "build:prod": "vue-cli-service build && node cli/write",
+    "lint": "vue-cli-service lint",
+    "eslint-fix": "eslint src/**/**/*.vue --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.7.4",
+    "axios": "^0.21.1",
+    "core-js": "^3.6.5",
+    "echarts": "^5.1.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "style-resources-loader": "^1.4.1",
+    "vue": "^2.6.11",
+    "vue-ls": "^3.2.2",
+    "vue-router": "^3.5.1",
+    "vue-style-loader": "^4.1.3",
+    "vuex": "^3.6.2",
+    "vuex-persist": "^3.1.3",
+    "wangeditor": "^4.7.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "husky": "^6.0.0",
+    "less": "^3.13.1",
+    "less-loader": "^7.3.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

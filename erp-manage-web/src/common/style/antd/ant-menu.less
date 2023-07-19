@@ -1,0 +1,155 @@
+// 使菜单不影响正文宽度
+.ant-layout.ant-layout-has-sider {
+  padding-left: 48px;
+}
+// 使菜单不影响正文宽度
+.ant-layout-sider {
+  z-index: 1002;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  transition: all .3s ease;
+  overflow: hidden;
+  // background-color: transparent;
+}
+// 菜单动画（主要折叠延时）
+.ant-menu {
+  transition: all .3s ease;
+  height: 100%;
+}
+// 折叠宽度
+.ant-menu-inline-collapsed {
+  width: 48px;
+}
+// 菜单颜色，icon大小
+.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+//   background: transparent;
+//   position: relative;
+  // color: #fff;
+  .icon {
+    font-size: 16px;
+    // margin-right: 16px;
+    // width: 16px;
+    // float: left;
+  }
+}
+// 颜色
+.ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a {
+  // color: #fff;
+}
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active{
+  color: unset;
+}
+// 二级菜单选中状态
+.ant-menu.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: transparent;
+  color: @primary-color;
+}
+// 一级选中文字
+.ant-menu-dark .ant-menu-item-selected {
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 2px;
+    background-color: @primary-color;
+    top: 14px;
+  }
+ .anticon + span{
+  color: @primary-color;
+}
+}
+// 二级菜单悬停状态
+.ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected > a:hover {
+  color: @primary-color;
+}
+// hrx标准无论选中与否箭头不透明
+.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow {
+  opacity: 1;
+}
+// 菜单高度
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  line-height: 48px;
+  height: 48px;
+  padding: 0 16px!important;
+  margin: 0;
+}
+// 菜单左侧间距
+.ant-menu-sub > .ant-menu-item {
+  padding-left: 48px!important;
+}
+.ant-menu-dark .ant-menu-submenu-selected {
+  position: relative;
+}
+// 菜单收起是不显示子菜单
+.ant-menu-submenu-popup {
+  display: none;
+}
+// 选中菜单左侧标记
+.ant-menu-dark .ant-menu-submenu-selected{
+  .ant-menu-item-selected::before{
+    display: none;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 20px;
+    width: 2px;
+    background-color: @primary-color;
+    top: 14px;
+  }
+}
+// 二级菜单
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  // background: #1C1F33;
+  // background: #fff;
+  box-shadow: none;
+}
+// 二级菜单项
+.ant-menu-sub.ant-menu-inline > .ant-menu-item, .ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  line-height: 30px;
+  height: 30px;
+  margin: 0;
+  // background: #1C1F33;
+  // background: #fff;
+  &:nth-of-type(1) {
+    margin-top: 8px;
+  }
+  &:nth-last-of-type(1) {
+    margin-bottom: 8px;
+  }
+}
+.ant-menu-inline .ant-menu-selected::after, .ant-menu-inline .ant-menu-item-selected::after {
+  right: inherit;
+  left: 0;
+  border-right-width: 4px;
+}
+.ant-menu-vertical .ant-menu-item:not(:last-child), .ant-menu-vertical-left .ant-menu-item:not(:last-child), .ant-menu-vertical-right .ant-menu-item:not(:last-child), .ant-menu-inline .ant-menu-item:not(:last-child) {
+  margin-bottom: 0;
+}
+// 以下箭头相关
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+  transform: rotate(45deg) translate(-2px, -2px);
+}
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+  transform: rotate(-45deg) translate(0, 0px);
+}
+.ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+  transform: rotate(45deg) translate(-2px, 2px);
+}
+.ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after {
+  transform: rotate(-45deg) translate(0, 0);
+}
+.ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title:hover > .ant-menu-submenu-arrow::before {
+  background: #9395a1;
+}
+.ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after, .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::after, .ant-menu-submenu-vertical > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before, .ant-menu-submenu-vertical-left > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before, .ant-menu-submenu-vertical-right > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before, .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
+  background: #9395a1;
+}
+.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+  background: #9395a1;
+}
+// 以上箭头相关

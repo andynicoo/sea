@@ -1,0 +1,29 @@
+stages:
+  - deploy
+  - deploy-uat
+
+docker-deploy:
+  stage: deploy
+  # 执行Job内容
+  script:
+    - pwd
+    - ssh -p 10809 app@120.79.177.172 "sh /data/scripts/sc/sc.sh mgWeb"
+  tags:
+    # 执行Job的服务器
+    - erp-test
+  only:
+    # 只有在dev分支才会执行
+    - test
+
+docker-deploy-uat:
+  stage: deploy-uat
+  # 执行Job内容
+  script:
+    - pwd
+    - ssh -p 10809 app@172.19.5.251 "sh /data/scripts/sc/sc.sh mgWeb"
+  tags:
+    # 执行Job的服务器
+    - erp-uat
+  only:
+    # 只有在dev分支才会执行
+    - uat

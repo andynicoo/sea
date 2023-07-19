@@ -1,0 +1,34 @@
+@import './var.less';
+// antd主题覆盖样式
+@primary-color:#f7622f;
+
+// ui设计色
+@primary-hover-color:#ff8859;
+@success-color:#36B876;
+@disabled-color:#b2b5bf;
+@warn-color:#f5a623;
+@danger-color:#f1420f;
+
+.me-status-primary {
+    color: @primary-color !important; // 主题色
+  }
+  
+  .me-status-success {
+    color: @success-color !important; // 成功色
+  }
+  
+  .me-status-skip {
+    color: @disabled-color !important; // 置灰色
+  }
+  
+  .me-status-error {
+    color: @danger-color !important; // 标红色
+  }
+  
+//   .me-status-link {
+//     color: $linkColor !important; // 链接色
+//   }
+  
+  .me-status-warning {
+    color: @warn-color !important; // 主题色与标红色之间的副色
+  }
